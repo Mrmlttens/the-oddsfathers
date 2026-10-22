@@ -65,6 +65,15 @@
  .hero-motto{margin-top:14px}
 }
 
+
+/* Keep the full four-team artwork visible; never crop off the outer teams. */
+.hero-art{background-size:100% auto;background-position:center top;background-repeat:no-repeat}
+@media(max-width:690px){
+ .hero{min-height:430px}
+ .hero-content{min-height:430px;padding:125px 16px 20px}
+ .hero-overlay{background:linear-gradient(180deg,rgba(4,9,19,.08) 0,rgba(4,9,19,.12) 80px,#08111c 155px)}
+}
+
 </style>
 </head>
 <body>
