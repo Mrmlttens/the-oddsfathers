@@ -263,6 +263,147 @@
       "placed": true,
       "createdAt": "2026-10-22T18:04:00-04:00",
       "updatedAt": "2026-10-22T18:04:00-04:00"
+    },
+    {
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-10-22",
+        "away": "New England Patriots",
+        "home": "Chicago Bears",
+        "sport": "NFL"
+      },
+      "stake": 5,
+      "payout": 82.2,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "settlement": "auto",
+      "placed": false,
+      "createdAt": "2026-10-22T23:48:15.374Z",
+      "updatedAt": "2026-10-22T23:48:15.374Z",
+      "notes": "All legs and displayed odds transcribed from screenshots. $5 placeholder stake supplied by Trey; total return calculated from displayed odds. Placement and accepted odds remain unconfirmed.",
+      "id": "gabe-tnf-20261022-9leg",
+      "title": "Gabe · 9-Leg Player Props",
+      "odds": 1544,
+      "legs": [
+        {
+          "kind": "passing_yards",
+          "team": "New England Patriots",
+          "name": "Drake Maye",
+          "target": 250,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Chicago Bears",
+          "name": "Colston Loveland",
+          "target": 50,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Chicago Bears",
+          "name": "Luther Burden III",
+          "target": 40,
+          "override": null
+        },
+        {
+          "kind": "receptions",
+          "team": "Chicago Bears",
+          "name": "Colston Loveland",
+          "target": 4,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "New England Patriots",
+          "name": "Hunter Henry",
+          "target": 20,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "New England Patriots",
+          "name": "A.J. Brown",
+          "target": 60,
+          "override": null
+        },
+        {
+          "kind": "receptions",
+          "team": "New England Patriots",
+          "name": "A.J. Brown",
+          "target": 5,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "New England Patriots",
+          "name": "Demario Douglas",
+          "target": 30,
+          "override": null
+        },
+        {
+          "kind": "receptions",
+          "team": "New England Patriots",
+          "name": "Demario Douglas",
+          "target": 4,
+          "override": null
+        }
+      ],
+      "stakeEstimated": true,
+      "payoutEstimated": true
+    },
+    {
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-10-22",
+        "away": "New England Patriots",
+        "home": "Chicago Bears",
+        "sport": "NFL"
+      },
+      "stake": 5,
+      "payout": 502.85,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "settlement": "auto",
+      "placed": false,
+      "createdAt": "2026-10-22T23:48:15.374Z",
+      "updatedAt": "2026-10-22T23:48:15.374Z",
+      "notes": "All legs and displayed odds transcribed from screenshots. $5 placeholder stake supplied by Trey; total return calculated from displayed odds. Placement and accepted odds remain unconfirmed.",
+      "id": "gabe-tnf-20261022-4td",
+      "title": "Gabe · 4 Anytime Touchdowns",
+      "odds": 9957,
+      "legs": [
+        {
+          "kind": "any_td",
+          "team": "New England Patriots",
+          "name": "Hunter Henry",
+          "target": 1,
+          "override": null
+        },
+        {
+          "kind": "any_td",
+          "team": "New England Patriots",
+          "name": "A.J. Brown",
+          "target": 1,
+          "override": null
+        },
+        {
+          "kind": "any_td",
+          "team": "New England Patriots",
+          "name": "TreVeyon Henderson",
+          "target": 1,
+          "override": null
+        },
+        {
+          "kind": "any_td",
+          "team": "Chicago Bears",
+          "name": "Colston Loveland",
+          "target": 1,
+          "override": null
+        }
+      ],
+      "stakeEstimated": true,
+      "payoutEstimated": true
     }
   ]
 }
