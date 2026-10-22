@@ -86,7 +86,7 @@
 
       <section class="stats" aria-label="Betting summary">
         <article class="statbox"><div class="statlabel">CREW BETS</div><div class="statvalue" id="statBets">4</div><div class="stathint" id="statBetsHint">4 open tickets</div></article>
-        <article class="statbox"><div class="statlabel">TOTAL IN PLAY</div><div class="statvalue" id="statStaked">$4.00</div><div class="stathint">All recorded wagers</div></article>
+        <article class="statbox"><div class="statlabel">TOTAL IN PLAY</div><div class="statvalue" id="statStaked">$4.00</div><div class="stathint">Confirmed amounts only · placeholders excluded</div></article>
         <article class="statbox accent-gold"><div class="statlabel">BIGGEST PAYDAY</div><div class="statvalue" id="statTop">$106.72</div><div class="stathint">Largest individual listed return</div></article>
         <article class="statbox accent-green"><div class="statlabel">SETTLED NET</div><div class="statvalue" id="statNet">$0.00</div><div class="stathint" id="statNetHint">No settled tickets</div></article>
       </section>
@@ -165,7 +165,7 @@ const NAME_ALIASES={
 };
 function uuid(){return crypto?.randomUUID?.()||'bet_'+Date.now()+'_'+Math.random().toString(36).slice(2)}
 function now(){return new Date().toISOString()}
-function money(v){return Number(v||0).toLocaleString('en-US',{style:'currency',currency:'USD',maximumFractionDigits:2,minimumFractionDigits:2})}
+function money(v){if(v===null||v===undefined)return 'N/A';return Number(v||0).toLocaleString('en-US',{style:'currency',currency:'USD',maximumFractionDigits:2,minimumFractionDigits:2})}
 function esc(s){return String(s??'').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]))}
 function norm(s){return String(s||'').toLowerCase().normalize('NFKD').replace(/[^a-z0-9]/g,'').trim()}
 function canonTeam(s){const a=String(s||'').toLowerCase().replace(/[^a-z0-9 ]/g,'').trim();return NAME_ALIASES[a]||a}
@@ -173,7 +173,7 @@ function teamEquals(a,b){return norm(canonTeam(a))===norm(canonTeam(b))}
 function teamAbbr(n){let s=canonTeam(n);let map={'new england patriots':'NE','chicago bears':'CHI','dallas cowboys':'DAL','green bay packers':'GB','houston texans':'HOU','jacksonville jaguars':'JAX','san francisco 49ers':'SF','washington commanders':'WAS'};return map[s]||n.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,3)}
 function teamLogo(n){const ab=teamAbbr(n).toLowerCase();const ids={ne:'ne',chi:'chi',gb:'gb',dal:'dal',hou:'hou',jax:'jax',sf:'sf',was:'wsh'};return `https://a.espncdn.com/i/teamlogos/nfl/500/${ids[ab]||ab}.png`}
 function dateText(d){try{return new Date(d+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}catch{return d}}
-function oddsFromReturn(b){let stake=Number(b.stake),pay=Number(b.payout);if(!(stake>0)||pay<=0)return '—';let dec=pay/stake;return dec>=2?`+${Math.round((dec-1)*100)}`:`${Math.round(-100/(dec-1))}`}
+function oddsFromReturn(b){if(Number.isFinite(b.odds))return (b.odds>0?'+':'')+b.odds;let stake=Number(b.stake),pay=Number(b.payout);if(!(stake>0)||pay<=0)return '—';let dec=pay/stake;return dec>=2?`+${Math.round((dec-1)*100)}`:`${Math.round(-100/(dec-1))}`}
 function makeLeg(kind,team,name,target){return {kind,team,name:name||'',target:target===null?null:Number(target),override:null}}
 function initBets(){
 const game={date:DATE,away:AWAY,home:HOME,sport:'NFL'};
@@ -232,7 +232,7 @@ const goal=leg.target||1;
 if(value>=goal)return {status:'hit',value};
 return {status:final?'miss':playing?'live':'pending',value};
 }
-function ticketStatus(b){if(b.settlement==='won')return 'won';if(b.settlement==='lost')return 'lost';if(b.settlement==='void')return 'review';if(!b.legs?.length)return 'review';const s=b.legs.map(l=>evalLeg(l,b).status);if(s.includes('miss'))return 'lost';if(s.every(x=>x==='hit'))return 'won';if(s.includes('review')||s.includes('void'))return 'review';if(s.includes('live')||statusOfGame(b.game)==='in')return 'live';return 'open'}
+function ticketStatus(b){if(b.placed===false)return 'review';if(b.settlement==='won')return 'won';if(b.settlement==='lost')return 'lost';if(b.settlement==='void')return 'review';if(!b.legs?.length)return 'review';const s=b.legs.map(l=>evalLeg(l,b).status);if(s.includes('miss'))return 'lost';if(s.every(x=>x==='hit'))return 'won';if(s.includes('review')||s.includes('void'))return 'review';if(s.includes('live')||statusOfGame(b.game)==='in')return 'live';return 'open'}
 function legText(l){const who=l.name||l.team||'Selection';if(l.kind==='ml')return `${l.team} moneyline`;
 if(l.kind==='any_td')return `${who} · anytime touchdown`;
 if(l.kind==='passing_yards')return `${who} · ${l.target}+ passing yards`;
@@ -251,8 +251,8 @@ function renderScenarioBar(){const g=currentGame();if(!g){$('scenarioBar').hidde
 function renderGameSelect(){const sel=$('gameSelect'),games=gamesOnBoard(),g=currentGame();sel.innerHTML=games.map(x=>`<option value="${esc(x.key)}">${esc(teamAbbr(x.away))} @ ${esc(teamAbbr(x.home))} · ${esc(dateText(x.date))}</option>`).join('');if(g)sel.value=g.key;}
 function renderStats(){const visible=bets.filter(b=>!b.archivedAt);const open=visible.filter(b=>['open','live','review'].includes(ticketStatus(b))), settled=visible.filter(b=>['won','lost'].includes(ticketStatus(b)));
 $('statBets').textContent=visible.length;$('statBetsHint').textContent=`${open.length} open · ${settled.length} settled`;
-$('statStaked').textContent=money(visible.reduce((a,b)=>a+Number(b.stake||0),0));
-$('statTop').textContent=money(visible.length?Math.max(...visible.map(b=>Number(b.payout||0))):0);
+$('statStaked').textContent=money(visible.filter(b=>b.placed!==false).reduce((a,b)=>a+Number(b.stake||0),0));
+$('statTop').textContent=money(visible.length?Math.max(0,...visible.filter(b=>b.placed!==false).map(b=>Number(b.payout||0))):0);
 const prof=settled.reduce((a,b)=>a+(ticketStatus(b)==='won'?Number(b.payout||0):0)-Number(b.stake||0),0);
 $('statNet').textContent=(prof>0?'+':'')+money(prof);$('statNet').style.color=prof<0?'var(--red)':'var(--green)';$('statNetHint').textContent=`${settled.length} settled · ${open.length} still at risk`;
 }
@@ -261,19 +261,19 @@ function renderFilters(){const names=[...new Set(bets.map(b=>b.owner||'Unknown')
 function renderTickets(){let filtered=bets.filter(b=>!b.archivedAt).filter(b=>(selectedOwner==='all'||b.owner===selectedOwner)&&(selectedStatus==='all'||(selectedStatus==='open'?['open','live','review'].includes(ticketStatus(b)):ticketStatus(b)===selectedStatus)));
 filtered.sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||''));$('visibleCount').textContent=filtered.length;$('emptyState').hidden=filtered.length>0;
 $('ticketGrid').innerHTML=filtered.map((b,i)=>{const st=ticketStatus(b),p=progress(b),detail=expanded.has(b.id),winner=b.legs.find(l=>l.kind==='ml')?.team;
-const statusLabel={open:'OPEN',live:'IN PLAY',won:'WON',lost:'LOST',review:'REVIEW'}[st];const shortTeams=`${teamAbbr(b.game.away)} @ ${teamAbbr(b.game.home)}`;
+const statusLabel=b.placed===false?'UNCONFIRMED':{open:'OPEN',live:'IN PLAY',won:'WON',lost:'LOST',review:'REVIEW'}[st];const shortTeams=`${teamAbbr(b.game.away)} @ ${teamAbbr(b.game.home)}`;
 const dots=p.states.map(s=>`<span class="p-dot ${s.status==='hit'?'hit':s.status==='miss'?'miss':s.status==='live'?'live':''}"></span>`).join('');
 const legs=b.legs.map((l,j)=>{const v=p.states[j],sym=v.status==='hit'?'✓':v.status==='miss'?'✕':v.status==='review'?'!':'·';return `<div class="leg"><span class="leg-symbol ${v.status}">${sym}</span><span class="leg-name">${esc(legText(l))}</span><span class="leg-stat ${v.status}">${esc(legTicker(l,v))}</span></div>`}).join('');
 return `<article class="ticket ${teamColors(b)} ${st}" data-id="${esc(b.id)}"><div class="ticket-top"><div><span class="ticket-no">TICKET ${String(b.id).endsWith('-1')?'01':String(b.id).endsWith('-2')?'02':String(b.id).endsWith('-3')?'03':String(b.id).endsWith('-4')?'04':String(i+1).padStart(2,'0')}</span><span class="ticket-owner">♛ ${esc(b.owner)}</span></div><span class="statuspill ${st}">${statusLabel}</span></div>
 <div class="ticket-content"><div class="ticket-title"><h4>${esc(b.title)}</h4><div class="ticket-odds">${esc(oddsFromReturn(b))}</div></div>
 <div class="matchup">◷ ${esc(shortTeams)} <span>·</span> ${esc(dateText(b.game.date))} <span>·</span> ${esc(b.sportsbook||'')}</div>
 <div class="teamchips"><span class="teamchip"><img loading="lazy" onerror="this.style.display='none'" src="${esc(teamLogo(b.game.away))}" alt="">${esc(teamAbbr(b.game.away))}</span><span class="vs">AT</span><span class="teamchip"><img loading="lazy" onerror="this.style.display='none'" src="${esc(teamLogo(b.game.home))}" alt="">${esc(teamAbbr(b.game.home))}</span>${winner?`<span class="vs">↳ ${esc(teamAbbr(winner))} WIN</span>`:''}</div>
-<div class="ticket-bottom"><div><div class="dollars">${money(b.stake)}</div><div class="micro">WAGERED</div></div><div class="payoutval"><div class="dollars">${money(b.payout)}</div><div class="micro">POSSIBLE TOTAL RETURN</div></div></div>
+<div class="ticket-bottom"><div><div class="dollars">${money(b.stake)}</div><div class="micro">${b.stakeEstimated?'PLACEHOLDER WAGER':'WAGERED'}</div></div><div class="payoutval"><div class="dollars">${money(b.payout)}</div><div class="micro">${b.payoutEstimated?'ESTIMATED TOTAL RETURN':'POSSIBLE TOTAL RETURN'}</div></div></div>
 <div class="progressbox"><div class="progressrow"><span>LEGS TRACKED</span><span>${p.hit} / ${p.total} hit${p.miss?` · ${p.miss} missed`:''}</span></div><div class="progressdots">${dots}</div></div>
 <div class="ticket-buttons"><button class="btn btn-primary" data-action="expand" data-id="${esc(b.id)}">${detail?'Hide':'Track'} ${p.total} legs ${detail?'⌃':'⌄'}</button><button class="btn btn-ghost smallicon" title="Share ticket" data-action="share" data-id="${esc(b.id)}">↗</button></div>
 ${detail?`<div class="legs">${legs}<div style="display:flex;justify-content:space-between;gap:9px;align-items:center;margin-top:8px">${b.ticketUrl?`<a target="_blank" rel="noopener noreferrer" href="${esc(b.ticketUrl)}" style="font-size:11px">Open slip ↗</a>`:''}</div></div>`:''}</div></article>`}).join('')}
 function renderCrew(){let names=[...new Set(bets.map(x=>x.owner||'Unknown'))].sort();$('crewCount').textContent=`${names.length} MEMBER${names.length!==1?'S':''}`;
-$('crewList').innerHTML=names.length?names.map((n,i)=>{const bb=bets.filter(b=>b.owner===n),open=bb.filter(b=>['open','live','review'].includes(ticketStatus(b))).length;const risk=bb.reduce((a,b)=>a+Number(b.stake),0);return `<div class="crew-member"><div class="crew-avatar">${esc(n.slice(0,1).toUpperCase())}</div><div class="crew-person"><strong>${esc(n)} ${i===0?'♛':''}</strong><p>${bb.length} bet${bb.length!==1?'s':''} · ${open} open</p></div><div class="crew-amount">${money(risk)}</div></div>`}).join(''):'<p class="subtle">Crew roster empty.</p>'}
+$('crewList').innerHTML=names.length?names.map((n,i)=>{const bb=bets.filter(b=>b.owner===n),open=bb.filter(b=>['open','live','review'].includes(ticketStatus(b))).length;const known=bb.filter(b=>b.placed!==false&&Number.isFinite(b.stake));const risk=known.length?known.reduce((a,b)=>a+b.stake,0):null;return `<div class="crew-member"><div class="crew-avatar">${esc(n.slice(0,1).toUpperCase())}</div><div class="crew-person"><strong>${esc(n)} ${i===0?'♛':''}</strong><p>${bb.length} bet${bb.length!==1?'s':''} · ${open} open</p></div><div class="crew-amount">${money(risk)}</div></div>`}).join(''):'<p class="subtle">Crew roster empty.</p>'}
 function renderScoreboard(){const selected=currentGame();const game=selected?findEvent(selected):null;const a=selected?.away||AWAY,h=selected?.home||HOME;
 const teamNode=(team,logo,abbr,cl)=>`<div class="score-team"><span class="score-fallback ${cl}">${esc(abbr)}</span><strong>${esc(abbr)}</strong></div>`;
 if(!game){$('scoreboard').innerHTML=`<div class="score-content">${teamNode(a,'',teamAbbr(a),'')}<div><div class="score-result">— : —</div><div class="score-state">${selected?esc(dateText(selected.date)):'NO GAMES'}</div></div>${teamNode(h,'',teamAbbr(h),'orange')}</div>`;$('scoreMeta').textContent=sourceText();$('scoreLiveLabel').textContent='AWAITING DATA';return;}
@@ -283,7 +283,7 @@ $('scoreLiveLabel').textContent=state==='in'?'● LIVE':state==='post'?'FINAL':'
 $('otherGames').innerHTML=espnEvents.filter(x=>x.id!==game.id).map(x=>{let tt=x.competitions?.[0]?.competitors||[];let aw=tt.find(y=>y.homeAway==='away')||tt[0],ho=tt.find(y=>y.homeAway==='home')||tt[1];return `<div class="other-game"><span>${esc(aw?.team?.abbreviation||'?')} ${esc(aw?.score||'')} @ ${esc(ho?.team?.abbreviation||'?')} ${esc(ho?.score||'')}</span><span>${esc(x.status?.type?.shortDetail||'')}</span></div>`}).join('')||'<div class="subtle">No other games loaded.</div>'}
 function addActivity(message,type='info',owner=''){activity.unshift({id:uuid(),message,type,owner,time:now()});activity=activity.slice(0,40);localStorage.setItem(ACTIVITY_KEY,JSON.stringify(activity));renderActivity()}
 function renderActivity(){let list=activity.slice(0,7);$('activityFeed').innerHTML=list.length?list.map(e=>`<div class="activity ${esc(e.type)}"><div class="activity-dot">${e.type==='hit'?'✓':e.type==='miss'?'✕':'↗'}</div><div><p>${esc(e.message)}</p><small>${new Date(e.time).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}</small></div></div>`).join(''):`<div class="activity"><div class="activity-dot">◉</div><div><p>Game feed standing by. You'll see leg milestones and crew entries here as they happen.</p><small>Welcome to the war room</small></div></div>`}
-function renderLeaderboard(){let names=[...new Set(bets.map(b=>b.owner))];let rows=names.map(n=>{let bs=bets.filter(b=>b.owner===n),settled=bs.filter(b=>['won','lost'].includes(ticketStatus(b)));let profit=settled.reduce((sum,b)=>sum+(ticketStatus(b)==='won'?Number(b.payout):0)-Number(b.stake),0);return {n,count:bs.length,settled:settled.length,profit,open:bs.length-settled.length}}).sort((a,b)=>b.profit-a.profit||b.count-a.count);
+function renderLeaderboard(){let names=[...new Set(bets.map(b=>b.owner))];let rows=names.map(n=>{let bs=bets.filter(b=>b.owner===n),settled=bs.filter(b=>['won','lost'].includes(ticketStatus(b)));let profit=settled.filter(b=>Number.isFinite(b.stake)&&(ticketStatus(b)!=='won'||Number.isFinite(b.payout))).reduce((sum,b)=>sum+(ticketStatus(b)==='won'?b.payout:0)-b.stake,0);if(bs.every(b=>!Number.isFinite(b.stake)))profit=null;return {n,count:bs.length,settled:settled.length,profit,open:bs.length-settled.length}}).sort((a,b)=>b.profit-a.profit||b.count-a.count);
 $('leaderboard').innerHTML=rows.map((r,i)=>`<div class="leader-row"><div class="leader-rank">${i===0?'♛':String(i+1).padStart(2,'0')}</div><div class="leader-name"><strong>${esc(r.n)}</strong><span>${r.count} tickets · ${r.settled} graded · ${r.open} open</span></div><div class="leader-profit ${r.profit<0?'negative':''}">${r.profit>0?'+':''}${money(r.profit)}</div></div>`).join('')||'<p class="subtle">No bets entered.</p>'}
 function renderHistory(){let bs=bets.slice().sort((a,b)=>(b.createdAt||'').localeCompare(a.createdAt||''));$('historyList').innerHTML=bs.map(b=>`<div class="hist-row"><div class="leg-symbol ${ticketStatus(b)}">${ticketStatus(b)==='won'?'✓':ticketStatus(b)==='lost'?'✕':'·'}</div><div class="hist-body"><strong>${esc(b.title)}</strong><p>${esc(b.owner)} · ${esc(dateText(b.game.date))} · ${esc(b.game.away)} @ ${esc(b.game.home)} · ${b.legs.length} legs</p></div><div class="hist-pay">${money(b.payout)}</div></div>`).join('')||'<p class="subtle">No history yet.</p>'}
 function render(){renderStats();renderRecentHits();renderFilters();renderGameSelect();renderScenarioBar();renderTickets();renderCrew();renderScoreboard();renderActivity();renderLeaderboard();renderHistory();const badge=$('feedBadge');badge.className='livebadge '+scoreState;badge.querySelector('span:last-child').textContent=scoreState==='connected'?'ESPN LIVE':scoreState==='failed'?'FEED OFFLINE':'CONNECTING';}
@@ -302,7 +302,7 @@ checkWinners();checkDailyRollover();if(!silent)toast('NFL scoreboard and player 
 }catch(err){scoreState='failed';if(!silent)toast(`Live feed unavailable: ${err.message}. Showing the last available data.`)}finally{$('refreshBtn').disabled=false;$('refreshGlyph').textContent='⟳';render()}}
 function pickView(view){currentView=view;for(const v of ['dashboard','leaderboard','history'])$(v+'View').hidden=v!==view;document.querySelectorAll('.navtab').forEach(el=>el.classList.toggle('active',el.dataset.tab===view));$('currentTitle').innerHTML=view==='dashboard'?'The Board <span class="text-gradient">Is Live.</span>':view==='leaderboard'?'Crown The <span class="text-gradient">Champion.</span>':'The Record <span class="text-gradient">Never Lies.</span>'}
 function downloadFile(name,content,mime){const blob=new Blob([content],{type:mime});const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),10000)}
-function exportCsv(){let rows=[['Bet Owner','Ticket','Game Date','Matchup','Stake','Potential Return','Odds','Status','Leg']];for(const b of bets)for(const leg of b.legs){rows.push([b.owner,b.title,b.game.date,`${b.game.away} at ${b.game.home}`,b.stake,b.payout,oddsFromReturn(b),ticketStatus(b),legText(leg)])}downloadFile('oddsfathers-bets.csv',rows.map(r=>r.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(',')).join('\n'),'text/csv')}
+function exportCsv(){let rows=[['Bet Owner','Ticket','Game Date','Matchup','Stake','Potential Return','Odds','Status','Leg']];for(const b of bets)for(const leg of b.legs){rows.push([b.owner,b.title,b.game.date,`${b.game.away} at ${b.game.home}`,b.stake??'N/A',b.payout??'N/A',oddsFromReturn(b),ticketStatus(b),legText(leg)])}downloadFile('oddsfathers-bets.csv',rows.map(r=>r.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(',')).join('\n'),'text/csv')}
 function copyText(t){if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(t).then(()=>toast('Copied to clipboard!')).catch(()=>fallbackCopy(t));return fallbackCopy(t)}
 function fallbackCopy(t){let ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.left='-3000px';document.body.appendChild(ta);ta.select();let ok=false;try{ok=document.execCommand('copy')}catch{}ta.remove();if(ok)toast('Copied!');else prompt('Copy this text:',t)}
 
@@ -314,7 +314,7 @@ async function syncPublished(){
   if(data.version!==1||!Array.isArray(data.bets))throw Error('Invalid published board');
   const ids=new Set();
   for(const b of data.bets){
-   if(!b.id||ids.has(b.id)||!b.owner||!b.game?.date||!b.game?.home||!b.game?.away||!Array.isArray(b.legs)||!b.legs.length||!Number.isFinite(b.stake)||!Number.isFinite(b.payout))throw Error('Invalid published ticket');
+   if(!b.id||ids.has(b.id)||!b.owner||!b.game?.date||!b.game?.home||!b.game?.away||!Array.isArray(b.legs)||!b.legs.length||(b.stake!==null&&!Number.isFinite(b.stake))||(b.payout!==null&&!Number.isFinite(b.payout)))throw Error('Invalid published ticket');
    ids.add(b.id);
   }
   const signature=JSON.stringify(data.bets);
