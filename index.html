@@ -67,9 +67,6 @@
         </div>
         <div class="nav-actions">
           <span id="feedBadge" class="livebadge pending"><span class="led"></span><span>CONNECTING</span></span>
-          <button id="settingsBtn" type="button" class="iconbtn" title="Settings / sharing">⚙</button>
-          <button id="submitBetTopBtn" type="button" class="btn btn-outline nav-upload">▣ <span>Send Screenshot</span></button>
-          <button id="addBetTopBtn" type="button" class="btn btn-primary nav-add">＋ <span>Add Bet</span></button>
         </div>
       </nav>
     </div>
@@ -107,8 +104,8 @@
             </div>
           </div>
           <div class="ticket-grid" id="ticketGrid"></div>
-          <div class="empty" id="emptyState" hidden><strong>No tickets on this board.</strong><p>Add a bet or change the filters.</p><button type="button" class="btn btn-primary" data-action="add-bet">＋ Add a bet</button></div>
-          <div class="board-footnote">Daily board rolls over at 4 AM Eastern, after completed games. Unfinished or unverified games stay visible; old slips remain in History. ESPN checks every 30 seconds while this page is open. Crew updates check every 20 seconds when cloud sync is configured.</div>
+          <div class="empty" id="emptyState" hidden><strong>No tickets match this view.</strong><p>Change the filters or check back for crew updates.</p></div>
+          <div class="board-footnote">Daily board rolls over at 4 AM Eastern, after completed games. Unfinished or unverified games stay visible; old slips remain in History. ESPN checks every 30 seconds while this page is open. Published crew tickets check for updates every 30 seconds.</div>
           <div class="board-footnote"><span class="tiny-led"></span> Live stats from ESPN public game feeds when available. Wager settlement, grading and payouts must be confirmed in your sportsbook.</div>
         </div>
         <aside class="sidebar">
@@ -120,16 +117,10 @@
             <button class="text-button" id="showAllGamesBtn">View other games ▸</button>
             <div class="other-games" id="otherGames" hidden></div>
           </section>
-          <section class="panel inbox-panel">
-            <div class="sidebar-heading"><span class="eyebrow">▣ CREW SUBMISSIONS</span><span id="inboxCount" class="tiny-tag">0 PENDING</span></div>
-            <p class="helper">Gabe, Rodman and the crew can send a FanDuel screenshot from their phones. The image awaits review before a ticket goes live.</p>
-            <button id="submitScreenshotBtn" class="btn btn-primary fullwidth" type="button">▣ Submit Bet Screenshot</button>
-            <div id="screenshotInbox" class="screenshot-inbox"></div>
-          </section>
+          <section class="panel game-panel"><div class="eyebrow">THE SHARED BOARD</div><p id="boardStatus" class="helper">VIEW ONLY · Loading shared board…</p><p class="helper">Trey manages all tickets through ChatGPT. Send your betslip screenshots to Trey.</p></section>
           <section class="panel crew-panel">
             <div class="sidebar-heading"><span class="eyebrow">♛ THE INNER CIRCLE</span><span id="crewCount" class="tiny-tag">1 MEMBER</span></div>
             <div id="crewList"></div>
-            <button type="button" id="inviteBtn" class="btn btn-outline fullwidth">✧ Invite the crew</button>
           </section>
           <section class="panel live-panel">
             <div class="sidebar-heading"><span class="eyebrow">↗ THE LIVE WIRE</span><span class="tiny-tag">ACTIVITY</span></div>
@@ -149,82 +140,6 @@
     </main>
   </div>
 
-  <dialog id="betDialog" class="modal">
-    <form id="betForm" method="dialog" novalidate>
-      <div class="dialog-heading"><div><div class="eyebrow">CREW BET ENTRY</div><h3 id="betDialogTitle">Add to the Board</h3></div><button type="button" class="closebtn" data-action="close-bet" aria-label="Close">✕</button></div>
-      <div class="modal-scroll">
-        <div class="field-row"><label>Who's betting?<input name="owner" id="formOwner" placeholder="Friend's name" required maxlength="50" list="crewNames" /></label><datalist id="crewNames"></datalist><label>Ticket name<input name="title" id="formTitle" placeholder="The Hail Mary" maxlength="100" required /></label></div>
-        <div class="field-row"><label>Sport<select name="sport" id="formSport"><option value="NFL">NFL football (live stats)</option><option value="OTHER">Other (manual tracking)</option></select></label><label>Game date<input name="date" id="formDate" type="date" required /></label></div>
-        <div class="field-row"><label>Away team<input name="away" id="formAway" placeholder="New England Patriots" required /></label><label>Home team<input name="home" id="formHome" placeholder="Chicago Bears" required /></label></div>
-        <div class="field-row"><label>Wager ($)<input name="stake" id="formStake" type="number" value="1" min="0.01" max="100000" step="0.01" required /></label><label>Total possible return ($)<input name="payout" id="formPayout" type="number" value="20" min="0" max="1000000" step="0.01" required /></label></div>
-        <div class="field-row"><label>Sportsbook<input name="sportsbook" id="formSportsbook" value="FanDuel" /></label><label>Sportsbook ticket link (optional)<input name="ticketUrl" id="formTicketUrl" type="url" placeholder="https://…" /></label></div>
-        <div class="dialog-subhead"><h4>Parlay legs</h4><button type="button" class="btn btn-sm btn-outline" id="addLegBtn">＋ Add leg</button></div>
-        <p class="helper">NFL lines auto-track from ESPN if the player and game match. Edit a leg if a sportsbook grades it differently.</p>
-        <div id="legEditor"></div>
-        <div class="field-row"><label>Notes (optional)<textarea id="formNotes" rows="2" placeholder="Boost, odds, group chat banter…"></textarea></label></div>
-      </div>
-      <div class="dialog-foot"><button type="button" class="btn btn-ghost" data-action="close-bet">Cancel</button><button type="submit" class="btn btn-primary">Save ticket →</button></div>
-    </form>
-  </dialog>
-
-  <!-- Netlify detects this static upload form at deployment; the site sends it with FormData. -->
-  <form name="oddsfathers-friend-bets" data-netlify="true" data-netlify-honeypot="bot-field" method="POST" enctype="multipart/form-data" style="display:none" aria-hidden="true">
-    <input type="hidden" name="form-name" value="oddsfathers-friend-bets" />
-    <input type="text" name="bot-field" tabindex="-1" />
-    <input type="text" name="name" />
-    <input type="number" name="stake" />
-    <input type="number" name="payout" />
-    <textarea name="notes"></textarea>
-    <input type="file" name="screenshot" accept="image/*" />
-  </form>
-
-  <dialog id="submissionDialog" class="modal smaller">
-    <form id="submissionForm" novalidate>
-      <div class="dialog-heading"><div><div class="eyebrow">FROM YOUR CAMERA ROLL</div><h3>Send a Bet Screenshot</h3></div><button type="button" class="closebtn" data-action="close-submission" aria-label="Close">✕</button></div>
-      <div class="modal-scroll">
-        <p class="helper">Post a screenshot of your betslip. The crew can review it, then add the verified lines to the tracker. No typing every leg.</p>
-        <label>Your name<input id="submissionOwner" maxlength="50" placeholder="Gabe / Rodman / ..." required /></label>
-        <label>Screenshot from your phone<input id="submissionImage" type="file" accept="image/*" required /></label>
-        <div class="file-preview" id="submissionPreview">Choose a screenshot to preview</div>
-        <div class="field-row"><label>Wager ($) (optional)<input id="submissionStake" type="number" min="0" step="0.01" placeholder="1.00" /></label><label>Potential payout ($) (optional)<input id="submissionPayout" type="number" min="0" step="0.01" placeholder="50.00" /></label></div>
-        <label>Notes (optional)<textarea id="submissionNotes" maxlength="500" rows="2" placeholder="Game, ticket nickname, boost, anything useful"></textarea></label>
-        <div class="helper warning" id="submissionModeNote">For the screenshot to reach everyone, connect the cloud room in Settings. Without cloud, it is saved on this phone only.</div>
-      </div>
-      <div class="dialog-foot"><button type="button" class="btn btn-ghost" data-action="close-submission">Cancel</button><button id="submitScreenshotSave" type="submit" class="btn btn-primary">Send to the crew →</button></div>
-    </form>
-  </dialog>
-
-  <dialog id="reviewDialog" class="modal smaller">
-    <div class="dialog-heading"><div><div class="eyebrow">REVIEW THE PHOTO</div><h3 id="reviewTitle">New Screenshot</h3></div><button type="button" class="closebtn" data-action="close-review">✕</button></div>
-    <div class="modal-scroll">
-      <img id="reviewImage" class="review-image" alt="Submitted sportsbook betslip screenshot" />
-      <div id="reviewDescription" class="helper"></div>
-      <p class="helper warning">Screenshot text is NOT read automatically. Verify player names, markets, stake, payout and active status before adding the bet to the board.</p>
-    </div>
-    <div class="dialog-foot"><button type="button" class="btn btn-ghost" data-action="close-review">Close</button><button type="button" class="btn btn-primary" id="makeTicketFromScreenshot">＋ Enter Verified Ticket</button><button type="button" class="btn btn-outline" id="dismissScreenshot">Dismiss</button></div>
-  </dialog>
-
-  <dialog id="settingsDialog" class="modal smaller">
-    <div class="dialog-heading"><div><div class="eyebrow">CREW CONFIGURATION</div><h3>The Inner Circle</h3></div><button type="button" class="closebtn" data-action="close-settings">✕</button></div>
-    <div class="modal-scroll">
-      <p class="helper">This page works immediately on your device. To let the guys add bets to one shared board from different phones, connect the included cloud-sync backend after publishing the site.</p>
-      <label>Your crew room key<input id="settingRoom" readonly /></label>
-      <div class="field-row"><button id="copyRoomBtn" type="button" class="btn btn-outline">Copy room key</button><button id="copyInviteBtn" type="button" class="btn btn-outline">Copy invite link</button></div>
-      <label>Cloud sync endpoint (optional)<input id="settingEndpoint" type="url" placeholder="https://your-worker.workers.dev" /></label>
-      <div id="syncState" class="sync-state">LOCAL MODE · Bets are saved in this browser</div>
-      <div class="field-row"><button id="saveSettingsBtn" class="btn btn-primary" type="button">Save & connect</button><button id="syncNowBtn" class="btn btn-outline" type="button">Sync now</button></div>
-      <hr class="thin-rule" />
-      <div class="eyebrow">SHARING AND BACKUPS</div>
-      <p class="helper">Daily rollover is 4 AM Eastern. Completed games leave the active board but remain in History. Games still live or with an unverified status stay on screen.</p>
-      <button class="btn btn-outline" id="runRolloverBtn" type="button">↻ Check nightly rollover</button>
-      <div class="field-row"><button class="btn btn-outline" id="textInviteBtn" type="button">✉ Text crew invite</button><button class="btn btn-outline" id="submitFriendLinkBtn" type="button">▣ Copy screenshot link</button></div>
-      <p class="helper">No cloud yet? Export your board or copy an individual bet link for friends to send back. Live NFL scores can still work without cloud sync.</p>
-      <div class="field-row"><button class="btn btn-outline" id="exportJsonBtn" type="button">⇩ Backup JSON</button><button class="btn btn-outline" id="importJsonBtn" type="button">⇧ Import JSON</button></div>
-      <p class="helper warning">Room links grant access to the shared board. Keep them within your group. Do not store banking details or sensitive information.</p>
-    </div>
-    <div class="dialog-foot"><button type="button" class="btn btn-primary" data-action="close-settings">Done</button></div>
-  </dialog>
-  <input type="file" id="importFile" accept="application/json,.json" hidden />
   <div id="celebration" class="celebration" hidden role="status" aria-live="polite"><div class="celebration-sparks" id="celebrationSparks"></div><div class="celebration-inner"><div class="celebration-crown">♛</div><div class="celebration-label">THE ODDSFATHERS</div><h2 id="celebrationTitle">BIG HIT!</h2><p id="celebrationSubtitle"></p><button id="celebrationDismiss" type="button" class="btn btn-primary">LET'S GO ↗</button></div></div>
   <div class="toast-region" id="toasts" aria-live="polite"></div>
   <script>
@@ -275,18 +190,17 @@ create('trey-tnf-20261022-4','Patriots · The Godfather',106.72,[
  makeLeg('ml',AWAY,'',null),makeLeg('any_td',AWAY,'Hunter Henry',1),makeLeg('passing_yards',AWAY,'Drake Maye',250),makeLeg('rushing_yards',HOME,"D'Andre Swift",50),makeLeg('receiving_yards',HOME,'Luther Burden III',60),makeLeg('receiving_yards',AWAY,'A.J. Brown',70),makeLeg('passing_yards',HOME,'Caleb Williams',275)])
 ];}
 function readJSON(key,fallback){try{let x=JSON.parse(localStorage.getItem(key));return x??fallback}catch{return fallback}}
-let bets=readJSON(STORE_KEY,null);
-if(!Array.isArray(bets)){bets=initBets();try{localStorage.setItem(STORE_KEY,JSON.stringify(bets))}catch{}}
-let settings=readJSON(CONFIG_KEY,{room:'',endpoint:''});
-let activity=readJSON(ACTIVITY_KEY,[]);
+let bets=initBets();
+const settings={room:'',endpoint:''};
+let publishedVersion='';
+let publishedSyncBusy=false;
+let activity=[];
 let currentView='dashboard', selectedOwner='all',selectedStatus='all',expanded=new Set(), editingId=null,selectedGameKey=null;
 let espnEvents=[], espnByGame=new Map(), statsByEvent=new Map(), scoreState='pending', lastRefresh=null, lastKnownStatus=new Map(),syncBusy=false,liveTimer=null;
 let editingLegs=[];
-let submissions=readJSON(SUBMISSION_KEY,[]), winEvents=readJSON(WINS_KEY,{}), reviewingSubmissionId=null, firstWinCheck=true, screenshotSyncBusy=false, lastRolloverCheck='';
+let submissions=readJSON(SUBMISSION_KEY,[]), winEvents={}, reviewingSubmissionId=null, firstWinCheck=true, screenshotSyncBusy=false, lastRolloverCheck='';
 const $=id=>document.getElementById(id);
-function save(){localStorage.setItem(STORE_KEY,JSON.stringify(bets))}
-function saveConfig(){localStorage.setItem(CONFIG_KEY,JSON.stringify(settings))}
-function updateBet(b){b.updatedAt=now();save();checkWinners();render();pushBet(b).catch(()=>{})}
+function save(){/* Published tickets are changed only through GitHub. */}
 function toast(text){let d=document.createElement('div');d.className='toast';d.textContent=text;$('toasts').appendChild(d);setTimeout(()=>d.remove(),4200)}
 function statusOfGame(g){const x=findEvent(g);if(!x)return 'unknown';return x.competitions?.[0]?.status?.type?.state||x.status?.type?.state||'unknown'}
 function findEvent(g){let date=g?.date,away=g?.away,home=g?.home;return espnEvents.find(ev=>{const c=ev.competitions?.[0]?.competitors||[];if(c.length<2)return false;const teams=c.map(x=>x.team?.displayName||x.team?.name||x.team?.abbreviation);const d=(ev.date||'').slice(0,10);let et=new Date(ev.date);let eastern=!isNaN(et)?et.toLocaleDateString('en-CA',{timeZone:'America/New_York'}):d;
@@ -343,21 +257,21 @@ const prof=settled.reduce((a,b)=>a+(ticketStatus(b)==='won'?Number(b.payout||0):
 $('statNet').textContent=(prof>0?'+':'')+money(prof);$('statNet').style.color=prof<0?'var(--red)':'var(--green)';$('statNetHint').textContent=`${settled.length} settled · ${open.length} still at risk`;
 }
 function renderFilters(){const names=[...new Set(bets.map(b=>b.owner||'Unknown'))].sort();const s=$('ownerFilter'),prev=s.value||selectedOwner;s.innerHTML='<option value="all">All crew</option>'+names.map(n=>`<option value="${esc(n)}">${esc(n)}</option>`).join('');s.value=names.includes(prev)?prev:'all';selectedOwner=s.value;
-$('crewNames').innerHTML=names.map(n=>`<option value="${esc(n)}"></option>`).join('')}
+}
 function renderTickets(){let filtered=bets.filter(b=>!b.archivedAt).filter(b=>(selectedOwner==='all'||b.owner===selectedOwner)&&(selectedStatus==='all'||(selectedStatus==='open'?['open','live','review'].includes(ticketStatus(b)):ticketStatus(b)===selectedStatus)));
 filtered.sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||''));$('visibleCount').textContent=filtered.length;$('emptyState').hidden=filtered.length>0;
 $('ticketGrid').innerHTML=filtered.map((b,i)=>{const st=ticketStatus(b),p=progress(b),detail=expanded.has(b.id),winner=b.legs.find(l=>l.kind==='ml')?.team;
 const statusLabel={open:'OPEN',live:'IN PLAY',won:'WON',lost:'LOST',review:'REVIEW'}[st];const shortTeams=`${teamAbbr(b.game.away)} @ ${teamAbbr(b.game.home)}`;
 const dots=p.states.map(s=>`<span class="p-dot ${s.status==='hit'?'hit':s.status==='miss'?'miss':s.status==='live'?'live':''}"></span>`).join('');
-const legs=b.legs.map((l,j)=>{const v=p.states[j],sym=v.status==='hit'?'✓':v.status==='miss'?'✕':v.status==='review'?'!':'·';return `<div class="leg"><span class="leg-symbol ${v.status}">${sym}</span><span class="leg-name">${esc(legText(l))}</span><span class="leg-stat ${v.status}">${esc(legTicker(l,v))}</span><div class="leg-controls"><button class="mini-control hit" title="Manually mark hit" data-action="leg-hit" data-id="${esc(b.id)}" data-idx="${j}">✓</button><button class="mini-control miss" title="Manually mark miss" data-action="leg-miss" data-id="${esc(b.id)}" data-idx="${j}">✕</button><button class="mini-control" title="Resume automatic checking" data-action="leg-auto" data-id="${esc(b.id)}" data-idx="${j}">↺</button></div></div>`}).join('');
+const legs=b.legs.map((l,j)=>{const v=p.states[j],sym=v.status==='hit'?'✓':v.status==='miss'?'✕':v.status==='review'?'!':'·';return `<div class="leg"><span class="leg-symbol ${v.status}">${sym}</span><span class="leg-name">${esc(legText(l))}</span><span class="leg-stat ${v.status}">${esc(legTicker(l,v))}</span></div>`}).join('');
 return `<article class="ticket ${teamColors(b)} ${st}" data-id="${esc(b.id)}"><div class="ticket-top"><div><span class="ticket-no">TICKET ${String(b.id).endsWith('-1')?'01':String(b.id).endsWith('-2')?'02':String(b.id).endsWith('-3')?'03':String(b.id).endsWith('-4')?'04':String(i+1).padStart(2,'0')}</span><span class="ticket-owner">♛ ${esc(b.owner)}</span></div><span class="statuspill ${st}">${statusLabel}</span></div>
 <div class="ticket-content"><div class="ticket-title"><h4>${esc(b.title)}</h4><div class="ticket-odds">${esc(oddsFromReturn(b))}</div></div>
 <div class="matchup">◷ ${esc(shortTeams)} <span>·</span> ${esc(dateText(b.game.date))} <span>·</span> ${esc(b.sportsbook||'')}</div>
 <div class="teamchips"><span class="teamchip"><img loading="lazy" onerror="this.style.display='none'" src="${esc(teamLogo(b.game.away))}" alt="">${esc(teamAbbr(b.game.away))}</span><span class="vs">AT</span><span class="teamchip"><img loading="lazy" onerror="this.style.display='none'" src="${esc(teamLogo(b.game.home))}" alt="">${esc(teamAbbr(b.game.home))}</span>${winner?`<span class="vs">↳ ${esc(teamAbbr(winner))} WIN</span>`:''}</div>
 <div class="ticket-bottom"><div><div class="dollars">${money(b.stake)}</div><div class="micro">WAGERED</div></div><div class="payoutval"><div class="dollars">${money(b.payout)}</div><div class="micro">POSSIBLE TOTAL RETURN</div></div></div>
 <div class="progressbox"><div class="progressrow"><span>LEGS TRACKED</span><span>${p.hit} / ${p.total} hit${p.miss?` · ${p.miss} missed`:''}</span></div><div class="progressdots">${dots}</div></div>
-<div class="ticket-buttons"><button class="btn btn-primary" data-action="expand" data-id="${esc(b.id)}">${detail?'Hide':'Track'} ${p.total} legs ${detail?'⌃':'⌄'}</button><button class="btn btn-ghost smallicon" title="Edit ticket" data-action="edit" data-id="${esc(b.id)}">✎</button><button class="btn btn-ghost smallicon" title="Share ticket" data-action="share" data-id="${esc(b.id)}">↗</button></div>
-${detail?`<div class="legs">${legs}<div style="display:flex;justify-content:space-between;gap:9px;align-items:center;margin-top:8px"><span style="font-size:10px;color:#8aa9c5">Tap ✓, ✕ or ↺ to override a leg</span>${b.ticketUrl?`<a target="_blank" rel="noopener noreferrer" href="${esc(b.ticketUrl)}" style="font-size:11px">Open slip ↗</a>`:''}</div><div style="display:flex;gap:7px"><button class="btn btn-sm btn-outline" data-action="settlement" data-id="${esc(b.id)}">Settle ticket</button><button class="btn btn-sm btn-ghost" data-action="delete" data-id="${esc(b.id)}">Remove</button></div></div>`:''}</div></article>`}).join('')}
+<div class="ticket-buttons"><button class="btn btn-primary" data-action="expand" data-id="${esc(b.id)}">${detail?'Hide':'Track'} ${p.total} legs ${detail?'⌃':'⌄'}</button><button class="btn btn-ghost smallicon" title="Share ticket" data-action="share" data-id="${esc(b.id)}">↗</button></div>
+${detail?`<div class="legs">${legs}<div style="display:flex;justify-content:space-between;gap:9px;align-items:center;margin-top:8px">${b.ticketUrl?`<a target="_blank" rel="noopener noreferrer" href="${esc(b.ticketUrl)}" style="font-size:11px">Open slip ↗</a>`:''}</div></div>`:''}</div></article>`}).join('')}
 function renderCrew(){let names=[...new Set(bets.map(x=>x.owner||'Unknown'))].sort();$('crewCount').textContent=`${names.length} MEMBER${names.length!==1?'S':''}`;
 $('crewList').innerHTML=names.length?names.map((n,i)=>{const bb=bets.filter(b=>b.owner===n),open=bb.filter(b=>['open','live','review'].includes(ticketStatus(b))).length;const risk=bb.reduce((a,b)=>a+Number(b.stake),0);return `<div class="crew-member"><div class="crew-avatar">${esc(n.slice(0,1).toUpperCase())}</div><div class="crew-person"><strong>${esc(n)} ${i===0?'♛':''}</strong><p>${bb.length} bet${bb.length!==1?'s':''} · ${open} open</p></div><div class="crew-amount">${money(risk)}</div></div>`}).join(''):'<p class="subtle">Crew roster empty.</p>'}
 function renderScoreboard(){const selected=currentGame();const game=selected?findEvent(selected):null;const a=selected?.away||AWAY,h=selected?.home||HOME;
@@ -371,8 +285,8 @@ function addActivity(message,type='info',owner=''){activity.unshift({id:uuid(),m
 function renderActivity(){let list=activity.slice(0,7);$('activityFeed').innerHTML=list.length?list.map(e=>`<div class="activity ${esc(e.type)}"><div class="activity-dot">${e.type==='hit'?'✓':e.type==='miss'?'✕':'↗'}</div><div><p>${esc(e.message)}</p><small>${new Date(e.time).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}</small></div></div>`).join(''):`<div class="activity"><div class="activity-dot">◉</div><div><p>Game feed standing by. You'll see leg milestones and crew entries here as they happen.</p><small>Welcome to the war room</small></div></div>`}
 function renderLeaderboard(){let names=[...new Set(bets.map(b=>b.owner))];let rows=names.map(n=>{let bs=bets.filter(b=>b.owner===n),settled=bs.filter(b=>['won','lost'].includes(ticketStatus(b)));let profit=settled.reduce((sum,b)=>sum+(ticketStatus(b)==='won'?Number(b.payout):0)-Number(b.stake),0);return {n,count:bs.length,settled:settled.length,profit,open:bs.length-settled.length}}).sort((a,b)=>b.profit-a.profit||b.count-a.count);
 $('leaderboard').innerHTML=rows.map((r,i)=>`<div class="leader-row"><div class="leader-rank">${i===0?'♛':String(i+1).padStart(2,'0')}</div><div class="leader-name"><strong>${esc(r.n)}</strong><span>${r.count} tickets · ${r.settled} graded · ${r.open} open</span></div><div class="leader-profit ${r.profit<0?'negative':''}">${r.profit>0?'+':''}${money(r.profit)}</div></div>`).join('')||'<p class="subtle">No bets entered.</p>'}
-function renderHistory(){let bs=bets.slice().sort((a,b)=>(b.createdAt||'').localeCompare(a.createdAt||''));$('historyList').innerHTML=bs.map(b=>`<div class="hist-row"><div class="leg-symbol ${ticketStatus(b)}">${ticketStatus(b)==='won'?'✓':ticketStatus(b)==='lost'?'✕':'·'}</div><div class="hist-body"><strong>${esc(b.title)}</strong><p>${esc(b.owner)} · ${esc(dateText(b.game.date))} · ${esc(b.game.away)} @ ${esc(b.game.home)} · ${b.legs.length} legs</p></div><div class="hist-pay">${money(b.payout)}</div><button class="btn btn-sm btn-outline" data-action="edit" data-id="${esc(b.id)}">Edit</button></div>`).join('')||'<p class="subtle">No history yet.</p>'}
-function render(){renderStats();renderInbox();renderRecentHits();renderFilters();renderGameSelect();renderScenarioBar();renderTickets();renderCrew();renderScoreboard();renderActivity();renderLeaderboard();renderHistory();const badge=$('feedBadge');badge.className='livebadge '+scoreState;badge.querySelector('span:last-child').textContent=scoreState==='connected'?'ESPN LIVE':scoreState==='failed'?'FEED OFFLINE':'CONNECTING';}
+function renderHistory(){let bs=bets.slice().sort((a,b)=>(b.createdAt||'').localeCompare(a.createdAt||''));$('historyList').innerHTML=bs.map(b=>`<div class="hist-row"><div class="leg-symbol ${ticketStatus(b)}">${ticketStatus(b)==='won'?'✓':ticketStatus(b)==='lost'?'✕':'·'}</div><div class="hist-body"><strong>${esc(b.title)}</strong><p>${esc(b.owner)} · ${esc(dateText(b.game.date))} · ${esc(b.game.away)} @ ${esc(b.game.home)} · ${b.legs.length} legs</p></div><div class="hist-pay">${money(b.payout)}</div></div>`).join('')||'<p class="subtle">No history yet.</p>'}
+function render(){renderStats();renderRecentHits();renderFilters();renderGameSelect();renderScenarioBar();renderTickets();renderCrew();renderScoreboard();renderActivity();renderLeaderboard();renderHistory();const badge=$('feedBadge');badge.className='livebadge '+scoreState;badge.querySelector('span:last-child').textContent=scoreState==='connected'?'ESPN LIVE':scoreState==='failed'?'FEED OFFLINE':'CONNECTING';}
 async function fetchJson(url){const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),12000);try{const r=await fetch(url,{signal:controller.signal,cache:'no-store'});if(!r.ok)throw Error(`HTTP ${r.status}`);return await r.json()}finally{clearTimeout(timeout)}}
 async function refreshLive(silent=false){if($('refreshBtn').disabled)return;$('refreshBtn').disabled=true;$('refreshGlyph').textContent='◌';
 try{const dates=[...new Set(bets.filter(b=>b.game.sport==='NFL').map(b=>b.game.date))].slice(0,5);if(!dates.includes(DATE))dates.unshift(DATE);let all=[];
@@ -385,62 +299,59 @@ scoreState='connected';lastRefresh=new Date();
 // Only announce new hit/miss milestones after at least one prior successful feed, never initial backfill.
 for(const b of bets){for(let j=0;j<b.legs.length;j++){let key=`${b.id}.${j}`,v=evalLeg(b.legs[j],b).status,old=lastKnownStatus.get(key);if(old&&old!==v&&(v==='hit'||v==='miss'))addActivity(`${b.owner}: ${legText(b.legs[j])} — ${v==='hit'?'HIT':'MISSED'}`,v,b.owner);lastKnownStatus.set(key,v)}}
 checkWinners();checkDailyRollover();if(!silent)toast('NFL scoreboard and player stats refreshed.');
-}catch(err){scoreState='failed';if(!silent)toast(`Live feed unavailable: ${err.message}. Manual tracking still works.`)}finally{$('refreshBtn').disabled=false;$('refreshGlyph').textContent='⟳';render()}}
+}catch(err){scoreState='failed';if(!silent)toast(`Live feed unavailable: ${err.message}. Showing the last available data.`)}finally{$('refreshBtn').disabled=false;$('refreshGlyph').textContent='⟳';render()}}
 function pickView(view){currentView=view;for(const v of ['dashboard','leaderboard','history'])$(v+'View').hidden=v!==view;document.querySelectorAll('.navtab').forEach(el=>el.classList.toggle('active',el.dataset.tab===view));$('currentTitle').innerHTML=view==='dashboard'?'The Board <span class="text-gradient">Is Live.</span>':view==='leaderboard'?'Crown The <span class="text-gradient">Champion.</span>':'The Record <span class="text-gradient">Never Lies.</span>'}
-function addLegEditor(leg={kind:'receiving_yards',team:'',name:'',target:40}){editingLegs.push(leg);renderLegEditor()}
-const LEG_TYPES=[['ml','Moneyline'],['passing_yards','Passing yards'],['receiving_yards','Receiving yards'],['rushing_yards','Rushing yards'],['receptions','Receptions'],['any_td','Anytime touchdown'],['custom','Custom / manual']];
-function renderLegEditor(){const ed=$('legEditor');ed.innerHTML=editingLegs.map((l,i)=>`<div class="leg-edit" data-leg-index="${i}"><label>Market<select class="edit-kind">${LEG_TYPES.map(([v,n])=>`<option value="${v}" ${l.kind===v?'selected':''}>${n}</option>`).join('')}</select></label><label>Team<input class="edit-team" placeholder="Bears / Patriots" value="${esc(l.team||'')}"></label><label>${l.kind==='ml'?'Team or player':'Player'}<input class="edit-name" placeholder="Player name" value="${esc(l.name||'')}"></label><label>Target<input class="edit-target" type="number" min="0" step="0.5" placeholder="—" value="${l.target??''}"></label><button type="button" class="remove-leg" data-action="remove-leg" data-idx="${i}">✕</button></div>`).join('')}
-function collectLegEditor(){editingLegs=[...$('legEditor').querySelectorAll('.leg-edit')].map(row=>({kind:row.querySelector('.edit-kind').value,team:row.querySelector('.edit-team').value.trim(),name:row.querySelector('.edit-name').value.trim(),target:row.querySelector('.edit-target').value!==''?Number(row.querySelector('.edit-target').value):null}));}
-function openBet(id=null){editingId=id;const b=id?bets.find(x=>x.id===id):null;$('betForm').reset();$('betDialogTitle').textContent=id?'Edit This Ticket':'Add to the Board';$('formOwner').value=b?.owner||'Trey';$('formTitle').value=b?.title||'';$('formSport').value=b?.game?.sport||'NFL';$('formDate').value=b?.game?.date||new Date().toLocaleDateString('en-CA');$('formAway').value=b?.game?.away||AWAY;$('formHome').value=b?.game?.home||HOME;$('formStake').value=b?.stake??1;$('formPayout').value=b?.payout??20;$('formSportsbook').value=b?.sportsbook||'FanDuel';$('formTicketUrl').value=b?.ticketUrl||'';$('formNotes').value=b?.notes||'';
-editingLegs=(b?.legs||[]).map(l=>({...l}));if(!editingLegs.length)editingLegs=[{kind:'ml',team:HOME,name:'',target:null},{kind:'receiving_yards',team:'',name:'',target:40}];renderLegEditor();$('betDialog').showModal()}
-function closeDialog(d){if(d.open)d.close()}
-function saveForm(e){e.preventDefault();collectLegEditor();if(!editingLegs.length){toast('Add at least one parlay leg.');return}const get=id=>$(id).value.trim();let owner=get('formOwner'),title=get('formTitle'),stake=Number(get('formStake')),payout=Number(get('formPayout')),date=get('formDate'),away=get('formAway'),home=get('formHome');if(!owner||!title||!date||!away||!home||!(stake>0)||!(payout>=0)){toast('Please fill in the bettor, teams, date, wager and possible return.');return}
-const old=editingId?bets.find(x=>x.id===editingId):null;const b={id:old?.id||uuid(),owner,title,game:{sport:get('formSport'),date,away,home},stake,payout,sportsbook:get('formSportsbook'),ticketUrl:get('formTicketUrl'),notes:get('formNotes'),legs:editingLegs.map((l,i)=>({...l,override:old?.legs?.[i]?.override??null})),settlement:old?.settlement||'auto',placed:true,createdAt:old?.createdAt||now(),updatedAt:now()};if(old)bets[bets.indexOf(old)]=b;else bets.push(b);save();if(reviewingSubmissionId)completePhotoReview(b);checkWinners();pushBet(b).catch(()=>{});addActivity(`${owner} ${old?'updated':'added'} a ${money(stake)} ticket: ${title}`);closeDialog($('betDialog'));render();toast(`Ticket ${old?'updated':'added'}!`)}
-function settleTicket(b){let current=b.settlement||'auto';let choice=prompt(`Settle: ${b.title}\nEnter WON, LOST, VOID or AUTO to use live data.`,current);if(choice===null)return;let st=choice.trim().toLowerCase();if(!['won','lost','void','auto'].includes(st)){toast('Use WON, LOST, VOID or AUTO.');return}b.settlement=st;updateBet(b);addActivity(`${b.owner} marked '${b.title}' as ${st.toUpperCase()}`);toast('Ticket status updated.')}
 function downloadFile(name,content,mime){const blob=new Blob([content],{type:mime});const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),10000)}
 function exportCsv(){let rows=[['Bet Owner','Ticket','Game Date','Matchup','Stake','Potential Return','Odds','Status','Leg']];for(const b of bets)for(const leg of b.legs){rows.push([b.owner,b.title,b.game.date,`${b.game.away} at ${b.game.home}`,b.stake,b.payout,oddsFromReturn(b),ticketStatus(b),legText(leg)])}downloadFile('oddsfathers-bets.csv',rows.map(r=>r.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(',')).join('\n'),'text/csv')}
-function downloadBackup(){downloadFile('oddsfathers-backup.json',JSON.stringify({version:1,exportedAt:now(),bets},null,2),'application/json')}
 function copyText(t){if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(t).then(()=>toast('Copied to clipboard!')).catch(()=>fallbackCopy(t));return fallbackCopy(t)}
 function fallbackCopy(t){let ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.left='-3000px';document.body.appendChild(ta);ta.select();let ok=false;try{ok=document.execCommand('copy')}catch{}ta.remove();if(ok)toast('Copied!');else prompt('Copy this text:',t)}
-function encodeTicket(b){let raw=JSON.stringify({...b,id:uuid(),settlement:'auto',legs:b.legs.map(l=>({...l,override:null})),updatedAt:now()});let arr=new TextEncoder().encode(raw),s='';arr.forEach(x=>s+=String.fromCharCode(x));return btoa(s).replaceAll('+','-').replaceAll('/','_').replaceAll('=','')}
-function decodeTicket(t){let s=t.replaceAll('-','+').replaceAll('_','/');s+='='.repeat((4-s.length%4)%4);let bin=atob(s);let bytes=Uint8Array.from(bin,c=>c.charCodeAt(0));let d=JSON.parse(new TextDecoder().decode(bytes));if(!d||!Array.isArray(d.legs)||!d.game||!d.owner)throw Error('Not a valid bet ticket');return d}
-function shareTicket(b){if(location.protocol==='file:'){downloadFile(`ticket-${b.id}.json`,JSON.stringify({version:1,bets:[b]},null,2),'application/json');toast('File preview: exported a ticket to share. Host the site for one-click links.');return}let u=new URL(location.href);u.searchParams.set('ticket',encodeTicket(b));copyText(u.toString())}
-function maybeImportFromUrl(){const u=new URL(location.href),t=u.searchParams.get('ticket');if(!t)return;try{const b=decodeTicket(t);u.searchParams.delete('ticket');history.replaceState({},'',u);if(confirm(`Add shared ticket from ${b.owner}?\n${b.title}\n${b.legs.length} legs · ${money(b.stake)} wager`)){b.id=uuid();b.createdAt=now();b.updatedAt=now();bets.push(b);updateBet(b);addActivity(`Imported a shared ticket from ${b.owner}`)}}catch(err){toast('Invalid shared ticket link.')}}
-function roomSecret(){let a=new Uint8Array(20);crypto.getRandomValues(a);return Array.from(a,x=>x.toString(16).padStart(2,'0')).join('')}
-function ensureRoom(){if(!settings.room)settings.room=roomSecret();saveConfig()}
-function inviteLink(){let u=new URL(location.href);u.searchParams.delete('ticket');u.searchParams.set('room',settings.room);if(settings.endpoint)u.searchParams.set('api',settings.endpoint);return u.toString()}
-function openSettings(){ensureRoom();$('settingRoom').value=settings.room;$('settingEndpoint').value=settings.endpoint||'';renderSyncState();$('settingsDialog').showModal()}
-function renderSyncState(msg){let status=$('syncState');status.className='sync-state'+(settings.endpoint?scoreState==='failed'?' failed':' connected':'');status.textContent=msg||(settings.endpoint?`SYNC ENDPOINT: ${settings.endpoint} · ROOM ${settings.room.slice(0,6)}…`:'LOCAL MODE · Bets are saved in this browser; crew sync needs the optional backend.')}
-function saveSettings(){settings.endpoint=$('settingEndpoint').value.trim().replace(/\/$/,'');if(settings.endpoint&&!/^https:\/\//i.test(settings.endpoint)){toast('Please use an HTTPS cloud endpoint.');return}saveConfig();renderSyncState();toast(settings.endpoint?'Cloud endpoint saved. Syncing…':'Local mode saved.');if(settings.endpoint)syncCloud(false)}
-async function pushBet(b){if(!settings.endpoint||!settings.room)return;let r=await fetch(`${settings.endpoint}/api/bet`,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({room:settings.room,bet:b})});if(!r.ok)throw Error(`Cloud save HTTP ${r.status}`)}
-async function deleteRemote(b){if(!settings.endpoint||!settings.room)return;let r=await fetch(`${settings.endpoint}/api/bet?room=${encodeURIComponent(settings.room)}&id=${encodeURIComponent(b.id)}`,{method:'DELETE'});if(!r.ok)throw Error(`Cloud delete HTTP ${r.status}`)}
-async function syncCloud(silent=true){if(!settings.endpoint||syncBusy)return;if(!settings.room)ensureRoom();syncBusy=true;
-try{let r=await fetch(`${settings.endpoint}/api/bets?room=${encodeURIComponent(settings.room)}`,{cache:'no-store'});if(!r.ok)throw Error(`HTTP ${r.status}`);let j=await r.json();if(!Array.isArray(j.bets))throw Error('Invalid sync response');let merged=new Map(bets.map(b=>[b.id,b]));let needPush=[];
-for(const remote of j.bets){if(!remote?.id||!remote?.game||!Array.isArray(remote?.legs))continue;let local=merged.get(remote.id);if(!local||String(remote.updatedAt||'')>String(local.updatedAt||''))merged.set(remote.id,remote)}
-for(const b of merged.values()){const remote=j.bets.find(x=>x.id===b.id);if(!remote||String(b.updatedAt||'')>String(remote.updatedAt||''))needPush.push(b)}
-bets=[...merged.values()];save();checkDailyRollover();checkWinners();render();await Promise.allSettled(needPush.map(pushBet));await syncPhotoSubmissions();renderSyncState(`CLOUD SYNC ONLINE · ${bets.length} group tickets · crew polls every 20s · ${new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}`);if(!silent)toast(`Synced ${bets.length} group tickets.`)
-}catch(err){renderSyncState(`CLOUD SYNC FAILED · ${err.message} · Your local data is safe.`);if(!silent)toast(`Cloud sync unavailable: ${err.message}`)}finally{syncBusy=false}}
-function bind(){document.querySelectorAll('.navtab').forEach(btn=>btn.addEventListener('click',()=>pickView(btn.dataset.tab)));
-$('addBetTopBtn').addEventListener('click',()=>openBet());$('settingsBtn').addEventListener('click',openSettings);$('refreshBtn').addEventListener('click',()=>refreshLive(false));$('exportBtn').addEventListener('click',exportCsv);
-$('showAllGamesBtn').addEventListener('click',()=>{$('otherGames').hidden=!$('otherGames').hidden});$('gameSelect').addEventListener('change',e=>{selectedGameKey=e.target.value;renderScoreboard();renderScenarioBar()});$('inviteBtn').addEventListener('click',openSettings);
-$('ownerFilter').addEventListener('change',e=>{selectedOwner=e.target.value;renderTickets()});$('statusFilter').addEventListener('change',e=>{selectedStatus=e.target.value;renderTickets()});
-$('betForm').addEventListener('submit',saveForm);$('addLegBtn').addEventListener('click',()=>{collectLegEditor();addLegEditor({kind:'receiving_yards',team:'',name:'',target:40})});
-$('saveSettingsBtn').addEventListener('click',saveSettings);$('copyRoomBtn').addEventListener('click',()=>copyText(settings.room));$('copyInviteBtn').addEventListener('click',()=>{if(!settings.endpoint)toast('Invite links need cloud sync to share a live board.');copyText(inviteLink())});$('syncNowBtn').addEventListener('click',()=>syncCloud(false));
-$('exportJsonBtn').addEventListener('click',downloadBackup);$('importJsonBtn').addEventListener('click',()=>$('importFile').click());$('importFile').addEventListener('change',async e=>{let f=e.target.files?.[0];if(!f)return;try{let j=JSON.parse(await f.text()),incoming=Array.isArray(j)?j:j.bets;if(!Array.isArray(incoming))throw Error('Missing bets array');let n=0;for(const b of incoming){if(!b.id||!b.game||!Array.isArray(b.legs))continue;if(!bets.find(x=>x.id===b.id)){bets.push(b);n++}}save();render();toast(`Imported ${n} new tickets.`)}catch(err){toast('Could not import the JSON backup.')}finally{e.target.value=''}});
-$('legEditor').addEventListener('change',e=>{if(e.target.matches('.edit-kind')){collectLegEditor();renderLegEditor()}});
-document.addEventListener('click',e=>{const x=e.target.closest('[data-action]');if(!x)return;const action=x.dataset.action,id=x.dataset.id,idx=Number(x.dataset.idx),b=bets.find(z=>z.id===id);
-if(action==='close-bet')closeDialog($('betDialog'));else if(action==='close-settings')closeDialog($('settingsDialog'));else if(action==='add-bet')openBet();else if(action==='remove-leg'){collectLegEditor();editingLegs.splice(idx,1);renderLegEditor()}
-else if(action==='expand'&&b){expanded.has(id)?expanded.delete(id):expanded.add(id);renderTickets()}
-else if(action==='edit'&&b)openBet(id);
-else if(action==='share'&&b)shareTicket(b);
-else if(action==='settlement'&&b)settleTicket(b);
-else if(action==='delete'&&b){if(confirm(`Remove ${b.owner}'s '${b.title}' from this board?`)){bets=bets.filter(x=>x.id!==id);save();render();deleteRemote(b).then(()=>toast('Ticket removed from your crew board.')).catch(()=>toast('Removed locally, but cloud deletion failed. Sync may restore it.'))}}
-else if(['leg-hit','leg-miss','leg-auto'].includes(action)&&b?.legs[idx]){b.legs[idx].override=action==='leg-auto'?null:action==='leg-hit'?'hit':'miss';updateBet(b);toast(`Leg ${action==='leg-auto'?'returned to automatic tracking':'manually updated'}.`)}})}
-function init(){ensureRoom();const url=new URL(location.href);const room=url.searchParams.get('room'),endpoint=url.searchParams.get('api');if(room&&/^[a-f0-9]{40}$/.test(room)&&room!==settings.room){settings.room=room;if(endpoint&&/^https:\/\//.test(endpoint))settings.endpoint=endpoint;saveConfig()}maybeImportFromUrl();if(!activity.length)addActivity('The OddsFathers war room is open. Four original TNF slips are loaded.');bind();bindV2();checkDailyRollover();render();refreshLive(true);if(settings.endpoint){syncCloud(true);setInterval(()=>{if(!document.hidden)syncCloud(true)},20000)}setInterval(()=>{if(!document.hidden)refreshLive(true)},30000);setInterval(()=>checkDailyRollover(),60000);document.addEventListener('visibilitychange',()=>{if(!document.hidden){refreshLive(true);if(settings.endpoint)syncCloud(true);showRecentOnReturn()}});if(new URL(location.href).searchParams.has('submit'))setTimeout(openSubmission,350)}
+
+function shareTicket(b){copyText('https://mrmlttens.github.io/the-oddsfathers/');}
+async function syncPublished(){
+ if(publishedSyncBusy)return;publishedSyncBusy=true;
+ try{
+  const data=await fetchJson('./bets.json');
+  if(data.version!==1||!Array.isArray(data.bets))throw Error('Invalid published board');
+  const ids=new Set();
+  for(const b of data.bets){
+   if(!b.id||ids.has(b.id)||!b.owner||!b.game?.date||!b.game?.home||!b.game?.away||!Array.isArray(b.legs)||!b.legs.length||!Number.isFinite(b.stake)||!Number.isFinite(b.payout))throw Error('Invalid published ticket');
+   ids.add(b.id);
+  }
+  const signature=JSON.stringify(data.bets);
+  if(signature!==publishedVersion){
+   bets=data.bets;publishedVersion=signature;lastRolloverCheck='';
+   checkDailyRollover();render();checkWinners();
+  }
+  $('boardStatus').textContent='VIEW ONLY · Shared board';
+ }catch(err){
+  $('boardStatus').textContent='VIEW ONLY · Board update unavailable';
+  console.warn('Published board:',err.message);
+ }finally{publishedSyncBusy=false;}
+}
+function bind(){
+ document.querySelectorAll('.navtab').forEach(el=>el.addEventListener('click',()=>pickView(el.dataset.tab)));
+ $('refreshBtn').addEventListener('click',async()=>{await syncPublished();refreshLive(false)});
+ $('exportBtn').addEventListener('click',exportCsv);
+ $('showAllGamesBtn').addEventListener('click',()=>{$('otherGames').hidden=!$('otherGames').hidden});
+ $('gameSelect').addEventListener('change',e=>{selectedGameKey=e.target.value;renderScoreboard();renderScenarioBar()});
+ $('ownerFilter').addEventListener('change',e=>{selectedOwner=e.target.value;renderTickets()});
+ $('statusFilter').addEventListener('change',e=>{selectedStatus=e.target.value;renderTickets()});
+ $('celebrationDismiss').addEventListener('click',dismissCelebration);
+ $('celebration').addEventListener('click',e=>{if(e.target===$('celebration'))dismissCelebration()});
+ document.addEventListener('click',e=>{
+  const el=e.target.closest('[data-action]');if(!el)return;
+  const b=bets.find(x=>x.id===el.dataset.id);if(!b)return;
+  if(el.dataset.action==='expand'){expanded.has(b.id)?expanded.delete(b.id):expanded.add(b.id);renderTickets();}
+  else if(el.dataset.action==='share')shareTicket(b);
+ });
+}
+async function init(){
+ bind();render();await syncPublished();await refreshLive(true);showRecentOnReturn();
+ setInterval(async()=>{if(!document.hidden){await syncPublished();refreshLive(true)}},30000);
+ setInterval(checkDailyRollover,60000);
+ document.addEventListener('visibilitychange',async()=>{if(!document.hidden){await syncPublished();refreshLive(true);showRecentOnReturn()}});
+}
 document.addEventListener('DOMContentLoaded',init);
-
-
-/* v2: fan header, win celebrations, 4 AM ET rollover, and photo submissions */
 function easternParts(d=new Date()){
   const parts=new Intl.DateTimeFormat('en-US',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',hourCycle:'h23'}).formatToParts(d);
   let v=Object.fromEntries(parts.map(x=>[x.type,x.value]));return {date:`${v.year}-${v.month}-${v.day}`,hour:Number(v.hour)};
@@ -449,18 +360,12 @@ function boardDate(){const et=easternParts();if(et.hour>=4)return et.date;const 
 function checkDailyRollover(){
   const today=boardDate(),k=today+'|'+bets.map(b=>[b.id,statusOfGame(b.game),b.settlement,b.archivedAt||''].join(':')).join('|');
   if(k===lastRolloverCheck)return;lastRolloverCheck=k;
-  const toArchive=bets.filter(b=>!b.archivedAt&&b.game?.date<today&&(['post'].includes(statusOfGame(b.game))||['won','lost','void'].includes(b.settlement)));
+  const toArchive=bets.filter(b=>!b.archivedAt&&b.game?.date<today&&(['won','lost','void'].includes(b.settlement)&&!['in','pre'].includes(statusOfGame(b.game))));
   if(!toArchive.length)return;
   for(const b of toArchive){b.archivedAt=now();b.updatedAt=now()}
-  save();Promise.allSettled(toArchive.map(pushBet)).catch(()=>{});
+  save();
   addActivity(`New day on the board: ${toArchive.length} completed ticket${toArchive.length===1?'':'s'} moved to History.`);
   render();
-}
-function runRolloverNow(){lastRolloverCheck='';checkDailyRollover();toast('Rollover checked. Ongoing or unverified games stay on the board.');}
-function recordWin(b){
-  const event={id:b.id,owner:b.owner,title:b.title,payout:b.payout,stake:b.stake,time:now()};winEvents[b.id]=event;localStorage.setItem(WINS_KEY,JSON.stringify(winEvents));
-  addActivity(`${b.owner} HIT THE BOARD: ${b.title} · ${money(b.payout)} tracker payout`, 'hit',b.owner);
-  showCelebration(event);
 }
 function checkWinners(){
   const hits=bets.filter(b=>ticketStatus(b)==='won');let played=false;
@@ -489,67 +394,6 @@ function showRecentOnReturn(){
   let wins=Object.values(winEvents).filter(w=>Date.now()-new Date(w.time).getTime()<18*3600*1000).sort((a,b)=>b.time.localeCompare(a.time));
   if(!wins.length)return;const seenKey='oddsfathers.seenlogin.'+wins[0].id;
   if(sessionStorage.getItem(seenKey))return;sessionStorage.setItem(seenKey,'1');showCelebration(wins[0]);
-}
-function saveSubmissions(){try{localStorage.setItem(SUBMISSION_KEY,JSON.stringify(submissions.slice(0,25)))}catch(e){toast('Phone storage is full; try using a smaller screenshot or connect the crew cloud.')}}
-function openSubmission(){const d=$('submissionDialog');$('submissionForm').reset();$('submissionOwner').value=localStorage.getItem('oddsfathers.sender')||'';$('submissionPreview').textContent='Choose a screenshot to preview';$('submissionModeNote').textContent=settings.endpoint?'Connected cloud room: your photo appears in the crew inbox.':isNetlifyHosted()?'Netlify mode: photo goes to the site owner in Netlify Forms for review, not directly onto the live board.':'LOCAL MODE: photo stays on this phone. Publish to Netlify or connect cloud sync for friends.';d.showModal()}
-function thumbPreview(e){let f=e.target.files?.[0];const el=$('submissionPreview');if(!f){el.textContent='Choose a screenshot to preview';return}if(!f.type.startsWith('image/')){el.textContent='Please choose an image.';return}const url=URL.createObjectURL(f);el.innerHTML='';let im=document.createElement('img');im.alt='Selected screenshot';im.src=url;im.onload=()=>URL.revokeObjectURL(url);el.append(im)}
-function isNetlifyHosted(){return /(^|\.)netlify\.app$/i.test(location.hostname)}
-function photoThumb(data){return new Promise(resolve=>{let im=new Image();im.onload=()=>{const c=document.createElement('canvas');const r=Math.min(1,190/Math.max(im.width,im.height));c.width=Math.round(im.width*r);c.height=Math.round(im.height*r);c.getContext('2d').drawImage(im,0,0,c.width,c.height);resolve(c.toDataURL('image/jpeg',.5))};im.onerror=()=>resolve('');im.src=data})}
-function photoBlob(data){const [head,raw]=data.split(',');const bin=atob(raw);let bytes=Uint8Array.from(bin,ch=>ch.charCodeAt(0));return new Blob([bytes],{type:'image/jpeg'})}
-async function submitToNetlify(s){const data=new FormData();data.append('form-name','oddsfathers-friend-bets');data.append('bot-field','');data.append('name',s.owner);data.append('stake',s.stake||'');data.append('payout',s.payout||'');data.append('notes',s.notes||'');data.append('screenshot',photoBlob(s.image),'fanduel-betslip.jpg');const r=await fetch('/',{method:'POST',body:data});if(!r.ok)throw Error(`Netlify form submission HTTP ${r.status}`)}
-function compressScreenshot(file){return new Promise((resolve,reject)=>{
-  if(!file.type.startsWith('image/'))return reject(Error('Only image screenshots are accepted.'));
-  if(file.size>13*1024*1024)return reject(Error('Image too large. Please use a screenshot under 13 MB.'));
-  let url=URL.createObjectURL(file),im=new Image();im.onerror=()=>{URL.revokeObjectURL(url);reject(Error('Could not open screenshot.'))};
-  im.onload=()=>{URL.revokeObjectURL(url);const max=1300;let ratio=Math.min(1,max/Math.max(im.width,im.height));let c=document.createElement('canvas');c.width=Math.round(im.width*ratio);c.height=Math.round(im.height*ratio);let cx=c.getContext('2d');cx.fillStyle='#fff';cx.fillRect(0,0,c.width,c.height);cx.drawImage(im,0,0,c.width,c.height);
-    let quality=.75,data=c.toDataURL('image/jpeg',quality);while(data.length>225000&&quality>.28){quality-=.1;data=c.toDataURL('image/jpeg',quality)}
-    if(data.length>225000)return reject(Error('Screenshot too large after compression. Crop it and retry.'));
-    resolve(data);
-  };im.src=url;
-})}
-async function submitScreenshot(e){e.preventDefault();const owner=$('submissionOwner').value.trim(),file=$('submissionImage').files?.[0];if(!owner||!file){toast('Add your name and choose a screenshot.');return}
-  const btn=$('submitScreenshotSave');btn.disabled=true;btn.textContent='Uploading…';try{
-    const photo=await compressScreenshot(file),thumb=await photoThumb(photo);const s={id:uuid(),owner,thumb,stake:Number($('submissionStake').value||0),payout:Number($('submissionPayout').value||0),notes:$('submissionNotes').value.trim(),image:photo,status:'pending',createdAt:now(),unsynced:true};
-    localStorage.setItem('oddsfathers.sender',owner);submissions.unshift(s);saveSubmissions();
-    if(settings.endpoint){try{await pushPhotoSubmission(s);s.unsynced=false;saveSubmissions();toast(`Screenshot sent to the crew for review, ${owner}.`)}catch(err){toast('Screenshot saved locally; cloud upload failed. Try Sync now later.')}}else if(isNetlifyHosted()){try{await submitToNetlify(s);s.unsynced=false;s.status='delivered';saveSubmissions();toast('Photo sent! The site owner can review it in Netlify Forms.')}catch(err){toast('Netlify form submission failed. Confirm Forms detection is enabled; photo saved locally.')}}else toast('Screenshot saved only on this phone. Connect the cloud room or publish on Netlify to share it.');
-    addActivity(`${owner} submitted a screenshot for review`);closeDialog($('submissionDialog'));renderInbox();
-  }catch(err){toast(err.message)}finally{btn.disabled=false;btn.textContent='Send to the crew →'}
-}
-function renderInbox(){const el=$('screenshotInbox');if(!el)return;const arr=submissions.filter(s=>s.status==='pending').sort((a,b)=>b.createdAt.localeCompare(a.createdAt));$('inboxCount').textContent=`${arr.length} PENDING`;
-  el.innerHTML=arr.length?arr.slice(0,12).map(s=>`<button type="button" data-action="review-photo" data-id="${esc(s.id)}" class="submission-row"><img src="${esc(s.thumb||s.image||'')}" alt="Submitted ticket"/><span><strong>${esc(s.owner)}</strong><small>${new Date(s.createdAt).toLocaleString('en-US',{month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})}</small><small>${s.unsynced?'Only on this phone':'Awaiting review'}</small></span><b>Review ↗</b></button>`).join(''):'<div class="inbox-empty">No screenshots waiting. Gabe and Rodman can submit theirs here.</div>';
-}
-async function reviewPhoto(id){let s=submissions.find(x=>x.id===id);if(!s)return;reviewingSubmissionId=id;$('reviewImage').src=s.image||s.thumb||'';if(!s.image&&settings.endpoint){try{const r=await fetch(`${settings.endpoint}/api/submission?room=${encodeURIComponent(settings.room)}&id=${encodeURIComponent(id)}`);if(!r.ok)throw Error('Download failed');const d=await r.json();s.image=d.submission?.image;if(!s.image)throw Error('Missing photo');$('reviewImage').src=s.image;saveSubmissions()}catch(err){toast('Could not load full screenshot from cloud.')}}$('reviewTitle').textContent=`${s.owner}'s ticket`;$('reviewDescription').textContent=`${s.owner} · ${s.stake?money(s.stake)+' wager':'Wager unknown'} · ${s.payout?money(s.payout)+' possible payout':'Payout unknown'}${s.notes?' · '+s.notes:''}`;$('reviewDialog').showModal()}
-function addReviewedPhoto(){let s=submissions.find(x=>x.id===reviewingSubmissionId);if(!s)return;closeDialog($('reviewDialog'));openBet();$('formOwner').value=s.owner;$('formTitle').value=`${s.owner} · Screenshot Ticket`;
-  $('formStake').value=s.stake||1;$('formPayout').value=s.payout||20;$('formNotes').value=`Submitted via screenshot ${new Date(s.createdAt).toLocaleString()}. ${s.notes||''}`;
-  const preview=document.createElement('img');preview.className='embedded-photo';preview.id='embeddedScreenshot';preview.src=s.image;preview.alt='Screenshot to verify and transcribe';
-  $('betForm').querySelector('.modal-scroll').prepend(preview);toast('Enter the verified legs while checking the screenshot above.');
-}
-function completePhotoReview(b){let s=submissions.find(x=>x.id===reviewingSubmissionId);if(!s)return;
-  submissions=submissions.filter(x=>x.id!==s.id);saveSubmissions();deletePhotoSubmission(s).catch(()=>{});reviewingSubmissionId=null;
-  $('embeddedScreenshot')?.remove();addActivity(`${s.owner}'s screenshot was added as verified ticket: ${b.title}`);
-}
-function dismissPhoto(){let s=submissions.find(x=>x.id===reviewingSubmissionId);if(!s)return;if(!confirm(`Remove ${s.owner}'s screenshot from the inbox?`))return;
-  submissions=submissions.filter(x=>x.id!==s.id);saveSubmissions();deletePhotoSubmission(s).catch(()=>{});closeDialog($('reviewDialog'));reviewingSubmissionId=null;renderInbox();}
-function crewSubmitLink(){let u=new URL(inviteLink());u.searchParams.set('submit','1');return u.toString()}
-function textCrewInvite(){if(location.protocol==='file:'){toast('Publish the site before texting your crew a link.');return}if(!settings.endpoint&&!isNetlifyHosted()){toast('Use Netlify hosting or connect cloud sync before inviting the crew.');return}const body=`THE ODDSFATHERS — Send your betslip screenshots here: ${crewSubmitLink()}`;location.href='sms:?&body='+encodeURIComponent(body)}
-async function pushPhotoSubmission(s){if(!settings.endpoint||!settings.room)throw Error('Cloud not configured');const clean={...s};delete clean.unsynced;const r=await fetch(`${settings.endpoint}/api/submission`,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({room:settings.room,submission:clean})});if(!r.ok)throw Error(`Screenshot upload HTTP ${r.status}`)}
-async function deletePhotoSubmission(s){if(!settings.endpoint||!settings.room)return;const r=await fetch(`${settings.endpoint}/api/submission?room=${encodeURIComponent(settings.room)}&id=${encodeURIComponent(s.id)}`,{method:'DELETE'});if(!r.ok)throw Error('Delete submission failed')}
-async function syncPhotoSubmissions(){if(!settings.endpoint||screenshotSyncBusy)return;screenshotSyncBusy=true;try{
-  const r=await fetch(`${settings.endpoint}/api/submissions?room=${encodeURIComponent(settings.room)}`,{cache:'no-store'});if(!r.ok)throw Error(`Screenshot sync HTTP ${r.status}`);const data=await r.json();if(!Array.isArray(data.submissions))throw Error('Malformed screenshot inbox response');
-  const prior=new Map(submissions.map(s=>[s.id,s]));let unsynced=submissions.filter(s=>s.unsynced&&!data.submissions.some(x=>x.id===s.id));
-  submissions=[...data.submissions.map(s=>({...s,image:prior.get(s.id)?.image||undefined})),...unsynced];saveSubmissions();renderInbox();
-  for(const s of unsynced){try{await pushPhotoSubmission(s);s.unsynced=false}catch(e){}}saveSubmissions();
-}catch(e){console.warn('Screenshot sync:',e.message)}finally{screenshotSyncBusy=false}}
-function bindV2(){
-  $('submitBetTopBtn').addEventListener('click',openSubmission);$('submitScreenshotBtn').addEventListener('click',openSubmission);
-  $('submissionForm').addEventListener('submit',submitScreenshot);$('submissionImage').addEventListener('change',thumbPreview);
-  $('makeTicketFromScreenshot').addEventListener('click',addReviewedPhoto);$('dismissScreenshot').addEventListener('click',dismissPhoto);
-  $('celebrationDismiss').addEventListener('click',dismissCelebration);$('celebration').addEventListener('click',e=>{if(e.target===$('celebration'))dismissCelebration()});
-  $('textInviteBtn').addEventListener('click',textCrewInvite);$('submitFriendLinkBtn').addEventListener('click',()=>{if(!settings.endpoint&&!isNetlifyHosted())toast('Publish on Netlify or connect cloud sync before sharing.');else copyText(crewSubmitLink())});
-  $('runRolloverBtn').addEventListener('click',runRolloverNow);
-  $('syncNowBtn').addEventListener('click',()=>syncPhotoSubmissions());
-  document.addEventListener('click',e=>{let el=e.target.closest('[data-action="review-photo"]');if(el)reviewPhoto(el.dataset.id);else if(e.target.closest('[data-action="close-submission"]'))closeDialog($('submissionDialog'));else if(e.target.closest('[data-action="close-review"]'))closeDialog($('reviewDialog'))});
-  setTimeout(showRecentOnReturn,2000);
 }
 
 </script>
