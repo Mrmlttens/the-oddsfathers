@@ -39,6 +39,32 @@
 @media(max-width:690px){.hero{height:222px}.hero h1{font-size:clamp(36px,8.7vw,60px)}.team-banner{gap:4px;margin:5px 12px 0}.team-banner span{font-size:6.7px;letter-spacing:.03em;padding:5px 4px}.nav-upload{padding:10px}.nav-upload span{display:none}.hero-overlay{background:linear-gradient(0deg,#08111c,transparent 40%),linear-gradient(90deg,rgba(4,9,19,.58),rgba(4,9,19,.75) 50%,rgba(4,9,19,.58))}}
 @media(prefers-reduced-motion:reduce){.celebration-sparks i{animation:none!important}.celebration-inner{animation:none!important;transform:none!important}}
 
+
+/* Approved fixed theme. Bet updates belong in bets.json; preserve this header. */
+.hero{height:auto;min-height:310px}
+.hero-content{min-height:310px;padding:20px 16px;transform:none}
+.team-banner{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));width:min(740px,100%);max-width:740px;gap:8px;margin:14px 0 0}
+.crew-team{display:flex;align-items:center;justify-content:center;gap:9px;min-width:0;padding:10px 8px;border:1px solid #34465a;border-bottom:3px solid var(--team);border-radius:6px;background:rgba(2,9,17,.9);text-align:left}
+.crew-team img{width:38px;height:38px;object-fit:contain;flex-shrink:0}
+.crew-team small{display:block;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:#c0c6d3}
+.crew-team strong{display:block;font-size:13px;line-height:1.5;text-transform:uppercase;letter-spacing:.03em}
+.team-banner .wash{--team:#9a1433;color:#ffb54a}
+.team-banner .dall{--team:#acc7e1;color:#e0ebff}
+.team-banner .pats{--team:#d6253c;color:#d4e8fa}
+.team-banner .steel{--team:#f5c837;color:#ffeab2}
+@media(max-width:690px){
+ .hero{height:auto;min-height:330px}
+ .hero-content{min-height:330px;padding:16px}
+ .hero h1{font-size:clamp(29px,7.7vw,52px)}
+ .hero-subtitle{font-size:12px;letter-spacing:.23em}
+ .pretitle{font-size:7px;gap:8px}
+ .team-banner{grid-template-columns:repeat(2,minmax(0,1fr));width:min(410px,100%);gap:7px;margin:14px 0 0}
+ .crew-team{justify-content:flex-start;padding:8px 10px;gap:9px}
+ .crew-team strong{font-size:12px}
+ .crew-team small{font-size:8px}
+ .hero-motto{margin-top:14px}
+}
+
 </style>
 </head>
 <body>
@@ -51,7 +77,8 @@
         <div class="crest">♛</div>
         <h1>THE <span>ODDSFATHERS</span></h1>
         <p class="hero-subtitle">THE GAMEDAY WAR ROOM</p>
-        <div class="team-banner" aria-label="Our teams"><span class="wash">WASHINGTON COMMANDERS</span><span class="dall">DALLAS COWBOYS</span><span class="pats">NEW ENGLAND PATRIOTS</span><span class="steel">PITTSBURGH STEELERS</span></div>
+        <!-- Fixed crew identity: preserve all four teams during ticket updates. -->
+        <div class="team-banner" aria-label="Our four teams"><div class="crew-team wash"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/wsh.png" alt="" width="38" height="38" onerror="this.style.display='none'"><div><small>Washington</small><strong>Commanders</strong></div></div><div class="crew-team dall"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/dal.png" alt="" width="38" height="38" onerror="this.style.display='none'"><div><small>Dallas</small><strong>Cowboys</strong></div></div><div class="crew-team pats"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/ne.png" alt="" width="38" height="38" onerror="this.style.display='none'"><div><small>New England</small><strong>Patriots</strong></div></div><div class="crew-team steel"><img src="https://a.espncdn.com/i/teamlogos/nfl/500/pit.png" alt="" width="38" height="38" onerror="this.style.display='none'"><div><small>Pittsburgh</small><strong>Steelers</strong></div></div></div>
         <div class="hero-motto"><span>THE CREW</span><span class="dot"></span><span>THE TICKETS</span><span class="dot"></span><span>THE GLORY</span></div>
       </div>
       <div class="hero-edge hero-edge-left">GOOD BETS<br>GOOD COMPANY</div>
