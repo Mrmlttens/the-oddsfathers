@@ -1,0 +1,268 @@
+{
+  "version": 1,
+  "bets": [
+    {
+      "id": "trey-tnf-20261022-1",
+      "owner": "Trey",
+      "title": "Bears · The Opening Salvo",
+      "game": {
+        "date": "2026-10-22",
+        "away": "New England Patriots",
+        "home": "Chicago Bears",
+        "sport": "NFL"
+      },
+      "stake": 1,
+      "payout": 25.38,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "notes": "Confirmed from FanDuel screenshots on October 22, 2026.",
+      "legs": [
+        {
+          "kind": "ml",
+          "team": "Chicago Bears",
+          "name": "",
+          "target": null,
+          "override": null
+        },
+        {
+          "kind": "any_td",
+          "team": "Chicago Bears",
+          "name": "D'Andre Swift",
+          "target": 1,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Chicago Bears",
+          "name": "Rome Odunze",
+          "target": 40,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Chicago Bears",
+          "name": "Luther Burden III",
+          "target": 60,
+          "override": null
+        },
+        {
+          "kind": "rushing_yards",
+          "team": "New England Patriots",
+          "name": "Rhamondre Stevenson",
+          "target": 40,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "New England Patriots",
+          "name": "Hunter Henry",
+          "target": 30,
+          "override": null
+        }
+      ],
+      "settlement": "auto",
+      "placed": true,
+      "createdAt": "2026-10-22T18:04:00-04:00",
+      "updatedAt": "2026-10-22T18:04:00-04:00"
+    },
+    {
+      "id": "trey-tnf-20261022-2",
+      "owner": "Trey",
+      "title": "Patriots · The Counterattack",
+      "game": {
+        "date": "2026-10-22",
+        "away": "New England Patriots",
+        "home": "Chicago Bears",
+        "sport": "NFL"
+      },
+      "stake": 1,
+      "payout": 12.52,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "notes": "Confirmed from FanDuel screenshots on October 22, 2026.",
+      "legs": [
+        {
+          "kind": "ml",
+          "team": "New England Patriots",
+          "name": "",
+          "target": null,
+          "override": null
+        },
+        {
+          "kind": "rushing_yards",
+          "team": "Chicago Bears",
+          "name": "D'Andre Swift",
+          "target": 50,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "New England Patriots",
+          "name": "DeMario Douglas",
+          "target": 40,
+          "override": null
+        },
+        {
+          "kind": "passing_yards",
+          "team": "New England Patriots",
+          "name": "Drake Maye",
+          "target": 225,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Chicago Bears",
+          "name": "Colston Loveland",
+          "target": 30,
+          "override": null
+        }
+      ],
+      "settlement": "auto",
+      "placed": true,
+      "createdAt": "2026-10-22T18:04:00-04:00",
+      "updatedAt": "2026-10-22T18:04:00-04:00"
+    },
+    {
+      "id": "trey-tnf-20261022-3",
+      "owner": "Trey",
+      "title": "Bears · The Golden Ticket",
+      "game": {
+        "date": "2026-10-22",
+        "away": "New England Patriots",
+        "home": "Chicago Bears",
+        "sport": "NFL"
+      },
+      "stake": 1,
+      "payout": 50.89,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "notes": "Confirmed from FanDuel screenshots on October 22, 2026.",
+      "legs": [
+        {
+          "kind": "ml",
+          "team": "Chicago Bears",
+          "name": "",
+          "target": null,
+          "override": null
+        },
+        {
+          "kind": "any_td",
+          "team": "Chicago Bears",
+          "name": "Colston Loveland",
+          "target": 1,
+          "override": null
+        },
+        {
+          "kind": "passing_yards",
+          "team": "Chicago Bears",
+          "name": "Caleb Williams",
+          "target": 250,
+          "override": null
+        },
+        {
+          "kind": "rushing_yards",
+          "team": "Chicago Bears",
+          "name": "D'Andre Swift",
+          "target": 50,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Chicago Bears",
+          "name": "Rome Odunze",
+          "target": 60,
+          "override": null
+        },
+        {
+          "kind": "receptions",
+          "team": "New England Patriots",
+          "name": "DeMario Douglas",
+          "target": 4,
+          "override": null
+        },
+        {
+          "kind": "passing_yards",
+          "team": "New England Patriots",
+          "name": "Drake Maye",
+          "target": 225,
+          "override": null
+        }
+      ],
+      "settlement": "auto",
+      "placed": true,
+      "createdAt": "2026-10-22T18:04:00-04:00",
+      "updatedAt": "2026-10-22T18:04:00-04:00"
+    },
+    {
+      "id": "trey-tnf-20261022-4",
+      "owner": "Trey",
+      "title": "Patriots · The Godfather",
+      "game": {
+        "date": "2026-10-22",
+        "away": "New England Patriots",
+        "home": "Chicago Bears",
+        "sport": "NFL"
+      },
+      "stake": 1,
+      "payout": 106.72,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "notes": "Confirmed from FanDuel screenshots on October 22, 2026.",
+      "legs": [
+        {
+          "kind": "ml",
+          "team": "New England Patriots",
+          "name": "",
+          "target": null,
+          "override": null
+        },
+        {
+          "kind": "any_td",
+          "team": "New England Patriots",
+          "name": "Hunter Henry",
+          "target": 1,
+          "override": null
+        },
+        {
+          "kind": "passing_yards",
+          "team": "New England Patriots",
+          "name": "Drake Maye",
+          "target": 250,
+          "override": null
+        },
+        {
+          "kind": "rushing_yards",
+          "team": "Chicago Bears",
+          "name": "D'Andre Swift",
+          "target": 50,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Chicago Bears",
+          "name": "Luther Burden III",
+          "target": 60,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "New England Patriots",
+          "name": "A.J. Brown",
+          "target": 70,
+          "override": null
+        },
+        {
+          "kind": "passing_yards",
+          "team": "Chicago Bears",
+          "name": "Caleb Williams",
+          "target": 275,
+          "override": null
+        }
+      ],
+      "settlement": "auto",
+      "placed": true,
+      "createdAt": "2026-10-22T18:04:00-04:00",
+      "updatedAt": "2026-10-22T18:04:00-04:00"
+    }
+  ]
+}
