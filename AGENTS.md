@@ -2,7 +2,7 @@
 
 ## Fixed approved identity
 Trey controls this public NFL tracker. Preserve the entire existing cinematic dark stadium theme, header artwork, typography, layout, and color palette. Do not regenerate or restyle the website during bet updates. Visual changes require an explicit request from Trey.
-Always feature all four crew teams in the header: Washington Commanders, Dallas Cowboys, New England Patriots, Pittsburgh Steelers. Keep each team's name, logo, and color accent visible on mobile and desktop. The stadium artwork also contains all four teams: preserve its full horizontal composition. Do not use cover or auto-height sizing that crops Washington or Pittsburgh off the sides on mobile. Keep the mobile artwork above the main title with enough vertical room.
+Always feature all four crew teams in the header: Washington Commanders, Dallas Cowboys, New England Patriots, Pittsburgh Steelers. Feature them through the existing background helmet artwork only. Do not add team-name labels, logo cards, badges, or a team list to the header. Preserve the title over the cinematic artwork on mobile and desktop. The stadium artwork also contains all four teams: preserve its full horizontal composition. Do not use cover or auto-height sizing that crops Washington or Pittsburgh off the sides on mobile. Keep the mobile artwork above the main title with enough vertical room.
 These are permanent crew teams, independent of the current matchup, ticket owners, scores, or selected filters.
 Preserve the current global CSS color values in index.html and the four team accent colors. Preserve all other UI styles unless Trey explicitly requests a change.
 ## Bet operations
