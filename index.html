@@ -77,10 +77,12 @@
 
 </style>
 <link rel="stylesheet" href="./livefield.css">
+<link rel="stylesheet" href="./celebrations-v2.css">
 </head>
 <body>
   <div class="shell">
-    <header class="hero">
+    <div class="celebration-preview-tools"><strong>V2 POPUP TEST</strong> · Sample results only<br><button id="previewTouchdown" type="button" class="btn btn-ghost">Preview touchdown 🏈</button><button id="previewTicketWin" type="button" class="btn btn-ghost">Preview ticket win ♛</button></div>
+<header class="hero">
       <div class="hero-art" aria-hidden="true"></div>
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="hero-content">
@@ -186,7 +188,7 @@
     </main>
   </div>
 
-  <div id="celebration" class="celebration" hidden role="status" aria-live="polite"><div class="celebration-sparks" id="celebrationSparks"></div><div class="celebration-inner"><div class="celebration-crown">♛</div><div class="celebration-label">THE ODDSFATHERS</div><h2 id="celebrationTitle">BIG HIT!</h2><p id="celebrationSubtitle"></p><button id="celebrationDismiss" type="button" class="btn btn-primary">LET'S GO ↗</button></div></div>
+  <div id="celebration" class="celebration" hidden role="status" aria-live="polite"><div class="celebration-sparks" id="celebrationSparks"></div><div class="celebration-inner"><div class="celebration-crown">♛</div><div class="celebration-label">THE ODDSFATHERS</div><h2 id="celebrationTitle">BIG HIT!</h2><p id="celebrationSubtitle"></p><div id="celebrationPeople" class="celebration-people"></div><div id="celebrationStats" class="celebration-stats" hidden></div><p id="celebrationNote" class="celebration-note"></p><button id="celebrationDismiss" type="button" class="btn btn-primary">LET'S GO ↗</button></div></div>
   <div class="toast-region" id="toasts" aria-live="polite"></div>
   <script>
 /* THE ODDSFATHERS · locally useful, cloud-sync ready, publicly sourced NFL tracking */
@@ -345,7 +347,7 @@ for(const r of done){if(r.status==='fulfilled')statsByEvent.set(String(r.value.i
 scoreState='connected';lastRefresh=new Date();
 // Only announce new hit/miss milestones after at least one prior successful feed, never initial backfill.
 for(const b of bets){for(let j=0;j<b.legs.length;j++){let key=`${b.id}.${j}`,v=evalLeg(b.legs[j],b).status,old=lastKnownStatus.get(key);if(old&&old!==v&&(v==='hit'||v==='miss'))addActivity(`${b.owner}: ${legText(b.legs[j])} — ${v==='hit'?'HIT':'MISSED'}`,v,b.owner);lastKnownStatus.set(key,v)}}
-checkWinners();checkDailyRollover();if(!silent)toast('NFL scoreboard and player stats refreshed.');
+checkLegMilestones();checkWinners();checkDailyRollover();if(!silent)toast('NFL scoreboard and player stats refreshed.');
 }catch(err){scoreState='failed';if(!silent)toast(`Live feed unavailable: ${err.message}. Showing the last available data.`)}finally{$('refreshBtn').disabled=false;$('refreshGlyph').textContent='⟳';render()}}
 function pickView(view){currentView=view;renderGameCenter();for(const v of ['dashboard','leaderboard','history'])$(v+'View').hidden=v!==view;document.querySelectorAll('.navtab').forEach(el=>el.classList.toggle('active',el.dataset.tab===view));$('currentTitle').innerHTML=view==='dashboard'?'The Board <span class="text-gradient">Is Live.</span>':view==='leaderboard'?'Crown The <span class="text-gradient">Champion.</span>':'The Record <span class="text-gradient">Never Lies.</span>'}
 function downloadFile(name,content,mime){const blob=new Blob([content],{type:mime});const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),10000)}
@@ -445,6 +447,7 @@ function showRecentOnReturn(){
 
 </script>
 <script src="./livefield.js" defer></script>
+<script src="./celebrations-v2.js" defer></script>
 </body>
 </html>
 
