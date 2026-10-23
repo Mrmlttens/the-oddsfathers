@@ -88,6 +88,7 @@
 .leg-progress.miss .leg-progress-label{color:var(--red)}
 @media(prefers-reduced-motion:reduce){.leg-progress-fill{transition:none}}
 </style>
+<link rel="stylesheet" href="./livefield.css">
 </head>
 <body>
   <div class="shell">
@@ -156,15 +157,6 @@
           <div class="board-footnote"><span class="tiny-led"></span> Live stats from ESPN public game feeds when available. Wager settlement, grading and payouts must be confirmed in your sportsbook.</div>
         </div>
         <aside class="sidebar">
-          <section class="panel game-panel">
-            <div class="sidebar-heading"><span class="eyebrow">◉ THE MAIN EVENT</span><span id="scoreLiveLabel" class="tiny-tag">SCHEDULED</span></div>
-            <label class="game-select-wrap">WATCHING <select id="gameSelect" aria-label="Choose which game to display"></select></label>
-            <div class="scoreboard" id="scoreboard"><div class="score-skeleton">Waiting for game feed…</div></div>
-            <div class="score-meta" id="scoreMeta">Automatically checks NFL games</div>
-            <button class="text-button" id="showAllGamesBtn">View other games ▸</button>
-            <div class="other-games" id="otherGames" hidden></div>
-          </section>
-          <section class="panel game-panel"><div class="eyebrow">THE SHARED BOARD</div><p id="boardStatus" class="helper">VIEW ONLY · Loading shared board…</p><p class="helper">Trey manages all tickets through ChatGPT. Send your betslip screenshots to Trey.</p></section>
           <section class="panel crew-panel">
             <div class="sidebar-heading"><span class="eyebrow">♛ THE INNER CIRCLE</span><span id="crewCount" class="tiny-tag">1 MEMBER</span></div>
             <div id="crewList"></div>
@@ -177,6 +169,14 @@
         </aside>
       </section>
 
+<section id="livefield" class="livefield" aria-labelledby="lfTitle">
+<div class="lf-top"><div><div class="eyebrow">THE GAME / LIVE</div><h3 id="lfTitle">LIVEFIELD</h3></div><div id="lfMeta" class="lf-meta" role="status">ESPN · Awaiting game details</div></div>
+<label class="game-select-wrap">WATCHING <select id="gameSelect" aria-label="Choose which game to display"></select></label>
+<div class="lf-body"><div><div id="lfScore" class="lf-score"></div><div id="lfSituation" class="lf-situation"></div><div id="lfField" class="lf-field" role="img" aria-label="Football field"></div><div class="lf-last"><div class="eyebrow">LAST PLAY</div><p id="lfLast">Waiting for game feed.</p></div><div id="lfDrive" class="lf-drive"></div></div>
+<div class="lf-players"><h4>Your players. Your targets.</h4><p class="lf-hint">Crew bets for the selected game · Reported stats</p><div id="lfPlayers"></div><details id="lfMorePlayers" class="lf-details" hidden><summary id="lfMorePlayerCount">More targets</summary><div id="lfMorePlayerRows"></div></details></div></div>
+<details class="lf-details"><summary>Team stats</summary><table id="lfStats" class="lf-table" aria-label="Team statistics"></table></details>
+<details class="lf-details"><summary>Play-by-play</summary><ol id="lfPlays" class="lf-plays" aria-label="Most recent plays first"></ol></details>
+<p class="lf-hint">Blue: ball spot · Gold: line to gain · ESPN updates may lag or be corrected. Choose a game above to follow its live details.</p></section>
       <section id="leaderboardView" class="single-view" hidden>
         <div class="panel leader-panel"><div class="eyebrow">CREW RANKINGS</div><h3>King of the Board</h3><p class="subtle">Ranked by settled net winnings. Open bets never count as wins.</p><div id="leaderboard"></div></div>
       </section>
@@ -243,6 +243,7 @@ let publishedVersion='';
 let publishedSyncBusy=false;
 let activity=[];
 let currentView='dashboard', selectedOwner='all',selectedStatus='all',expanded=new Set(), editingId=null,selectedGameKey=null;
+const livefieldSummaries=new Map(),livefieldFailures=new Set();
 let espnEvents=[], espnByGame=new Map(), statsByEvent=new Map(), scoreState='pending', lastRefresh=null, lastKnownStatus=new Map(),syncBusy=false,liveTimer=null;
 let editingLegs=[];
 let submissions=readJSON(SUBMISSION_KEY,[]), winEvents={}, reviewingSubmissionId=null, firstWinCheck=true, screenshotSyncBusy=false, lastRolloverCheck='';
@@ -344,33 +345,26 @@ return `<article class="ticket ${teamColors(b)} ${st}" data-id="${esc(b.id)}"><d
 ${detail?`<div class="legs">${legs}<div style="display:flex;justify-content:space-between;gap:9px;align-items:center;margin-top:8px">${b.ticketUrl?`<a target="_blank" rel="noopener noreferrer" href="${esc(b.ticketUrl)}" style="font-size:11px">Open slip ↗</a>`:''}</div></div>`:''}</div></article>`}).join('')}
 function renderCrew(){let names=[...new Set(bets.map(x=>x.owner||'Unknown'))].sort();$('crewCount').textContent=`${names.length} MEMBER${names.length!==1?'S':''}`;
 $('crewList').innerHTML=names.length?names.map((n,i)=>{const bb=bets.filter(b=>b.owner===n),open=bb.filter(b=>['open','live','review'].includes(ticketStatus(b))).length;const known=bb.filter(b=>b.placed!==false&&Number.isFinite(b.stake));const risk=known.length?known.reduce((a,b)=>a+b.stake,0):null;return `<div class="crew-member"><div class="crew-avatar">${esc(n.slice(0,1).toUpperCase())}</div><div class="crew-person"><strong>${esc(n)} ${i===0?'♛':''}</strong><p>${bb.length} bet${bb.length!==1?'s':''} · ${open} open</p></div><div class="crew-amount">${money(risk)}</div></div>`}).join(''):'<p class="subtle">Crew roster empty.</p>'}
-function renderScoreboard(){const selected=currentGame();const game=selected?findEvent(selected):null;const a=selected?.away||AWAY,h=selected?.home||HOME;
-const teamNode=(team,logo,abbr,cl)=>`<div class="score-team"><span class="score-fallback ${cl}">${esc(abbr)}</span><strong>${esc(abbr)}</strong></div>`;
-if(!game){$('scoreboard').innerHTML=`<div class="score-content">${teamNode(a,'',teamAbbr(a),'')}<div><div class="score-result">— : —</div><div class="score-state">${selected?esc(dateText(selected.date)):'NO GAMES'}</div></div>${teamNode(h,'',teamAbbr(h),'orange')}</div>`;$('scoreMeta').textContent=sourceText();$('scoreLiveLabel').textContent='AWAITING DATA';return;}
-const cm=game.competitions?.[0],co=cm?.competitors||[];const away=co.find(x=>teamEquals(x.team?.displayName,a))||co.find(x=>x.homeAway==='away')||co[0],home=co.find(x=>teamEquals(x.team?.displayName,h))||co.find(x=>x.homeAway==='home')||co[1];const st=cm?.status||game.status||{};let state=st.type?.state||'pre';let time=state==='in'?`${st.type?.shortDetail||`${st.period||''} ${st.displayClock||''}`}`:state==='post'?'FINAL':new Date(game.date).toLocaleTimeString('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit'})+' ET';
-$('scoreboard').innerHTML=`<div class="score-content">${teamNode(a,away?.team?.logo,away?.team?.abbreviation||teamAbbr(a),'')}<div><div class="score-result">${esc(away?.score??'0')} : ${esc(home?.score??'0')}</div><div class="score-state">${esc(time)}</div></div>${teamNode(h,home?.team?.logo,home?.team?.abbreviation||teamAbbr(h),'orange')}</div>`;
-$('scoreLiveLabel').textContent=state==='in'?'● LIVE':state==='post'?'FINAL':'PREGAME';$('scoreLiveLabel').style.color=state==='in'?'var(--green)':'';$('scoreMeta').textContent=sourceText();
-$('otherGames').innerHTML=espnEvents.filter(x=>x.id!==game.id).map(x=>{let tt=x.competitions?.[0]?.competitors||[];let aw=tt.find(y=>y.homeAway==='away')||tt[0],ho=tt.find(y=>y.homeAway==='home')||tt[1];return `<div class="other-game"><span>${esc(aw?.team?.abbreviation||'?')} ${esc(aw?.score||'')} @ ${esc(ho?.team?.abbreviation||'?')} ${esc(ho?.score||'')}</span><span>${esc(x.status?.type?.shortDetail||'')}</span></div>`}).join('')||'<div class="subtle">No other games loaded.</div>'}
 function addActivity(message,type='info',owner=''){activity.unshift({id:uuid(),message,type,owner,time:now()});activity=activity.slice(0,40);localStorage.setItem(ACTIVITY_KEY,JSON.stringify(activity));renderActivity()}
 function renderActivity(){let list=activity.slice(0,7);$('activityFeed').innerHTML=list.length?list.map(e=>`<div class="activity ${esc(e.type)}"><div class="activity-dot">${e.type==='hit'?'✓':e.type==='miss'?'✕':'↗'}</div><div><p>${esc(e.message)}</p><small>${new Date(e.time).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}</small></div></div>`).join(''):`<div class="activity"><div class="activity-dot">◉</div><div><p>Game feed standing by. You'll see leg milestones and crew entries here as they happen.</p><small>Welcome to the war room</small></div></div>`}
 function renderLeaderboard(){let names=[...new Set(bets.map(b=>b.owner))];let rows=names.map(n=>{let bs=bets.filter(b=>b.owner===n),settled=bs.filter(b=>['won','lost'].includes(ticketStatus(b)));let profit=settled.filter(b=>Number.isFinite(b.stake)&&(ticketStatus(b)!=='won'||Number.isFinite(b.payout))).reduce((sum,b)=>sum+(ticketStatus(b)==='won'?b.payout:0)-b.stake,0);if(bs.every(b=>!Number.isFinite(b.stake)))profit=null;return {n,count:bs.length,settled:settled.length,profit,open:bs.length-settled.length}}).sort((a,b)=>b.profit-a.profit||b.count-a.count);
 $('leaderboard').innerHTML=rows.map((r,i)=>`<div class="leader-row"><div class="leader-rank">${i===0?'♛':String(i+1).padStart(2,'0')}</div><div class="leader-name"><strong>${esc(r.n)}</strong><span>${r.count} tickets · ${r.settled} graded · ${r.open} open</span></div><div class="leader-profit ${r.profit<0?'negative':''}">${r.profit>0?'+':''}${money(r.profit)}</div></div>`).join('')||'<p class="subtle">No bets entered.</p>'}
 function renderHistory(){let bs=bets.slice().sort((a,b)=>(b.createdAt||'').localeCompare(a.createdAt||''));$('historyList').innerHTML=bs.map(b=>`<div class="hist-row"><div class="leg-symbol ${ticketStatus(b)}">${ticketStatus(b)==='won'?'✓':ticketStatus(b)==='lost'?'✕':'·'}</div><div class="hist-body"><strong>${esc(b.title)}</strong><p>${esc(b.owner)} · ${esc(dateText(b.game.date))} · ${esc(b.game.away)} @ ${esc(b.game.home)} · ${b.legs.length} legs</p></div><div class="hist-pay">${money(b.payout)}</div></div>`).join('')||'<p class="subtle">No history yet.</p>'}
-function render(){renderStats();renderRecentHits();renderFilters();renderGameSelect();renderScenarioBar();renderTickets();renderCrew();renderScoreboard();renderActivity();renderLeaderboard();renderHistory();const badge=$('feedBadge');badge.className='livebadge '+scoreState;badge.querySelector('span:last-child').textContent=scoreState==='connected'?'ESPN LIVE':scoreState==='failed'?'FEED OFFLINE':'CONNECTING';}
+function render(){renderStats();renderRecentHits();renderFilters();renderGameSelect();renderScenarioBar();renderTickets();renderCrew();renderGameCenter();renderActivity();renderLeaderboard();renderHistory();const badge=$('feedBadge');badge.className='livebadge '+scoreState;badge.querySelector('span:last-child').textContent=scoreState==='connected'?'ESPN LIVE':scoreState==='failed'?'FEED OFFLINE':'CONNECTING';}
 async function fetchJson(url){const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),12000);try{const r=await fetch(url,{signal:controller.signal,cache:'no-store'});if(!r.ok)throw Error(`HTTP ${r.status}`);return await r.json()}finally{clearTimeout(timeout)}}
 async function refreshLive(silent=false){if($('refreshBtn').disabled)return;$('refreshBtn').disabled=true;$('refreshGlyph').textContent='◌';
 try{const dates=[...new Set(bets.filter(b=>b.game.sport==='NFL').map(b=>b.game.date))].slice(0,5);if(!dates.includes(DATE))dates.unshift(DATE);let all=[];
 const pageLoads=await Promise.allSettled(dates.map(date=>fetchJson(`${NFL_BASE}/scoreboard?dates=${date.replaceAll('-','')}`)));for(const rr of pageLoads){if(rr.status==='fulfilled')all.push(...(rr.value.events||[]))}if(!pageLoads.some(x=>x.status==='fulfilled'))throw Error('No scoreboard responses');
 espnEvents=[...new Map(all.map(e=>[e.id,e])).values()];
 const events=[...new Map(bets.map(b=>findEvent(b.game)).filter(Boolean).map(e=>[e.id,e])).values()];
-let done=await Promise.allSettled(events.map(e=>fetchJson(`${NFL_BASE}/summary?event=${encodeURIComponent(e.id)}`).then(raw=>({id:e.id,stats:extractGameStats(raw)}))));
+let done=await Promise.allSettled(events.map(async e=>{const id=String(e.id);try{const raw=await fetchJson(`${NFL_BASE}/summary?event=${encodeURIComponent(e.id)}`);if(String(raw.header?.id)!==id)throw Error('Mismatched game summary');const stats=extractGameStats(raw);livefieldSummaries.set(id,{raw,time:Date.now()});livefieldFailures.delete(id);return {id,stats};}catch(error){livefieldFailures.add(id);throw error;}}));
 for(const r of done){if(r.status==='fulfilled')statsByEvent.set(String(r.value.id),r.value.stats)}
 scoreState='connected';lastRefresh=new Date();
 // Only announce new hit/miss milestones after at least one prior successful feed, never initial backfill.
 for(const b of bets){for(let j=0;j<b.legs.length;j++){let key=`${b.id}.${j}`,v=evalLeg(b.legs[j],b).status,old=lastKnownStatus.get(key);if(old&&old!==v&&(v==='hit'||v==='miss'))addActivity(`${b.owner}: ${legText(b.legs[j])} — ${v==='hit'?'HIT':'MISSED'}`,v,b.owner);lastKnownStatus.set(key,v)}}
 checkWinners();checkDailyRollover();if(!silent)toast('NFL scoreboard and player stats refreshed.');
 }catch(err){scoreState='failed';if(!silent)toast(`Live feed unavailable: ${err.message}. Showing the last available data.`)}finally{$('refreshBtn').disabled=false;$('refreshGlyph').textContent='⟳';render()}}
-function pickView(view){currentView=view;for(const v of ['dashboard','leaderboard','history'])$(v+'View').hidden=v!==view;document.querySelectorAll('.navtab').forEach(el=>el.classList.toggle('active',el.dataset.tab===view));$('currentTitle').innerHTML=view==='dashboard'?'The Board <span class="text-gradient">Is Live.</span>':view==='leaderboard'?'Crown The <span class="text-gradient">Champion.</span>':'The Record <span class="text-gradient">Never Lies.</span>'}
+function pickView(view){currentView=view;renderGameCenter();for(const v of ['dashboard','leaderboard','history'])$(v+'View').hidden=v!==view;document.querySelectorAll('.navtab').forEach(el=>el.classList.toggle('active',el.dataset.tab===view));$('currentTitle').innerHTML=view==='dashboard'?'The Board <span class="text-gradient">Is Live.</span>':view==='leaderboard'?'Crown The <span class="text-gradient">Champion.</span>':'The Record <span class="text-gradient">Never Lies.</span>'}
 function downloadFile(name,content,mime){const blob=new Blob([content],{type:mime});const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),10000)}
 function exportCsv(){let rows=[['Bet Owner','Ticket','Game Date','Matchup','Stake','Potential Return','Odds','Status','Leg']];for(const b of bets)for(const leg of b.legs){rows.push([b.owner,b.title,b.game.date,`${b.game.away} at ${b.game.home}`,b.stake??'N/A',b.payout??'N/A',oddsFromReturn(b),ticketStatus(b),legText(leg)])}downloadFile('oddsfathers-bets.csv',rows.map(r=>r.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(',')).join('\n'),'text/csv')}
 function copyText(t){if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(t).then(()=>toast('Copied to clipboard!')).catch(()=>fallbackCopy(t));return fallbackCopy(t)}
@@ -392,9 +386,7 @@ async function syncPublished(){
    bets=data.bets;publishedVersion=signature;lastRolloverCheck='';
    checkDailyRollover();render();checkWinners();
   }
-  $('boardStatus').textContent='VIEW ONLY · Shared board';
  }catch(err){
-  $('boardStatus').textContent='VIEW ONLY · Board update unavailable';
   console.warn('Published board:',err.message);
  }finally{publishedSyncBusy=false;}
 }
@@ -402,8 +394,7 @@ function bind(){
  document.querySelectorAll('.navtab').forEach(el=>el.addEventListener('click',()=>pickView(el.dataset.tab)));
  $('refreshBtn').addEventListener('click',async()=>{await syncPublished();refreshLive(false)});
  $('exportBtn').addEventListener('click',exportCsv);
- $('showAllGamesBtn').addEventListener('click',()=>{$('otherGames').hidden=!$('otherGames').hidden});
- $('gameSelect').addEventListener('change',e=>{selectedGameKey=e.target.value;renderScoreboard();renderScenarioBar()});
+ $('gameSelect').addEventListener('change',e=>{selectedGameKey=e.target.value;renderGameCenter();renderScenarioBar()});
  $('ownerFilter').addEventListener('change',e=>{selectedOwner=e.target.value;renderTickets()});
  $('statusFilter').addEventListener('change',e=>{selectedStatus=e.target.value;renderTickets()});
  $('celebrationDismiss').addEventListener('click',dismissCelebration);
@@ -467,5 +458,7 @@ function showRecentOnReturn(){
 }
 
 </script>
+<script src="./livefield.js" defer></script>
 </body>
 </html>
+
