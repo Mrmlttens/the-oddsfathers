@@ -91,6 +91,7 @@
 <link rel="stylesheet" href="./livefield.css">
 <link rel="stylesheet" href="./celebrations-v2.css?v=slots-1">
 <link rel="stylesheet" href="./king.css?v=scenarios-5">
+<link rel="stylesheet" href="./upcoming.css?v=1">
 </head>
 <body>
   <div class="shell">
@@ -144,9 +145,9 @@
       </div>
 
       <section class="stats" aria-label="Betting summary">
-        <article class="statbox"><div class="statlabel">CREW BETS</div><div class="statvalue" id="statBets">4</div><div class="stathint" id="statBetsHint">4 open tickets</div></article>
+        <article class="statbox"><div class="statlabel">CREW BETS</div><div class="statvalue" id="statBets">0</div><div class="stathint" id="statBetsHint">4 open tickets</div></article>
         <article class="statbox"><div class="statlabel">TOTAL IN PLAY</div><div class="statvalue" id="statStaked">$4.00</div><div class="stathint">Confirmed amounts only · placeholders excluded</div></article>
-        <article class="statbox accent-gold"><div class="statlabel">BIGGEST PAYDAY</div><div class="statvalue" id="statTop">$106.72</div><div class="stathint">Largest individual listed return</div></article>
+        <article class="statbox accent-gold"><div class="statlabel">BIGGEST PAYDAY</div><div class="statvalue" id="statTop">—</div><div class="stathint">Largest individual listed return</div></article>
         <article class="statbox accent-green"><div class="statlabel">SETTLED NET</div><div class="statvalue" id="statNet">$0.00</div><div class="stathint" id="statNetHint">No settled tickets</div></article>
       </section>
 
@@ -156,7 +157,7 @@
       <section class="war-layout" id="dashboardView">
         <div class="primary-panel">
           <div class="panel-header">
-            <div><div class="eyebrow">THE SLIPS</div><h3>Battle Cards <span id="visibleCount" class="heading-count">4</span></h3></div>
+            <div><div class="eyebrow">THE SLIPS</div><h3>Battle Cards <span id="visibleCount" class="heading-count">0</span></h3></div>
             <div class="filter-bar" id="filters">
               <select id="ownerFilter" aria-label="Filter by bettor"><option value="all">All crew</option></select>
               <select id="statusFilter" aria-label="Filter by status"><option value="all">All bets</option><option value="open">Open</option><option value="won">Won</option><option value="lost">Lost</option></select>
@@ -164,7 +165,7 @@
           </div>
           <div class="ticket-grid" id="ticketGrid"></div>
           <div class="empty" id="emptyState" hidden><strong>No tickets match this view.</strong><p>Change the filters or check back for crew updates.</p></div>
-          <div class="board-footnote">Daily board rolls over at 4 AM Eastern, after completed games. Unfinished or unverified games stay visible; old slips remain in History. ESPN checks every 30 seconds while this page is open. Published crew tickets check for updates every 30 seconds.</div>
+          <div class="board-footnote">Daily board rolls over at 4 AM Eastern, after completed games. Unfinished games stay visible. Completed games move to History even when sportsbook settlement is unconfirmed. ESPN checks every 30 seconds while this page is open. Published crew tickets check for updates every 30 seconds.</div>
           <div class="board-footnote"><span class="tiny-led"></span> Live stats from ESPN public game feeds when available. Wager settlement, grading and payouts must be confirmed in your sportsbook.</div>
         </div>
 
@@ -206,6 +207,11 @@
       <section id="historyView" class="single-view" hidden>
         <div class="panel history-panel"><div class="eyebrow">THE ARCHIVE</div><h3>Every Ticket Tells a Story</h3><div id="historyList"></div></div>
       </section>
+<section id="upcomingGames" class="panel upcoming-panel" aria-labelledby="upcomingTitle">
+<div class="upcoming-heading"><div><div class="eyebrow">NEXT UP</div><h3 id="upcomingTitle">Upcoming games &amp; lines</h3></div><button id="upcomingRefresh" type="button" class="btn btn-ghost">Refresh</button></div>
+<p id="upcomingMeta" class="upcoming-meta" role="status">Loading schedule and lines…</p><div id="upcomingList"></div>
+<p class="upcoming-note">ESPN-reported lines · Source shown per game · Gold arrows show changes since the previous successful check. Lines may lag or differ from your sportsbook. Missing lines show —.</p>
+</section>
       <footer class="footer"><div class="brand-mini">♛ THE ODDSFATHERS <span>/ GAMEDAY WAR ROOM</span></div><div>Built for the crew · v2.0 · No sportsbook affiliation</div></footer>
     </main>
   </div>
@@ -245,22 +251,8 @@ function teamLogo(n){const ab=teamAbbr(n).toLowerCase();const ids={ne:'ne',chi:'
 function dateText(d){try{return new Date(d+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}catch{return d}}
 function oddsFromReturn(b){if(Number.isFinite(b.odds))return (b.odds>0?'+':'')+b.odds;let stake=Number(b.stake),pay=Number(b.payout);if(!(stake>0)||pay<=0)return '—';let dec=pay/stake;return dec>=2?`+${Math.round((dec-1)*100)}`:`${Math.round(-100/(dec-1))}`}
 function makeLeg(kind,team,name,target){return {kind,team,name:name||'',target:target===null?null:Number(target),override:null}}
-function initBets(){
-const game={date:DATE,away:AWAY,home:HOME,sport:'NFL'};
-const at='2026-10-22T18:04:00-04:00';
-const create=(id,title,payout,legs)=>({id,owner:'Trey',title,game:{...game},stake:1,payout,sportsbook:'FanDuel',ticketUrl:'',notes:'Confirmed from FanDuel screenshots on October 22, 2026.',legs,settlement:'auto',placed:true,createdAt:at,updatedAt:at});
-return [
-create('trey-tnf-20261022-1','Bears · The Opening Salvo',25.38,[
- makeLeg('ml',HOME,'',null),makeLeg('any_td',HOME,"D'Andre Swift",1),makeLeg('receiving_yards',HOME,'Rome Odunze',40),makeLeg('receiving_yards',HOME,'Luther Burden III',60),makeLeg('rushing_yards',AWAY,'Rhamondre Stevenson',40),makeLeg('receiving_yards',AWAY,'Hunter Henry',30)]),
-create('trey-tnf-20261022-2','Patriots · The Counterattack',12.52,[
- makeLeg('ml',AWAY,'',null),makeLeg('rushing_yards',HOME,"D'Andre Swift",50),makeLeg('receiving_yards',AWAY,'DeMario Douglas',40),makeLeg('passing_yards',AWAY,'Drake Maye',225),makeLeg('receiving_yards',HOME,'Colston Loveland',30)]),
-create('trey-tnf-20261022-3','Bears · The Golden Ticket',50.89,[
- makeLeg('ml',HOME,'',null),makeLeg('any_td',HOME,'Colston Loveland',1),makeLeg('passing_yards',HOME,'Caleb Williams',250),makeLeg('rushing_yards',HOME,"D'Andre Swift",50),makeLeg('receiving_yards',HOME,'Rome Odunze',60),makeLeg('receptions',AWAY,'DeMario Douglas',4),makeLeg('passing_yards',AWAY,'Drake Maye',225)]),
-create('trey-tnf-20261022-4','Patriots · The Godfather',106.72,[
- makeLeg('ml',AWAY,'',null),makeLeg('any_td',AWAY,'Hunter Henry',1),makeLeg('passing_yards',AWAY,'Drake Maye',250),makeLeg('rushing_yards',HOME,"D'Andre Swift",50),makeLeg('receiving_yards',HOME,'Luther Burden III',60),makeLeg('receiving_yards',AWAY,'A.J. Brown',70),makeLeg('passing_yards',HOME,'Caleb Williams',275)])
-];}
 function readJSON(key,fallback){try{let x=JSON.parse(localStorage.getItem(key));return x??fallback}catch{return fallback}}
-let bets=initBets();
+let bets=[];
 const settings={room:'',endpoint:''};
 let publishedVersion='';
 let publishedSyncBusy=false;
@@ -451,10 +443,11 @@ function easternParts(d=new Date()){
   let v=Object.fromEntries(parts.map(x=>[x.type,x.value]));return {date:`${v.year}-${v.month}-${v.day}`,hour:Number(v.hour)};
 }
 function boardDate(){const et=easternParts();if(et.hour>=4)return et.date;const d=new Date(`${et.date}T12:00:00Z`);d.setUTCDate(d.getUTCDate()-1);return d.toISOString().slice(0,10)}
+function shouldArchiveTicket(b,today,state){return !b.archivedAt&&b.game?.date<today&&(state==='post'||(['won','lost','void'].includes(b.settlement)&&!['in','pre'].includes(state)));}
 function checkDailyRollover(){
   const today=boardDate(),k=today+'|'+bets.map(b=>[b.id,statusOfGame(b.game),b.settlement,b.archivedAt||''].join(':')).join('|');
   if(k===lastRolloverCheck)return;lastRolloverCheck=k;
-  const toArchive=bets.filter(b=>!b.archivedAt&&b.game?.date<today&&(['won','lost','void'].includes(b.settlement)&&!['in','pre'].includes(statusOfGame(b.game))));
+  const toArchive=bets.filter(b=>shouldArchiveTicket(b,today,statusOfGame(b.game)));
   if(!toArchive.length)return;
   for(const b of toArchive){b.archivedAt=now();b.updatedAt=now()}
   save();
@@ -496,8 +489,10 @@ function showRecentOnReturn(){
 <script src="./king.js?v=slots-1" defer></script>
 <script src="./popup-points.js?v=slots-1" defer></script>
 <script src="./celebrations-v2.js?v=slots-1" defer></script>
+<script src="./upcoming.js?v=1" defer></script>
 </body>
 </html>
+
 
 
 
