@@ -78,10 +78,11 @@
 </style>
 <link rel="stylesheet" href="./livefield.css">
 <link rel="stylesheet" href="./celebrations-v2.css">
+<link rel="stylesheet" href="./king.css">
 </head>
 <body>
   <div class="shell">
-    <div class="celebration-preview-tools"><strong>V2 POPUP TEST</strong> · Sample results only<br><button id="previewTouchdown" type="button" class="btn btn-ghost">Preview touchdown 🏈</button><button id="previewTicketWin" type="button" class="btn btn-ghost">Preview ticket win ♛</button></div>
+    
 <header class="hero">
       <div class="hero-art" aria-hidden="true"></div>
       <div class="hero-overlay" aria-hidden="true"></div>
@@ -96,11 +97,18 @@
       <div class="hero-edge hero-edge-right">SAME GAME<br>DIFFERENT DEGENS</div>
     </header>
 
+    
+    <div id="kingTicker" class="king-ticker" role="region" aria-label="Points ticker">
+      <a id="kingTickerLink" class="king-ticker-label" href="#leaderboardView" aria-label="Open King standings">♛ POINTS</a>
+      <div id="kingTickerWindow" class="king-ticker-window" tabindex="0" aria-label="Season, weekend and recent points"><div class="king-ticker-track"><div id="kingTickerGroup" class="king-ticker-group"><span>Awaiting first points</span></div><div id="kingTickerCopy" class="king-ticker-group king-ticker-copy" aria-hidden="true"></div></div></div>
+      <button id="kingTickerPause" type="button" aria-label="Pause points ticker" aria-pressed="false" hidden>Ⅱ</button>
+    </div>
+
     <div class="navwrap">
       <nav class="nav" aria-label="Dashboard navigation">
         <div class="nav-left">
           <button type="button" class="navtab active" data-tab="dashboard">◈ <span>War Room</span></button>
-          <button type="button" class="navtab" data-tab="leaderboard">♛ <span>Leaderboard</span></button>
+          <button type="button" class="navtab" data-tab="leaderboard" aria-label="King standings" title="King standings">♛ <span>King</span></button>
           <button type="button" class="navtab" data-tab="history">◷ <span>History</span></button>
         </div>
         <div class="nav-actions">
@@ -178,9 +186,33 @@
 <details class="lf-details"><summary>Play-by-play</summary><ol id="lfPlays" class="lf-plays" aria-label="Most recent plays first"></ol></details>
 <p class="lf-hint">Blue: ball spot · Gold: line to gain · ESPN updates may lag or be corrected. Shared game selector above controls LIVEFIELD.</p></section>
 
+
       <section id="leaderboardView" class="single-view" hidden>
-        <div class="panel leader-panel"><div class="eyebrow">CREW RANKINGS</div><h3>King of the Board</h3><p class="subtle">Ranked by settled net winnings. Open bets never count as wins.</p><div id="leaderboard"></div></div>
+        <div class="eyebrow">♛ GAMBLER KING</div><p id="kingStatus" class="king-status" role="status">Loading contest records…</p>
+        <div class="king-standings">
+          <section class="panel king-panel" aria-labelledby="kingSeasonTitle"><div id="kingSeasonYear" class="eyebrow">SEASON</div><h3 id="kingSeasonTitle">Season points</h3><p class="subtle">The long game. Every scored weekend counts.</p><div id="kingSeasonRows"></div></section>
+          <section class="panel king-panel" aria-labelledby="kingWeekendTitle"><div id="kingWeekendDate" class="eyebrow">THIS WEEKEND</div><h3 id="kingWeekendTitle">Weekend points</h3><p class="subtle">This week's race. Winner bonus: +5 season points.</p><div id="kingWeekendRows"></div></section>
+        </div>
+        <details class="panel king-rules"><summary>Scoring rules</summary>
+          <p><strong>V2 trial rules · v2-trial-1.</strong> Points are separate from cash winnings. No real-money entry is required to nominate a verified contest pick. Trey manages the scoring records.</p>
+          <ul>
+            <li><strong>Three scoring tickets.</strong> Nominate all three before the earliest selected game kicks off. Duplicates and late changes do not count. Other wagers stay visible below.</li>
+            <li><strong>Stake has no effect.</strong> The same pick earns the same points regardless of the money wagered.</li>
+            <li><strong>Difficulty uses verified odds.</strong> Use the unboosted combined ticket odds, frozen at nomination. Never multiply same-game leg probabilities or infer an unboosted price from boosted returns.</li>
+            <li><strong>Length bonus is capped.</strong> Add 5% per extra distinct leg, up to 25%. Repeated or nested versions of the same condition count once for length credit.</li>
+            <li><strong>Wins add points; losses subtract.</strong> Points = 20 × length multiplier × (result − implied probability). Result is 1 for a win and 0 for a loss. Positive American odds: probability = 100 ÷ (odds + 100). Negative odds: probability = absolute odds ÷ (absolute odds + 100). These are market benchmarks, not guaranteed true probabilities.</li>
+            <li><strong>Example:</strong> A three-leg ticket at +150 earns +13.20 points if it wins or −8.80 if it loses. Each ticket is limited to 25 points in either direction. Scores are summed before rounding.</li>
+            <li><strong>Weekend bonus:</strong> The highest positive total earns +5 season points once the week is closed and all nominated tickets are graded. At least two eligible members must compete. Ties split the bonus; it does not feed back into the weekend ranking.</li>
+            <li><strong>Time window:</strong> Thursday through Wednesday, using Eastern game dates. Open tickets stay pending. Closing a week is an explicit admin action after settlement, never just the clock rolling over.</li>
+            <li><strong>Voids and corrections:</strong> Whole-ticket voids score zero. A voided leg requires verified revised odds and an adjusted effective leg count before scoring. Missing evidence stays pending. Corrected results recalculate points and bonuses.</li>
+            <li><strong>Cashouts and promotions:</strong> Contest picks are graded through their original outcomes; a cashout, refund promotion or profit boost does not change contest points. Cash results remain separate below.</li>
+            <li><strong>Season crown:</strong> A member must complete at least 75% of closed contest weeks to qualify. Late joiners can compete for weekend honors. No existing ticket is retrospectively nominated.</li>
+          </ul>
+        </details>
+        <section class="panel king-wagers" aria-labelledby="kingWagerTitle"><div class="eyebrow">THE MONEY BOARD</div><h3 id="kingWagerTitle">Crew wagers</h3><p class="king-status">Known confirmed stakes and sportsbook-graded results. Unconfirmed slips and placeholder stakes are excluded from cash totals.</p><div id="leaderboard"></div><p class="king-status">*Settled net is returned cash minus settled wagers, before fees. Live stat estimates do not finalize cash winnings.</p></section>
+        <details class="panel king-rules"><summary>Preview celebrations</summary><div class="celebration-preview-tools"><strong>V2 POPUP TEST</strong> · Sample results only<br><button id="previewTouchdown" type="button" class="btn btn-ghost">Preview touchdown 🏈</button><button id="previewTicketWin" type="button" class="btn btn-ghost">Preview ticket win ♛</button></div></details>
       </section>
+
       <section id="historyView" class="single-view" hidden>
         <div class="panel history-panel"><div class="eyebrow">THE ARCHIVE</div><h3>Every Ticket Tells a Story</h3><div id="historyList"></div></div>
       </section>
@@ -448,6 +480,8 @@ function showRecentOnReturn(){
 </script>
 <script src="./livefield.js" defer></script>
 <script src="./celebrations-v2.js" defer></script>
+<script src="./king-model.js" defer></script>
+<script src="./king.js" defer></script>
 </body>
 </html>
 
