@@ -9,9 +9,9 @@ function popupSave(key,value){try{localStorage.setItem(key,JSON.stringify(value)
 function popupMarkSeen(key){popupSeen[key]=now();const cutoff=Date.now()-3*86400000;popupSeen=Object.fromEntries(Object.entries(popupSeen).filter(([,time])=>new Date(time).getTime()>cutoff));popupSave(POPUP_SEEN_KEY,popupSeen);}
 function popupGameKey(game){return [game?.date,norm(game?.away),norm(game?.home)].join('|');}
 function popupLegKey(bet,leg){return ['leg',popupGameKey(bet.game),norm(leg.name||leg.team),leg.kind,leg.target??''].join('|');}
-function popupOwners(entries){const owners=new Map();for(const {bet} of entries){const prior=owners.get(bet.owner);owners.set(bet.owner,prior===true||bet.placed!==false);}return [...owners].map(([name,confirmed])=>name+(confirmed?'':' (unconfirmed)'));}
+function popupOwners(entries){const owners=new Map();for(const {bet} of entries){const prior=owners.get(bet.owner);owners.set(bet.owner,prior===true||bet.placed!==false);}return [...owners].map(([name,confirmed])=>name);}
 function queuePopup(event){if(!event.demo&&(popupSeen[event.key]||popupQueued.has(event.key)))return;popupQueued.add(event.key);if(event.type==='win')popupQueue.unshift(event);else popupQueue.push(event);pumpPopup();}
-function pumpPopup(){if(popupCurrent||document.hidden||!popupQueue.length)return;const event=popupQueue.shift();if(!event.demo&&event.type==='win'){const bet=bets.find(b=>b.id===event.betId);if(!bet||bet.placed===false||ticketStatus(bet)!=='won'){popupQueued.delete(event.key);pumpPopup();return;}}popupCurrent=event;if(!event.demo)popupMarkSeen(event.key);paintPopup(event);}
+function pumpPopup(){if(popupCurrent||document.hidden||!popupQueue.length)return;const event=popupQueue.shift();if(!event.demo&&event.type==='win'){const bet=bets.find(b=>b.id===event.betId);if(!bet||ticketStatus(bet)!=='won'){popupQueued.delete(event.key);pumpPopup();return;}}popupCurrent=event;if(!event.demo)popupMarkSeen(event.key);paintPopup(event);}
 function paintPopup(event){
  const root=$('celebration');if(!root)return;
  clearTimeout(celebrationTimer);root.classList.toggle('milestone',event.type!=='win');
@@ -57,7 +57,7 @@ function ticketPopup(bet){
  return {key:'win|'+bet.id,betId:bet.id,type:'win',title:official?'TICKET WON!':'ALL LEGS HIT!',subtitle:bet.title,owners:[bet.owner],pointReceipts,stats:[{label:cleared===total?'LEGS CLEARED':'LEGS TRACKED',value:cleared+' / '+total},{label:bet.payoutEstimated?'EST. RETURN':official?'TOTAL RETURN':'LISTED RETURN',value:money(payout)},{label:estimated?'EST. PROFIT*':'PROFIT*',value:profit===null?'N/A':(profit>0?'+':'')+money(profit)},...(pointReceipts?[{label:'LEG POINTS CREDITED',value:pointReceipts.some(r=>r.points===null)?'Loading':pointReceipts.reduce((n,r)=>n+r.points,0)+' CP'}]:[])],note:'*Profit is return minus wager, before fees. '+(official?'Reported settled win.':'Awaiting sportsbook confirmation.')};
 }
 function checkWinners(){
- for(const bet of bets){if(bet.placed===false||ticketStatus(bet)!=='won'){if(winEvents[bet.id])delete winEvents[bet.id];continue;}
+ for(const bet of bets){if(ticketStatus(bet)!=='won'){if(winEvents[bet.id])delete winEvents[bet.id];continue;}
   const event=ticketPopup(bet);winEvents[bet.id]={id:bet.id,owner:bet.owner,title:bet.title,payout:bet.payout,stake:bet.stake,time:winEvents[bet.id]?.time||now(),legs:bet.legs.length};
   if(bet.game?.date<boardDate()&&statusOfGame(bet.game)!=='in'){popupMarkSeen(event.key);continue;}
   queuePopup(event);
@@ -66,14 +66,15 @@ function checkWinners(){
 }
 function showRecentOnReturn(){pumpPopup();}
 // Retained for callers; all full wins use the same queue and detail card.
-function showCelebration(win){const bet=bets.find(b=>b.id===win.id);if(bet&&bet.placed!==false&&ticketStatus(bet)==='won')queuePopup(ticketPopup(bet));}
+function showCelebration(win){const bet=bets.find(b=>b.id===win.id);if(bet&&ticketStatus(bet)==='won')queuePopup(ticketPopup(bet));}
 function previewCelebration(type){
  const unique='demo|'+Date.now()+'|'+Math.random();
- if(type==='td')queuePopup({key:unique,demo:true,type:'leg',touchdown:true,title:'TOUCHDOWN!',subtitle:"D'Andre Swift scored!",owners:['Trey','Rodman (unconfirmed)'],pointReceipts:[{owner:'Trey',points:1,live:true},{owner:'Rodman',points:0,reason:'unconfirmed'}]});
+ if(type==='td')queuePopup({key:unique,demo:true,type:'leg',touchdown:true,title:'TOUCHDOWN!',subtitle:"D'Andre Swift scored!",owners:['Trey','Rodman'],pointReceipts:[{owner:'Trey',points:1,live:true},{owner:'Rodman',points:1,live:true}]});
  else queuePopup({key:unique,demo:true,type:'win',title:'ALL LEGS HIT!',subtitle:'Bears · The Opening Salvo',owners:['Trey'],pointReceipts:[{owner:'Trey',points:6,cumulative:true}],stats:[{label:'LEGS CLEARED',value:'6 / 6'},{label:'LISTED RETURN',value:'$25.38'},{label:'PROFIT*',value:'+$24.38'},{label:'LEG POINTS CREDITED',value:'6 CP'}]});
 }
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)pumpPopup();});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&popupCurrent)dismissCelebration();});
 document.getElementById('previewTouchdown')?.addEventListener('click',()=>previewCelebration('td'));
 document.getElementById('previewTicketWin')?.addEventListener('click',()=>previewCelebration('win'));
+
 

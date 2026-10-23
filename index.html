@@ -89,7 +89,7 @@
 @media(prefers-reduced-motion:reduce){.leg-progress-fill{transition:none}}
 </style>
 <link rel="stylesheet" href="./livefield.css">
-<link rel="stylesheet" href="./celebrations-v2.css?v=header-points-3">
+<link rel="stylesheet" href="./celebrations-v2.css?v=slots-1">
 <link rel="stylesheet" href="./king.css?v=scenarios-5">
 </head>
 <body>
@@ -188,21 +188,17 @@
           <section class="panel king-panel" aria-labelledby="kingWeekendTitle"><div id="kingWeekendDate" class="eyebrow">THIS WEEKEND</div><h3 id="kingWeekendTitle">Weekend Crown Points</h3><p class="subtle">This week's race. Winner bonus: +5 season points.</p><div id="kingWeekendRows"></div></section>
         </div>
         <details class="panel king-rules"><summary>Scoring rules</summary>
-          <p><strong>King of the Odds (K.O.T.O) · V2 live trial rules.</strong> Points are separate from cash winnings. Live leg points use confirmed published tickets. Three nominated picks are used for separate ticket-difficulty scoring. Trey manages the scoring records.</p>
-          <ul>
-            <li><strong>Live Crown Points.</strong> Earn +1 when a unique player/stat leg or moneyline clears, up to 10 leg points per person per weekend. Live points update with the game feed, remain provisional while the game is in progress, and adjust if stats are corrected. Cleared legs retain their leg points even if another leg loses.</li><li><strong>No stacking the same leg.</strong> Repeating Swift rushing yards on several slips counts once. Nested thresholds for the same player/stat also count once; clearing the first earns that category’s point. Stake size never adds points.</li><li><strong>Pre-game entries only.</strong> Tickets must be recorded before the game starts. An admin can approve a late record only with verified pre-game evidence. Unconfirmed slips do not earn points.</li><li><strong>Three ticket-difficulty picks.</strong> Nominate all three before the earliest selected game kicks off. Duplicates and late changes do not count. Other confirmed published wagers can still earn live leg points.</li>
-            <li><strong>Stake has no effect.</strong> The same pick earns the same points regardless of the money wagered.</li>
-            <li><strong>Difficulty uses verified odds.</strong> Use the unboosted combined ticket odds, frozen at nomination. Never multiply same-game leg probabilities or infer an unboosted price from boosted returns.</li>
-            <li><strong>Length bonus is capped.</strong> Add 5% per extra distinct leg, up to 25%. Repeated or nested versions of the same condition count once for length credit.</li>
-            <li><strong>Ticket-difficulty points are separate.</strong> Wins add difficulty points and losses subtract difficulty points; already earned leg points remain. Points = 20 × length multiplier × (result − implied probability). Result is 1 for a win and 0 for a loss. Positive American odds: probability = 100 ÷ (odds + 100). Negative odds: probability = absolute odds ÷ (absolute odds + 100). These are market benchmarks, not guaranteed true probabilities.</li>
-            <li><strong>Example:</strong> A three-leg ticket at +150 earns +13.20 points if it wins or −8.80 if it loses. Each ticket is limited to 25 points in either direction. Scores are summed before rounding.</li>
-            <li><strong>Weekend bonus:</strong> The highest positive total earns +5 season points once the week is closed and all nominated tickets are graded. At least two eligible members must compete. Ties split the bonus; it does not feed back into the weekend ranking.</li>
-            <li><strong>Time window:</strong> Thursday through Wednesday, using Eastern game dates. Open tickets stay pending. Closing a week is an explicit admin action after settlement, never just the clock rolling over.</li>
-            <li><strong>Voids and corrections:</strong> Whole-ticket voids score zero. A voided leg requires verified revised odds and an adjusted effective leg count before scoring. Missing evidence stays pending. Corrected results recalculate points and bonuses.</li>
-            <li><strong>Cashouts and promotions:</strong> Contest picks are graded through their original outcomes; a cashout, refund promotion or profit boost does not change contest points. Cash results remain separate below.</li>
-            <li><strong>Season crown:</strong> A member must complete at least 75% of closed contest weeks to qualify. Late joiners can compete for weekend honors. Existing confirmed tickets can display leg points from reported stats. They are never retrospectively nominated for ticket-difficulty points. Final leg awards must be saved in the shared scoring ledger before older games leave the live feed.</li>
-          </ul>
-        </details>
+<p><strong>King of the Odds · 10 scoring slots.</strong> Track unlimited bets anytime. Missing wagers and unconfirmed placement never block Crown Points. Cash totals remain separate.</p>
+<ul>
+<li>Your first 10 unique eligible legs submitted before their games kick off fill your weekend scoring slots, in submission and slip-leg order. Later bets and live entries still track and celebrate hits; they do not earn Crown Points.</li>
+<li>Each selected hit earns +1 live point. Misses and voids earn zero. All slots stay used: no deleting losses, changing targets, or replacing voids.</li>
+<li>The same player/stat/game counts once across slips and alternate thresholds. The original target stays locked. Opposing moneylines share one slot. Different stats, such as rushing yards and a touchdown, can score separately.</li>
+<li>Winning legs still score when another leg loses the ticket. Stat corrections recalculate points without replacing the scoring selections.</li>
+<li>The contest week runs Thursday through Wednesday, Eastern time, including Thursday–Monday football. Once the week ends and every scoring pick is final, the highest positive score wins +5 season bonus points. At least two members must compete. Ties share the crown and split the bonus; it never changes the weekend ranking.</li>
+<li>Season points add all scoring hits and weekend bonuses. Every hit is worth one point regardless of difficulty, odds or wager size. Equal scoring slots limit volume advantages; this is not odds-adjusted skill scoring.</li>
+<li>No retroactive scoring entries. Missing kickoff/submission evidence stays visibly pending. Current scoring uses submitted picks and the game feed. Permanent shared scoring history is pending approval.</li>
+</ul></details>
+<details class="panel king-rules"><summary>Scoring picks &amp; point explanations</summary><div id="kingScoringAudit"></div></details>
         <section class="panel king-wagers" aria-labelledby="kingWagerTitle"><div class="eyebrow">THE MONEY BOARD</div><h3 id="kingWagerTitle">Crew wagers</h3><p class="king-status">Known confirmed stakes and sportsbook-graded results. Unconfirmed slips and placeholder stakes are excluded from cash totals.</p><div id="leaderboard"></div><p class="king-status">*Settled net is returned cash minus settled wagers, before fees. Live stat estimates do not finalize cash winnings.</p></section>
         <details class="panel king-rules"><summary>Preview celebrations</summary><div class="celebration-preview-tools"><strong>V2 POPUP TEST</strong> · Sample results only<br><button id="previewTouchdown" type="button" class="btn btn-ghost">Preview touchdown 🏈</button><button id="previewTicketWin" type="button" class="btn btn-ghost">Preview ticket win ♛</button></div></details>
       </section>
@@ -307,7 +303,7 @@ const goal=leg.target||1;
 if(value>=goal)return {status:'hit',value};
 return {status:final?'miss':playing?'live':'pending',value};
 }
-function ticketStatus(b){if(b.placed===false)return 'review';if(b.settlement==='won')return 'won';if(b.settlement==='lost')return 'lost';if(b.settlement==='void')return 'review';if(!b.legs?.length)return 'review';const s=b.legs.map(l=>evalLeg(l,b).status);if(s.includes('miss'))return 'lost';if(s.every(x=>x==='hit'))return 'won';if(s.includes('review')||s.includes('void'))return 'review';if(s.includes('live')||statusOfGame(b.game)==='in')return 'live';return 'open'}
+function ticketStatus(b){if(b.settlement==='won')return 'won';if(b.settlement==='lost')return 'lost';if(b.settlement==='void')return 'review';if(!b.legs?.length)return 'review';const s=b.legs.map(l=>evalLeg(l,b).status);if(s.includes('miss'))return 'lost';if(s.every(x=>x==='hit'))return 'won';if(s.includes('review')||s.includes('void'))return 'review';if(s.includes('live')||statusOfGame(b.game)==='in')return 'live';return 'open'}
 function legText(l){const who=l.name||l.team||'Selection';if(l.kind==='ml')return `${l.team} moneyline`;
 if(l.kind==='any_td')return `${who} · anytime touchdown`;
 if(l.kind==='passing_yards')return `${who} · ${l.target}+ passing yards`;
@@ -359,7 +355,7 @@ function compareTicketCloseness(a,b){
 function renderTickets(){let filtered=bets.filter(b=>!b.archivedAt).filter(b=>(selectedOwner==='all'||b.owner===selectedOwner)&&(selectedStatus==='all'||(selectedStatus==='open'?['open','live','review'].includes(ticketStatus(b)):ticketStatus(b)===selectedStatus)));
 filtered.sort(compareTicketCloseness);$('visibleCount').textContent=filtered.length;$('emptyState').hidden=filtered.length>0;
 $('ticketGrid').innerHTML=filtered.map((b,i)=>{const st=ticketStatus(b),p=progress(b),detail=expanded.has(b.id),winner=b.legs.find(l=>l.kind==='ml')?.team;
-const statusLabel=b.placed===false?'UNCONFIRMED':{open:'OPEN',live:'IN PLAY',won:'WON',lost:'LOST',review:'REVIEW'}[st];const shortTeams=`${teamAbbr(b.game.away)} @ ${teamAbbr(b.game.home)}`;
+const statusLabel={open:'OPEN',live:'IN PLAY',won:'WON',lost:'LOST',review:'REVIEW'}[st];const shortTeams=`${teamAbbr(b.game.away)} @ ${teamAbbr(b.game.home)}`;
 const dots=p.states.map(s=>`<span class="p-dot ${s.status==='hit'?'hit':s.status==='miss'?'miss':s.status==='live'?'live':''}"></span>`).join('');
 const legs=b.legs.map((l,j)=>{const v=p.states[j],sym=v.status==='hit'?'✓':v.status==='miss'?'✕':v.status==='review'?'!':'·';return `<div class="leg-wrap"><div class="leg"><span class="leg-symbol ${v.status}">${sym}</span><span class="leg-name">${esc(legText(l))}</span><span class="leg-stat ${v.status}">${esc(legTicker(l,v))}</span></div>${legProgressBar(l,v)}</div>`}).join('');
 return `<article class="ticket ${teamColors(b)} ${st}" data-id="${esc(b.id)}"><div class="ticket-top"><div><span class="ticket-no">TICKET ${String(b.id).endsWith('-1')?'01':String(b.id).endsWith('-2')?'02':String(b.id).endsWith('-3')?'03':String(b.id).endsWith('-4')?'04':String(i+1).padStart(2,'0')}</span><span class="ticket-owner">♛ ${esc(b.owner)}</span></div><span class="statuspill ${st}">${statusLabel}</span></div>
@@ -496,11 +492,12 @@ function showRecentOnReturn(){
 
 </script>
 <script src="./livefield.js" defer></script>
-<script src="./king-model.js?v=koto-live-2" defer></script>
-<script src="./king.js?v=koto-live-2" defer></script>
-<script src="./popup-points.js?v=header-points-3" defer></script>
-<script src="./celebrations-v2.js?v=header-points-3" defer></script>
+<script src="./king-model.js?v=slots-1" defer></script>
+<script src="./king.js?v=slots-1" defer></script>
+<script src="./popup-points.js?v=slots-1" defer></script>
+<script src="./celebrations-v2.js?v=slots-1" defer></script>
 </body>
 </html>
+
 
 

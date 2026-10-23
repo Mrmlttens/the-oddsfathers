@@ -20,3 +20,9 @@ Routine ticket updates change bets.json only. Fetch the current file first, pres
 Public visitors remain view-only. Trey manages entries through ChatGPT.
 ## Development
 Keep the existing GitHub Pages address. Experimental versions belong on a separate development branch; main serves the live site. Do not merge experiments without Trey's instruction.
+
+
+
+## Approved K.O.T.O. scoring slots (October 23, 2026)
+Trey approved the koto-10-slots-v1 rules and publication on the main site. Missing wagers or placement confirmation never block competition points. Unlimited bets can be tracked; the first ten unique pre-game legs per owner/Thursday-based contest week score. Preserve submission order and original target. Extra, duplicate/opposing and post-kickoff picks track only. No replacing losses or voids. The King tab contains the current complete rules.
+For every bet submission, preserve existing createdAt values and use the actual submission time on new tickets. Never backdate a ticket to claim scoring eligibility. Append immutable snapshots of all newly submitted legs to king.json registrations (id = bet ID + ':' + original leg index). Preserve all existing registrations, even when a ticket is removed or edited. When available, record the verified ESPN kickoff. king.json results holds source-verified results; save final results and corrections there so historical points survive feed expiry. Do not fabricate results or kickoff evidence. This scoring-ledger maintenance is an approved exception to the bets.json-only routine-update rule. Preserve betting data separately from scoring records. Keep root and /v2/ scoring assets and rules in sync; /v2/index.html fetches ../bets.json.
