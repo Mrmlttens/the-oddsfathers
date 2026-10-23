@@ -3,3 +3,8 @@
 @media(max-width:690px){.king-ticker{padding:0 10px;gap:8px;height:30px;font-size:9px}.king-standings{grid-template-columns:1fr;gap:12px}.king-panel,.king-wagers{padding:17px}.king-rules{padding:15px 17px}.king-table th,.king-table td{padding:12px 7px;font-size:11px}}
 @media(prefers-reduced-motion:reduce){.king-ticker.running .king-ticker-track{animation:none}.king-ticker-window{overflow-x:auto}.king-ticker.running .king-ticker-copy{display:none}}
 .war-layout{grid-template-columns:minmax(0,1fr)}.livefield-picker{margin:14px 0 4px;max-width:420px}.king-live-label{color:var(--gold)}
+
+
+/* Keep gradient lettering crisp without stacked mobile shadows. */
+.hero h1{transform:none;text-shadow:none}
+.hero h1 span{text-shadow:none}
