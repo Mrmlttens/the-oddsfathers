@@ -1,5 +1,12 @@
 # THE ODDSFATHERS project rules
 
+## Approved Version 1 baseline
+Trey approved this current site as Version 1 on October 22, 2026 (Eastern time). The v1-baseline branch preserves this release. Keep that branch unchanged as a recovery snapshot.
+The entire Version 1 visual design is frozen: header composition, helmet artwork, palette, typography, spacing, cards, navigation, mobile layout, and celebrations. Routine data updates must not change any of these. Any visual revision requires an explicit request from Trey; develop a new version on a separate branch and publish only when instructed.
+Before changing code, read these rules and fetch the current files. Preserve all existing bets. Bet updates belong in bets.json only.
+This is a project maintenance rule, not a GitHub permission or branch-protection setting.
+
+
 ## Fixed approved identity
 Trey controls this public NFL tracker. Preserve the entire existing cinematic dark stadium theme, header artwork, typography, layout, and color palette. Do not regenerate or restyle the website during bet updates. Visual changes require an explicit request from Trey.
 Always feature all four crew teams in the header: Washington Commanders, Dallas Cowboys, New England Patriots, Pittsburgh Steelers. Feature them through the existing background helmet artwork only. Do not add team-name labels, logo cards, badges, or a team list to the header. Preserve the title over the cinematic artwork on mobile and desktop. The stadium artwork also contains all four teams: preserve its full horizontal composition. Do not use cover or auto-height sizing that crops Washington or Pittsburgh off the sides on mobile. Keep the mobile artwork above the main title with enough vertical room.
