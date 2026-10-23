@@ -496,6 +496,66 @@
       "placed": true,
       "createdAt": "2026-10-23T00:07:08.149Z",
       "updatedAt": "2026-10-23T00:07:08.149Z"
+    },
+    {
+      "id": "rodman-tnf-20261022-5td",
+      "owner": "Rodman",
+      "title": "Rodman · 5 Anytime Touchdowns",
+      "game": {
+        "date": "2026-10-22",
+        "away": "New England Patriots",
+        "home": "Chicago Bears",
+        "sport": "NFL"
+      },
+      "stake": 5,
+      "payout": 731.15,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "settlement": "auto",
+      "placed": false,
+      "createdAt": "2026-10-23T00:07:51.760Z",
+      "updatedAt": "2026-10-23T00:07:51.760Z",
+      "notes": "Five anytime-touchdown selections and +14523 odds transcribed from Rodman's unplaced betslip screenshot. $5 placeholder per Trey's standing instruction for N/A wagers; estimated total return $731.15 at displayed odds. Actual stake, placement, and accepted odds remain unconfirmed.",
+      "odds": 14523,
+      "legs": [
+        {
+          "kind": "any_td",
+          "team": "New England Patriots",
+          "name": "Hunter Henry",
+          "target": 1,
+          "override": null
+        },
+        {
+          "kind": "any_td",
+          "team": "New England Patriots",
+          "name": "A.J. Brown",
+          "target": 1,
+          "override": null
+        },
+        {
+          "kind": "any_td",
+          "team": "New England Patriots",
+          "name": "TreVeyon Henderson",
+          "target": 1,
+          "override": null
+        },
+        {
+          "kind": "any_td",
+          "team": "Chicago Bears",
+          "name": "Colston Loveland",
+          "target": 1,
+          "override": null
+        },
+        {
+          "kind": "any_td",
+          "team": "Chicago Bears",
+          "name": "D'Andre Swift",
+          "target": 1,
+          "override": null
+        }
+      ],
+      "stakeEstimated": true,
+      "payoutEstimated": true
     }
   ]
 }
