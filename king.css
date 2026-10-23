@@ -8,3 +8,16 @@
 /* Keep gradient lettering crisp without stacked mobile shadows. */
 .hero h1{transform:none;text-shadow:none}
 .hero h1 span{text-shadow:none}
+
+/* Compact hero: keep the title at the lower edge of the full-width artwork. */
+.hero,.hero-content{min-height:260px}
+@media(max-width:690px){
+ .hero{height:auto;min-height:0}
+ .hero-content{height:auto;min-height:0;padding:clamp(86px,24vw,156px) 12px 14px;gap:4px;justify-content:flex-end}
+ .hero-content .pretitle{display:none}
+ .hero-content .crest{font-size:22px;line-height:22px;margin:0}
+ .hero h1{margin:0}
+ .hero-subtitle{margin:0;font-size:11px}
+ .hero-motto{margin-top:4px;font-size:7px;gap:8px}
+ .hero-overlay{background:linear-gradient(180deg,rgba(4,9,19,.08) 0,rgba(4,9,19,.12) 24vw,#08111c calc(24vw + 90px))}
+}
