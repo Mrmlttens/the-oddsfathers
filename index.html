@@ -292,8 +292,22 @@ $('statNet').textContent=(prof>0?'+':'')+money(prof);$('statNet').style.color=pr
 }
 function renderFilters(){const names=[...new Set(bets.map(b=>b.owner||'Unknown'))].sort();const s=$('ownerFilter'),prev=s.value||selectedOwner;s.innerHTML='<option value="all">All crew</option>'+names.map(n=>`<option value="${esc(n)}">${esc(n)}</option>`).join('');s.value=names.includes(prev)?prev:'all';selectedOwner=s.value;
 }
+function ticketCloseness(b){
+ const p=progress(b),status=ticketStatus(b);
+ const rank=status==='won'?0:status==='lost'||p.miss?4:b.placed===false?2:status==='review'?3:1;
+ const partial=p.states.reduce((sum,s,i)=>{
+  if(s.status==='hit'||s.status==='void')return sum+1;
+  const target=Number(b.legs[i].target);
+  return sum+(b.legs[i].kind!=='ml'&&Number.isFinite(s.value)&&target>0?Math.max(0,Math.min(1,s.value/target)):0);
+ },0);
+ return {rank,hit:p.total?p.hit/p.total:0,progress:p.total?partial/p.total:0,remaining:p.total-p.hit};
+}
+function compareTicketCloseness(a,b){
+ const x=ticketCloseness(a),y=ticketCloseness(b);
+ return x.rank-y.rank||y.hit-x.hit||y.progress-x.progress||x.remaining-y.remaining||String(a.id).localeCompare(String(b.id));
+}
 function renderTickets(){let filtered=bets.filter(b=>!b.archivedAt).filter(b=>(selectedOwner==='all'||b.owner===selectedOwner)&&(selectedStatus==='all'||(selectedStatus==='open'?['open','live','review'].includes(ticketStatus(b)):ticketStatus(b)===selectedStatus)));
-filtered.sort((a,b)=>(b.updatedAt||'').localeCompare(a.updatedAt||''));$('visibleCount').textContent=filtered.length;$('emptyState').hidden=filtered.length>0;
+filtered.sort(compareTicketCloseness);$('visibleCount').textContent=filtered.length;$('emptyState').hidden=filtered.length>0;
 $('ticketGrid').innerHTML=filtered.map((b,i)=>{const st=ticketStatus(b),p=progress(b),detail=expanded.has(b.id),winner=b.legs.find(l=>l.kind==='ml')?.team;
 const statusLabel=b.placed===false?'UNCONFIRMED':{open:'OPEN',live:'IN PLAY',won:'WON',lost:'LOST',review:'REVIEW'}[st];const shortTeams=`${teamAbbr(b.game.away)} @ ${teamAbbr(b.game.home)}`;
 const dots=p.states.map(s=>`<span class="p-dot ${s.status==='hit'?'hit':s.status==='miss'?'miss':s.status==='live'?'live':''}"></span>`).join('');
