@@ -78,7 +78,7 @@
 </style>
 <link rel="stylesheet" href="./livefield.css">
 <link rel="stylesheet" href="./celebrations-v2.css">
-<link rel="stylesheet" href="./king.css">
+<link rel="stylesheet" href="./king.css?v=koto-live-2">
 </head>
 <body>
   <div class="shell">
@@ -99,7 +99,7 @@
 
     
     <div id="kingTicker" class="king-ticker" role="region" aria-label="Points ticker">
-      <a id="kingTickerLink" class="king-ticker-label" href="#leaderboardView" aria-label="Open King standings">♛ POINTS</a>
+      <a id="kingTickerLink" class="king-ticker-label" href="#leaderboardView" aria-label="Open King standings">♛ CROWN POINTS</a>
       <div id="kingTickerWindow" class="king-ticker-window" tabindex="0" aria-label="Season, weekend and recent points"><div class="king-ticker-track"><div id="kingTickerGroup" class="king-ticker-group"><span>Awaiting first points</span></div><div id="kingTickerCopy" class="king-ticker-group king-ticker-copy" aria-hidden="true"></div></div></div>
       <button id="kingTickerPause" type="button" aria-label="Pause points ticker" aria-pressed="false" hidden>Ⅱ</button>
     </div>
@@ -108,7 +108,7 @@
       <nav class="nav" aria-label="Dashboard navigation">
         <div class="nav-left">
           <button type="button" class="navtab active" data-tab="dashboard">◈ <span>War Room</span></button>
-          <button type="button" class="navtab" data-tab="leaderboard" aria-label="King standings" title="King standings">♛ <span>King</span></button>
+          <button type="button" class="navtab" data-tab="leaderboard" aria-label="King of the Odds standings" title="King of the Odds (K.O.T.O)">♛ <span>King</span></button>
           <button type="button" class="navtab" data-tab="history">◷ <span>History</span></button>
         </div>
         <div class="nav-actions">
@@ -155,31 +155,13 @@
           <div class="board-footnote">Daily board rolls over at 4 AM Eastern, after completed games. Unfinished or unverified games stay visible; old slips remain in History. ESPN checks every 30 seconds while this page is open. Published crew tickets check for updates every 30 seconds.</div>
           <div class="board-footnote"><span class="tiny-led"></span> Live stats from ESPN public game feeds when available. Wager settlement, grading and payouts must be confirmed in your sportsbook.</div>
         </div>
-        <aside class="sidebar">
-          <section class="panel game-panel">
-            <div class="sidebar-heading"><span class="eyebrow">◉ THE MAIN EVENT</span><span id="scoreLiveLabel" class="tiny-tag">SCHEDULED</span></div>
-            <label class="game-select-wrap">WATCHING <select id="gameSelect" aria-label="Choose which game to display"></select></label>
-            <div class="scoreboard" id="scoreboard"><div class="score-skeleton">Waiting for game feed…</div></div>
-            <div class="score-meta" id="scoreMeta">Automatically checks NFL games</div>
-            <button class="text-button" id="showAllGamesBtn">View other games ▸</button>
-            <div class="other-games" id="otherGames" hidden></div>
-          </section>
-          <section class="panel game-panel"><div class="eyebrow">THE SHARED BOARD</div><p id="boardStatus" class="helper">VIEW ONLY · Loading shared board…</p><p class="helper">Trey manages all tickets through ChatGPT. Send your betslip screenshots to Trey.</p></section>
-          <section class="panel crew-panel">
-            <div class="sidebar-heading"><span class="eyebrow">♛ THE INNER CIRCLE</span><span id="crewCount" class="tiny-tag">1 MEMBER</span></div>
-            <div id="crewList"></div>
-          </section>
-          <section class="panel live-panel">
-            <div class="sidebar-heading"><span class="eyebrow">↗ THE LIVE WIRE</span><span class="tiny-tag">ACTIVITY</span></div>
-            <div id="activityFeed" class="activity-list"></div>
-          </section>
-          <div class="sidebar-note"><strong>THE HOUSE RULE</strong><p>Scores and player stats are live estimates. A ticket is official only when FanDuel grades it.</p></div>
-        </aside>
+
       </section>
 
 
 <section id="livefield" class="livefield" aria-labelledby="lfTitle">
 <div class="lf-top"><div><div class="eyebrow">THE GAME / LIVE</div><h3 id="lfTitle">LIVEFIELD</h3></div><div id="lfMeta" class="lf-meta" role="status">ESPN · Awaiting game details</div></div>
+<label class="game-select-wrap livefield-picker">WATCHING <select id="gameSelect" aria-label="Choose game for LIVEFIELD"><option value="">Loading games…</option></select></label>
 <div class="lf-body"><div><div id="lfScore" class="lf-score"></div><div id="lfSituation" class="lf-situation"></div><div id="lfField" class="lf-field" role="img" aria-label="Football field"></div><div class="lf-last"><div class="eyebrow">LAST PLAY</div><p id="lfLast">Waiting for game feed.</p></div><div id="lfDrive" class="lf-drive"></div></div>
 <div class="lf-players"><h4>Your players. Your targets.</h4><p class="lf-hint">Crew bets for the selected game · Reported stats</p><div id="lfPlayers"></div><details id="lfMorePlayers" class="lf-details" hidden><summary id="lfMorePlayerCount">More targets</summary><div id="lfMorePlayerRows"></div></details></div></div>
 <details class="lf-details"><summary>Team stats</summary><table id="lfStats" class="lf-table" aria-label="Team statistics"></table></details>
@@ -188,25 +170,25 @@
 
 
       <section id="leaderboardView" class="single-view" hidden>
-        <div class="eyebrow">♛ GAMBLER KING</div><p id="kingStatus" class="king-status" role="status">Loading contest records…</p>
+        <div class="eyebrow">KING OF THE ODDS · K.O.T.O</div><p id="kingStatus" class="king-status" role="status">Loading contest records…</p>
         <div class="king-standings">
-          <section class="panel king-panel" aria-labelledby="kingSeasonTitle"><div id="kingSeasonYear" class="eyebrow">SEASON</div><h3 id="kingSeasonTitle">Season points</h3><p class="subtle">The long game. Every scored weekend counts.</p><div id="kingSeasonRows"></div></section>
-          <section class="panel king-panel" aria-labelledby="kingWeekendTitle"><div id="kingWeekendDate" class="eyebrow">THIS WEEKEND</div><h3 id="kingWeekendTitle">Weekend points</h3><p class="subtle">This week's race. Winner bonus: +5 season points.</p><div id="kingWeekendRows"></div></section>
+          <section class="panel king-panel" aria-labelledby="kingSeasonTitle"><div id="kingSeasonYear" class="eyebrow">SEASON</div><h3 id="kingSeasonTitle">Season Crown Points</h3><p class="subtle">The long game. Every scored weekend counts.</p><div id="kingSeasonRows"></div></section>
+          <section class="panel king-panel" aria-labelledby="kingWeekendTitle"><div id="kingWeekendDate" class="eyebrow">THIS WEEKEND</div><h3 id="kingWeekendTitle">Weekend Crown Points</h3><p class="subtle">This week's race. Winner bonus: +5 season points.</p><div id="kingWeekendRows"></div></section>
         </div>
         <details class="panel king-rules"><summary>Scoring rules</summary>
-          <p><strong>V2 trial rules · v2-trial-1.</strong> Points are separate from cash winnings. No real-money entry is required to nominate a verified contest pick. Trey manages the scoring records.</p>
+          <p><strong>King of the Odds (K.O.T.O) · V2 live trial rules.</strong> Points are separate from cash winnings. Live leg points use confirmed published tickets. Three nominated picks are used for separate ticket-difficulty scoring. Trey manages the scoring records.</p>
           <ul>
-            <li><strong>Three scoring tickets.</strong> Nominate all three before the earliest selected game kicks off. Duplicates and late changes do not count. Other wagers stay visible below.</li>
+            <li><strong>Live Crown Points.</strong> Earn +1 when a unique player/stat leg or moneyline clears, up to 10 leg points per person per weekend. Live points update with the game feed, remain provisional while the game is in progress, and adjust if stats are corrected. Cleared legs retain their leg points even if another leg loses.</li><li><strong>No stacking the same leg.</strong> Repeating Swift rushing yards on several slips counts once. Nested thresholds for the same player/stat also count once; clearing the first earns that category’s point. Stake size never adds points.</li><li><strong>Pre-game entries only.</strong> Tickets must be recorded before the game starts. An admin can approve a late record only with verified pre-game evidence. Unconfirmed slips do not earn points.</li><li><strong>Three ticket-difficulty picks.</strong> Nominate all three before the earliest selected game kicks off. Duplicates and late changes do not count. Other confirmed published wagers can still earn live leg points.</li>
             <li><strong>Stake has no effect.</strong> The same pick earns the same points regardless of the money wagered.</li>
             <li><strong>Difficulty uses verified odds.</strong> Use the unboosted combined ticket odds, frozen at nomination. Never multiply same-game leg probabilities or infer an unboosted price from boosted returns.</li>
             <li><strong>Length bonus is capped.</strong> Add 5% per extra distinct leg, up to 25%. Repeated or nested versions of the same condition count once for length credit.</li>
-            <li><strong>Wins add points; losses subtract.</strong> Points = 20 × length multiplier × (result − implied probability). Result is 1 for a win and 0 for a loss. Positive American odds: probability = 100 ÷ (odds + 100). Negative odds: probability = absolute odds ÷ (absolute odds + 100). These are market benchmarks, not guaranteed true probabilities.</li>
+            <li><strong>Ticket-difficulty points are separate.</strong> Wins add difficulty points and losses subtract difficulty points; already earned leg points remain. Points = 20 × length multiplier × (result − implied probability). Result is 1 for a win and 0 for a loss. Positive American odds: probability = 100 ÷ (odds + 100). Negative odds: probability = absolute odds ÷ (absolute odds + 100). These are market benchmarks, not guaranteed true probabilities.</li>
             <li><strong>Example:</strong> A three-leg ticket at +150 earns +13.20 points if it wins or −8.80 if it loses. Each ticket is limited to 25 points in either direction. Scores are summed before rounding.</li>
             <li><strong>Weekend bonus:</strong> The highest positive total earns +5 season points once the week is closed and all nominated tickets are graded. At least two eligible members must compete. Ties split the bonus; it does not feed back into the weekend ranking.</li>
             <li><strong>Time window:</strong> Thursday through Wednesday, using Eastern game dates. Open tickets stay pending. Closing a week is an explicit admin action after settlement, never just the clock rolling over.</li>
             <li><strong>Voids and corrections:</strong> Whole-ticket voids score zero. A voided leg requires verified revised odds and an adjusted effective leg count before scoring. Missing evidence stays pending. Corrected results recalculate points and bonuses.</li>
             <li><strong>Cashouts and promotions:</strong> Contest picks are graded through their original outcomes; a cashout, refund promotion or profit boost does not change contest points. Cash results remain separate below.</li>
-            <li><strong>Season crown:</strong> A member must complete at least 75% of closed contest weeks to qualify. Late joiners can compete for weekend honors. No existing ticket is retrospectively nominated.</li>
+            <li><strong>Season crown:</strong> A member must complete at least 75% of closed contest weeks to qualify. Late joiners can compete for weekend honors. Existing confirmed tickets can display leg points from reported stats. They are never retrospectively nominated for ticket-difficulty points. Final leg awards must be saved in the shared scoring ledger before older games leave the live feed.</li>
           </ul>
         </details>
         <section class="panel king-wagers" aria-labelledby="kingWagerTitle"><div class="eyebrow">THE MONEY BOARD</div><h3 id="kingWagerTitle">Crew wagers</h3><p class="king-status">Known confirmed stakes and sportsbook-graded results. Unconfirmed slips and placeholder stakes are excluded from cash totals.</p><div id="leaderboard"></div><p class="king-status">*Settled net is returned cash minus settled wagers, before fees. Live stat estimates do not finalize cash winnings.</p></section>
@@ -353,9 +335,9 @@ return `<article class="ticket ${teamColors(b)} ${st}" data-id="${esc(b.id)}"><d
 <div class="progressbox"><div class="progressrow"><span>LEGS TRACKED</span><span>${p.hit} / ${p.total} hit${p.miss?` · ${p.miss} missed`:''}</span></div><div class="progressdots">${dots}</div></div>
 <div class="ticket-buttons"><button class="btn btn-primary" data-action="expand" data-id="${esc(b.id)}">${detail?'Hide':'Track'} ${p.total} legs ${detail?'⌃':'⌄'}</button><button class="btn btn-ghost smallicon" title="Share ticket" data-action="share" data-id="${esc(b.id)}">↗</button></div>
 ${detail?`<div class="legs">${legs}<div style="display:flex;justify-content:space-between;gap:9px;align-items:center;margin-top:8px">${b.ticketUrl?`<a target="_blank" rel="noopener noreferrer" href="${esc(b.ticketUrl)}" style="font-size:11px">Open slip ↗</a>`:''}</div></div>`:''}</div></article>`}).join('')}
-function renderCrew(){let names=[...new Set(bets.map(x=>x.owner||'Unknown'))].sort();$('crewCount').textContent=`${names.length} MEMBER${names.length!==1?'S':''}`;
+function renderCrew(){if(!$('crewList'))return;let names=[...new Set(bets.map(x=>x.owner||'Unknown'))].sort();$('crewCount').textContent=`${names.length} MEMBER${names.length!==1?'S':''}`;
 $('crewList').innerHTML=names.length?names.map((n,i)=>{const bb=bets.filter(b=>b.owner===n),open=bb.filter(b=>['open','live','review'].includes(ticketStatus(b))).length;const known=bb.filter(b=>b.placed!==false&&Number.isFinite(b.stake));const risk=known.length?known.reduce((a,b)=>a+b.stake,0):null;return `<div class="crew-member"><div class="crew-avatar">${esc(n.slice(0,1).toUpperCase())}</div><div class="crew-person"><strong>${esc(n)} ${i===0?'♛':''}</strong><p>${bb.length} bet${bb.length!==1?'s':''} · ${open} open</p></div><div class="crew-amount">${money(risk)}</div></div>`}).join(''):'<p class="subtle">Crew roster empty.</p>'}
-function renderScoreboard(){const selected=currentGame();const game=selected?findEvent(selected):null;const a=selected?.away||AWAY,h=selected?.home||HOME;
+function renderScoreboard(){if(!$('scoreboard'))return;const selected=currentGame();const game=selected?findEvent(selected):null;const a=selected?.away||AWAY,h=selected?.home||HOME;
 const teamNode=(team,logo,abbr,cl)=>`<div class="score-team"><span class="score-fallback ${cl}">${esc(abbr)}</span><strong>${esc(abbr)}</strong></div>`;
 if(!game){$('scoreboard').innerHTML=`<div class="score-content">${teamNode(a,'',teamAbbr(a),'')}<div><div class="score-result">— : —</div><div class="score-state">${selected?esc(dateText(selected.date)):'NO GAMES'}</div></div>${teamNode(h,'',teamAbbr(h),'orange')}</div>`;$('scoreMeta').textContent=sourceText();$('scoreLiveLabel').textContent='AWAITING DATA';return;}
 const cm=game.competitions?.[0],co=cm?.competitors||[];const away=co.find(x=>teamEquals(x.team?.displayName,a))||co.find(x=>x.homeAway==='away')||co[0],home=co.find(x=>teamEquals(x.team?.displayName,h))||co.find(x=>x.homeAway==='home')||co[1];const st=cm?.status||game.status||{};let state=st.type?.state||'pre';let time=state==='in'?`${st.type?.shortDetail||`${st.period||''} ${st.displayClock||''}`}`:state==='post'?'FINAL':new Date(game.date).toLocaleTimeString('en-US',{timeZone:'America/New_York',hour:'numeric',minute:'2-digit'})+' ET';
@@ -363,7 +345,7 @@ $('scoreboard').innerHTML=`<div class="score-content">${teamNode(a,away?.team?.l
 $('scoreLiveLabel').textContent=state==='in'?'● LIVE':state==='post'?'FINAL':'PREGAME';$('scoreLiveLabel').style.color=state==='in'?'var(--green)':'';$('scoreMeta').textContent=sourceText();
 $('otherGames').innerHTML=espnEvents.filter(x=>x.id!==game.id).map(x=>{let tt=x.competitions?.[0]?.competitors||[];let aw=tt.find(y=>y.homeAway==='away')||tt[0],ho=tt.find(y=>y.homeAway==='home')||tt[1];return `<div class="other-game"><span>${esc(aw?.team?.abbreviation||'?')} ${esc(aw?.score||'')} @ ${esc(ho?.team?.abbreviation||'?')} ${esc(ho?.score||'')}</span><span>${esc(x.status?.type?.shortDetail||'')}</span></div>`}).join('')||'<div class="subtle">No other games loaded.</div>'}
 function addActivity(message,type='info',owner=''){activity.unshift({id:uuid(),message,type,owner,time:now()});activity=activity.slice(0,40);localStorage.setItem(ACTIVITY_KEY,JSON.stringify(activity));renderActivity()}
-function renderActivity(){let list=activity.slice(0,7);$('activityFeed').innerHTML=list.length?list.map(e=>`<div class="activity ${esc(e.type)}"><div class="activity-dot">${e.type==='hit'?'✓':e.type==='miss'?'✕':'↗'}</div><div><p>${esc(e.message)}</p><small>${new Date(e.time).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}</small></div></div>`).join(''):`<div class="activity"><div class="activity-dot">◉</div><div><p>Game feed standing by. You'll see leg milestones and crew entries here as they happen.</p><small>Welcome to the war room</small></div></div>`}
+function renderActivity(){if(!$('activityFeed'))return;let list=activity.slice(0,7);$('activityFeed').innerHTML=list.length?list.map(e=>`<div class="activity ${esc(e.type)}"><div class="activity-dot">${e.type==='hit'?'✓':e.type==='miss'?'✕':'↗'}</div><div><p>${esc(e.message)}</p><small>${new Date(e.time).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})}</small></div></div>`).join(''):`<div class="activity"><div class="activity-dot">◉</div><div><p>Game feed standing by. You'll see leg milestones and crew entries here as they happen.</p><small>Welcome to the war room</small></div></div>`}
 function renderLeaderboard(){let names=[...new Set(bets.map(b=>b.owner))];let rows=names.map(n=>{let bs=bets.filter(b=>b.owner===n),settled=bs.filter(b=>['won','lost'].includes(ticketStatus(b)));let profit=settled.filter(b=>Number.isFinite(b.stake)&&(ticketStatus(b)!=='won'||Number.isFinite(b.payout))).reduce((sum,b)=>sum+(ticketStatus(b)==='won'?b.payout:0)-b.stake,0);if(bs.every(b=>!Number.isFinite(b.stake)))profit=null;return {n,count:bs.length,settled:settled.length,profit,open:bs.length-settled.length}}).sort((a,b)=>b.profit-a.profit||b.count-a.count);
 $('leaderboard').innerHTML=rows.map((r,i)=>`<div class="leader-row"><div class="leader-rank">${i===0?'♛':String(i+1).padStart(2,'0')}</div><div class="leader-name"><strong>${esc(r.n)}</strong><span>${r.count} tickets · ${r.settled} graded · ${r.open} open</span></div><div class="leader-profit ${r.profit<0?'negative':''}">${r.profit>0?'+':''}${money(r.profit)}</div></div>`).join('')||'<p class="subtle">No bets entered.</p>'}
 function renderHistory(){let bs=bets.slice().sort((a,b)=>(b.createdAt||'').localeCompare(a.createdAt||''));$('historyList').innerHTML=bs.map(b=>`<div class="hist-row"><div class="leg-symbol ${ticketStatus(b)}">${ticketStatus(b)==='won'?'✓':ticketStatus(b)==='lost'?'✕':'·'}</div><div class="hist-body"><strong>${esc(b.title)}</strong><p>${esc(b.owner)} · ${esc(dateText(b.game.date))} · ${esc(b.game.away)} @ ${esc(b.game.home)} · ${b.legs.length} legs</p></div><div class="hist-pay">${money(b.payout)}</div></div>`).join('')||'<p class="subtle">No history yet.</p>'}
@@ -381,7 +363,7 @@ scoreState='connected';lastRefresh=new Date();
 for(const b of bets){for(let j=0;j<b.legs.length;j++){let key=`${b.id}.${j}`,v=evalLeg(b.legs[j],b).status,old=lastKnownStatus.get(key);if(old&&old!==v&&(v==='hit'||v==='miss'))addActivity(`${b.owner}: ${legText(b.legs[j])} — ${v==='hit'?'HIT':'MISSED'}`,v,b.owner);lastKnownStatus.set(key,v)}}
 checkLegMilestones();checkWinners();checkDailyRollover();if(!silent)toast('NFL scoreboard and player stats refreshed.');
 }catch(err){scoreState='failed';if(!silent)toast(`Live feed unavailable: ${err.message}. Showing the last available data.`)}finally{$('refreshBtn').disabled=false;$('refreshGlyph').textContent='⟳';render()}}
-function pickView(view){currentView=view;renderGameCenter();for(const v of ['dashboard','leaderboard','history'])$(v+'View').hidden=v!==view;document.querySelectorAll('.navtab').forEach(el=>el.classList.toggle('active',el.dataset.tab===view));$('currentTitle').innerHTML=view==='dashboard'?'The Board <span class="text-gradient">Is Live.</span>':view==='leaderboard'?'Crown The <span class="text-gradient">Champion.</span>':'The Record <span class="text-gradient">Never Lies.</span>'}
+function pickView(view){currentView=view;renderGameCenter();for(const v of ['dashboard','leaderboard','history'])$(v+'View').hidden=v!==view;document.querySelectorAll('.navtab').forEach(el=>el.classList.toggle('active',el.dataset.tab===view));$('currentTitle').innerHTML=view==='dashboard'?'The Board <span class="text-gradient">Is Live.</span>':view==='leaderboard'?'King of <span class="text-gradient">the Odds.</span>':'The Record <span class="text-gradient">Never Lies.</span>'}
 function downloadFile(name,content,mime){const blob=new Blob([content],{type:mime});const u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),10000)}
 function exportCsv(){let rows=[['Bet Owner','Ticket','Game Date','Matchup','Stake','Potential Return','Odds','Status','Leg']];for(const b of bets)for(const leg of b.legs){rows.push([b.owner,b.title,b.game.date,`${b.game.away} at ${b.game.home}`,b.stake??'N/A',b.payout??'N/A',oddsFromReturn(b),ticketStatus(b),legText(leg)])}downloadFile('oddsfathers-bets.csv',rows.map(r=>r.map(v=>'"'+String(v).replaceAll('"','""')+'"').join(',')).join('\n'),'text/csv')}
 function copyText(t){if(navigator.clipboard&&window.isSecureContext)return navigator.clipboard.writeText(t).then(()=>toast('Copied to clipboard!')).catch(()=>fallbackCopy(t));return fallbackCopy(t)}
@@ -403,9 +385,9 @@ async function syncPublished(){
    bets=data.bets;publishedVersion=signature;lastRolloverCheck='';
    checkDailyRollover();render();checkWinners();
   }
-  $('boardStatus').textContent='VIEW ONLY · Shared board';
+  if($('boardStatus'))$('boardStatus').textContent='VIEW ONLY · Shared board';
  }catch(err){
-  $('boardStatus').textContent='VIEW ONLY · Board update unavailable';
+  if($('boardStatus'))$('boardStatus').textContent='VIEW ONLY · Board update unavailable';
   console.warn('Published board:',err.message);
  }finally{publishedSyncBusy=false;}
 }
@@ -413,7 +395,7 @@ function bind(){
  document.querySelectorAll('.navtab').forEach(el=>el.addEventListener('click',()=>pickView(el.dataset.tab)));
  $('refreshBtn').addEventListener('click',async()=>{await syncPublished();refreshLive(false)});
  $('exportBtn').addEventListener('click',exportCsv);
- $('showAllGamesBtn').addEventListener('click',()=>{$('otherGames').hidden=!$('otherGames').hidden});
+ $('showAllGamesBtn')?.addEventListener('click',()=>{$('otherGames').hidden=!$('otherGames').hidden});
  $('gameSelect').addEventListener('change',e=>{selectedGameKey=e.target.value;renderScoreboard();renderScenarioBar();renderGameCenter()});
  $('ownerFilter').addEventListener('change',e=>{selectedOwner=e.target.value;renderTickets()});
  $('statusFilter').addEventListener('change',e=>{selectedStatus=e.target.value;renderTickets()});
@@ -480,8 +462,8 @@ function showRecentOnReturn(){
 </script>
 <script src="./livefield.js" defer></script>
 <script src="./celebrations-v2.js" defer></script>
-<script src="./king-model.js" defer></script>
-<script src="./king.js" defer></script>
+<script src="./king-model.js?v=koto-live-2" defer></script>
+<script src="./king.js?v=koto-live-2" defer></script>
 </body>
 </html>
 

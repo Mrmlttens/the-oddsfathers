@@ -1,0 +1,17 @@
+const assert=require('node:assert/strict'),M=require('./king-model.js');
+const game={date:'2026-10-22',home:'Chicago Bears',away:'New England Patriots'};
+const mk=(id,owner='Trey')=>({id,owner,placed:true,createdAt:'2026-10-22T23:00:00Z',game,legs:[{kind:'rushing_yards',name:"D'Andre Swift",team:'Chicago Bears',target:40}]});
+const ev=(betId,legIndex=0,status='hit',extra={})=>({betId,legIndex,status,source:'feed',gameStart:'2026-10-23T00:15:00Z',gameState:'in',observedAt:'2026-10-23T01:00:00Z',...extra});
+const cfg={entries:[],closedWeeks:[],legAwards:[],liveApprovedBetIds:[]};
+let bets=[mk('a')];let r=M.standings(cfg,bets,'2026-10-22',[ev('a',0,'live')]);assert.equal(r.weekendRows[0].weekendPoints,0);
+r=M.standings(cfg,bets,'2026-10-22',[ev('a')]);assert.equal(r.weekendRows[0].weekendPoints,1);assert.equal(r.weekendRows[0].liveWeekendPoints,1);assert.equal(r.events[0].live,true);
+r=M.standings(cfg,bets,'2026-10-22',[ev('a')]);assert.equal(r.weekendRows[0].weekendPoints,1);
+r=M.standings(cfg,bets,'2026-10-22',[ev('a',0,'live')]);assert.equal(r.weekendRows[0].weekendPoints,0);
+bets.push(mk('b'));bets[1].legs[0].target=60;r=M.standings(cfg,bets,'2026-10-22',[ev('a'),ev('b')]);assert.equal(r.weekendRows[0].weekendPoints,1);
+bets[1].owner='Rodman';r=M.standings(cfg,bets,'2026-10-22',[ev('a'),ev('b')]);assert.ok(r.weekendRows.every(x=>x.weekendPoints===1));
+bets[1].placed=false;r=M.standings(cfg,bets,'2026-10-22',[ev('a'),ev('b')]);assert.equal(r.weekendRows.find(x=>x.name==='Rodman').weekendPoints,0);
+const late=mk('late');late.createdAt='2026-10-23T01:00:00Z';assert.equal(M.liveLegAwards(cfg,[late],[ev('late')]).length,0);assert.equal(M.liveLegAwards({...cfg,liveApprovedBetIds:['late']},[late],[ev('late')]).length,1);
+assert.equal(M.liveLegAwards(cfg,[mk('a')],[ev('a',0,'hit',{source:'manual'})]).length,0);assert.equal(M.liveLegAwards(cfg,[mk('a')],[ev('a',0,'hit',{gameState:'pre'})]).length,0);
+const many=mk('many');many.legs=Array.from({length:20},(_,i)=>({name:'Player '+i,team:'Chicago Bears',kind:'receiving_yards',target:20}));const es=many.legs.map((_,i)=>ev('many',i));assert.equal(M.liveLegAwards(cfg,[many],es).length,10);
+const final=M.liveLegAwards(cfg,[mk('a')],[ev('a',0,'hit',{gameState:'post'})])[0];assert.equal(final.confirmed,true);assert.equal(M.liveLegAwards({...cfg,legAwards:[{...final,sourceVerified:true}]},[mk('a')],[ev('a')]).length,1);r=M.standings({...cfg,legAwards:[{...final,sourceVerified:true}]},[],'2026-10-29',[]);assert.equal(r.seasonRows[0].seasonPoints,1);assert.equal(r.seasonRows[0].weekendPoints,0);
+console.log('PASS: live 0→1, no repeat inflation, correction 1→0, duplicate/nested-leg collapse, separate owners, unconfirmed/manual/late exclusions, verified exceptions, 10-point weekly cap, finalization and archived season carryover.');
