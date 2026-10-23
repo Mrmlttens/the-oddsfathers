@@ -21,3 +21,10 @@
  .hero-motto{margin-top:4px;font-size:7px;gap:8px}
  .hero-overlay{background:linear-gradient(180deg,rgba(4,9,19,.08) 0,rgba(4,9,19,.12) 24vw,#08111c calc(24vw + 90px))}
 }
+
+/* Compare both game outcomes in equal-width columns. */
+.scenario-bar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;gap:8px}
+.scenario-bar>strong,.scenario-bar .bar-note{grid-column:1 / -1}
+.scenario-bar .bar-pill{min-width:0;white-space:normal;text-align:center;padding:10px 8px;line-height:1.5;overflow-wrap:anywhere}
+.scenario-bar .bar-pill strong{display:block;font-size:18px;line-height:1.2;margin-top:4px}
+.scenario-bar .bar-note{margin-left:0;line-height:1.5}
