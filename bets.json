@@ -404,6 +404,98 @@
       ],
       "stakeEstimated": true,
       "payoutEstimated": true
+    },
+    {
+      "id": "rodman-tnf-20261022-10leg",
+      "owner": "Rodman",
+      "title": "Rodman · 10-Leg Player Props",
+      "game": {
+        "date": "2026-10-22",
+        "away": "New England Patriots",
+        "home": "Chicago Bears",
+        "sport": "NFL"
+      },
+      "stake": 25,
+      "payout": 361.64,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "notes": "Confirmed open ticket from Rodman's FanDuel screenshot supplied by Trey. 30% profit boost and Bet Protect+ shown. Wager $25.00; total charged $25.75 including 3% Bet Protect+. Listed total payout $361.64.",
+      "legs": [
+        {
+          "kind": "passing_yards",
+          "team": "Chicago Bears",
+          "name": "Caleb Williams",
+          "target": 200,
+          "override": null
+        },
+        {
+          "kind": "passing_yards",
+          "team": "New England Patriots",
+          "name": "Drake Maye",
+          "target": 200,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Chicago Bears",
+          "name": "Luther Burden III",
+          "target": 40,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Chicago Bears",
+          "name": "Rome Odunze",
+          "target": 30,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "New England Patriots",
+          "name": "Hunter Henry",
+          "target": 30,
+          "override": null
+        },
+        {
+          "kind": "rushing_yards",
+          "team": "Chicago Bears",
+          "name": "D'Andre Swift",
+          "target": 40,
+          "override": null
+        },
+        {
+          "kind": "rushing_yards",
+          "team": "New England Patriots",
+          "name": "Rhamondre Stevenson",
+          "target": 25,
+          "override": null
+        },
+        {
+          "kind": "receptions",
+          "team": "Chicago Bears",
+          "name": "Colston Loveland",
+          "target": 3,
+          "override": null
+        },
+        {
+          "kind": "receptions",
+          "team": "Chicago Bears",
+          "name": "Rome Odunze",
+          "target": 3,
+          "override": null
+        },
+        {
+          "kind": "receptions",
+          "team": "Chicago Bears",
+          "name": "Luther Burden III",
+          "target": 4,
+          "override": null
+        }
+      ],
+      "settlement": "auto",
+      "placed": true,
+      "createdAt": "2026-10-23T00:07:08.149Z",
+      "updatedAt": "2026-10-23T00:07:08.149Z"
     }
   ]
 }
