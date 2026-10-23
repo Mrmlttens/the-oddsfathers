@@ -74,6 +74,19 @@
  .hero-overlay{background:linear-gradient(180deg,rgba(4,9,19,.08) 0,rgba(4,9,19,.12) 80px,#08111c 155px)}
 }
 
+
+/* Expanded leg progress */
+.leg-wrap{padding:7px 0 10px;border-bottom:1px solid var(--line)}
+.leg-wrap:last-of-type{border-bottom:0}
+.leg-progress{margin:4px 0 0 33px}
+.leg-progress-track{height:7px;width:100%;overflow:hidden;background:#223449;border-radius:999px}
+.leg-progress-fill{display:block;height:100%;border-radius:inherit;background:var(--blue);transition:width .45s ease}
+.leg-progress.hit .leg-progress-fill{background:var(--green)}
+.leg-progress.miss .leg-progress-fill{background:var(--red)}
+.leg-progress-label{display:block;margin-top:4px;color:var(--muted);font-size:9px;letter-spacing:.04em;font-weight:750;text-align:right}
+.leg-progress.hit .leg-progress-label{color:var(--green)}
+.leg-progress.miss .leg-progress-label{color:var(--red)}
+@media(prefers-reduced-motion:reduce){.leg-progress-fill{transition:none}}
 </style>
 </head>
 <body>
@@ -274,6 +287,15 @@ if(l.kind==='rushing_yards')return `${who} · ${l.target}+ rushing yards`;
 if(l.kind==='receiving_yards')return `${who} · ${l.target}+ receiving yards`;
 if(l.kind==='receptions')return `${who} · ${l.target}+ receptions`;
 return who+(l.target?` · ${l.target}+`:'')}
+function legProgressBar(l,v){
+ const target=Number(l.target),numeric=l.kind!=='ml'&&target>0;
+ const known=numeric&&Number.isFinite(v.value);
+ const percent=v.status==='hit'?100:known?Math.max(0,Math.min(100,v.value/target*100)):0;
+ const label=v.status==='hit'?'HIT':v.status==='miss'?'MISSED':v.status==='void'?'VOID':l.kind==='ml'?(v.status==='live'?'LIVE · AWAITING FINAL':'AWAITING RESULT'):known?Math.max(0,target-v.value)+' TO GO':v.status==='review'?'VERIFY STATS':'AWAITING STATS';
+ const accessible=legText(l)+': '+(known?v.value+' of '+target+'. ':'')+label;
+ const measurable=known||v.status==='hit';
+ return '<div class="leg-progress '+v.status+'"><div class="leg-progress-track" role="progressbar" aria-label="'+esc(accessible)+'" aria-valuemin="0" aria-valuemax="100"'+(measurable?' aria-valuenow="'+Math.round(percent)+'"':'')+'><span class="leg-progress-fill" style="width:'+percent+'%"></span></div><span class="leg-progress-label">'+esc(label)+'</span></div>';
+}
 function legTicker(l,ev){if(ev.value===null||ev.value===undefined)return ev.status==='review'?'VERIFY':'—';return l.kind==='ml'?ev.value:`${ev.value} / ${l.target||1}`}
 function teamColors(b){const main=b.legs.find(x=>x.kind==='ml')?.team||b.game.home;return teamEquals(main,b.game.home)?'orange':'blue'}
 function progress(b){const legs=b.legs||[];const r=legs.map(l=>evalLeg(l,b));return {total:legs.length,hit:r.filter(x=>x.status==='hit').length,miss:r.filter(x=>x.status==='miss').length,review:r.filter(x=>x.status==='review').length,states:r}}
@@ -311,7 +333,7 @@ filtered.sort(compareTicketCloseness);$('visibleCount').textContent=filtered.len
 $('ticketGrid').innerHTML=filtered.map((b,i)=>{const st=ticketStatus(b),p=progress(b),detail=expanded.has(b.id),winner=b.legs.find(l=>l.kind==='ml')?.team;
 const statusLabel=b.placed===false?'UNCONFIRMED':{open:'OPEN',live:'IN PLAY',won:'WON',lost:'LOST',review:'REVIEW'}[st];const shortTeams=`${teamAbbr(b.game.away)} @ ${teamAbbr(b.game.home)}`;
 const dots=p.states.map(s=>`<span class="p-dot ${s.status==='hit'?'hit':s.status==='miss'?'miss':s.status==='live'?'live':''}"></span>`).join('');
-const legs=b.legs.map((l,j)=>{const v=p.states[j],sym=v.status==='hit'?'✓':v.status==='miss'?'✕':v.status==='review'?'!':'·';return `<div class="leg"><span class="leg-symbol ${v.status}">${sym}</span><span class="leg-name">${esc(legText(l))}</span><span class="leg-stat ${v.status}">${esc(legTicker(l,v))}</span></div>`}).join('');
+const legs=b.legs.map((l,j)=>{const v=p.states[j],sym=v.status==='hit'?'✓':v.status==='miss'?'✕':v.status==='review'?'!':'·';return `<div class="leg-wrap"><div class="leg"><span class="leg-symbol ${v.status}">${sym}</span><span class="leg-name">${esc(legText(l))}</span><span class="leg-stat ${v.status}">${esc(legTicker(l,v))}</span></div>${legProgressBar(l,v)}</div>`}).join('');
 return `<article class="ticket ${teamColors(b)} ${st}" data-id="${esc(b.id)}"><div class="ticket-top"><div><span class="ticket-no">TICKET ${String(b.id).endsWith('-1')?'01':String(b.id).endsWith('-2')?'02':String(b.id).endsWith('-3')?'03':String(b.id).endsWith('-4')?'04':String(i+1).padStart(2,'0')}</span><span class="ticket-owner">♛ ${esc(b.owner)}</span></div><span class="statuspill ${st}">${statusLabel}</span></div>
 <div class="ticket-content"><div class="ticket-title"><h4>${esc(b.title)}</h4><div class="ticket-odds">${esc(oddsFromReturn(b))}</div></div>
 <div class="matchup">◷ ${esc(shortTeams)} <span>·</span> ${esc(dateText(b.game.date))} <span>·</span> ${esc(b.sportsbook||'')}</div>
