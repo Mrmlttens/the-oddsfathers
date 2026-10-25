@@ -5,11 +5,11 @@ const round=n=>Math.round((n+Number.EPSILON)*100)/100;
 const clean=s=>String(s||'').toLowerCase().normalize('NFKD').replace(/[^a-z0-9]/g,'');
 function week(date){const d=new Date(date+'T12:00:00Z');if(!Number.isFinite(d.getTime()))throw Error('Invalid date');d.setUTCDate(d.getUTCDate()-(d.getUTCDay()-4+7)%7);return d.toISOString().slice(0,10);}
 function season(date){const [y,m]=date.split('-').map(Number);return String(m<3?y-1:y);}
-function familyKey(bet,leg){return [clean(bet.owner),bet.game.date,clean(bet.game.away),clean(bet.game.home),leg.kind==='ml'?'winner':clean(leg.name),leg.kind].join('|');}
+function familyKey(bet,leg){const game=leg.game||bet.game;return [clean(bet.owner),game.date,clean(game.away),clean(game.home),leg.kind==='ml'?'winner':clean(leg.name),leg.kind].join('|');}
 function registrationId(betId,index){return betId+':'+index;}
 function registrations(config,bets){
  const list=(config.registrations||[]).map(r=>({...r})),ids=new Set(list.map(r=>r.id));
- for(const b of bets)for(let i=0;i<(b.legs||[]).length;i++){const id=registrationId(b.id,i);if(!ids.has(id)){list.push({id,betId:b.id,legIndex:i,owner:b.owner,game:{...b.game},leg:{...b.legs[i]},submittedAt:b.createdAt,title:b.title});ids.add(id);}}
+ for(const b of bets)for(let i=0;i<(b.legs||[]).length;i++){const id=registrationId(b.id,i);if(!ids.has(id)){list.push({id,betId:b.id,legIndex:i,owner:b.owner,game:{...(b.legs[i].game||b.game)},leg:{...b.legs[i]},submittedAt:b.createdAt,title:b.title});ids.add(id);}}
  return list;
 }
 function scoringReport(config,bets,evaluations=[]){
@@ -20,7 +20,7 @@ function scoringReport(config,bets,evaluations=[]){
  for(const r of list){
   const key=familyKey({owner:r.owner,game:r.game},r.leg),w=week(r.game.date),ownerWeek=clean(r.owner)+'|'+w,e=evals.get(r.id),start=Date.parse(r.kickoff||e?.gameStart),submitted=Date.parse(r.submittedAt);
   let reason='scoring pick';
-  if(!['ml','passing_yards','rushing_yards','receiving_yards','receptions','any_td'].includes(r.leg.kind))reason='unsupported selection';
+  if(!['ml','passing_yards','rushing_yards','receiving_yards','receptions','any_td','total_points'].includes(r.leg.kind))reason='unsupported selection';
   else if(!Number.isFinite(submitted)||!Number.isFinite(start))reason='kickoff/submission time unverified';
   else if(submitted>=start)reason='added after kickoff · tracking only';
   else if(seen.has(key))reason='duplicate or opposing player/stat/game';
@@ -55,3 +55,4 @@ function standings(config,bets,today,evaluations=[]){
 }
 const api={RULES,LIMIT,round,week,season,familyKey,registrationId,registrations,scoringReport,liveLegAwards,standings};if(typeof module!=='undefined'&&module.exports)module.exports=api;root.KingModel=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
+
