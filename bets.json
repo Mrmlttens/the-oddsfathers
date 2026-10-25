@@ -1171,6 +1171,457 @@
           "odds": -115
         }
       ]
+    },
+    {
+      "id": "rodman-20261025-pass11",
+      "owner": "Rodman",
+      "title": "Rodman \u00b7 11-Leg Passing Yards",
+      "game": {
+        "date": "2026-10-25",
+        "away": "Tampa Bay Buccaneers",
+        "home": "Carolina Panthers",
+        "sport": "NFL"
+      },
+      "stake": 5,
+      "stakeEstimated": true,
+      "payout": 1510.55,
+      "payoutEstimated": true,
+      "odds": 30111,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "placed": false,
+      "settlement": "auto",
+      "createdAt": "2026-10-25T13:10:38.938222Z",
+      "updatedAt": "2026-10-25T13:10:38.938222Z",
+      "notes": "Selections and displayed combined odds transcribed from Rodman screenshots supplied by Trey. Screenshots show a betslip with no wager entered; placement is unconfirmed. $5 placeholder per standing instruction for N/A wagers; calculated total return is estimated. No account balance or identifier published.",
+      "legs": [
+        {
+          "kind": "passing_yards",
+          "team": "",
+          "name": "Bryce Young",
+          "target": 200,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Tampa Bay Buccaneers",
+            "home": "Carolina Panthers",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "passing_yards",
+          "team": "",
+          "name": "Baker Mayfield",
+          "target": 175,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Tampa Bay Buccaneers",
+            "home": "Carolina Panthers",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "passing_yards",
+          "team": "",
+          "name": "Michael Penix Jr.",
+          "target": 200,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "San Francisco 49ers",
+            "home": "Atlanta Falcons",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "passing_yards",
+          "team": "",
+          "name": "Brock Purdy",
+          "target": 200,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "San Francisco 49ers",
+            "home": "Atlanta Falcons",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "passing_yards",
+          "team": "",
+          "name": "Cam Ward",
+          "target": 125,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Cleveland Browns",
+            "home": "Tennessee Titans",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "passing_yards",
+          "team": "",
+          "name": "Deshaun Watson",
+          "target": 150,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Cleveland Browns",
+            "home": "Tennessee Titans",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "passing_yards",
+          "team": "",
+          "name": "Kyler Murray",
+          "target": 175,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Indianapolis Colts",
+            "home": "Minnesota Vikings",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "passing_yards",
+          "team": "",
+          "name": "Daniel Jones",
+          "target": 200,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Indianapolis Colts",
+            "home": "Minnesota Vikings",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "passing_yards",
+          "team": "",
+          "name": "Aaron Rodgers",
+          "target": 200,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Pittsburgh Steelers",
+            "home": "New Orleans Saints",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "passing_yards",
+          "team": "",
+          "name": "Joe Burrow",
+          "target": 225,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Cincinnati Bengals",
+            "home": "Baltimore Ravens",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "passing_yards",
+          "team": "",
+          "name": "Geno Smith",
+          "target": 200,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Miami Dolphins",
+            "home": "New York Jets",
+            "sport": "NFL"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rodman-20261025-london10",
+      "owner": "Rodman",
+      "title": "Rodman \u00b7 Steelers\u2013Saints \u00b7 10 Legs",
+      "game": {
+        "date": "2026-10-25",
+        "away": "Pittsburgh Steelers",
+        "home": "New Orleans Saints",
+        "sport": "NFL"
+      },
+      "stake": 5,
+      "stakeEstimated": true,
+      "payout": 39.35,
+      "payoutEstimated": true,
+      "odds": 687,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "placed": false,
+      "settlement": "auto",
+      "createdAt": "2026-10-25T13:10:38.938222Z",
+      "updatedAt": "2026-10-25T13:10:38.938222Z",
+      "notes": "Selections and displayed combined odds transcribed from Rodman screenshots supplied by Trey. Screenshots show a betslip with no wager entered; placement is unconfirmed. $5 placeholder per standing instruction for N/A wagers; calculated total return is estimated. No account balance or identifier published.",
+      "legs": [
+        {
+          "kind": "passing_yards",
+          "team": "",
+          "name": "Aaron Rodgers",
+          "target": 200,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Pittsburgh Steelers",
+            "home": "New Orleans Saints",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "rushing_yards",
+          "team": "",
+          "name": "Kendre Miller",
+          "target": 20,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Pittsburgh Steelers",
+            "home": "New Orleans Saints",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "rushing_yards",
+          "team": "",
+          "name": "Jaylen Warren",
+          "target": 50,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Pittsburgh Steelers",
+            "home": "New Orleans Saints",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "",
+          "name": "Chris Olave",
+          "target": 40,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Pittsburgh Steelers",
+            "home": "New Orleans Saints",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "",
+          "name": "DK Metcalf",
+          "target": 40,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Pittsburgh Steelers",
+            "home": "New Orleans Saints",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "",
+          "name": "Germie Bernard",
+          "target": 40,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Pittsburgh Steelers",
+            "home": "New Orleans Saints",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "receptions",
+          "team": "",
+          "name": "Chris Olave",
+          "target": 4,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Pittsburgh Steelers",
+            "home": "New Orleans Saints",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "receptions",
+          "team": "",
+          "name": "Devaughn Vele",
+          "target": 3,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Pittsburgh Steelers",
+            "home": "New Orleans Saints",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "receptions",
+          "team": "",
+          "name": "DK Metcalf",
+          "target": 4,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Pittsburgh Steelers",
+            "home": "New Orleans Saints",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "receptions",
+          "team": "",
+          "name": "Germie Bernard",
+          "target": 4,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Pittsburgh Steelers",
+            "home": "New Orleans Saints",
+            "sport": "NFL"
+          }
+        }
+      ]
+    },
+    {
+      "id": "rodman-20261025-td3",
+      "owner": "Rodman",
+      "title": "Rodman \u00b7 3 Anytime Touchdowns",
+      "game": {
+        "date": "2026-10-25",
+        "away": "Pittsburgh Steelers",
+        "home": "New Orleans Saints",
+        "sport": "NFL"
+      },
+      "stake": 5,
+      "stakeEstimated": true,
+      "payout": 89.3,
+      "payoutEstimated": true,
+      "odds": 1686,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "placed": false,
+      "settlement": "auto",
+      "createdAt": "2026-10-25T13:10:38.938222Z",
+      "updatedAt": "2026-10-25T13:10:38.938222Z",
+      "notes": "Selections and displayed combined odds transcribed from Rodman screenshots supplied by Trey. Screenshots show a betslip with no wager entered; placement is unconfirmed. $5 placeholder per standing instruction for N/A wagers; calculated total return is estimated. No account balance or identifier published.",
+      "legs": [
+        {
+          "kind": "any_td",
+          "team": "",
+          "name": "Jaylen Warren",
+          "target": 1,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Pittsburgh Steelers",
+            "home": "New Orleans Saints",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "any_td",
+          "team": "",
+          "name": "Kendre Miller",
+          "target": 1,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Pittsburgh Steelers",
+            "home": "New Orleans Saints",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "any_td",
+          "team": "",
+          "name": "Germie Bernard",
+          "target": 1,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Pittsburgh Steelers",
+            "home": "New Orleans Saints",
+            "sport": "NFL"
+          }
+        }
+      ]
+    },
+    {
+      "id": "trey-20261025-tail-rodman-td3",
+      "owner": "Trey",
+      "title": "Trey \u00b7 Rodman TD Tail \u00b7 30% Boost",
+      "game": {
+        "date": "2026-10-25",
+        "away": "Pittsburgh Steelers",
+        "home": "New Orleans Saints",
+        "sport": "NFL"
+      },
+      "stake": 1,
+      "payout": 22.92,
+      "payoutEstimated": true,
+      "baseOdds": 1686,
+      "profitBoostPercent": 30,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "placed": true,
+      "settlement": "auto",
+      "createdAt": "2026-10-25T13:10:38.938222Z",
+      "updatedAt": "2026-10-25T13:10:38.938222Z",
+      "notes": "Trey confirmed a placed $1 tail of Rodman's Jaylen Warren / Kendre Miller / Germie Bernard anytime-touchdown parlay with a 30% profit boost. Estimated total return $22.92 assumes the screenshot base odds +1686 were accepted: $1 + ($16.86 profit \u00d7 1.30). Accepted boosted odds and payout were not shown.",
+      "legs": [
+        {
+          "kind": "any_td",
+          "team": "",
+          "name": "Jaylen Warren",
+          "target": 1,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Pittsburgh Steelers",
+            "home": "New Orleans Saints",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "any_td",
+          "team": "",
+          "name": "Kendre Miller",
+          "target": 1,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Pittsburgh Steelers",
+            "home": "New Orleans Saints",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "any_td",
+          "team": "",
+          "name": "Germie Bernard",
+          "target": 1,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Pittsburgh Steelers",
+            "home": "New Orleans Saints",
+            "sport": "NFL"
+          }
+        }
+      ]
     }
   ]
 }
