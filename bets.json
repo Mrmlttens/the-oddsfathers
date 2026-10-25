@@ -556,6 +556,411 @@
       ],
       "stakeEstimated": true,
       "payoutEstimated": true
+    },
+    {
+      "id": "trey-20261025-ml7",
+      "owner": "Trey",
+      "title": "Trey · 7-Leg Moneyline · Oct 25–Nov 1",
+      "game": {
+        "date": "2026-10-25",
+        "away": "Miami Dolphins",
+        "home": "New York Jets",
+        "sport": "NFL"
+      },
+      "stake": 1,
+      "payout": 155.74,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "placed": true,
+      "settlement": "auto",
+      "createdAt": "2026-10-25T12:10:46.518314Z",
+      "updatedAt": "2026-10-25T12:10:46.518314Z",
+      "notes": "Confirmed open ticket from screenshots supplied by Trey on October 25, 2026. Actual site submission time recorded; placement time not inferred. Screenshot shows placed October 25 at 8:05 AM ET. Games span Oct 25, Oct 29 and Nov 1.",
+      "legs": [
+        {
+          "kind": "ml",
+          "team": "New York Jets",
+          "name": "",
+          "target": null,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Miami Dolphins",
+            "home": "New York Jets",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "ml",
+          "team": "San Francisco 49ers",
+          "name": "",
+          "target": null,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "San Francisco 49ers",
+            "home": "Atlanta Falcons",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "ml",
+          "team": "Cincinnati Bengals",
+          "name": "",
+          "target": null,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Cincinnati Bengals",
+            "home": "Baltimore Ravens",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "ml",
+          "team": "Houston Texans",
+          "name": "",
+          "target": null,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "New York Giants",
+            "home": "Houston Texans",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "ml",
+          "team": "Carolina Panthers",
+          "name": "",
+          "target": null,
+          "override": null,
+          "game": {
+            "date": "2026-10-29",
+            "away": "Carolina Panthers",
+            "home": "Green Bay Packers",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "ml",
+          "team": "Minnesota Vikings",
+          "name": "",
+          "target": null,
+          "override": null,
+          "game": {
+            "date": "2026-11-01",
+            "away": "Minnesota Vikings",
+            "home": "Detroit Lions",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "ml",
+          "team": "Tennessee Titans",
+          "name": "",
+          "target": null,
+          "override": null,
+          "game": {
+            "date": "2026-11-01",
+            "away": "Tennessee Titans",
+            "home": "Cincinnati Bengals",
+            "sport": "NFL"
+          }
+        }
+      ],
+      "odds": 15474
+    },
+    {
+      "id": "trey-20261025-props4",
+      "owner": "Trey",
+      "title": "Trey · 4 PM · 5-Leg Props",
+      "game": {
+        "date": "2026-10-25",
+        "away": "Denver Broncos",
+        "home": "Arizona Cardinals",
+        "sport": "NFL"
+      },
+      "stake": 1,
+      "payout": 21.93,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "placed": true,
+      "settlement": "auto",
+      "createdAt": "2026-10-25T12:10:46.518314Z",
+      "updatedAt": "2026-10-25T12:10:46.518314Z",
+      "notes": "Confirmed open ticket from screenshots supplied by Trey on October 25, 2026. Actual site submission time recorded; placement time not inferred. Preserve both displayed +2092 odds and $21.93 payout; screenshot has a one-cent difference from a simple odds conversion.",
+      "legs": [
+        {
+          "kind": "receptions",
+          "team": "Arizona Cardinals",
+          "name": "Trey McBride",
+          "target": 7.5,
+          "side": "over",
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Denver Broncos",
+            "home": "Arizona Cardinals",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "passing_yards",
+          "team": "Denver Broncos",
+          "name": "Bo Nix",
+          "target": 219.5,
+          "side": "under",
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Denver Broncos",
+            "home": "Arizona Cardinals",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "passing_yards",
+          "team": "Green Bay Packers",
+          "name": "Jordan Love",
+          "target": 281.5,
+          "side": "under",
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Green Bay Packers",
+            "home": "Detroit Lions",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "rushing_yards",
+          "team": "Detroit Lions",
+          "name": "Jahmyr Gibbs",
+          "target": 93.5,
+          "side": "over",
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Green Bay Packers",
+            "home": "Detroit Lions",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Las Vegas Raiders",
+          "name": "Ashton Jeanty",
+          "target": 25.5,
+          "side": "over",
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Los Angeles Rams",
+            "home": "Las Vegas Raiders",
+            "sport": "NFL"
+          }
+        }
+      ],
+      "odds": 2092
+    },
+    {
+      "id": "trey-20261025-props1",
+      "owner": "Trey",
+      "title": "Trey · 1 PM · 5-Leg Props",
+      "game": {
+        "date": "2026-10-25",
+        "away": "San Francisco 49ers",
+        "home": "Atlanta Falcons",
+        "sport": "NFL"
+      },
+      "stake": 1,
+      "payout": 23.8,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "placed": true,
+      "settlement": "auto",
+      "createdAt": "2026-10-25T12:10:46.518314Z",
+      "updatedAt": "2026-10-25T12:10:46.518314Z",
+      "notes": "Confirmed open ticket from screenshots supplied by Trey on October 25, 2026. Actual site submission time recorded; placement time not inferred. ",
+      "legs": [
+        {
+          "kind": "rushing_yards",
+          "team": "San Francisco 49ers",
+          "name": "Brock Purdy",
+          "target": 19.5,
+          "side": "over",
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "San Francisco 49ers",
+            "home": "Atlanta Falcons",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Cincinnati Bengals",
+          "name": "Tee Higgins",
+          "target": 65.5,
+          "side": "over",
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Cincinnati Bengals",
+            "home": "Baltimore Ravens",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Miami Dolphins",
+          "name": "Malik Washington",
+          "target": 40.5,
+          "side": "over",
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Miami Dolphins",
+            "home": "New York Jets",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "rushing_yards",
+          "team": "Carolina Panthers",
+          "name": "Chuba Hubbard",
+          "target": 66.5,
+          "side": "over",
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Tampa Bay Buccaneers",
+            "home": "Carolina Panthers",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "rushing_yards",
+          "team": "Houston Texans",
+          "name": "Woody Marks",
+          "target": 63.5,
+          "side": "under",
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "New York Giants",
+            "home": "Houston Texans",
+            "sport": "NFL"
+          }
+        }
+      ]
+    },
+    {
+      "id": "trey-20261025-london",
+      "owner": "Trey",
+      "title": "Trey · 9:30 AM · Steelers–Saints",
+      "game": {
+        "date": "2026-10-25",
+        "away": "Pittsburgh Steelers",
+        "home": "New Orleans Saints",
+        "sport": "NFL"
+      },
+      "stake": 1,
+      "payout": 31.17,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "placed": true,
+      "settlement": "auto",
+      "createdAt": "2026-10-25T12:10:46.518314Z",
+      "updatedAt": "2026-10-25T12:10:46.518314Z",
+      "notes": "Confirmed open ticket from screenshots supplied by Trey on October 25, 2026. Actual site submission time recorded; placement time not inferred. ",
+      "legs": [
+        {
+          "kind": "ml",
+          "team": "Pittsburgh Steelers",
+          "name": "",
+          "target": null,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Pittsburgh Steelers",
+            "home": "New Orleans Saints",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "total_points",
+          "team": "",
+          "name": "",
+          "target": 43.5,
+          "side": "under",
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Pittsburgh Steelers",
+            "home": "New Orleans Saints",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "receptions",
+          "team": "New Orleans Saints",
+          "name": "Chris Olave",
+          "target": 5.5,
+          "side": "over",
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Pittsburgh Steelers",
+            "home": "New Orleans Saints",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Pittsburgh Steelers",
+          "name": "Jaylen Warren",
+          "target": 25.5,
+          "side": "over",
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Pittsburgh Steelers",
+            "home": "New Orleans Saints",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "receptions",
+          "team": "New Orleans Saints",
+          "name": "Juwan Johnson",
+          "target": 3.5,
+          "side": "over",
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Pittsburgh Steelers",
+            "home": "New Orleans Saints",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "New Orleans Saints",
+          "name": "Bryce Lance",
+          "target": 13.5,
+          "side": "under",
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Pittsburgh Steelers",
+            "home": "New Orleans Saints",
+            "sport": "NFL"
+          }
+        }
+      ],
+      "odds": 3017
     }
   ]
 }
