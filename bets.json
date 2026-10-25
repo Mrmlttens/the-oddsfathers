@@ -4,7 +4,7 @@
     {
       "id": "trey-tnf-20261022-1",
       "owner": "Trey",
-      "title": "Bears · The Opening Salvo",
+      "title": "Bears \u00b7 The Opening Salvo",
       "game": {
         "date": "2026-10-22",
         "away": "New England Patriots",
@@ -68,7 +68,7 @@
     {
       "id": "trey-tnf-20261022-2",
       "owner": "Trey",
-      "title": "Patriots · The Counterattack",
+      "title": "Patriots \u00b7 The Counterattack",
       "game": {
         "date": "2026-10-22",
         "away": "New England Patriots",
@@ -125,7 +125,7 @@
     {
       "id": "trey-tnf-20261022-3",
       "owner": "Trey",
-      "title": "Bears · The Golden Ticket",
+      "title": "Bears \u00b7 The Golden Ticket",
       "game": {
         "date": "2026-10-22",
         "away": "New England Patriots",
@@ -196,7 +196,7 @@
     {
       "id": "trey-tnf-20261022-4",
       "owner": "Trey",
-      "title": "Patriots · The Godfather",
+      "title": "Patriots \u00b7 The Godfather",
       "game": {
         "date": "2026-10-22",
         "away": "New England Patriots",
@@ -282,7 +282,7 @@
       "updatedAt": "2026-10-22T23:48:15.374Z",
       "notes": "All legs and displayed odds transcribed from screenshots. $5 placeholder stake supplied by Trey; total return calculated from displayed odds. Placement and accepted odds remain unconfirmed.",
       "id": "gabe-tnf-20261022-9leg",
-      "title": "Gabe · 9-Leg Player Props",
+      "title": "Gabe \u00b7 9-Leg Player Props",
       "odds": 1544,
       "legs": [
         {
@@ -370,7 +370,7 @@
       "updatedAt": "2026-10-22T23:48:15.374Z",
       "notes": "All legs and displayed odds transcribed from screenshots. $5 placeholder stake supplied by Trey; total return calculated from displayed odds. Placement and accepted odds remain unconfirmed.",
       "id": "gabe-tnf-20261022-4td",
-      "title": "Gabe · 4 Anytime Touchdowns",
+      "title": "Gabe \u00b7 4 Anytime Touchdowns",
       "odds": 9957,
       "legs": [
         {
@@ -408,7 +408,7 @@
     {
       "id": "rodman-tnf-20261022-10leg",
       "owner": "Rodman",
-      "title": "Rodman · 10-Leg Player Props",
+      "title": "Rodman \u00b7 10-Leg Player Props",
       "game": {
         "date": "2026-10-22",
         "away": "New England Patriots",
@@ -500,7 +500,7 @@
     {
       "id": "rodman-tnf-20261022-5td",
       "owner": "Rodman",
-      "title": "Rodman · 5 Anytime Touchdowns",
+      "title": "Rodman \u00b7 5 Anytime Touchdowns",
       "game": {
         "date": "2026-10-22",
         "away": "New England Patriots",
@@ -560,7 +560,7 @@
     {
       "id": "trey-20261025-ml7",
       "owner": "Trey",
-      "title": "Trey · 7-Leg Moneyline · Oct 25–Nov 1",
+      "title": "Trey \u00b7 7-Leg Moneyline \u00b7 Oct 25\u2013Nov 1",
       "game": {
         "date": "2026-10-25",
         "away": "Miami Dolphins",
@@ -674,7 +674,7 @@
     {
       "id": "trey-20261025-props4",
       "owner": "Trey",
-      "title": "Trey · 4 PM · 5-Leg Props",
+      "title": "Trey \u00b7 4 PM \u00b7 5-Leg Props",
       "game": {
         "date": "2026-10-25",
         "away": "Denver Broncos",
@@ -767,7 +767,7 @@
     {
       "id": "trey-20261025-props1",
       "owner": "Trey",
-      "title": "Trey · 1 PM · 5-Leg Props",
+      "title": "Trey \u00b7 1 PM \u00b7 5-Leg Props",
       "game": {
         "date": "2026-10-25",
         "away": "San Francisco 49ers",
@@ -859,7 +859,7 @@
     {
       "id": "trey-20261025-london",
       "owner": "Trey",
-      "title": "Trey · 9:30 AM · Steelers–Saints",
+      "title": "Trey \u00b7 9:30 AM \u00b7 Steelers\u2013Saints",
       "game": {
         "date": "2026-10-25",
         "away": "Pittsburgh Steelers",
@@ -961,6 +961,216 @@
         }
       ],
       "odds": 3017
+    },
+    {
+      "owner": "Jeff",
+      "stake": 10,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "placed": true,
+      "settlement": "auto",
+      "createdAt": "2026-10-25T12:41:35.971046Z",
+      "updatedAt": "2026-10-25T12:41:35.971046Z",
+      "notes": "Confirmed open FanDuel ticket from screenshots supplied by Trey for public site publication. Exact displayed payout retained. Actual site submission timestamp used. Account balance and sportsbook ticket identifiers omitted.",
+      "id": "jeff-20261025-1",
+      "title": "Jeff \u00b7 3 Anytime Touchdowns",
+      "game": {
+        "date": "2026-10-25",
+        "away": "Green Bay Packers",
+        "home": "Detroit Lions",
+        "sport": "NFL"
+      },
+      "payout": 128.31,
+      "odds": 1183,
+      "legs": [
+        {
+          "kind": "any_td",
+          "name": "Tucker Kraft",
+          "team": "Green Bay Packers",
+          "target": 1,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Green Bay Packers",
+            "home": "Detroit Lions",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "any_td",
+          "name": "Sam LaPorta",
+          "team": "Detroit Lions",
+          "target": 1,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Green Bay Packers",
+            "home": "Detroit Lions",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "any_td",
+          "name": "George Kittle",
+          "team": "San Francisco 49ers",
+          "target": 1,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "San Francisco 49ers",
+            "home": "Atlanta Falcons",
+            "sport": "NFL"
+          }
+        }
+      ]
+    },
+    {
+      "owner": "Jeff",
+      "stake": 10,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "placed": true,
+      "settlement": "auto",
+      "createdAt": "2026-10-25T12:41:35.971046Z",
+      "updatedAt": "2026-10-25T12:41:35.971046Z",
+      "notes": "Confirmed open FanDuel ticket from screenshots supplied by Trey for public site publication. Exact displayed payout retained. Actual site submission timestamp used. Account balance and sportsbook ticket identifiers omitted.",
+      "id": "jeff-20261025-2",
+      "title": "Jeff \u00b7 7 Either-Player Touchdowns",
+      "game": {
+        "date": "2026-10-25",
+        "away": "Cincinnati Bengals",
+        "home": "Baltimore Ravens",
+        "sport": "NFL"
+      },
+      "payout": 473.42,
+      "legs": [
+        {
+          "kind": "either_td",
+          "name": "Mark Andrews or Mike Gesicki",
+          "team": "",
+          "players": [
+            "Mark Andrews",
+            "Mike Gesicki"
+          ],
+          "target": 1,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Cincinnati Bengals",
+            "home": "Baltimore Ravens",
+            "sport": "NFL"
+          },
+          "odds": 110
+        },
+        {
+          "kind": "either_td",
+          "name": "Kyle Pitts or George Kittle",
+          "team": "",
+          "players": [
+            "Kyle Pitts",
+            "George Kittle"
+          ],
+          "target": 1,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "San Francisco 49ers",
+            "home": "Atlanta Falcons",
+            "sport": "NFL"
+          },
+          "odds": -190
+        },
+        {
+          "kind": "either_td",
+          "name": "Darren Waller or Cade Otton",
+          "team": "",
+          "players": [
+            "Darren Waller",
+            "Cade Otton"
+          ],
+          "target": 1,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Tampa Bay Buccaneers",
+            "home": "Carolina Panthers",
+            "sport": "NFL"
+          },
+          "odds": 100
+        },
+        {
+          "kind": "either_td",
+          "name": "Trey McBride or Evan Engram",
+          "team": "",
+          "players": [
+            "Trey McBride",
+            "Evan Engram"
+          ],
+          "target": 1,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Denver Broncos",
+            "home": "Arizona Cardinals",
+            "sport": "NFL"
+          },
+          "odds": -135
+        },
+        {
+          "kind": "either_td",
+          "name": "Sam LaPorta or Tucker Kraft",
+          "team": "",
+          "players": [
+            "Sam LaPorta",
+            "Tucker Kraft"
+          ],
+          "target": 1,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Green Bay Packers",
+            "home": "Detroit Lions",
+            "sport": "NFL"
+          },
+          "odds": -200
+        },
+        {
+          "kind": "either_td",
+          "name": "Brock Bowers or Tyler Higbee",
+          "team": "",
+          "players": [
+            "Brock Bowers",
+            "Tyler Higbee"
+          ],
+          "target": 1,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Los Angeles Rams",
+            "home": "Las Vegas Raiders",
+            "sport": "NFL"
+          },
+          "odds": -195
+        },
+        {
+          "kind": "either_td",
+          "name": "AJ Barner or Travis Kelce",
+          "team": "",
+          "players": [
+            "AJ Barner",
+            "Travis Kelce"
+          ],
+          "target": 1,
+          "override": null,
+          "game": {
+            "date": "2026-10-25",
+            "away": "Kansas City Chiefs",
+            "home": "Seattle Seahawks",
+            "sport": "NFL"
+          },
+          "odds": -115
+        }
+      ]
     }
   ]
 }

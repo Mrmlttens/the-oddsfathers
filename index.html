@@ -89,7 +89,7 @@
 @media(prefers-reduced-motion:reduce){.leg-progress-fill{transition:none}}
 </style>
 <link rel="stylesheet" href="./livefield.css">
-<link rel="stylesheet" href="./celebrations-v2.css?v=oct25-multigame-1">
+<link rel="stylesheet" href="./celebrations-v2.css?v=oct25-either-td-1">
 <link rel="stylesheet" href="./king.css?v=scenarios-5">
 <link rel="stylesheet" href="./upcoming.css?v=1">
 </head>
@@ -287,6 +287,13 @@ if(leg.kind==='ml'){
  if(final)return {status:score>op?'hit':score<op?'miss':'review',value:score+'–'+op};
  return {status:playing?'live':'pending',value:playing?score+'–'+op:null};
 }
+if(leg.kind==='either_td'){
+ const players=(leg.players||[]).map(name=>getStatPlayer(ev.id,name));
+ const totals=players.map(p=>!p||(p.rushing_td==null&&p.receiving_td==null)?null:(p.rushing_td||0)+(p.receiving_td||0));
+ if(totals.some(v=>v!==null&&v>=1))return {status:'hit',value:1};
+ if(final&&totals.length>=2&&totals.every(v=>v!==null))return {status:'miss',value:0};
+ return {status:final?'review':playing?'live':'pending',value:totals.every(v=>v!==null)?0:null};
+}
 let value=null;
 if(leg.kind==='total_points')value=c.length===2&&c.every(x=>x.score!==undefined)?c.reduce((sum,x)=>sum+Number(x.score),0):null;
 else {const p=getStatPlayer(ev.id,leg.name);if(!p)return {status:final?'review':playing?'live':'pending',value:null};
@@ -300,7 +307,7 @@ return {status:final?'miss':playing?'live':'pending',value};
 }
 
 function ticketStatus(b){if(b.settlement==='won')return 'won';if(b.settlement==='lost')return 'lost';if(b.settlement==='void')return 'review';if(!b.legs?.length)return 'review';const s=b.legs.map(l=>evalLeg(l,b).status);if(s.includes('miss'))return 'lost';if(s.every(x=>x==='hit'))return 'won';if(s.includes('review')||s.includes('void'))return 'review';if(s.includes('live')||ticketGames(b).some(g=>statusOfGame(g)==='in'))return 'live';return 'open'}
-function legText(l){const who=l.name||l.team||'Selection';if(l.kind==='ml')return `${l.team} moneyline`;if(l.kind==='any_td')return `${who} · anytime touchdown`;
+function legText(l){const who=l.name||l.team||'Selection';if(l.kind==='ml')return `${l.team} moneyline`;if(l.kind==='any_td'||l.kind==='either_td')return `${who} · anytime touchdown`;
 const labels={passing_yards:'passing yards',rushing_yards:'rushing yards',receiving_yards:'receiving yards',receptions:'receptions',total_points:'total points'};
 const target=l.side?(l.side==='under'?'Under ':'Over ')+l.target:l.target+'+';
 return `${l.kind==='total_points'?'Game':who} · ${target} ${labels[l.kind]||l.kind}`;}
@@ -481,14 +488,15 @@ function showRecentOnReturn(){
 }
 
 </script>
-<script src="./livefield.js?v=oct25-multigame-1" defer></script>
-<script src="./king-model.js?v=oct25-multigame-1" defer></script>
-<script src="./king.js?v=oct25-multigame-1" defer></script>
-<script src="./popup-points.js?v=oct25-multigame-1" defer></script>
-<script src="./celebrations-v2.js?v=oct25-multigame-1" defer></script>
+<script src="./livefield.js?v=oct25-either-td-1" defer></script>
+<script src="./king-model.js?v=oct25-either-td-1" defer></script>
+<script src="./king.js?v=oct25-either-td-1" defer></script>
+<script src="./popup-points.js?v=oct25-either-td-1" defer></script>
+<script src="./celebrations-v2.js?v=oct25-either-td-1" defer></script>
 <script src="./upcoming.js?v=1" defer></script>
 </body>
 </html>
+
 
 
 
