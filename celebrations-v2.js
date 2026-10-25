@@ -8,10 +8,12 @@ winEvents=popupRead(POPUP_WINS_KEY);
 function popupSave(key,value){try{localStorage.setItem(key,JSON.stringify(value));}catch{}}
 function popupMarkSeen(key){popupSeen[key]=now();const cutoff=Date.now()-3*86400000;popupSeen=Object.fromEntries(Object.entries(popupSeen).filter(([,time])=>new Date(time).getTime()>cutoff));popupSave(POPUP_SEEN_KEY,popupSeen);}
 function popupGameKey(game){return [game?.date,norm(game?.away),norm(game?.home)].join('|');}
-function popupLegKey(bet,leg){return ['leg',popupGameKey(legGame(leg,bet)),norm(leg.name||leg.team),leg.kind,leg.target??''].join('|');}
+function popupLegKey(bet,leg){return ['leg',popupGameKey(legGame(leg,bet)),norm(leg.name||leg.team),leg.kind,leg.side||'atleast',leg.target??''].join('|');}
+function popupOwnerLegKey(bet,leg){return 'owner|'+norm(bet.owner)+'|'+popupLegKey(bet,leg);}
+function popupPendingOwnerKeys(){return new Set([popupCurrent,...popupQueue].filter(Boolean).flatMap(e=>e.seenKeys||[]));}
 function popupOwners(entries){const owners=new Map();for(const {bet} of entries){const prior=owners.get(bet.owner);owners.set(bet.owner,prior===true||bet.placed!==false);}return [...owners].map(([name,confirmed])=>name);}
 function queuePopup(event){if(!event.demo&&(popupSeen[event.key]||popupQueued.has(event.key)))return;popupQueued.add(event.key);if(event.type==='win')popupQueue.unshift(event);else popupQueue.push(event);pumpPopup();}
-function pumpPopup(){if(popupCurrent||document.hidden||!popupQueue.length)return;const event=popupQueue.shift();if(!event.demo&&event.type==='win'){const bet=bets.find(b=>b.id===event.betId);if(!bet||ticketStatus(bet)!=='won'){popupQueued.delete(event.key);pumpPopup();return;}}popupCurrent=event;if(!event.demo)popupMarkSeen(event.key);paintPopup(event);}
+function pumpPopup(){if(popupCurrent||document.hidden||!popupQueue.length)return;const event=popupQueue.shift();if(!event.demo&&event.type==='win'){const bet=bets.find(b=>b.id===event.betId);if(!bet||ticketStatus(bet)!=='won'){popupQueued.delete(event.key);pumpPopup();return;}}popupCurrent=event;paintPopup(event);}
 function paintPopup(event){
  const root=$('celebration');if(!root)return;
  clearTimeout(celebrationTimer);root.classList.toggle('milestone',event.type!=='win');
@@ -27,25 +29,34 @@ function paintPopup(event){
  $('celebrationDismiss').textContent='GOT IT'+(popupQueue.length?' · '+popupQueue.length+' MORE':'');
  $('celebrationSparks').innerHTML=Array.from({length:event.type==='win'?45:18},()=>`<i style="--x:${Math.round(Math.random()*100)}%;--delay:${(Math.random()*.5).toFixed(2)}s;--duration:${(2+Math.random()*2).toFixed(2)}s;--rot:${Math.round(Math.random()*720)}deg"></i>`).join('');
  if(!popupFocus)popupFocus=document.activeElement;root.hidden=false;root.classList.add('visible');$('celebrationDismiss').focus({preventScroll:true});
- celebrationTimer=setTimeout(dismissCelebration,event.type==='win'?8500:6000);
+ if(!document.hidden)celebrationTimer=setTimeout(()=>{if(!document.hidden)dismissCelebration();},event.type==='win'?8500:6000);
 }
-function dismissCelebration(){clearTimeout(celebrationTimer);const root=$('celebration');root?.classList.remove('visible');if(root)root.hidden=true;if(popupCurrent)popupQueued.delete(popupCurrent.key);popupCurrent=null;if(popupQueue.length&&!document.hidden)pumpPopup();else if(!popupQueue.length){popupFocus?.focus?.({preventScroll:true});popupFocus=null;}}
+function dismissCelebration(){
+ clearTimeout(celebrationTimer);if(document.hidden)return;
+ const root=$('celebration');root?.classList.remove('visible');if(root)root.hidden=true;
+ if(popupCurrent){if(!popupCurrent.demo){for(const key of popupCurrent.seenKeys||[popupCurrent.key])popupMarkSeen(key);}popupQueued.delete(popupCurrent.key);}
+ popupCurrent=null;
+ if(popupQueue.length)pumpPopup();else{popupFocus?.focus?.({preventScroll:true});popupFocus=null;}
+}
 function checkLegMilestones(){
  if(typeof refreshPopupPointState==='function')refreshPopupPointState();
- const groups=new Map();
+ const groups=new Map(),pending=popupPendingOwnerKeys();
  for(const bet of bets){if(bet.archivedAt||!bet.legs?.length)continue;
-  for(const leg of bet.legs){const ev=findEvent(legGame(leg,bet));if(leg.kind==='ml'||!ev||!statsByEvent.has(String(ev.id))||livefieldFailures.has(String(ev.id)))continue;const value=evalLeg(leg,bet);if(value.status!=='hit'||value.source==='manual')continue;
-   const key=popupLegKey(bet,leg);if(!groups.has(key))groups.set(key,[]);groups.get(key).push({bet,leg,value,event:ev});
+  for(const leg of bet.legs){const game=legGame(leg,bet),ev=findEvent(game);if(leg.kind==='ml'||!ev||!statsByEvent.has(String(ev.id))||livefieldFailures.has(String(ev.id)))continue;
+   const value=evalLeg(leg,bet);if(value.status!=='hit'||value.source==='manual')continue;
+   const seenKey=popupOwnerLegKey(bet,leg);if(popupSeen[seenKey]||pending.has(seenKey))continue;
+   if(game.date<boardDate()&&statusOfGame(game)!=='in'){popupMarkSeen(seenKey);continue;}
+   const key=popupLegKey(bet,leg);if(!groups.has(key))groups.set(key,[]);groups.get(key).push({bet,leg,value,event:ev,seenKey});
   }
  }
  const catchups=new Map();
- for(const [key,entries] of groups){if(popupSeen[key]||popupQueued.has(key))continue;const {bet,leg,event}=entries[0],gameKey=popupGameKey(legGame(leg,bet));
-  if(legGame(leg,bet).date<boardDate()&&statusOfGame(legGame(leg,bet))!=='in'){popupMarkSeen(key);continue;}
-  if(!popupGamesObserved.has(gameKey)){if(!catchups.has(gameKey))catchups.set(gameKey,[]);catchups.get(gameKey).push(...entries);popupMarkSeen(key);continue;}
-  queuePopup({key,type:'leg',touchdown:leg.kind==='any_td',title:leg.kind==='any_td'?'TOUCHDOWN!':'LEG HIT!',subtitle:leg.kind==='any_td'?leg.name+' scored!':legText(leg),owners:popupOwners(entries),pointReceipts:typeof popupPointReceipts==='function'?popupPointReceipts(entries):null});
+ for(const [key,entries] of groups){const {bet,leg}=entries[0],gameKey=popupGameKey(legGame(leg,bet));
+  if(!popupGamesObserved.has(gameKey)){if(!catchups.has(gameKey))catchups.set(gameKey,[]);catchups.get(gameKey).push(...entries);continue;}
+  const seenKeys=[...new Set(entries.map(e=>e.seenKey))],touchdown=['any_td','either_td'].includes(leg.kind);
+  queuePopup({key:'milestone|'+seenKeys.slice().sort().join('~'),seenKeys,type:'leg',touchdown,title:touchdown?'TOUCHDOWN!':'LEG HIT!',subtitle:leg.kind==='either_td'?'One of '+leg.name+' scored!':leg.kind==='any_td'?leg.name+' scored!':legText(leg),owners:popupOwners(entries),pointReceipts:typeof popupPointReceipts==='function'?popupPointReceipts(entries):null});
  }
- for(const [key,entries] of catchups){const count=new Set(entries.map(({bet,leg})=>popupLegKey(bet,leg))).size;
-  queuePopup({key:'catchup|'+key+'|'+Date.now(),type:'catchup',title:'ALREADY HIT',subtitle:count+' player milestone'+(count===1?'':'s')+' cleared before this check.',owners:popupOwners(entries),pointReceipts:typeof popupPointReceipts==='function'?popupPointReceipts(entries):null,note:'Catch-up from the latest reported stats. These are not new scoring alerts.'});
+ for(const [key,entries] of catchups){const count=new Set(entries.map(({bet,leg})=>popupLegKey(bet,leg))).size,seenKeys=[...new Set(entries.map(e=>e.seenKey))];
+  queuePopup({key:'catchup|'+seenKeys.slice().sort().join('~'),seenKeys,type:'catchup',title:'LEGS HIT WHILE AWAY',subtitle:count+' player milestone'+(count===1?'':'s')+' cleared before this check.',owners:popupOwners(entries),pointReceipts:typeof popupPointReceipts==='function'?popupPointReceipts(entries):null,note:'Catch-up from reported stats. Points shown are already included in the standings; this alert does not add them again.'});
  }
  for(const bet of bets)for(const game of ticketGames(bet)){const ev=findEvent(game);if(ev&&statsByEvent.has(String(ev.id))&&!livefieldFailures.has(String(ev.id)))popupGamesObserved.add(popupGameKey(game));}
 }
@@ -71,10 +82,11 @@ function previewCelebration(type){
  const unique='demo|'+Date.now()+'|'+Math.random();
  queuePopup({key:unique,demo:true,type:type==='td'?'leg':'win',touchdown:type==='td',title:type==='td'?'TOUCHDOWN!':'ALL LEGS HIT!',subtitle:'Sample animation only',owners:['Demo member'],pointReceipts:[{owner:'Demo member',points:1,live:true}],stats:type==='td'?[]:[{label:'EXAMPLE ONLY',value:'DEMO'}]});
 }
-document.addEventListener('visibilitychange',()=>{if(!document.hidden)pumpPopup();});
+document.addEventListener('visibilitychange',()=>{if(document.hidden){clearTimeout(celebrationTimer);return;}if(popupCurrent)paintPopup(popupCurrent);else pumpPopup();});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&popupCurrent)dismissCelebration();});
 document.getElementById('previewTouchdown')?.addEventListener('click',()=>previewCelebration('td'));
 document.getElementById('previewTicketWin')?.addEventListener('click',()=>previewCelebration('win'));
+
 
 
 
