@@ -2401,6 +2401,120 @@
           "override": null
         }
       ]
+    },
+    {
+      "id": "jeff-mnf-20261026-9leg",
+      "owner": "Jeff",
+      "title": "Jeff · MNF · Q1 & First-Drive · 9-Leg SGP",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "stake": 49,
+      "stakeEstimated": false,
+      "payout": 7629.21,
+      "payoutEstimated": true,
+      "quotedProfit": 7580.21,
+      "odds": 15469,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "placed": false,
+      "settlement": "auto",
+      "createdAt": "2026-10-26T23:16:44.628Z",
+      "updatedAt": "2026-10-26T23:16:44.628Z",
+      "notes": "One nine-selection SGP shown in the final screenshot. $49 entered wager and $7,580.21 TO WIN quote shown; estimated total return $7,629.21 includes the $49 stake. Displayed +15469 odds rounded by sportsbook, so quote is preserved without recalculating. Place bet button is still visible: placement and accepted price unconfirmed. Earlier screenshots show 16 uncombined selections; their seven full-game yardage/reception props are not additional tickets or legs in this nine-selection SGP. Q1 receiving and Dallas drive 1 markets retain their separate scopes. Account identifiers, contact details and messages omitted.",
+      "legs": [
+        {
+          "kind": "receiving_yards",
+          "name": "CeeDee Lamb",
+          "team": "Dallas Cowboys",
+          "target": 5,
+          "scope": {
+            "period": 1
+          },
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "name": "George Pickens",
+          "team": "Dallas Cowboys",
+          "target": 5,
+          "scope": {
+            "period": 1
+          },
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "name": "Jake Ferguson",
+          "team": "Dallas Cowboys",
+          "target": 5,
+          "scope": {
+            "period": 1
+          },
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "name": "Dallas Goedert",
+          "team": "Philadelphia Eagles",
+          "target": 5,
+          "scope": {
+            "period": 1
+          },
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "name": "Makai Lemon",
+          "team": "Philadelphia Eagles",
+          "target": 5,
+          "scope": {
+            "period": 1
+          },
+          "override": null
+        },
+        {
+          "kind": "passing_yards",
+          "name": "Dak Prescott",
+          "team": "Dallas Cowboys",
+          "target": 20,
+          "scope": {
+            "drive": 1
+          },
+          "override": null
+        },
+        {
+          "kind": "rushing_yards",
+          "name": "Javonte Williams",
+          "team": "Dallas Cowboys",
+          "target": 5,
+          "scope": {
+            "drive": 1
+          },
+          "override": null
+        },
+        {
+          "kind": "drive_offensive_td",
+          "name": "",
+          "team": "Dallas Cowboys",
+          "target": 1,
+          "scope": {
+            "drive": 1
+          },
+          "override": null
+        },
+        {
+          "kind": "any_td",
+          "name": "George Pickens",
+          "team": "Dallas Cowboys",
+          "target": 1,
+          "override": null
+        }
+      ]
     }
   ]
 }
+

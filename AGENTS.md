@@ -1,3 +1,6 @@
+## October 26 follow-up
+Trey requested removing the Closest to cash panel as redundant; retain ticket progress sorting. Jeff's MNF ticket uses Q1 receiving and Dallas's first offensive drive props. Preserve scope in data, duplicate keys and labels. Scope-limited stats must use the corresponding play-by-play period/possession, never full-game totals; ambiguous/missing play data stays under review. A visible entered wager is recorded as a quote while placement remains unconfirmed. Do not infer a combined 16-leg ticket from uncombined selections.
+
 # Current approved enhancement release — October 26, 2026
 Trey explicitly requested implementing scoring, permanent results, improved History, confirmed/estimated wager separation, feed health and closest-to-cash improvements, plus COD-style crew profiles. This authorizes these additive features on main while preserving the existing theme/header and v1-baseline branch.
 The current scoring rule is koto-accuracy-v3 and supersedes the earlier first-ten-slot rule below: all unique pregame predictions count, original target wins duplicate/opposing families, live hits provisional, rating = 100 × hits / max(5, hits + misses) + min(5, hits). Pending and void excluded; no ten-leg limit. Season rating averages final weekends, crown is a title without bonus points; three final weeks with five graded picks each qualify a season title. Wagers never affect CP.
@@ -39,4 +42,5 @@ Trey explicitly approved publishing the four October 25 tickets and instructed: 
 
 ## Unknown wager default (October 26, 2026)
 Trey instructed that when a submitted ticket does not show its wager amount, use $5 and clearly label it as an estimated/placeholder wager. A visible confirmed wager always takes precedence. Do not assume $5 is the payout or profit.
+
 

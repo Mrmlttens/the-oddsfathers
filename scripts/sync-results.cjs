@@ -20,8 +20,9 @@ async function sync(){
   const regs=config.registrations.filter(r=>matching(r.game)?.id===event.id),game=regs[0]?.game;if(!game)return;
   const compact={id:event.id,date:event.date,name:event.name,status:event.status,competitions:[{status:event.competitions[0].status,competitors:event.competitions[0].competitors.map(c=>({team:{displayName:c.team.displayName,name:c.team.name,abbreviation:c.team.abbreviation},score:c.score,homeAway:c.homeAway}))}]};
   const stored={key:G.gameKey(game),game,eventId:String(event.id),event:compact,players:Object.fromEntries(players),source:'ESPN',sourceUrl:url,sourceVerified:true,observedAt};
-  const gi=config.games.findIndex(x=>x.key===stored.key);if(gi<0)config.games.push(stored);else if(JSON.stringify(config.games[gi].players)!==JSON.stringify(stored.players)||JSON.stringify(config.games[gi].event)!==JSON.stringify(stored.event))config.games[gi]=stored;
-  for(const r of regs){const v=G.evaluate({...r.leg,override:null},compact,players,'post');if(!['hit','miss','void'].includes(v.status))continue;
+  if(regs.some(r=>r.leg.scope))stored.scopeData=require('../scoped-model.js').compact(raw);
+  const gi=config.games.findIndex(x=>x.key===stored.key);if(gi<0)config.games.push(stored);else if(JSON.stringify(config.games[gi].players)!==JSON.stringify(stored.players)||JSON.stringify(config.games[gi].event)!==JSON.stringify(stored.event)||JSON.stringify(config.games[gi].scopeData)!==JSON.stringify(stored.scopeData))config.games[gi]=stored;
+  for(const r of regs){const v=G.evaluate({...r.leg,override:null},compact,players,'post',raw);if(!['hit','miss','void'].includes(v.status))continue;
    const result={registrationId:r.id,status:v.status,value:v.value,gameState:'post',gameStart:event.date,eventId:String(event.id),source:'ESPN',sourceUrl:url,sourceVerified:true,observedAt};
    const i=config.results.findIndex(x=>x.registrationId===r.id);if(i<0){config.results.push(result);saved++;}else if(config.results[i].status!==v.status||config.results[i].value!==v.value){config.corrections.push({registrationId:r.id,previous:config.results[i],correctedAt:observedAt});config.results[i]=result;corrected++;}
   }
@@ -34,3 +35,4 @@ async function sync(){
  if(errors.length&&config.games.length===0)process.exitCode=1;
 }
 if(require.main===module)sync().catch(e=>{console.error(e);process.exitCode=1;});module.exports={sync};
+

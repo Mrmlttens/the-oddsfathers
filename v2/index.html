@@ -93,7 +93,7 @@
 <link rel="stylesheet" href="./celebrations-v2.css?v=oct25-either-td-1">
 <link rel="stylesheet" href="./king.css?v=scenarios-5">
 <link rel="stylesheet" href="./upcoming.css?v=1">
-<link rel="stylesheet" href="./enhancements.css?v=crew-v3-2">
+<link rel="stylesheet" href="./enhancements.css?v=jeff-scope-1">
 </head>
 <body>
   <div class="shell">
@@ -155,7 +155,6 @@
       </section>
 
       <details id="feedHealth" class="feed-health"><summary id="feedHealthLabel">Checking feeds…</summary><div id="feedHealthList"></div></details>
-      <section id="closestPanel" class="feature-panel"><div class="eyebrow">CLOSEST TO CASH</div><h3>One ticket. Each member.</h3><p class="feature-muted">Leg progress only, not a win probability. Unders and team results wait for final.</p><div id="closestList" class="closest-grid"></div></section>
       <div id="recentHits" class="recent-hits" hidden></div>
       <div id="scenarioBar" class="scenario-bar"></div>
 
@@ -281,17 +280,17 @@ function legGame(leg,bet){return leg.game||bet.game;}
 function ticketGames(bet){return [...new Map((bet.legs||[]).map(l=>{const g=legGame(l,bet);return [GameModel.gameKey(g),g];})).values()];}
 function evalLeg(leg,bet){
  const game=legGame(leg,bet),event=findEvent(game),record=recordedGame(game),id=String(event?.id||'');
- const current=GameModel.evaluate(leg,event,statsByEvent.get(id),statusOfGame(game));
+ const current=GameModel.evaluate(leg,event,statsByEvent.get(id),statusOfGame(game),livefieldSummaries.get(id)?.raw);
  if(leg.override)return current;
- if(record&&(!statsByEvent.has(id)||livefieldFailures.has(id)||['review','unknown'].includes(current.status)))return {...GameModel.evaluate(leg,record.event,new Map(Object.entries(record.players)),'post'),source:'saved ESPN',observedAt:record.observedAt};
+ if(record&&(!statsByEvent.has(id)||livefieldFailures.has(id)||['review','unknown'].includes(current.status)))return {...GameModel.evaluate(leg,record.event,new Map(Object.entries(record.players)),'post',record.scopeData),source:'saved ESPN',observedAt:record.observedAt};
  return current;
 }
 
 function ticketStatus(b){if(b.settlement==='won')return 'won';if(b.settlement==='lost')return 'lost';if(b.settlement==='void')return 'review';if(!b.legs?.length)return 'review';const s=b.legs.map(l=>evalLeg(l,b).status);if(s.includes('miss'))return 'lost';if(s.every(x=>x==='hit'))return 'won';if(s.includes('review')||s.includes('void'))return 'review';if(s.includes('live')||ticketGames(b).some(g=>statusOfGame(g)==='in'))return 'live';return 'open'}
-function legText(l){const who=l.name||l.team||'Selection';if(l.kind==='ml')return `${l.team} moneyline`;if(l.kind==='spread')return `${l.team} ${l.target>=0?'+':''}${l.target} spread`;if(l.kind==='any_td'||l.kind==='either_td')return `${who} · ${l.target>1?l.target+'+ touchdowns':'anytime touchdown'}`;
+function legText(l){const who=l.name||l.team||'Selection',scopeText=l.scope?.period?'Q'+l.scope.period+' · ':l.scope?.drive?'Drive '+l.scope.drive+' · ':'';if(l.kind==='drive_offensive_td')return `${l.team} · Drive 1 · offensive touchdown`;if(l.kind==='ml')return `${l.team} moneyline`;if(l.kind==='spread')return `${l.team} ${l.target>=0?'+':''}${l.target} spread`;if(l.kind==='any_td'||l.kind==='either_td')return `${who} · ${l.target>1?l.target+'+ touchdowns':'anytime touchdown'}`;
 const labels={passing_yards:'passing yards',passing_td:'passing touchdowns',rushing_yards:'rushing yards',receiving_yards:'receiving yards',receptions:'receptions',total_points:'total points'};
 const target=l.side?(l.side==='under'?'Under ':'Over ')+l.target:l.target+'+';
-return `${l.kind==='total_points'?'Game':who} · ${target} ${labels[l.kind]||l.kind}`;}
+return `${l.kind==='total_points'?'Game':who} · ${scopeText}${target} ${labels[l.kind]||l.kind}`;}
 function legProgressBar(l,v){
  const target=Number(l.target),numeric=l.kind!=='ml'&&l.kind!=='spread'&&target>0;
  const known=numeric&&Number.isFinite(v.value);
@@ -343,7 +342,7 @@ return `<article class="ticket ${teamColors(b)} ${st}" data-id="${esc(b.id)}"><d
 <div class="ticket-content"><div class="ticket-title"><h4>${esc(b.title)}</h4><div class="ticket-odds">${esc(oddsFromReturn(b))}</div></div>
 <div class="matchup">◷ ${esc(shortTeams)} <span>·</span> ${esc(dateText(b.game.date))}${matchups.some(g=>g.date!==b.game.date)?' onwards':''} <span>·</span> ${esc(b.sportsbook||'')}</div>
 <div class="teamchips"><span class="teamchip"><img loading="lazy" onerror="this.style.display='none'" src="${esc(teamLogo(b.game.away))}" alt="">${esc(teamAbbr(b.game.away))}</span><span class="vs">AT</span><span class="teamchip"><img loading="lazy" onerror="this.style.display='none'" src="${esc(teamLogo(b.game.home))}" alt="">${esc(teamAbbr(b.game.home))}</span>${winner?`<span class="vs">↳ ${esc(teamAbbr(winner))} WIN</span>`:''}</div>
-<div class="ticket-bottom"><div><div class="dollars">${money(b.stake)}</div><div class="micro">${b.stakeEstimated?'PLACEHOLDER WAGER':'WAGERED'}</div></div><div class="payoutval"><div class="dollars">${money(b.payout)}</div><div class="micro">${b.payoutEstimated?'ESTIMATED TOTAL RETURN':'POSSIBLE TOTAL RETURN'}</div></div></div>
+<div class="ticket-bottom"><div><div class="dollars">${money(b.stake)}</div><div class="micro">${b.placed===false?'UNCONFIRMED WAGER':b.stakeEstimated?'PLACEHOLDER WAGER':'WAGERED'}</div></div><div class="payoutval"><div class="dollars">${money(b.payout)}</div><div class="micro">${b.payoutEstimated?'ESTIMATED TOTAL RETURN':'POSSIBLE TOTAL RETURN'}</div></div></div>
 <div class="progressbox"><div class="progressrow"><span>LEGS TRACKED</span><span>${p.hit} / ${p.total} hit${p.miss?` · ${p.miss} missed`:''}</span></div><div class="progressdots">${dots}</div></div>
 <div class="ticket-buttons"><button class="btn btn-primary" data-action="expand" data-id="${esc(b.id)}">${detail?'Hide':'Track'} ${p.total} legs ${detail?'⌃':'⌄'}</button><button class="btn btn-ghost smallicon" title="Share ticket" data-action="share" data-id="${esc(b.id)}">↗</button></div>
 ${detail?`<div class="legs">${legs}<div style="display:flex;justify-content:space-between;gap:9px;align-items:center;margin-top:8px">${b.ticketUrl?`<a target="_blank" rel="noopener noreferrer" href="${esc(b.ticketUrl)}" style="font-size:11px">Open slip ↗</a>`:''}</div></div>`:''}</div></article>`}).join('')}
@@ -432,7 +431,7 @@ function easternParts(d=new Date()){
   let v=Object.fromEntries(parts.map(x=>[x.type,x.value]));return {date:`${v.year}-${v.month}-${v.day}`,hour:Number(v.hour)};
 }
 function boardDate(){const et=easternParts();if(et.hour>=4)return et.date;const d=new Date(`${et.date}T12:00:00Z`);d.setUTCDate(d.getUTCDate()-1);return d.toISOString().slice(0,10)}
-function shouldArchiveTicket(b,today,state){return !b.archivedAt&&(['won','lost','void'].includes(b.settlement)||state==='post'||b.legs.some(l=>statusOfGame(legGame(l,b))==='post'&&evalLeg(l,b).status==='miss'));}
+function shouldArchiveTicket(b,today,state){return !b.archivedAt&&(['won','lost','void'].includes(b.settlement)||state==='post'||b.legs.some(l=>(statusOfGame(legGame(l,b))==='post'||evalLeg(l,b).scopeFinal===true)&&evalLeg(l,b).status==='miss'));}
 function checkDailyRollover(){
  const completed=bets.filter(b=>!b.archivedAt&&shouldArchiveTicket(b,null,ticketGames(b).every(g=>statusOfGame(g)==='post')?'post':'unfinished'));
  if(!completed.length)return;
@@ -469,17 +468,19 @@ function showRecentOnReturn(){
 }
 
 </script>
-<script src="./game-model.js?v=crew-v3-2" defer></script>
-<script src="./crew-model.js?v=crew-v3-2" defer></script>
-<script src="./livefield.js?v=crew-v3-2" defer></script>
-<script src="./king-model.js?v=crew-v3-2" defer></script>
-<script src="./king.js?v=crew-v3-2" defer></script>
-<script src="./enhancements.js?v=crew-v3-2" defer></script>
-<script src="./popup-points.js?v=crew-v3-2" defer></script>
-<script src="./celebrations-v2.js?v=crew-v3-2" defer></script>
+<script src="./scoped-model.js?v=jeff-scope-1" defer></script>
+<script src="./game-model.js?v=jeff-scope-1" defer></script>
+<script src="./crew-model.js?v=jeff-scope-1" defer></script>
+<script src="./livefield.js?v=jeff-scope-1" defer></script>
+<script src="./king-model.js?v=jeff-scope-1" defer></script>
+<script src="./king.js?v=jeff-scope-1" defer></script>
+<script src="./enhancements.js?v=jeff-scope-1" defer></script>
+<script src="./popup-points.js?v=jeff-scope-1" defer></script>
+<script src="./celebrations-v2.js?v=jeff-scope-1" defer></script>
 <script src="./upcoming.js?v=1" defer></script>
 </body>
 </html>
+
 
 
 

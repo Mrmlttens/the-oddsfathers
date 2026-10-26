@@ -8,7 +8,7 @@ winEvents=popupRead(POPUP_WINS_KEY);
 function popupSave(key,value){try{localStorage.setItem(key,JSON.stringify(value));}catch{}}
 function popupMarkSeen(key){popupSeen[key]=now();const cutoff=Date.now()-3*86400000;popupSeen=Object.fromEntries(Object.entries(popupSeen).filter(([,time])=>new Date(time).getTime()>cutoff));popupSave(POPUP_SEEN_KEY,popupSeen);}
 function popupGameKey(game){return [game?.date,norm(game?.away),norm(game?.home)].join('|');}
-function popupLegKey(bet,leg){return ['leg',popupGameKey(legGame(leg,bet)),norm(leg.name||leg.team),leg.kind,leg.side||'atleast',leg.target??''].join('|');}
+function popupLegKey(bet,leg){return ['leg',popupGameKey(legGame(leg,bet)),norm(leg.name||leg.team),leg.kind,leg.side||'atleast',leg.target??'',JSON.stringify(leg.scope||{})].join('|');}
 function popupOwnerLegKey(bet,leg){return 'owner|'+norm(bet.owner)+'|'+popupLegKey(bet,leg);}
 function popupPendingOwnerKeys(){return new Set([popupCurrent,...popupQueue].filter(Boolean).flatMap(e=>e.seenKeys||[]));}
 function popupOwners(entries){const owners=new Map();for(const {bet} of entries){const prior=owners.get(bet.owner);owners.set(bet.owner,prior===true||bet.placed!==false);}return [...owners].map(([name,confirmed])=>name);}
@@ -52,7 +52,7 @@ function checkLegMilestones(){
  const catchups=new Map();
  for(const [key,entries] of groups){const {bet,leg}=entries[0],gameKey=popupGameKey(legGame(leg,bet));
   if(!popupGamesObserved.has(gameKey)){if(!catchups.has(gameKey))catchups.set(gameKey,[]);catchups.get(gameKey).push(...entries);continue;}
-  const seenKeys=[...new Set(entries.map(e=>e.seenKey))],touchdown=['any_td','either_td'].includes(leg.kind);
+  const seenKeys=[...new Set(entries.map(e=>e.seenKey))],touchdown=['any_td','either_td','drive_offensive_td'].includes(leg.kind);
   queuePopup({key:'milestone|'+seenKeys.slice().sort().join('~'),seenKeys,type:'leg',touchdown,title:touchdown?'TOUCHDOWN!':'LEG HIT!',subtitle:leg.kind==='either_td'?'One of '+leg.name+(leg.target>1?' reached '+leg.target+' touchdowns!':' scored!'):leg.kind==='any_td'?leg.name+(leg.target>1?' reached '+leg.target+' touchdowns!':' scored!'):legText(leg),owners:popupOwners(entries),pointReceipts:typeof popupPointReceipts==='function'?popupPointReceipts(entries):null});
  }
  for(const [key,entries] of catchups){const count=new Set(entries.map(({bet,leg})=>popupLegKey(bet,leg))).size,seenKeys=[...new Set(entries.map(e=>e.seenKey))];

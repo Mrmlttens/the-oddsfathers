@@ -9,7 +9,8 @@ if(grp.includes('receiv')){p.receiving_yards=getval(['YDS','YARDS']);p.reception
 if(grp.includes('rush')){p.rushing_yards=getval(['YDS','YARDS']);p.rushing_td=getval(['TD','TDS']);}
 players.set(id,p)}}}
 return players}
-function evaluate(leg,event,players,state){if(leg.override==='hit'||leg.override==='miss'||leg.override==='void')return {status:leg.override,value:null,source:'manual'};
+function evaluate(leg,event,players,state,raw){if(leg.override==='hit'||leg.override==='miss'||leg.override==='void')return {status:leg.override,value:null,source:'manual'};
+if(leg.scope){const scoped=typeof module!=='undefined'&&module.exports?require('./scoped-model.js'):root.ScopedModel;return scoped.evaluate(leg,event,players,state,raw);}
 const ev=event;if(!ev)return {status:'unknown',value:null};
 const final=state==='post',playing=state==='in';
 const c=ev.competitions?.[0]?.competitors||[];
@@ -46,3 +47,4 @@ return {status:final?'miss':playing?'live':'pending',value};
 
 
 const api={norm,gameKey,extractGameStats,player,evaluate};if(typeof module!=='undefined'&&module.exports)module.exports=api;root.GameModel=api;})(typeof globalThis!=='undefined'?globalThis:this);
+

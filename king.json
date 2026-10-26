@@ -4559,6 +4559,228 @@
       "title": "Gabe · Steelers–Saints · 8-Leg Combo",
       "kickoff": "2026-10-25T13:30Z",
       "eventId": "401873011"
+    },
+    {
+      "id": "jeff-mnf-20261026-9leg:0",
+      "betId": "jeff-mnf-20261026-9leg",
+      "legIndex": 0,
+      "owner": "Jeff",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receiving_yards",
+        "name": "CeeDee Lamb",
+        "team": "Dallas Cowboys",
+        "target": 5,
+        "scope": {
+          "period": 1
+        },
+        "override": null
+      },
+      "submittedAt": "2026-10-26T23:16:44.628Z",
+      "title": "Jeff · MNF · Q1 & First-Drive · 9-Leg SGP",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "jeff-mnf-20261026-9leg:1",
+      "betId": "jeff-mnf-20261026-9leg",
+      "legIndex": 1,
+      "owner": "Jeff",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receiving_yards",
+        "name": "George Pickens",
+        "team": "Dallas Cowboys",
+        "target": 5,
+        "scope": {
+          "period": 1
+        },
+        "override": null
+      },
+      "submittedAt": "2026-10-26T23:16:44.628Z",
+      "title": "Jeff · MNF · Q1 & First-Drive · 9-Leg SGP",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "jeff-mnf-20261026-9leg:2",
+      "betId": "jeff-mnf-20261026-9leg",
+      "legIndex": 2,
+      "owner": "Jeff",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receiving_yards",
+        "name": "Jake Ferguson",
+        "team": "Dallas Cowboys",
+        "target": 5,
+        "scope": {
+          "period": 1
+        },
+        "override": null
+      },
+      "submittedAt": "2026-10-26T23:16:44.628Z",
+      "title": "Jeff · MNF · Q1 & First-Drive · 9-Leg SGP",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "jeff-mnf-20261026-9leg:3",
+      "betId": "jeff-mnf-20261026-9leg",
+      "legIndex": 3,
+      "owner": "Jeff",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receiving_yards",
+        "name": "Dallas Goedert",
+        "team": "Philadelphia Eagles",
+        "target": 5,
+        "scope": {
+          "period": 1
+        },
+        "override": null
+      },
+      "submittedAt": "2026-10-26T23:16:44.628Z",
+      "title": "Jeff · MNF · Q1 & First-Drive · 9-Leg SGP",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "jeff-mnf-20261026-9leg:4",
+      "betId": "jeff-mnf-20261026-9leg",
+      "legIndex": 4,
+      "owner": "Jeff",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receiving_yards",
+        "name": "Makai Lemon",
+        "team": "Philadelphia Eagles",
+        "target": 5,
+        "scope": {
+          "period": 1
+        },
+        "override": null
+      },
+      "submittedAt": "2026-10-26T23:16:44.628Z",
+      "title": "Jeff · MNF · Q1 & First-Drive · 9-Leg SGP",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "jeff-mnf-20261026-9leg:5",
+      "betId": "jeff-mnf-20261026-9leg",
+      "legIndex": 5,
+      "owner": "Jeff",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "passing_yards",
+        "name": "Dak Prescott",
+        "team": "Dallas Cowboys",
+        "target": 20,
+        "scope": {
+          "drive": 1
+        },
+        "override": null
+      },
+      "submittedAt": "2026-10-26T23:16:44.628Z",
+      "title": "Jeff · MNF · Q1 & First-Drive · 9-Leg SGP",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "jeff-mnf-20261026-9leg:6",
+      "betId": "jeff-mnf-20261026-9leg",
+      "legIndex": 6,
+      "owner": "Jeff",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "rushing_yards",
+        "name": "Javonte Williams",
+        "team": "Dallas Cowboys",
+        "target": 5,
+        "scope": {
+          "drive": 1
+        },
+        "override": null
+      },
+      "submittedAt": "2026-10-26T23:16:44.628Z",
+      "title": "Jeff · MNF · Q1 & First-Drive · 9-Leg SGP",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "jeff-mnf-20261026-9leg:7",
+      "betId": "jeff-mnf-20261026-9leg",
+      "legIndex": 7,
+      "owner": "Jeff",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "drive_offensive_td",
+        "name": "",
+        "team": "Dallas Cowboys",
+        "target": 1,
+        "scope": {
+          "drive": 1
+        },
+        "override": null
+      },
+      "submittedAt": "2026-10-26T23:16:44.628Z",
+      "title": "Jeff · MNF · Q1 & First-Drive · 9-Leg SGP",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "jeff-mnf-20261026-9leg:8",
+      "betId": "jeff-mnf-20261026-9leg",
+      "legIndex": 8,
+      "owner": "Jeff",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "any_td",
+        "name": "George Pickens",
+        "team": "Dallas Cowboys",
+        "target": 1,
+        "override": null
+      },
+      "submittedAt": "2026-10-26T23:16:44.628Z",
+      "title": "Jeff · MNF · Q1 & First-Drive · 9-Leg SGP",
+      "kickoff": "2026-10-27T00:15:00Z"
     }
   ],
   "results": [
@@ -15291,3 +15513,4 @@
     "errors": []
   }
 }
+

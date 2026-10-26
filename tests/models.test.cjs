@@ -26,3 +26,22 @@ test('unknown cash stays separate',()=>{const b=[{stake:1,payout:21,placed:true}
 test('estimated winning payouts excluded from money',()=>assert.equal(C.cashStats([{stake:1,payout:20,payoutEstimated:true,placed:true}],()=> 'won',()=>true).net,null));
 test('all bounded and no volume advantage at equal accuracy',()=>{let combinations=0;for(let n=0;n<=16;n++)for(let mask=0;mask<2**n;mask++){let h=0;for(let j=0;j<n;j++)h+=(mask>>j)&1;const r=K.rating(h,n-h);assert(r>=0&&r<=105);assert(Math.min(5,h)<=5);combinations++;}assert.equal(combinations,131071);for(let n=5;n<=100;n++)assert.equal(K.rating(n,n),55);});
 console.log(cases+' named tests + 131,071 exhaustive combinations passed.');
+
+const S=require('../scoped-model.js');
+const team='Dallas Cowboys',p=new Map(['Dak Prescott','CeeDee Lamb','George Pickens','Javonte Williams','Jake Ferguson'].map(name=>[G.norm(name),{name,passing_yards:999,receiving_yards:999,rushing_yards:999}]));
+const play=(id,text,yards,type='Pass Reception',period=1)=>({id,sequenceNumber:String(id),type:{text:type},text,statYardage:yards,period:{number:period},scoringPlay:type==='Passing Touchdown'});
+const first={id:'d1',team:{displayName:team},offensivePlays:3,result:'TD',plays:[play(1,'D.Prescott pass short right to C.Lamb for 8 yards.',8),play(2,'J.Williams left tackle for 6 yards.',6,'Rush'),play(3,'D.Prescott pass short right to G.Pickens for 5 yards, TOUCHDOWN.',5,'Passing Touchdown')]};
+const second={id:'d2',team:{displayName:team},offensivePlays:2,result:'PUNT',plays:[play(4,'D.Prescott pass to C.Lamb for 20 yards.',20),play(5,'D.Prescott pass to C.Lamb for 30 yards.',30,'Pass Reception',2)]};
+const raw={header:{competitions:[{status:{period:2}}]},drives:{previous:[first,second],current:second}};
+const scoped=(kind,name,target,scope)=>({kind,name,target,team,scope});
+test('quarter yards exclude second quarter and dedupe current drive',()=>{const r=G.evaluate(scoped('receiving_yards','CeeDee Lamb',29,{period:1}),event,p,'in',raw);assert.equal(r.value,28);assert.equal(r.status,'miss');assert.equal(r.scopeFinal,true);});
+test('first own drive excludes later drives',()=>{const r=G.evaluate(scoped('passing_yards','Dak Prescott',20,{drive:1}),event,p,'in',raw);assert.equal(r.value,13);assert.equal(r.status,'miss');assert.equal(r.scopeFinal,true);});
+test('first-drive rushing',()=>assert.equal(G.evaluate(scoped('rushing_yards','Javonte Williams',5,{drive:1}),event,p,'in',raw).value,6));
+test('first-drive offensive touchdown is not a later TD',()=>{assert.equal(G.evaluate(scoped('drive_offensive_td','',1,{drive:1}),event,p,'in',raw).status,'hit');const no={...raw,drives:{previous:[{...first,result:'FG',plays:first.plays.slice(0,2)},second]}};assert.equal(G.evaluate(scoped('drive_offensive_td','',1,{drive:1}),event,p,'in',no).status,'miss');});
+test('scope without play feed never uses full-game totals',()=>{const r=G.evaluate(scoped('receiving_yards','CeeDee Lamb',5,{period:1}),event,p,'post');assert.equal(r.status,'review');assert.equal(r.value,null);});
+test('unknown scoped player is not zero-filled',()=>assert.equal(G.evaluate(scoped('receiving_yards','Missing Player',5,{period:1}),event,p,'post',raw).status,'review'));
+test('scope ambiguous laterals require review',()=>{const copy=structuredClone(raw);copy.drives.previous[0].plays[0].text+=' lateral to J.Williams.';assert.equal(G.evaluate(scoped('receiving_yards','CeeDee Lamb',5,{period:1}),event,p,'post',copy).status,'review');});
+test('quarter and full-game prediction are separate families',()=>assert.notEqual(K.familyKey(entry(1),{name:'A',kind:'receiving_yards',target:5}),K.familyKey(entry(1),{name:'A',kind:'receiving_yards',target:5,scope:{period:1}})));
+test('completed scope can be final while game is live',()=>{const b=[entry(1,{legs:[scoped('receiving_yards','CeeDee Lamb',5,{period:1})]})],e=evaluations(b,[]);e[0].gameState='in';e[0].scopeFinal=true;const v=K.scoringReport(config,b,e);assert.equal(v.selected[0].confirmed,true);});
+test('scope compact snapshot preserves grading',()=>assert.equal(G.evaluate(scoped('passing_yards','Dak Prescott',20,{drive:1}),event,p,'post',S.compact(raw)).value,13));
+console.log(cases+' total named tests passed.');

@@ -4,18 +4,18 @@ const round=n=>Math.round((n+Number.EPSILON)*100)/100;
 const clean=s=>String(s||'').toLowerCase().normalize('NFKD').replace(/[^a-z0-9]/g,'');
 function week(date){const d=new Date(date+'T12:00:00Z');if(!Number.isFinite(d.getTime()))throw Error('Invalid date');d.setUTCDate(d.getUTCDate()-(d.getUTCDay()-4+7)%7);return d.toISOString().slice(0,10);}
 function season(date){const [y,m]=date.split('-').map(Number);return String(m<3?y-1:y);}
-function familyKey(bet,leg){const g=leg.game||bet.game;return [clean(bet.owner),g.date,clean(g.away),clean(g.home),['ml','spread'].includes(leg.kind)?'winner':leg.kind==='either_td'?(leg.players||[]).map(clean).sort().join('or'):clean(leg.name),leg.kind].join('|');}
+function familyKey(bet,leg){const g=leg.game||bet.game;return [clean(bet.owner),g.date,clean(g.away),clean(g.home),['ml','spread'].includes(leg.kind)?'winner':leg.kind==='either_td'?(leg.players||[]).map(clean).sort().join('or'):clean(leg.name),leg.kind,leg.scope?.period?'q'+leg.scope.period:leg.scope?.drive?'drive'+leg.scope.drive:'game'].join('|');}
 const registrationId=(id,i)=>id+':'+i;
 function registrations(config,bets){const list=(config.registrations||[]).map(r=>({...r})),ids=new Set(list.map(r=>r.id));for(const b of bets)for(let i=0;i<(b.legs||[]).length;i++){const id=registrationId(b.id,i);if(!ids.has(id)){list.push({id,betId:b.id,legIndex:i,owner:b.owner,game:{...(b.legs[i].game||b.game)},leg:{...b.legs[i]},submittedAt:b.createdAt,title:b.title});ids.add(id);}}return list;}
 function scoringReport(config,bets,evaluations=[]){
  const evals=new Map(evaluations.map(e=>[registrationId(e.betId,e.legIndex),e])),saved=new Map((config.results||[]).filter(r=>r.sourceVerified===true).map(r=>[r.registrationId,r]));
  const list=registrations(config,bets).sort((a,b)=>Date.parse(a.submittedAt)-Date.parse(b.submittedAt)||String(a.betId).localeCompare(String(b.betId))||a.legIndex-b.legIndex),seen=new Set(),selected=[],decisions=[];
  for(const r of list){const key=familyKey({owner:r.owner,game:r.game},r.leg),w=week(r.game.date),e=evals.get(r.id),previous=saved.get(r.id),start=Date.parse(r.kickoff||e?.gameStart||previous?.gameStart),submitted=Date.parse(r.submittedAt);let reason='scoring pick';
-  if(!['ml','spread','passing_td','passing_yards','rushing_yards','receiving_yards','receptions','any_td','either_td','total_points'].includes(r.leg.kind))reason='unsupported selection';
+  if(!['drive_offensive_td','ml','spread','passing_td','passing_yards','rushing_yards','receiving_yards','receptions','any_td','either_td','total_points'].includes(r.leg.kind))reason='unsupported selection';
   else if(!Number.isFinite(start)||!Number.isFinite(submitted))reason='kickoff/submission time unverified';else if(submitted>=start)reason='added after kickoff · tracking only';else if(seen.has(key))reason='duplicate or opposing player/stat/game';else seen.add(key);
   const current=e&&e.source!=='manual'&&['in','post'].includes(e.gameState)?e:null;
   const result=current&&['hit','miss','void'].includes(current.status)?current:previous||current;
-  const state=result?.status||'unknown',confirmed=result?.gameState==='post'&&['hit','miss','void'].includes(state);
+  const state=result?.status||'unknown',confirmed=(result?.gameState==='post'||result?.scopeFinal===true)&&['hit','miss','void'].includes(state);
   const item={...r,key,week:w,season:season(r.game.date),reason,selected:reason==='scoring pick',status:state,value:result?.value??null,confirmed,observedAt:result?.observedAt||r.submittedAt};decisions.push(item);if(item.selected)selected.push(item);
  }return {selected,decisions};
 }
@@ -34,3 +34,4 @@ function standings(config,bets,today,evaluations=[]){
 }
 const api={RULES,MINIMUM,BONUS_CAP,SEASON_WEEKS,round,week,season,familyKey,registrationId,registrations,scoringReport,summarize,rating,liveLegAwards,standings};if(typeof module!=='undefined'&&module.exports)module.exports=api;root.KingModel=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
+
