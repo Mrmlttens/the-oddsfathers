@@ -34,6 +34,7 @@ jobs:
       - name: Verify scoring and grade final ESPN results
         run: |
           node tests/models.test.cjs
+          node tests/refactor.test.cjs
           node scripts/sync-results.cjs
       - name: Preserve final results
         id: save
@@ -54,7 +55,7 @@ jobs:
         if: steps.save.outputs.changed == 'true' || github.event_name != 'schedule'
         run: |
           mkdir -p _site
-          cp index.html *.js *.css *.json _site/
+          cp index.html *.js *.css *.json stadium-header.webp _site/
           cp -r v2 _site/
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v3
@@ -65,3 +66,4 @@ jobs:
         id: deploy
         if: steps.save.outputs.changed == 'true' || github.event_name != 'schedule'
         uses: actions/deploy-pages@v4
+

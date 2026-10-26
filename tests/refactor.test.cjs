@@ -1,0 +1,12 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict'),vm=require('node:vm');
+const root=path.resolve(__dirname,'..'),baseline=JSON.parse(fs.readFileSync(path.join(root,'refactor-baseline.json'),'utf8')),html=fs.readFileSync(path.join(root,'index.html'),'utf8'),css=fs.readFileSync(path.join(root,'site.css'),'utf8'),image=fs.readFileSync(path.join(root,'stadium-header.webp'));
+const hash=x=>crypto.createHash('sha256').update(x).digest('hex');
+assert.equal(hash(image),baseline.headerSha,'Header artwork changed');assert.equal(hash(css.replace('./stadium-header.webp','data:image/webp;base64,'+image.toString('base64'))),baseline.cssSha,'Theme CSS changed');
+assert.equal(/<style\b/.test(html),false);assert.equal(/<script\s*>[\s\S]+?<\/script>/.test(html),false);assert(fs.statSync(path.join(root,'index.html')).size<20000);assert.equal(fs.readFileSync(path.join(root,'v2/index.html'),'utf8'),html.replace('<head>','<head>\n<base href="../">'));
+const files=['app-state.js','app-tracking.js','app-views.js','app-controller.js','livefield.js','king.js','enhancements.js','popup-points.js','celebrations-v2.js','upcoming.js'];const declarations=new Map();
+for(const file of files){const src=fs.readFileSync(path.join(root,file),'utf8');new vm.Script(src,{filename:file});for(const match of src.matchAll(/^(?:async )?function ([A-Za-z0-9_]+)\(/gm)){const name=match[1];assert(!declarations.has(name),'Duplicate active global '+name+' in '+file);declarations.set(name,file);}}
+for(const name of ['render','pickView','renderStats','renderHistory','renderLeaderboard','checkWinners','dismissCelebration'])assert(declarations.has(name),'Missing implementation '+name);
+for(const name of ['renderCrew','renderScoreboard','renderActivity','save','makeLeg'])assert(!declarations.has(name),'Retired function remains '+name);
+const loaded=[...html.matchAll(/<script src="\.\/([^?\"]+)(?:\?[^\"]*)?" defer><\/script>/g)].map(m=>m[1]);for(const file of loaded)assert(fs.existsSync(path.join(root,file)),'Missing browser script '+file);assert(loaded.indexOf('app-state.js')<loaded.indexOf('celebrations-v2.js'));assert(loaded.indexOf('scoped-model.js')<loaded.indexOf('game-model.js'));
+console.log('PASS refactor invariants: exact theme/art bytes; small markup-only page; shared preview; one active implementation per feature; valid script dependencies.');

@@ -1,3 +1,6 @@
+## Approved code cleanup — October 26, 2026
+Trey explicitly authorized refactoring now. Preserve all visible behavior, styling, bets, registrations, results and grading. Active browser code is organized in app-state.js, app-tracking.js, app-views.js and app-controller.js; feature scripts remain separate. index.html is markup only; site.css holds the original stylesheet and stadium-header.webp holds the exact original header image bytes. Root and /v2/ use the same root assets. Keep model, UI and refactor-invariant tests passing. v1-baseline remains unchanged.
+
 ## October 26 follow-up
 Trey requested removing the Closest to cash panel as redundant; retain ticket progress sorting. Jeff's MNF ticket uses Q1 receiving and Dallas's first offensive drive props. Preserve scope in data, duplicate keys and labels. Scope-limited stats must use the corresponding play-by-play period/possession, never full-game totals; ambiguous/missing play data stays under review. A visible entered wager is recorded as a quote while placement remains unconfirmed. Do not infer a combined 16-leg ticket from uncombined selections.
 
@@ -42,5 +45,6 @@ Trey explicitly approved publishing the four October 25 tickets and instructed: 
 
 ## Unknown wager default (October 26, 2026)
 Trey instructed that when a submitted ticket does not show its wager amount, use $5 and clearly label it as an estimated/placeholder wager. A visible confirmed wager always takes precedence. Do not assume $5 is the payout or profit.
+
 
 

@@ -1,33 +1,218 @@
-'use strict';
-let profileOwner='Trey',historyOwner='all',historyStatus='all';
-const pct=n=>n===null||!Number.isFinite(n)?'—':n.toFixed(1)+'%';
-const stat=(label,value,note='')=>`<div class="feature-stat"><span>${esc(label)}</span><strong>${esc(value)}</strong>${note?`<small>${esc(note)}</small>`:''}</div>`;
-function isFinalTicket(b){return ['won','lost','void'].includes(b.settlement)||ticketGames(b).every(g=>statusOfGame(g)==='post')||b.legs.some(l=>(statusOfGame(legGame(l,b))==='post'||evalLeg(l,b).scopeFinal===true)&&evalLeg(l,b).status==='miss');}
-function crewView(){return KingModel.standings(kingConfig,bets,boardDate(),kingEvaluations());}
-function renderStats(){
- const active=bets.filter(b=>!b.archivedAt&&!isFinalTicket(b)),known=active.filter(CrewModel.cashKnown),allCash=CrewModel.cashStats(bets,ticketStatus,isFinalTicket);
- $('statBets').textContent=active.length;$('statBetsHint').textContent=`${new Set(active.map(b=>b.owner)).size} members · ${active.filter(b=>b.stakeEstimated).length} estimated wagers`;
- $('statStaked').textContent=known.length?money(known.reduce((n,b)=>n+b.stake,0)):'—';
- const priced=active.filter(b=>CrewModel.cashKnown(b)&&!b.payoutEstimated&&Number.isFinite(b.payout));$('statTop').textContent=priced.length?money(Math.max(...priced.map(b=>b.payout))):'—';
- $('statNet').textContent=allCash.net===null?'—':(allCash.net>0?'+':'')+money(allCash.net);$('statNet').style.color=allCash.net<0?'var(--orange)':'var(--green)';$('statNetHint').textContent=`${allCash.settled} feed-graded tickets · verify sportsbook`;
+"use strict";
+let profileOwner = "Trey",
+  historyOwner = "all",
+  historyStatus = "all";
+const pct = (n) =>
+  n === null || !Number.isFinite(n) ? "—" : n.toFixed(1) + "%";
+const stat = (label, value, note = "") =>
+  `<div class="feature-stat"><span>${esc(label)}</span><strong>${esc(value)}</strong>${note ? `<small>${esc(note)}</small>` : ""}</div>`;
+function isFinalTicket(b) {
+  return (
+    ["won", "lost", "void"].includes(b.settlement) ||
+    ticketGames(b).every((g) => statusOfGame(g) === "post") ||
+    b.legs.some(
+      (l) =>
+        (statusOfGame(legGame(l, b)) === "post" ||
+          evalLeg(l, b).scopeFinal === true) &&
+        evalLeg(l, b).status === "miss",
+    )
+  );
 }
-function renderCrew(){/* Crew profiles live in the Profiles tab. */}
-function fillOwners(id,value){const el=$(id),names=[...new Set(bets.map(b=>b.owner))].sort(),choices=id==='profileSelect'?names:['all',...names],signature=choices.join('|');if(el.dataset.choices!==signature){el.innerHTML=choices.map(n=>`<option value="${esc(n)}">${n==='all'?'All members':esc(n)}</option>`).join('');el.dataset.choices=signature;}el.value=choices.includes(value)?value:choices[0];return el.value;}
-function renderProfiles(){if(!$('profileDetail'))return;if(!bets.length){$('profileDetail').innerHTML='<p class="profile-empty">Profiles appear when crew tickets load.</p>';return;}profileOwner=fillOwners('profileSelect',profileOwner);if(!profileOwner){$('profileDetail').innerHTML='<p class="profile-empty">Profiles appear when crew tickets load.</p>';return;}
- const view=crewView(),p=CrewModel.profile(profileOwner,bets,view,ticketStatus,isFinalTicket),week=view.weekendRows.find(r=>r.name===profileOwner),favorite=p.players[0],nemesis=p.players.filter(r=>r.picks>=3).sort((a,b)=>a.hits/a.picks-b.hits/b.picks)[0];
- $('profileDetail').innerHTML=`<section class="feature-panel"><div class="profile-hero"><div class="profile-emblem" aria-hidden="true">${esc(profileOwner[0])}</div><div style="flex:1;min-width:0"><div class="rank-tag">${esc(p.rank)} · LEVEL ${Math.floor(p.xp/100)+1}</div><h3>${esc(profileOwner)}</h3><div class="xp-track" role="progressbar" aria-label="Progress to next profile rank" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(p.rankProgress*100)}"><i style="width:${p.rankProgress*100}%"></i></div><div class="feature-muted">${p.xp} XP${p.nextXp?' · '+(p.nextXp-p.xp)+' to next rank':' · top rank'} · ${p.crowns} weekend crown${p.crowns===1?'':'s'}</div></div></div><p class="feature-muted">Profile XP = 10 per unique final graded pick + 25 per feed-graded ticket win. Cosmetic ranks; XP does not change Crown Points.</p><div class="feature-grid">${stat('LEG ACCURACY',pct(p.accuracy),p.hits+' hit / '+p.picks+' unique final picks')}${stat('TICKET W / L',p.wins+' / '+p.losses,'Win rate '+pct(p.hitRate))}${stat('WIN / LOSS RATIO',p.kd,'Feed-graded tickets')}${stat('WEEKEND RATING',week?week.weekendPoints.toFixed(2):'0.00','CP · provisional until final')}</div></section>
- <div class="profile-two"><section class="feature-panel"><div class="eyebrow">CAREER INTEL</div><h3>The record</h3><div class="record-row"><span>Best leg streak</span><strong>${p.bestStreak}</strong></div><div class="record-row"><span>Current leg streak</span><strong>${p.currentStreak}</strong></div><p class="feature-muted">Streaks use final, unique eligible picks in original submission order. Pending and void picks are excluded.</p><div class="record-row"><span>One-leg heartbreaks</span><strong>${p.heartbreaks}</strong></div><div class="record-row"><span>Longest winning parlay</span><strong>${p.longest?p.longest.legs.length+' legs':'—'}</strong></div><div class="record-row"><span>Biggest winning return</span><strong>${p.biggest?money(p.biggest.payout):'—'}</strong></div><div class="record-row"><span>Longest winning price</span><strong>${p.longshot?(p.longshot.payout/p.longshot.stake).toFixed(2)+'× return':'—'}</strong></div><div class="record-row"><span>Signature player</span><strong>${favorite?esc(favorite.name):'—'}</strong></div><div class="record-row"><span>Toughest matchup · 3+ picks</span><strong>${nemesis?esc(nemesis.name)+' · '+pct(100*nemesis.hits/nemesis.picks):'—'}</strong></div></section>
- <section class="feature-panel"><div class="eyebrow">BANKROLL INTEL</div><h3>The money</h3><div class="feature-grid" style="grid-template-columns:1fr 1fr">${stat('CONFIRMED WAGERS',p.money.known?money(p.money.wager):'—',p.money.known+' tickets with known stakes')}${stat('FEED NET',p.money.net===null?'—':money(p.money.net),'Before fees; verify sportsbook')}${stat('FEED ROI',pct(p.money.roi),p.money.settled+' priced, feed-graded tickets')}${stat('ESTIMATED WAGERS',String(p.money.estimated),'Excluded from cash stats')}</div><p class="feature-muted">Only confirmed placed tickets with known wagers enter cash stats. Estimated payouts are excluded from winning returns. Feed-graded net and ROI are estimates until your sportsbook settles; cash-outs, refunds and fees require a reported result.</p><div class="record-row"><span>Tracked tickets</span><strong>${p.tickets}</strong></div><div class="record-row"><span>Active tickets</span><strong>${p.active}</strong></div><div class="record-row"><span>Unverified wagers / placement</span><strong>${p.money.unverified}</strong></div></section></div>
- <section class="feature-panel"><div class="eyebrow">UNLOCKED ACHIEVEMENTS</div><h3>Medal cabinet</h3><div class="profile-badges">${p.badges.map(b=>`<div class="profile-badge"><strong>♛ ${esc(b.name)}</strong><small>${esc(b.detail)}</small></div>`).join('')||'<p class="profile-empty">No medals earned yet. Only verified results unlock achievements.</p>'}</div></section>
- <div class="profile-two"><section class="feature-panel"><div class="eyebrow">LOADOUT</div><h3>Market breakdown</h3>${p.markets.map(m=>`<div class="record-row"><div>${esc(({ml:'Moneyline',any_td:'Anytime touchdowns',either_td:'Either-player touchdowns',total_points:'Game totals',spread:'Point spread',passing_td:'Passing touchdowns'})[m.kind]||m.kind.replaceAll('_',' '))}<div class="market-bar"><i style="width:${100*m.hits/m.picks}%"></i></div></div><strong>${m.hits}/${m.picks} · ${pct(100*m.hits/m.picks)}</strong></div>`).join('')||'<p class="profile-empty">Waiting for final grades.</p>'}</section><section class="feature-panel"><div class="eyebrow">PLAYER INTEL</div><h3>Most picked</h3>${p.players.slice(0,6).map(r=>`<div class="record-row"><span>${esc(r.name)}</span><strong>${r.hits}/${r.picks} · ${pct(100*r.hits/r.picks)}</strong></div>`).join('')||'<p class="profile-empty">Waiting for final player results.</p>'}</section></div>`;
+function crewView() {
+  return KingModel.standings(kingConfig, bets, boardDate(), kingEvaluations());
 }
-function renderHistory(){if(!$('historyList'))return;historyOwner=fillOwners('historyOwner',historyOwner);const opened=new Set([...$('historyList').querySelectorAll('details[open]')].map(e=>e.dataset.id)),list=bets.filter(b=>b.archivedAt||isFinalTicket(b)).filter(b=>(historyOwner==='all'||b.owner===historyOwner)&&(historyStatus==='all'||ticketStatus(b)===historyStatus)).sort((a,b)=>(b.createdAt||'').localeCompare(a.createdAt||''));
- $('historyCount').textContent=list.length+' completed tickets';$('historyList').innerHTML=list.map(b=>{const st=ticketStatus(b),known=CrewModel.cashKnown(b),net=known&&['won','lost'].includes(st)&&(st==='lost'||!b.payoutEstimated&&Number.isFinite(b.payout))?(st==='won'?b.payout:0)-b.stake:null;return `<details class="history-ticket" data-id="${esc(b.id)}" ${opened.has(b.id)?'open':''}><summary><span class="leg-symbol ${st}">${st==='won'?'✓':st==='lost'?'✕':'·'}</span><div class="hist-body"><strong>${esc(b.title)}</strong><p>${esc(b.owner)} · ${esc(dateText(b.game.date))} · ${b.legs.length} legs · ${esc(st.toUpperCase())}</p></div><span class="hist-pay">${net===null?'—':money(net)}</span></summary><div class="history-money"><span>WAGER${b.stakeEstimated?' · EST.':''}<b>${money(b.stake)}</b></span><span>LISTED RETURN${b.payoutEstimated?' · EST.':''}<b>${money(b.payout)}</b></span><span>FEED NET<b>${net===null?'—':money(net)}</b></span></div><p class="feature-muted">${b.placed===false?'Placement unconfirmed. ':''}Feed grades; verify sportsbook settlement. <button class="profile-link" data-profile="${esc(b.owner)}">View ${esc(b.owner)}’s profile ↗</button></p><div class="legs">${b.legs.map(l=>{const v=evalLeg(l,b),g=legGame(l,b);return `<div class="leg-wrap"><div class="leg"><span class="leg-symbol ${v.status}">${v.status==='hit'?'✓':v.status==='miss'?'✕':v.status==='void'?'↔':'·'}</span><span class="leg-name">${esc(legText(l))}<small style="display:block;color:var(--muted);font-size:10px">${esc(teamAbbr(g.away))} @ ${esc(teamAbbr(g.home))} · ${esc(dateText(g.date))} · ${statusOfGame(g)==='post'?'FINAL':'PENDING GAME'}</small></span><span class="leg-stat ${v.status}">${esc(legTicker(l,v))}</span></div>${legProgressBar(l,v)}</div>`;}).join('')}</div></details>`;}).join('')||'<p class="profile-empty">No completed tickets match this filter.</p>';
+function renderStats() {
+  const active = bets.filter((b) => !b.archivedAt && !isFinalTicket(b)),
+    known = active.filter(CrewModel.cashKnown),
+    allCash = CrewModel.cashStats(bets, ticketStatus, isFinalTicket);
+  $("statBets").textContent = active.length;
+  $("statBetsHint").textContent =
+    `${new Set(active.map((b) => b.owner)).size} members · ${active.filter((b) => b.stakeEstimated).length} estimated wagers`;
+  $("statStaked").textContent = known.length
+    ? money(known.reduce((n, b) => n + b.stake, 0))
+    : "—";
+  const priced = active.filter(
+    (b) =>
+      CrewModel.cashKnown(b) && !b.payoutEstimated && Number.isFinite(b.payout),
+  );
+  $("statTop").textContent = priced.length
+    ? money(Math.max(...priced.map((b) => b.payout)))
+    : "—";
+  $("statNet").textContent =
+    allCash.net === null
+      ? "—"
+      : (allCash.net > 0 ? "+" : "") + money(allCash.net);
+  $("statNet").style.color = allCash.net < 0 ? "var(--orange)" : "var(--green)";
+  $("statNetHint").textContent =
+    `${allCash.settled} feed-graded tickets · verify sportsbook`;
 }
-function renderFeedHealth(){const panel=$('feedHealth'),list=$('feedHealthList');if(!panel)return;const games=[...new Map(bets.filter(b=>!b.archivedAt).flatMap(ticketGames).map(g=>[GameModel.gameKey(g),g])).values()];let delayed=0;const rows=games.map(g=>{const e=findEvent(g),id=String(e?.id||''),entry=livefieldSummaries.get(id),age=entry?Math.max(0,Math.floor((Date.now()-entry.time)/1000)):null,state=statusOfGame(g),stale=state==='in'&&(age===null||age>90||livefieldFailures.has(id)),missing=!e;delayed+=Number(stale||missing);return `<div class="record-row"><span>${esc(teamAbbr(g.away))} @ ${esc(teamAbbr(g.home))} · ${esc(dateText(g.date))}</span><strong>${missing?'Awaiting game feed':state==='pre'?'PREGAME':stale?'DELAYED · '+(age===null?'no stats':age+'s old'):state==='post'?'FINAL':age===null?'Awaiting stats':age+'s ago'}</strong></div>`;});panel.classList.toggle('delayed',delayed>0||scoreState==='failed'||scoreboardFailures>0);$('feedHealthLabel').textContent=(scoreState==='failed'?'FEED OFFLINE':delayed||scoreboardFailures?'FEED PARTLY DELAYED':'FEED CONNECTED')+' · '+(lastRefresh?'checked '+lastRefresh.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',timeZone:'America/New_York'})+' ET':'awaiting first refresh');list.innerHTML=rows.join('')+'<p class="feature-muted">Live summaries refresh every 30 seconds while visible. A game is marked delayed after 90 seconds without fresh live stats. Archived finals use saved ESPN results.</p>';}
-const enhancedBaseRender=render;
-render=function(){enhancedBaseRender();renderProfiles();renderFeedHealth();if(currentView!=='dashboard')$('scenarioBar').hidden=true;};
-const basePickView=pickView;pickView=function(view){if(view==='profiles'){currentView=view;for(const id of ['dashboard','leaderboard','history'])$(id+'View').hidden=true;$('profilesView').hidden=false;document.querySelectorAll('.navtab').forEach(el=>el.classList.toggle('active',el.dataset.tab==='profiles'));$('currentTitle').innerHTML='The Crew <span class="text-gradient">Career Intel.</span>';renderGameCenter();renderProfiles();}else{$('profilesView').hidden=true;basePickView(view);}$('scenarioBar').hidden=view!=='dashboard'||!currentGame();if(typeof renderUpcoming==='function')renderUpcoming();};
-$('profileSelect').addEventListener('change',e=>{profileOwner=e.target.value;renderProfiles();});$('historyOwner').addEventListener('change',e=>{historyOwner=e.target.value;renderHistory();});$('historyStatus').addEventListener('change',e=>{historyStatus=e.target.value;renderHistory();});
-document.addEventListener('click',e=>{const member=e.target.closest('[data-profile]');if(member){profileOwner=member.dataset.profile;pickView('profiles');$('profilesView').scrollIntoView({behavior:'smooth',block:'start'});}});
-
+function fillOwners(id, value) {
+  const el = $(id),
+    names = [...new Set(bets.map((b) => b.owner))].sort(),
+    choices = id === "profileSelect" ? names : ["all", ...names],
+    signature = choices.join("|");
+  if (el.dataset.choices !== signature) {
+    el.innerHTML = choices
+      .map(
+        (n) =>
+          `<option value="${esc(n)}">${n === "all" ? "All members" : esc(n)}</option>`,
+      )
+      .join("");
+    el.dataset.choices = signature;
+  }
+  el.value = choices.includes(value) ? value : choices[0];
+  return el.value;
+}
+function renderProfiles() {
+  if (!$("profileDetail")) return;
+  if (!bets.length) {
+    $("profileDetail").innerHTML =
+      '<p class="profile-empty">Profiles appear when crew tickets load.</p>';
+    return;
+  }
+  profileOwner = fillOwners("profileSelect", profileOwner);
+  if (!profileOwner) {
+    $("profileDetail").innerHTML =
+      '<p class="profile-empty">Profiles appear when crew tickets load.</p>';
+    return;
+  }
+  const view = crewView(),
+    p = CrewModel.profile(
+      profileOwner,
+      bets,
+      view,
+      ticketStatus,
+      isFinalTicket,
+    ),
+    week = view.weekendRows.find((r) => r.name === profileOwner),
+    favorite = p.players[0],
+    nemesis = p.players
+      .filter((r) => r.picks >= 3)
+      .sort((a, b) => a.hits / a.picks - b.hits / b.picks)[0];
+  $("profileDetail").innerHTML =
+    `<section class="feature-panel"><div class="profile-hero"><div class="profile-emblem" aria-hidden="true">${esc(profileOwner[0])}</div><div style="flex:1;min-width:0"><div class="rank-tag">${esc(p.rank)} · LEVEL ${Math.floor(p.xp / 100) + 1}</div><h3>${esc(profileOwner)}</h3><div class="xp-track" role="progressbar" aria-label="Progress to next profile rank" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${Math.round(p.rankProgress * 100)}"><i style="width:${p.rankProgress * 100}%"></i></div><div class="feature-muted">${p.xp} XP${p.nextXp ? " · " + (p.nextXp - p.xp) + " to next rank" : " · top rank"} · ${p.crowns} weekend crown${p.crowns === 1 ? "" : "s"}</div></div></div><p class="feature-muted">Profile XP = 10 per unique final graded pick + 25 per feed-graded ticket win. Cosmetic ranks; XP does not change Crown Points.</p><div class="feature-grid">${stat("LEG ACCURACY", pct(p.accuracy), p.hits + " hit / " + p.picks + " unique final picks")}${stat("TICKET W / L", p.wins + " / " + p.losses, "Win rate " + pct(p.hitRate))}${stat("WIN / LOSS RATIO", p.kd, "Feed-graded tickets")}${stat("WEEKEND RATING", week ? week.weekendPoints.toFixed(2) : "0.00", "CP · provisional until final")}</div></section>
+ <div class="profile-two"><section class="feature-panel"><div class="eyebrow">CAREER INTEL</div><h3>The record</h3><div class="record-row"><span>Best leg streak</span><strong>${p.bestStreak}</strong></div><div class="record-row"><span>Current leg streak</span><strong>${p.currentStreak}</strong></div><p class="feature-muted">Streaks use final, unique eligible picks in original submission order. Pending and void picks are excluded.</p><div class="record-row"><span>One-leg heartbreaks</span><strong>${p.heartbreaks}</strong></div><div class="record-row"><span>Longest winning parlay</span><strong>${p.longest ? p.longest.legs.length + " legs" : "—"}</strong></div><div class="record-row"><span>Biggest winning return</span><strong>${p.biggest ? money(p.biggest.payout) : "—"}</strong></div><div class="record-row"><span>Longest winning price</span><strong>${p.longshot ? (p.longshot.payout / p.longshot.stake).toFixed(2) + "× return" : "—"}</strong></div><div class="record-row"><span>Signature player</span><strong>${favorite ? esc(favorite.name) : "—"}</strong></div><div class="record-row"><span>Toughest matchup · 3+ picks</span><strong>${nemesis ? esc(nemesis.name) + " · " + pct((100 * nemesis.hits) / nemesis.picks) : "—"}</strong></div></section>
+ <section class="feature-panel"><div class="eyebrow">BANKROLL INTEL</div><h3>The money</h3><div class="feature-grid" style="grid-template-columns:1fr 1fr">${stat("CONFIRMED WAGERS", p.money.known ? money(p.money.wager) : "—", p.money.known + " tickets with known stakes")}${stat("FEED NET", p.money.net === null ? "—" : money(p.money.net), "Before fees; verify sportsbook")}${stat("FEED ROI", pct(p.money.roi), p.money.settled + " priced, feed-graded tickets")}${stat("ESTIMATED WAGERS", String(p.money.estimated), "Excluded from cash stats")}</div><p class="feature-muted">Only confirmed placed tickets with known wagers enter cash stats. Estimated payouts are excluded from winning returns. Feed-graded net and ROI are estimates until your sportsbook settles; cash-outs, refunds and fees require a reported result.</p><div class="record-row"><span>Tracked tickets</span><strong>${p.tickets}</strong></div><div class="record-row"><span>Active tickets</span><strong>${p.active}</strong></div><div class="record-row"><span>Unverified wagers / placement</span><strong>${p.money.unverified}</strong></div></section></div>
+ <section class="feature-panel"><div class="eyebrow">UNLOCKED ACHIEVEMENTS</div><h3>Medal cabinet</h3><div class="profile-badges">${p.badges.map((b) => `<div class="profile-badge"><strong>♛ ${esc(b.name)}</strong><small>${esc(b.detail)}</small></div>`).join("") || '<p class="profile-empty">No medals earned yet. Only verified results unlock achievements.</p>'}</div></section>
+ <div class="profile-two"><section class="feature-panel"><div class="eyebrow">LOADOUT</div><h3>Market breakdown</h3>${p.markets.map((m) => `<div class="record-row"><div>${esc({ ml: "Moneyline", any_td: "Anytime touchdowns", either_td: "Either-player touchdowns", total_points: "Game totals", spread: "Point spread", passing_td: "Passing touchdowns" }[m.kind] || m.kind.replaceAll("_", " "))}<div class="market-bar"><i style="width:${(100 * m.hits) / m.picks}%"></i></div></div><strong>${m.hits}/${m.picks} · ${pct((100 * m.hits) / m.picks)}</strong></div>`).join("") || '<p class="profile-empty">Waiting for final grades.</p>'}</section><section class="feature-panel"><div class="eyebrow">PLAYER INTEL</div><h3>Most picked</h3>${
+   p.players
+     .slice(0, 6)
+     .map(
+       (r) =>
+         `<div class="record-row"><span>${esc(r.name)}</span><strong>${r.hits}/${r.picks} · ${pct((100 * r.hits) / r.picks)}</strong></div>`,
+     )
+     .join("") ||
+   '<p class="profile-empty">Waiting for final player results.</p>'
+ }</section></div>`;
+}
+function renderHistory() {
+  if (!$("historyList")) return;
+  historyOwner = fillOwners("historyOwner", historyOwner);
+  const opened = new Set(
+      [...$("historyList").querySelectorAll("details[open]")].map(
+        (e) => e.dataset.id,
+      ),
+    ),
+    list = bets
+      .filter((b) => b.archivedAt || isFinalTicket(b))
+      .filter(
+        (b) =>
+          (historyOwner === "all" || b.owner === historyOwner) &&
+          (historyStatus === "all" || ticketStatus(b) === historyStatus),
+      )
+      .sort((a, b) => (b.createdAt || "").localeCompare(a.createdAt || ""));
+  $("historyCount").textContent = list.length + " completed tickets";
+  $("historyList").innerHTML =
+    list
+      .map((b) => {
+        const st = ticketStatus(b),
+          known = CrewModel.cashKnown(b),
+          net =
+            known &&
+            ["won", "lost"].includes(st) &&
+            (st === "lost" || (!b.payoutEstimated && Number.isFinite(b.payout)))
+              ? (st === "won" ? b.payout : 0) - b.stake
+              : null;
+        return `<details class="history-ticket" data-id="${esc(b.id)}" ${opened.has(b.id) ? "open" : ""}><summary><span class="leg-symbol ${st}">${st === "won" ? "✓" : st === "lost" ? "✕" : "·"}</span><div class="hist-body"><strong>${esc(b.title)}</strong><p>${esc(b.owner)} · ${esc(dateText(b.game.date))} · ${b.legs.length} legs · ${esc(st.toUpperCase())}</p></div><span class="hist-pay">${net === null ? "—" : money(net)}</span></summary><div class="history-money"><span>WAGER${b.stakeEstimated ? " · EST." : ""}<b>${money(b.stake)}</b></span><span>LISTED RETURN${b.payoutEstimated ? " · EST." : ""}<b>${money(b.payout)}</b></span><span>FEED NET<b>${net === null ? "—" : money(net)}</b></span></div><p class="feature-muted">${b.placed === false ? "Placement unconfirmed. " : ""}Feed grades; verify sportsbook settlement. <button class="profile-link" data-profile="${esc(b.owner)}">View ${esc(b.owner)}’s profile ↗</button></p><div class="legs">${b.legs
+          .map((l) => {
+            const v = evalLeg(l, b),
+              g = legGame(l, b);
+            return `<div class="leg-wrap"><div class="leg"><span class="leg-symbol ${v.status}">${v.status === "hit" ? "✓" : v.status === "miss" ? "✕" : v.status === "void" ? "↔" : "·"}</span><span class="leg-name">${esc(legText(l))}<small style="display:block;color:var(--muted);font-size:10px">${esc(teamAbbr(g.away))} @ ${esc(teamAbbr(g.home))} · ${esc(dateText(g.date))} · ${statusOfGame(g) === "post" ? "FINAL" : "PENDING GAME"}</small></span><span class="leg-stat ${v.status}">${esc(legTicker(l, v))}</span></div>${legProgressBar(l, v)}</div>`;
+          })
+          .join("")}</div></details>`;
+      })
+      .join("") ||
+    '<p class="profile-empty">No completed tickets match this filter.</p>';
+}
+function renderFeedHealth() {
+  const panel = $("feedHealth"),
+    list = $("feedHealthList");
+  if (!panel) return;
+  const games = [
+    ...new Map(
+      bets
+        .filter((b) => !b.archivedAt)
+        .flatMap(ticketGames)
+        .map((g) => [GameModel.gameKey(g), g]),
+    ).values(),
+  ];
+  let delayed = 0;
+  const rows = games.map((g) => {
+    const e = findEvent(g),
+      id = String(e?.id || ""),
+      entry = livefieldSummaries.get(id),
+      age = entry
+        ? Math.max(0, Math.floor((Date.now() - entry.time) / 1000))
+        : null,
+      state = statusOfGame(g),
+      stale =
+        state === "in" &&
+        (age === null || age > 90 || livefieldFailures.has(id)),
+      missing = !e;
+    delayed += Number(stale || missing);
+    return `<div class="record-row"><span>${esc(teamAbbr(g.away))} @ ${esc(teamAbbr(g.home))} · ${esc(dateText(g.date))}</span><strong>${missing ? "Awaiting game feed" : state === "pre" ? "PREGAME" : stale ? "DELAYED · " + (age === null ? "no stats" : age + "s old") : state === "post" ? "FINAL" : age === null ? "Awaiting stats" : age + "s ago"}</strong></div>`;
+  });
+  panel.classList.toggle(
+    "delayed",
+    delayed > 0 || scoreState === "failed" || scoreboardFailures > 0,
+  );
+  $("feedHealthLabel").textContent =
+    (scoreState === "failed"
+      ? "FEED OFFLINE"
+      : delayed || scoreboardFailures
+        ? "FEED PARTLY DELAYED"
+        : "FEED CONNECTED") +
+    " · " +
+    (lastRefresh
+      ? "checked " +
+        lastRefresh.toLocaleTimeString("en-US", {
+          hour: "numeric",
+          minute: "2-digit",
+          timeZone: "America/New_York",
+        }) +
+        " ET"
+      : "awaiting first refresh");
+  list.innerHTML =
+    rows.join("") +
+    '<p class="feature-muted">Live summaries refresh every 30 seconds while visible. A game is marked delayed after 90 seconds without fresh live stats. Archived finals use saved ESPN results.</p>';
+}
+$("profileSelect").addEventListener("change", (e) => {
+  profileOwner = e.target.value;
+  renderProfiles();
+});
+$("historyOwner").addEventListener("change", (e) => {
+  historyOwner = e.target.value;
+  renderHistory();
+});
+$("historyStatus").addEventListener("change", (e) => {
+  historyStatus = e.target.value;
+  renderHistory();
+});
+document.addEventListener("click", (e) => {
+  const member = e.target.closest("[data-profile]");
+  if (member) {
+    profileOwner = member.dataset.profile;
+    pickView("profiles");
+    $("profilesView").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+});
