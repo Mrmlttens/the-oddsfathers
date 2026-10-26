@@ -451,7 +451,7 @@ function easternParts(d=new Date()){
   let v=Object.fromEntries(parts.map(x=>[x.type,x.value]));return {date:`${v.year}-${v.month}-${v.day}`,hour:Number(v.hour)};
 }
 function boardDate(){const et=easternParts();if(et.hour>=4)return et.date;const d=new Date(`${et.date}T12:00:00Z`);d.setUTCDate(d.getUTCDate()-1);return d.toISOString().slice(0,10)}
-function shouldArchiveTicket(b,today,state){return !b.archivedAt&&(['won','lost','void'].includes(b.settlement)||state==='post');}
+function shouldArchiveTicket(b,today,state){return !b.archivedAt&&(['won','lost','void'].includes(b.settlement)||state==='post'||b.legs.some(l=>statusOfGame(legGame(l,b))==='post'&&evalLeg(l,b).status==='miss'));}
 function checkDailyRollover(){
  const completed=bets.filter(b=>!b.archivedAt&&shouldArchiveTicket(b,null,ticketGames(b).every(g=>statusOfGame(g)==='post')?'post':'unfinished'));
  if(!completed.length)return;

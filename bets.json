@@ -63,7 +63,8 @@
       "settlement": "auto",
       "placed": true,
       "createdAt": "2026-10-22T18:04:00-04:00",
-      "updatedAt": "2026-10-22T18:04:00-04:00"
+      "updatedAt": "2026-10-26T22:07:23.338Z",
+      "archivedAt": "2026-10-26T22:07:23.338Z"
     },
     {
       "id": "trey-tnf-20261022-2",
@@ -120,7 +121,8 @@
       "settlement": "auto",
       "placed": true,
       "createdAt": "2026-10-22T18:04:00-04:00",
-      "updatedAt": "2026-10-22T18:04:00-04:00"
+      "updatedAt": "2026-10-26T22:07:23.338Z",
+      "archivedAt": "2026-10-26T22:07:23.338Z"
     },
     {
       "id": "trey-tnf-20261022-3",
@@ -191,7 +193,8 @@
       "settlement": "auto",
       "placed": true,
       "createdAt": "2026-10-22T18:04:00-04:00",
-      "updatedAt": "2026-10-22T18:04:00-04:00"
+      "updatedAt": "2026-10-26T22:07:23.338Z",
+      "archivedAt": "2026-10-26T22:07:23.338Z"
     },
     {
       "id": "trey-tnf-20261022-4",
@@ -262,7 +265,8 @@
       "settlement": "auto",
       "placed": true,
       "createdAt": "2026-10-22T18:04:00-04:00",
-      "updatedAt": "2026-10-22T18:04:00-04:00"
+      "updatedAt": "2026-10-26T22:07:23.338Z",
+      "archivedAt": "2026-10-26T22:07:23.338Z"
     },
     {
       "owner": "Gabe",
@@ -279,7 +283,7 @@
       "settlement": "auto",
       "placed": false,
       "createdAt": "2026-10-22T23:48:15.374Z",
-      "updatedAt": "2026-10-22T23:48:15.374Z",
+      "updatedAt": "2026-10-26T22:07:23.338Z",
       "notes": "All legs and displayed odds transcribed from screenshots. $5 placeholder stake supplied by Trey; total return calculated from displayed odds. Placement and accepted odds remain unconfirmed.",
       "id": "gabe-tnf-20261022-9leg",
       "title": "Gabe · 9-Leg Player Props",
@@ -350,7 +354,8 @@
         }
       ],
       "stakeEstimated": true,
-      "payoutEstimated": true
+      "payoutEstimated": true,
+      "archivedAt": "2026-10-26T22:07:23.338Z"
     },
     {
       "owner": "Gabe",
@@ -367,7 +372,7 @@
       "settlement": "auto",
       "placed": false,
       "createdAt": "2026-10-22T23:48:15.374Z",
-      "updatedAt": "2026-10-22T23:48:15.374Z",
+      "updatedAt": "2026-10-26T22:07:23.338Z",
       "notes": "All legs and displayed odds transcribed from screenshots. $5 placeholder stake supplied by Trey; total return calculated from displayed odds. Placement and accepted odds remain unconfirmed.",
       "id": "gabe-tnf-20261022-4td",
       "title": "Gabe · 4 Anytime Touchdowns",
@@ -403,7 +408,8 @@
         }
       ],
       "stakeEstimated": true,
-      "payoutEstimated": true
+      "payoutEstimated": true,
+      "archivedAt": "2026-10-26T22:07:23.338Z"
     },
     {
       "id": "rodman-tnf-20261022-10leg",
@@ -495,7 +501,8 @@
       "settlement": "auto",
       "placed": true,
       "createdAt": "2026-10-23T00:07:08.149Z",
-      "updatedAt": "2026-10-23T00:07:08.149Z"
+      "updatedAt": "2026-10-26T22:07:23.338Z",
+      "archivedAt": "2026-10-26T22:07:23.338Z"
     },
     {
       "id": "rodman-tnf-20261022-5td",
@@ -514,7 +521,7 @@
       "settlement": "auto",
       "placed": false,
       "createdAt": "2026-10-23T00:07:51.760Z",
-      "updatedAt": "2026-10-23T00:07:51.760Z",
+      "updatedAt": "2026-10-26T22:07:23.338Z",
       "notes": "Five anytime-touchdown selections and +14523 odds transcribed from Rodman's unplaced betslip screenshot. $5 placeholder per Trey's standing instruction for N/A wagers; estimated total return $731.15 at displayed odds. Actual stake, placement, and accepted odds remain unconfirmed.",
       "odds": 14523,
       "legs": [
@@ -555,7 +562,8 @@
         }
       ],
       "stakeEstimated": true,
-      "payoutEstimated": true
+      "payoutEstimated": true,
+      "archivedAt": "2026-10-26T22:07:23.338Z"
     },
     {
       "id": "trey-20261025-ml7",
@@ -572,10 +580,10 @@
       "sportsbook": "FanDuel",
       "ticketUrl": "",
       "placed": true,
-      "settlement": "auto",
+      "settlement": "lost",
       "createdAt": "2026-10-25T12:10:46.518314Z",
-      "updatedAt": "2026-10-25T12:10:46.518314Z",
-      "notes": "Confirmed open ticket from screenshots supplied by Trey on October 25, 2026. Actual site submission time recorded; placement time not inferred. Screenshot shows placed October 25 at 8:05 AM ET. Games span Oct 25, Oct 29 and Nov 1.",
+      "updatedAt": "2026-10-26T22:07:23.338Z",
+      "notes": "Confirmed open ticket from screenshots supplied by Trey on October 25, 2026. Actual site submission time recorded; placement time not inferred. Screenshot shows placed October 25 at 8:05 AM ET. Games span Oct 25, Oct 29 and Nov 1. Archived after verified October 25 final losses: Jets 25–28 Dolphins, 49ers 20–29 Falcons, Texans 21–27 Giants (ESPN scoreboard). Remaining future legs retained in History.",
       "legs": [
         {
           "kind": "ml",
@@ -669,7 +677,8 @@
           }
         }
       ],
-      "odds": 15474
+      "odds": 15474,
+      "archivedAt": "2026-10-26T22:07:23.338Z"
     },
     {
       "id": "trey-20261025-props4",
@@ -688,7 +697,7 @@
       "placed": true,
       "settlement": "auto",
       "createdAt": "2026-10-25T12:10:46.518314Z",
-      "updatedAt": "2026-10-25T12:10:46.518314Z",
+      "updatedAt": "2026-10-26T22:07:23.338Z",
       "notes": "Confirmed open ticket from screenshots supplied by Trey on October 25, 2026. Actual site submission time recorded; placement time not inferred. Preserve both displayed +2092 odds and $21.93 payout; screenshot has a one-cent difference from a simple odds conversion.",
       "legs": [
         {
@@ -762,7 +771,8 @@
           }
         }
       ],
-      "odds": 2092
+      "odds": 2092,
+      "archivedAt": "2026-10-26T22:07:23.338Z"
     },
     {
       "id": "trey-20261025-props1",
@@ -781,7 +791,7 @@
       "placed": true,
       "settlement": "auto",
       "createdAt": "2026-10-25T12:10:46.518314Z",
-      "updatedAt": "2026-10-25T12:10:46.518314Z",
+      "updatedAt": "2026-10-26T22:07:23.338Z",
       "notes": "Confirmed open ticket from screenshots supplied by Trey on October 25, 2026. Actual site submission time recorded; placement time not inferred. ",
       "legs": [
         {
@@ -854,7 +864,8 @@
             "sport": "NFL"
           }
         }
-      ]
+      ],
+      "archivedAt": "2026-10-26T22:07:23.338Z"
     },
     {
       "id": "trey-20261025-london",
@@ -873,7 +884,7 @@
       "placed": true,
       "settlement": "auto",
       "createdAt": "2026-10-25T12:10:46.518314Z",
-      "updatedAt": "2026-10-25T12:10:46.518314Z",
+      "updatedAt": "2026-10-26T22:07:23.338Z",
       "notes": "Confirmed open ticket from screenshots supplied by Trey on October 25, 2026. Actual site submission time recorded; placement time not inferred. ",
       "legs": [
         {
@@ -960,7 +971,8 @@
           }
         }
       ],
-      "odds": 3017
+      "odds": 3017,
+      "archivedAt": "2026-10-26T22:07:23.338Z"
     },
     {
       "owner": "Jeff",
@@ -970,7 +982,7 @@
       "placed": true,
       "settlement": "auto",
       "createdAt": "2026-10-25T12:41:35.971046Z",
-      "updatedAt": "2026-10-25T12:41:35.971046Z",
+      "updatedAt": "2026-10-26T22:07:23.338Z",
       "notes": "Confirmed open FanDuel ticket from screenshots supplied by Trey for public site publication. Exact displayed payout retained. Actual site submission timestamp used. Account balance and sportsbook ticket identifiers omitted.",
       "id": "jeff-20261025-1",
       "title": "Jeff · 3 Anytime Touchdowns",
@@ -1022,7 +1034,8 @@
             "sport": "NFL"
           }
         }
-      ]
+      ],
+      "archivedAt": "2026-10-26T22:07:23.338Z"
     },
     {
       "owner": "Jeff",
@@ -1032,7 +1045,7 @@
       "placed": true,
       "settlement": "auto",
       "createdAt": "2026-10-25T12:41:35.971046Z",
-      "updatedAt": "2026-10-25T12:41:35.971046Z",
+      "updatedAt": "2026-10-26T22:07:23.338Z",
       "notes": "Confirmed open FanDuel ticket from screenshots supplied by Trey for public site publication. Exact displayed payout retained. Actual site submission timestamp used. Account balance and sportsbook ticket identifiers omitted.",
       "id": "jeff-20261025-2",
       "title": "Jeff · 7 Either-Player Touchdowns",
@@ -1170,7 +1183,8 @@
           },
           "odds": -115
         }
-      ]
+      ],
+      "archivedAt": "2026-10-26T22:07:23.338Z"
     },
     {
       "id": "rodman-20261025-pass11",
@@ -1192,7 +1206,7 @@
       "placed": false,
       "settlement": "auto",
       "createdAt": "2026-10-25T13:10:38.938222Z",
-      "updatedAt": "2026-10-25T13:10:38.938222Z",
+      "updatedAt": "2026-10-26T22:07:23.338Z",
       "notes": "Selections and displayed combined odds transcribed from Rodman screenshots supplied by Trey. Screenshots show a betslip with no wager entered; placement is unconfirmed. $5 placeholder per standing instruction for N/A wagers; calculated total return is estimated. No account balance or identifier published.",
       "legs": [
         {
@@ -1338,7 +1352,8 @@
             "sport": "NFL"
           }
         }
-      ]
+      ],
+      "archivedAt": "2026-10-26T22:07:23.338Z"
     },
     {
       "id": "rodman-20261025-london10",
@@ -1360,7 +1375,7 @@
       "placed": false,
       "settlement": "auto",
       "createdAt": "2026-10-25T13:10:38.938222Z",
-      "updatedAt": "2026-10-25T13:10:38.938222Z",
+      "updatedAt": "2026-10-26T22:07:23.338Z",
       "notes": "Selections and displayed combined odds transcribed from Rodman screenshots supplied by Trey. Screenshots show a betslip with no wager entered; placement is unconfirmed. $5 placeholder per standing instruction for N/A wagers; calculated total return is estimated. No account balance or identifier published.",
       "legs": [
         {
@@ -1493,7 +1508,8 @@
             "sport": "NFL"
           }
         }
-      ]
+      ],
+      "archivedAt": "2026-10-26T22:07:23.338Z"
     },
     {
       "id": "rodman-20261025-td3",
@@ -1515,7 +1531,7 @@
       "placed": false,
       "settlement": "auto",
       "createdAt": "2026-10-25T13:10:38.938222Z",
-      "updatedAt": "2026-10-25T13:10:38.938222Z",
+      "updatedAt": "2026-10-26T22:07:23.338Z",
       "notes": "Selections and displayed combined odds transcribed from Rodman screenshots supplied by Trey. Screenshots show a betslip with no wager entered; placement is unconfirmed. $5 placeholder per standing instruction for N/A wagers; calculated total return is estimated. No account balance or identifier published.",
       "legs": [
         {
@@ -1557,7 +1573,8 @@
             "sport": "NFL"
           }
         }
-      ]
+      ],
+      "archivedAt": "2026-10-26T22:07:23.338Z"
     },
     {
       "id": "trey-20261025-tail-rodman-td3",
@@ -1579,7 +1596,7 @@
       "placed": true,
       "settlement": "auto",
       "createdAt": "2026-10-25T13:10:38.938222Z",
-      "updatedAt": "2026-10-25T13:10:38.938222Z",
+      "updatedAt": "2026-10-26T22:07:23.338Z",
       "notes": "Trey confirmed a placed $1 tail of Rodman's Jaylen Warren / Kendre Miller / Germie Bernard anytime-touchdown parlay with a 30% profit boost. Estimated total return $22.92 assumes the screenshot base odds +1686 were accepted: $1 + ($16.86 profit × 1.30). Accepted boosted odds and payout were not shown.",
       "legs": [
         {
@@ -1621,7 +1638,8 @@
             "sport": "NFL"
           }
         }
-      ]
+      ],
+      "archivedAt": "2026-10-26T22:07:23.338Z"
     },
     {
       "id": "gabe-20261025-london8",
@@ -1641,7 +1659,7 @@
       "placed": true,
       "settlement": "auto",
       "createdAt": "2026-10-25T13:25:13Z",
-      "updatedAt": "2026-10-25T13:25:13Z",
+      "updatedAt": "2026-10-26T22:07:23.338Z",
       "notes": "Open 8 Leg Same Game Combo shown in Gabe's FanDuel Predicts/My Orders screenshot supplied by Trey for publication. Exact displayed half-point thresholds preserved. Wager and total return are cropped out; $5 placeholder per standing instruction. Displayed 5.26x AVG PRICE is recorded as a quote label only and is not treated as confirmed decimal odds or a payout multiplier. Account balance omitted.",
       "displayedPrice": "5.26x AVG PRICE",
       "legs": [
@@ -1757,7 +1775,8 @@
             "sport": "NFL"
           }
         }
-      ]
+      ],
+      "archivedAt": "2026-10-26T22:07:23.338Z"
     },
     {
       "id": "gabe-mnf-20261026-10leg",
