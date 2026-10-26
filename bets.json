@@ -1758,6 +1758,175 @@
           }
         }
       ]
+    },
+    {
+      "id": "gabe-mnf-20261026-10leg",
+      "owner": "Gabe",
+      "title": "Gabe · MNF · 10-Leg Same Game Parlay",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "stake": 5,
+      "stakeEstimated": true,
+      "payout": 97.05,
+      "payoutEstimated": true,
+      "odds": 1841,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "placed": false,
+      "settlement": "auto",
+      "createdAt": "2026-10-26T22:02:29.369Z",
+      "updatedAt": "2026-10-26T22:02:29.369Z",
+      "notes": "Picks and displayed odds transcribed from Gabe's MNF screenshots supplied by Trey. Wager fields are blank and placement is unconfirmed. $5 placeholder per standing instruction; estimated total return calculated from displayed odds. Account details omitted.",
+      "legs": [
+        {
+          "kind": "passing_yards",
+          "team": "Philadelphia Eagles",
+          "name": "Tanner McKee",
+          "target": 150,
+          "override": null
+        },
+        {
+          "kind": "passing_yards",
+          "team": "Dallas Cowboys",
+          "name": "Dak Prescott",
+          "target": 250,
+          "override": null
+        },
+        {
+          "kind": "rushing_yards",
+          "team": "Dallas Cowboys",
+          "name": "Javonte Williams",
+          "target": 40,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Philadelphia Eagles",
+          "name": "Dallas Goedert",
+          "target": 30,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Dallas Cowboys",
+          "name": "CeeDee Lamb",
+          "target": 70,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Dallas Cowboys",
+          "name": "George Pickens",
+          "target": 70,
+          "override": null
+        },
+        {
+          "kind": "receptions",
+          "team": "Philadelphia Eagles",
+          "name": "Dallas Goedert",
+          "target": 4,
+          "override": null
+        },
+        {
+          "kind": "receptions",
+          "team": "Dallas Cowboys",
+          "name": "CeeDee Lamb",
+          "target": 7,
+          "override": null
+        },
+        {
+          "kind": "receptions",
+          "team": "Dallas Cowboys",
+          "name": "George Pickens",
+          "target": 6,
+          "override": null
+        },
+        {
+          "kind": "rushing_yards",
+          "team": "Philadelphia Eagles",
+          "name": "Saquon Barkley",
+          "target": 50,
+          "override": null
+        }
+      ]
+    },
+    {
+      "id": "gabe-mnf-20261026-7leg",
+      "owner": "Gabe",
+      "title": "Gabe · MNF · 7-Leg Same Game Parlay",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "stake": 5,
+      "stakeEstimated": true,
+      "payout": 44.4,
+      "payoutEstimated": true,
+      "odds": 788,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "placed": false,
+      "settlement": "auto",
+      "createdAt": "2026-10-26T22:02:29.369Z",
+      "updatedAt": "2026-10-26T22:02:29.369Z",
+      "notes": "Picks and displayed odds transcribed from Gabe's MNF screenshots supplied by Trey. Wager fields are blank and placement is unconfirmed. $5 placeholder per standing instruction; estimated total return calculated from displayed odds. Account details omitted.",
+      "legs": [
+        {
+          "kind": "any_td",
+          "team": "Dallas Cowboys",
+          "name": "George Pickens",
+          "target": 1,
+          "override": null
+        },
+        {
+          "kind": "passing_yards",
+          "team": "Dallas Cowboys",
+          "name": "Dak Prescott",
+          "target": 225,
+          "override": null
+        },
+        {
+          "kind": "passing_td",
+          "team": "Dallas Cowboys",
+          "name": "Dak Prescott",
+          "target": 2,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Dallas Cowboys",
+          "name": "CeeDee Lamb",
+          "target": 70,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Dallas Cowboys",
+          "name": "George Pickens",
+          "target": 60,
+          "override": null
+        },
+        {
+          "kind": "receptions",
+          "team": "Dallas Cowboys",
+          "name": "CeeDee Lamb",
+          "target": 7,
+          "override": null
+        },
+        {
+          "kind": "receptions",
+          "team": "Dallas Cowboys",
+          "name": "George Pickens",
+          "target": 5,
+          "override": null
+        }
+      ]
     }
   ]
 }

@@ -20,7 +20,7 @@ function scoringReport(config,bets,evaluations=[]){
  for(const r of list){
   const key=familyKey({owner:r.owner,game:r.game},r.leg),w=week(r.game.date),ownerWeek=clean(r.owner)+'|'+w,e=evals.get(r.id),start=Date.parse(r.kickoff||e?.gameStart),submitted=Date.parse(r.submittedAt);
   let reason='scoring pick';
-  if(!['ml','passing_yards','rushing_yards','receiving_yards','receptions','any_td','either_td','total_points'].includes(r.leg.kind))reason='unsupported selection';
+  if(!['ml','passing_td','passing_yards','rushing_yards','receiving_yards','receptions','any_td','either_td','total_points'].includes(r.leg.kind))reason='unsupported selection';
   else if(!Number.isFinite(submitted)||!Number.isFinite(start))reason='kickoff/submission time unverified';
   else if(submitted>=start)reason='added after kickoff · tracking only';
   else if(seen.has(key))reason='duplicate or opposing player/stat/game';

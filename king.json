@@ -1,7 +1,382 @@
 {
   "version": 1,
   "rulesVersion": "koto-10-slots-v1",
-  "registrations": [],
+  "registrations": [
+    {
+      "id": "gabe-mnf-20261026-10leg:0",
+      "betId": "gabe-mnf-20261026-10leg",
+      "legIndex": 0,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "passing_yards",
+        "team": "Philadelphia Eagles",
+        "name": "Tanner McKee",
+        "target": 150,
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:02:29.369Z",
+      "title": "Gabe · MNF · 10-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "gabe-mnf-20261026-10leg:1",
+      "betId": "gabe-mnf-20261026-10leg",
+      "legIndex": 1,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "passing_yards",
+        "team": "Dallas Cowboys",
+        "name": "Dak Prescott",
+        "target": 250,
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:02:29.369Z",
+      "title": "Gabe · MNF · 10-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "gabe-mnf-20261026-10leg:2",
+      "betId": "gabe-mnf-20261026-10leg",
+      "legIndex": 2,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "rushing_yards",
+        "team": "Dallas Cowboys",
+        "name": "Javonte Williams",
+        "target": 40,
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:02:29.369Z",
+      "title": "Gabe · MNF · 10-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "gabe-mnf-20261026-10leg:3",
+      "betId": "gabe-mnf-20261026-10leg",
+      "legIndex": 3,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receiving_yards",
+        "team": "Philadelphia Eagles",
+        "name": "Dallas Goedert",
+        "target": 30,
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:02:29.369Z",
+      "title": "Gabe · MNF · 10-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "gabe-mnf-20261026-10leg:4",
+      "betId": "gabe-mnf-20261026-10leg",
+      "legIndex": 4,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receiving_yards",
+        "team": "Dallas Cowboys",
+        "name": "CeeDee Lamb",
+        "target": 70,
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:02:29.369Z",
+      "title": "Gabe · MNF · 10-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "gabe-mnf-20261026-10leg:5",
+      "betId": "gabe-mnf-20261026-10leg",
+      "legIndex": 5,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receiving_yards",
+        "team": "Dallas Cowboys",
+        "name": "George Pickens",
+        "target": 70,
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:02:29.369Z",
+      "title": "Gabe · MNF · 10-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "gabe-mnf-20261026-10leg:6",
+      "betId": "gabe-mnf-20261026-10leg",
+      "legIndex": 6,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receptions",
+        "team": "Philadelphia Eagles",
+        "name": "Dallas Goedert",
+        "target": 4,
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:02:29.369Z",
+      "title": "Gabe · MNF · 10-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "gabe-mnf-20261026-10leg:7",
+      "betId": "gabe-mnf-20261026-10leg",
+      "legIndex": 7,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receptions",
+        "team": "Dallas Cowboys",
+        "name": "CeeDee Lamb",
+        "target": 7,
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:02:29.369Z",
+      "title": "Gabe · MNF · 10-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "gabe-mnf-20261026-10leg:8",
+      "betId": "gabe-mnf-20261026-10leg",
+      "legIndex": 8,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receptions",
+        "team": "Dallas Cowboys",
+        "name": "George Pickens",
+        "target": 6,
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:02:29.369Z",
+      "title": "Gabe · MNF · 10-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "gabe-mnf-20261026-10leg:9",
+      "betId": "gabe-mnf-20261026-10leg",
+      "legIndex": 9,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "rushing_yards",
+        "team": "Philadelphia Eagles",
+        "name": "Saquon Barkley",
+        "target": 50,
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:02:29.369Z",
+      "title": "Gabe · MNF · 10-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "gabe-mnf-20261026-7leg:0",
+      "betId": "gabe-mnf-20261026-7leg",
+      "legIndex": 0,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "any_td",
+        "team": "Dallas Cowboys",
+        "name": "George Pickens",
+        "target": 1,
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:02:29.369Z",
+      "title": "Gabe · MNF · 7-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "gabe-mnf-20261026-7leg:1",
+      "betId": "gabe-mnf-20261026-7leg",
+      "legIndex": 1,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "passing_yards",
+        "team": "Dallas Cowboys",
+        "name": "Dak Prescott",
+        "target": 225,
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:02:29.369Z",
+      "title": "Gabe · MNF · 7-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "gabe-mnf-20261026-7leg:2",
+      "betId": "gabe-mnf-20261026-7leg",
+      "legIndex": 2,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "passing_td",
+        "team": "Dallas Cowboys",
+        "name": "Dak Prescott",
+        "target": 2,
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:02:29.369Z",
+      "title": "Gabe · MNF · 7-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "gabe-mnf-20261026-7leg:3",
+      "betId": "gabe-mnf-20261026-7leg",
+      "legIndex": 3,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receiving_yards",
+        "team": "Dallas Cowboys",
+        "name": "CeeDee Lamb",
+        "target": 70,
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:02:29.369Z",
+      "title": "Gabe · MNF · 7-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "gabe-mnf-20261026-7leg:4",
+      "betId": "gabe-mnf-20261026-7leg",
+      "legIndex": 4,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receiving_yards",
+        "team": "Dallas Cowboys",
+        "name": "George Pickens",
+        "target": 60,
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:02:29.369Z",
+      "title": "Gabe · MNF · 7-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "gabe-mnf-20261026-7leg:5",
+      "betId": "gabe-mnf-20261026-7leg",
+      "legIndex": 5,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receptions",
+        "team": "Dallas Cowboys",
+        "name": "CeeDee Lamb",
+        "target": 7,
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:02:29.369Z",
+      "title": "Gabe · MNF · 7-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "gabe-mnf-20261026-7leg:6",
+      "betId": "gabe-mnf-20261026-7leg",
+      "legIndex": 6,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receptions",
+        "team": "Dallas Cowboys",
+        "name": "George Pickens",
+        "target": 5,
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:02:29.369Z",
+      "title": "Gabe · MNF · 7-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
+    }
+  ],
   "results": [],
   "recordStatus": "pending-approval"
 }
