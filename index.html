@@ -287,6 +287,12 @@ if(leg.kind==='ml'){
  if(final)return {status:score>op?'hit':score<op?'miss':'review',value:score+'–'+op};
  return {status:playing?'live':'pending',value:playing?score+'–'+op:null};
 }
+if(leg.kind==='spread'){
+ const team=c.find(x=>teamEquals(x.team?.displayName||x.team?.name||x.team?.abbreviation,leg.team)),op=c.find(x=>x!==team);
+ if(!team||!op)return {status:'unknown',value:null};
+ const margin=Number(team.score||0)-Number(op.score||0)+Number(leg.target);
+ return {status:final?(margin>0?'hit':margin<0?'miss':'void'):playing?'live':'pending',value:margin};
+}
 if(leg.kind==='either_td'){
  const players=(leg.players||[]).map(name=>getStatPlayer(ev.id,name));
  const totals=players.map(p=>!p||(p.rushing_td==null&&p.receiving_td==null)?null:(p.rushing_td||0)+(p.receiving_td||0));
@@ -307,12 +313,12 @@ return {status:final?'miss':playing?'live':'pending',value};
 }
 
 function ticketStatus(b){if(b.settlement==='won')return 'won';if(b.settlement==='lost')return 'lost';if(b.settlement==='void')return 'review';if(!b.legs?.length)return 'review';const s=b.legs.map(l=>evalLeg(l,b).status);if(s.includes('miss'))return 'lost';if(s.every(x=>x==='hit'))return 'won';if(s.includes('review')||s.includes('void'))return 'review';if(s.includes('live')||ticketGames(b).some(g=>statusOfGame(g)==='in'))return 'live';return 'open'}
-function legText(l){const who=l.name||l.team||'Selection';if(l.kind==='ml')return `${l.team} moneyline`;if(l.kind==='any_td'||l.kind==='either_td')return `${who} · anytime touchdown`;
+function legText(l){const who=l.name||l.team||'Selection';if(l.kind==='ml')return `${l.team} moneyline`;if(l.kind==='spread')return `${l.team} ${l.target>=0?'+':''}${l.target} spread`;if(l.kind==='any_td'||l.kind==='either_td')return `${who} · ${l.target>1?l.target+'+ touchdowns':'anytime touchdown'}`;
 const labels={passing_yards:'passing yards',passing_td:'passing touchdowns',rushing_yards:'rushing yards',receiving_yards:'receiving yards',receptions:'receptions',total_points:'total points'};
 const target=l.side?(l.side==='under'?'Under ':'Over ')+l.target:l.target+'+';
 return `${l.kind==='total_points'?'Game':who} · ${target} ${labels[l.kind]||l.kind}`;}
 function legProgressBar(l,v){
- const target=Number(l.target),numeric=l.kind!=='ml'&&target>0;
+ const target=Number(l.target),numeric=l.kind!=='ml'&&l.kind!=='spread'&&target>0;
  const known=numeric&&Number.isFinite(v.value);
  const percent=v.status==='hit'?100:known?Math.max(0,Math.min(100,v.value/target*100)):0;
  const label=v.status==='hit'?'HIT':v.status==='miss'?'MISSED':v.status==='void'?'VOID':l.kind==='ml'?(v.status==='live'?'LIVE · AWAITING FINAL':'AWAITING RESULT'):known?(l.side==='under'?'UNDER '+target+' · AWAITING FINAL':Math.max(0,target-v.value)+' TO GO'):v.status==='review'?'VERIFY STATS':'AWAITING STATS';
@@ -320,7 +326,7 @@ function legProgressBar(l,v){
  const measurable=known||v.status==='hit';
  return '<div class="leg-progress '+v.status+'"><div class="leg-progress-track" role="progressbar" aria-label="'+esc(accessible)+'" aria-valuemin="0" aria-valuemax="100"'+(measurable?' aria-valuenow="'+Math.round(percent)+'"':'')+'><span class="leg-progress-fill" style="width:'+percent+'%"></span></div><span class="leg-progress-label">'+esc(label)+'</span></div>';
 }
-function legTicker(l,ev){if(ev.value===null||ev.value===undefined)return ev.status==='review'?'VERIFY':'—';return l.kind==='ml'?ev.value:`${ev.value} / ${l.target||1}`}
+function legTicker(l,ev){if(ev.value===null||ev.value===undefined)return ev.status==='review'?'VERIFY':'—';return l.kind==='ml'?ev.value:l.kind==='spread'?(ev.value>0?'+':'')+ev.value+' adjusted margin':`${ev.value} / ${l.target||1}`}
 function teamColors(b){const main=b.legs.find(x=>x.kind==='ml')?.team||b.game.home;return teamEquals(main,b.game.home)?'orange':'blue'}
 function progress(b){const legs=b.legs||[];const r=legs.map(l=>evalLeg(l,b));return {total:legs.length,hit:r.filter(x=>x.status==='hit').length,miss:r.filter(x=>x.status==='miss').length,review:r.filter(x=>x.status==='review').length,states:r}}
 function sourceText(){if(scoreState==='connected')return `LIVE DATA · UPDATED ${lastRefresh?.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'})||''}`;

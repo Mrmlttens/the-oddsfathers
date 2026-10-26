@@ -1946,6 +1946,387 @@
           "override": null
         }
       ]
+    },
+    {
+      "id": "trey-mnf-20261026-1",
+      "owner": "Trey",
+      "title": "Trey · MNF 1 · 7-Leg Same Game Parlay",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "stake": 1,
+      "payout": 64.27,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "placed": true,
+      "settlement": "auto",
+      "createdAt": "2026-10-26T22:32:25.967Z",
+      "updatedAt": "2026-10-26T22:32:25.967Z",
+      "notes": "Confirmed open ticket from Trey's screenshot. Exact lines and $1 wager/total payout preserved. Account identifiers and cash-out offers omitted.",
+      "legs": [
+        {
+          "kind": "any_td",
+          "name": "George Pickens",
+          "target": 1,
+          "team": "Dallas Cowboys",
+          "override": null
+        },
+        {
+          "kind": "passing_yards",
+          "name": "Tanner McKee",
+          "target": 200,
+          "team": "Philadelphia Eagles",
+          "override": null
+        },
+        {
+          "kind": "receptions",
+          "name": "Dallas Goedert",
+          "target": 5.5,
+          "team": "Philadelphia Eagles",
+          "override": null,
+          "side": "over"
+        },
+        {
+          "kind": "receiving_yards",
+          "name": "Darius Cooper",
+          "target": 39.5,
+          "team": "Philadelphia Eagles",
+          "override": null,
+          "side": "over"
+        },
+        {
+          "kind": "any_td",
+          "name": "Dallas Goedert",
+          "target": 1,
+          "team": "Philadelphia Eagles",
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "name": "CeeDee Lamb",
+          "target": 80,
+          "team": "Dallas Cowboys",
+          "override": null
+        },
+        {
+          "kind": "receptions",
+          "name": "Jake Ferguson",
+          "target": 2.5,
+          "team": "Dallas Cowboys",
+          "override": null,
+          "side": "over"
+        }
+      ]
+    },
+    {
+      "id": "trey-mnf-20261026-2",
+      "owner": "Trey",
+      "title": "Trey · MNF 2 · 7-Leg Same Game Parlay",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "stake": 1,
+      "payout": 206.14,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "placed": true,
+      "settlement": "auto",
+      "createdAt": "2026-10-26T22:32:25.967Z",
+      "updatedAt": "2026-10-26T22:32:25.967Z",
+      "notes": "Confirmed open ticket from Trey's screenshot. Exact lines and $1 wager/total payout preserved. Account identifiers and cash-out offers omitted.",
+      "legs": [
+        {
+          "kind": "receptions",
+          "name": "Javonte Williams",
+          "target": 2.5,
+          "team": "Dallas Cowboys",
+          "override": null,
+          "side": "over"
+        },
+        {
+          "kind": "receiving_yards",
+          "name": "Dallas Goedert",
+          "target": 49.5,
+          "team": "Philadelphia Eagles",
+          "override": null,
+          "side": "over"
+        },
+        {
+          "kind": "passing_yards",
+          "name": "Dak Prescott",
+          "target": 263.5,
+          "team": "Dallas Cowboys",
+          "override": null,
+          "side": "over"
+        },
+        {
+          "kind": "receiving_yards",
+          "name": "Ryan Flournoy",
+          "target": 34.5,
+          "team": "Dallas Cowboys",
+          "override": null,
+          "side": "over"
+        },
+        {
+          "kind": "receiving_yards",
+          "name": "George Pickens",
+          "target": 64.5,
+          "team": "Dallas Cowboys",
+          "override": null,
+          "side": "over"
+        },
+        {
+          "kind": "any_td",
+          "name": "CeeDee Lamb",
+          "target": 2,
+          "team": "Dallas Cowboys",
+          "override": null
+        },
+        {
+          "kind": "ml",
+          "name": "",
+          "target": null,
+          "team": "Dallas Cowboys",
+          "override": null
+        }
+      ]
+    },
+    {
+      "id": "trey-mnf-20261026-3",
+      "owner": "Trey",
+      "title": "Trey · MNF 3 · 7-Leg Multi-Game Parlay",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "stake": 1,
+      "payout": 60.63,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "placed": true,
+      "settlement": "auto",
+      "createdAt": "2026-10-26T22:32:25.967Z",
+      "updatedAt": "2026-10-26T22:32:25.967Z",
+      "notes": "Confirmed open ticket from Trey's screenshot. Exact lines and $1 wager/total payout preserved. Cowboys moneyline belongs to Arizona at Dallas on November 1, separate from MNF. Account identifiers and cash-out offers omitted.",
+      "legs": [
+        {
+          "kind": "receptions",
+          "name": "CeeDee Lamb",
+          "target": 6.5,
+          "team": "Dallas Cowboys",
+          "override": null,
+          "side": "over"
+        },
+        {
+          "kind": "passing_yards",
+          "name": "Tanner McKee",
+          "target": 198.5,
+          "team": "Philadelphia Eagles",
+          "override": null,
+          "side": "under"
+        },
+        {
+          "kind": "passing_yards",
+          "name": "Dak Prescott",
+          "target": 265.5,
+          "team": "Dallas Cowboys",
+          "override": null,
+          "side": "under"
+        },
+        {
+          "kind": "receptions",
+          "name": "Dallas Goedert",
+          "target": 5.5,
+          "team": "Philadelphia Eagles",
+          "override": null,
+          "side": "under"
+        },
+        {
+          "kind": "rushing_yards",
+          "name": "Javonte Williams",
+          "target": 62.5,
+          "team": "Dallas Cowboys",
+          "override": null,
+          "side": "over"
+        },
+        {
+          "kind": "any_td",
+          "name": "Saquon Barkley",
+          "target": 1,
+          "team": "Philadelphia Eagles",
+          "override": null
+        },
+        {
+          "kind": "ml",
+          "name": "",
+          "target": null,
+          "team": "Dallas Cowboys",
+          "override": null,
+          "game": {
+            "date": "2026-11-01",
+            "away": "Arizona Cardinals",
+            "home": "Dallas Cowboys",
+            "sport": "NFL"
+          }
+        }
+      ]
+    },
+    {
+      "id": "trey-mnf-20261026-4",
+      "owner": "Trey",
+      "title": "Trey · MNF 4 · 6-Leg Same Game Parlay",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "stake": 1,
+      "payout": 37.21,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "placed": true,
+      "settlement": "auto",
+      "createdAt": "2026-10-26T22:32:25.967Z",
+      "updatedAt": "2026-10-26T22:32:25.967Z",
+      "notes": "Confirmed open ticket from Trey's screenshot. Exact lines and $1 wager/total payout preserved. Account identifiers and cash-out offers omitted.",
+      "legs": [
+        {
+          "kind": "passing_yards",
+          "name": "Tanner McKee",
+          "target": 200,
+          "team": "Philadelphia Eagles",
+          "override": null
+        },
+        {
+          "kind": "receptions",
+          "name": "George Pickens",
+          "target": 4.5,
+          "team": "Dallas Cowboys",
+          "override": null,
+          "side": "under"
+        },
+        {
+          "kind": "receptions",
+          "name": "Dallas Goedert",
+          "target": 5.5,
+          "team": "Philadelphia Eagles",
+          "override": null,
+          "side": "over"
+        },
+        {
+          "kind": "rushing_yards",
+          "name": "Javonte Williams",
+          "target": 62.5,
+          "team": "Dallas Cowboys",
+          "override": null,
+          "side": "over"
+        },
+        {
+          "kind": "receiving_yards",
+          "name": "Makai Lemon",
+          "target": 40,
+          "team": "Philadelphia Eagles",
+          "override": null
+        },
+        {
+          "kind": "spread",
+          "name": "",
+          "target": 4.5,
+          "team": "Philadelphia Eagles",
+          "override": null
+        }
+      ]
+    },
+    {
+      "id": "trey-mnf-20261026-5",
+      "owner": "Trey",
+      "title": "Trey · MNF 5 · 7-Leg Multi-Game Parlay",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "stake": 1,
+      "payout": 21.87,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "placed": true,
+      "settlement": "auto",
+      "createdAt": "2026-10-26T22:32:25.967Z",
+      "updatedAt": "2026-10-26T22:32:25.967Z",
+      "notes": "Confirmed open ticket from Trey's screenshot. Exact lines and $1 wager/total payout preserved. Cowboys moneyline belongs to Arizona at Dallas on November 1, separate from MNF. Account identifiers and cash-out offers omitted.",
+      "legs": [
+        {
+          "kind": "receptions",
+          "name": "CeeDee Lamb",
+          "target": 6.5,
+          "team": "Dallas Cowboys",
+          "override": null,
+          "side": "over"
+        },
+        {
+          "kind": "passing_yards",
+          "name": "Tanner McKee",
+          "target": 200,
+          "team": "Philadelphia Eagles",
+          "override": null
+        },
+        {
+          "kind": "passing_yards",
+          "name": "Dak Prescott",
+          "target": 265.5,
+          "team": "Dallas Cowboys",
+          "override": null,
+          "side": "over"
+        },
+        {
+          "kind": "receiving_yards",
+          "name": "Ryan Flournoy",
+          "target": 34.5,
+          "team": "Dallas Cowboys",
+          "override": null,
+          "side": "over"
+        },
+        {
+          "kind": "receiving_yards",
+          "name": "George Pickens",
+          "target": 64.5,
+          "team": "Dallas Cowboys",
+          "override": null,
+          "side": "over"
+        },
+        {
+          "kind": "receiving_yards",
+          "name": "Darius Cooper",
+          "target": 39.5,
+          "team": "Philadelphia Eagles",
+          "override": null,
+          "side": "over"
+        },
+        {
+          "kind": "ml",
+          "name": "",
+          "target": null,
+          "team": "Dallas Cowboys",
+          "override": null,
+          "game": {
+            "date": "2026-11-01",
+            "away": "Arizona Cardinals",
+            "home": "Dallas Cowboys",
+            "sport": "NFL"
+          }
+        }
+      ]
     }
   ]
 }

@@ -30,3 +30,6 @@ For every bet submission, preserve existing createdAt values and use the actual 
 
 ## Standing publication authorization (October 25, 2026)
 Trey explicitly approved publishing the four October 25 tickets and instructed: when he sends bets for this site, publication is approved. Treat future bet submissions for THE ODDSFATHERS as authorization to publish the supplied owner/display name, picks, wager, payout and necessary ticket dates to this public GitHub repository and site. Do not request the same publication approval again. Do not publish unrelated account identifiers, balances or personal details from screenshots. Preserve unrelated tickets and the approved theme.
+
+## Unknown wager default (October 26, 2026)
+Trey instructed that when a submitted ticket does not show its wager amount, use $5 and clearly label it as an estimated/placeholder wager. A visible confirmed wager always takes precedence. Do not assume $5 is the payout or profit.
