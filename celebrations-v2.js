@@ -22,7 +22,7 @@ function paintPopup(event){
  root.querySelector('.celebration-crown').textContent=event.type==='win'?'♛':event.touchdown?'🏈':'✓';
  $('celebrationTitle').textContent=event.title;$('celebrationSubtitle').textContent=event.subtitle||'';
  const receipts=event.pointReceipts?(event.demo?event.pointReceipts:validatePopupPointReceipts(event.pointReceipts)):null;
- $('celebrationPeople').innerHTML=receipts?receipts.map(r=>`<span class="celebration-person">${esc(r.owner)} <strong>${r.points===null?'POINTS LOADING':(r.cumulative?'':'+')+r.points+' CP'}</strong><small>${esc(r.cumulative?'already credited':r.points>0?(r.live?'earned · live':'earned'):r.reason)}</small></span>`).join(''):(event.owners||[]).map(owner=>`<span class="celebration-person">${esc(owner)}</span>`).join('');
+ $('celebrationPeople').innerHTML=receipts?receipts.map(r=>`<span class="celebration-person">${esc(r.owner)} <strong>${r.points===null?'POINTS LOADING':(!r.cumulative&&r.points===0?'RATING '+Number(r.rating||0).toFixed(2):(r.cumulative?'':'+')+Number(r.points).toFixed(2))+' CP'}</strong><small>${esc(r.cumulative?'weekend rating · already included':r.points>0?(r.live?'rating change · live':'rating change'):r.reason)}</small></span>`).join(''):(event.owners||[]).map(owner=>`<span class="celebration-person">${esc(owner)}</span>`).join('');
  $('celebrationStats').classList.toggle('four',(event.stats||[]).length===4);
  $('celebrationStats').hidden=!event.stats?.length;$('celebrationStats').innerHTML=(event.stats||[]).map(stat=>`<div class="celebration-stat"><strong>${esc(stat.value)}</strong><small>${esc(stat.label)}</small></div>`).join('');
  $('celebrationNote').textContent=event.demo?'Demo only. No tickets, stats or results were changed.':event.note||'Reported player stats · Verify sportsbook grading.';
@@ -41,7 +41,7 @@ function dismissCelebration(){
 function checkLegMilestones(){
  if(typeof refreshPopupPointState==='function')refreshPopupPointState();
  const groups=new Map(),pending=popupPendingOwnerKeys();
- for(const bet of bets){if(bet.archivedAt||!bet.legs?.length)continue;
+ for(const bet of bets){if(!bet.legs?.length||(bet.archivedAt&&ticketGames(bet).every(g=>g.date<boardDate())))continue;
   for(const leg of bet.legs){const game=legGame(leg,bet),ev=findEvent(game);if(leg.kind==='ml'||!ev||!statsByEvent.has(String(ev.id))||livefieldFailures.has(String(ev.id)))continue;
    const value=evalLeg(leg,bet);if(value.status!=='hit'||value.source==='manual')continue;
    const seenKey=popupOwnerLegKey(bet,leg);if(popupSeen[seenKey]||pending.has(seenKey))continue;
@@ -53,7 +53,7 @@ function checkLegMilestones(){
  for(const [key,entries] of groups){const {bet,leg}=entries[0],gameKey=popupGameKey(legGame(leg,bet));
   if(!popupGamesObserved.has(gameKey)){if(!catchups.has(gameKey))catchups.set(gameKey,[]);catchups.get(gameKey).push(...entries);continue;}
   const seenKeys=[...new Set(entries.map(e=>e.seenKey))],touchdown=['any_td','either_td'].includes(leg.kind);
-  queuePopup({key:'milestone|'+seenKeys.slice().sort().join('~'),seenKeys,type:'leg',touchdown,title:touchdown?'TOUCHDOWN!':'LEG HIT!',subtitle:leg.kind==='either_td'?'One of '+leg.name+' scored!':leg.kind==='any_td'?leg.name+' scored!':legText(leg),owners:popupOwners(entries),pointReceipts:typeof popupPointReceipts==='function'?popupPointReceipts(entries):null});
+  queuePopup({key:'milestone|'+seenKeys.slice().sort().join('~'),seenKeys,type:'leg',touchdown,title:touchdown?'TOUCHDOWN!':'LEG HIT!',subtitle:leg.kind==='either_td'?'One of '+leg.name+(leg.target>1?' reached '+leg.target+' touchdowns!':' scored!'):leg.kind==='any_td'?leg.name+(leg.target>1?' reached '+leg.target+' touchdowns!':' scored!'):legText(leg),owners:popupOwners(entries),pointReceipts:typeof popupPointReceipts==='function'?popupPointReceipts(entries):null});
  }
  for(const [key,entries] of catchups){const count=new Set(entries.map(({bet,leg})=>popupLegKey(bet,leg))).size,seenKeys=[...new Set(entries.map(e=>e.seenKey))];
   queuePopup({key:'catchup|'+seenKeys.slice().sort().join('~'),seenKeys,type:'catchup',title:'LEGS HIT WHILE AWAY',subtitle:count+' player milestone'+(count===1?'':'s')+' cleared before this check.',owners:popupOwners(entries),pointReceipts:typeof popupPointReceipts==='function'?popupPointReceipts(entries):null,note:'Catch-up from reported stats. Points shown are already included in the standings; this alert does not add them again.'});
@@ -65,7 +65,7 @@ function ticketPopup(bet){
  const payout=Number.isFinite(bet.payout)?bet.payout:null,stake=Number.isFinite(bet.stake)?bet.stake:null;
  const pointReceipts=typeof popupPointReceipts==='function'?popupPointReceipts(bet.legs.map(leg=>({bet,leg})),true):null;
  const profit=payout!==null&&stake!==null?payout-stake:null,estimated=bet.stakeEstimated||bet.payoutEstimated;
- return {key:'win|'+bet.id,betId:bet.id,type:'win',title:official?'TICKET WON!':'ALL LEGS HIT!',subtitle:bet.title,owners:[bet.owner],pointReceipts,stats:[{label:cleared===total?'LEGS CLEARED':'LEGS TRACKED',value:cleared+' / '+total},{label:bet.payoutEstimated?'EST. RETURN':official?'TOTAL RETURN':'LISTED RETURN',value:money(payout)},{label:estimated?'EST. PROFIT*':'PROFIT*',value:profit===null?'N/A':(profit>0?'+':'')+money(profit)},...(pointReceipts?[{label:'LEG POINTS CREDITED',value:pointReceipts.some(r=>r.points===null)?'Loading':pointReceipts.reduce((n,r)=>n+r.points,0)+' CP'}]:[])],note:'*Profit is return minus wager, before fees. '+(official?'Reported settled win.':'Awaiting sportsbook confirmation.')};
+ return {key:'win|'+bet.id,betId:bet.id,type:'win',title:official?'TICKET WON!':'ALL LEGS HIT!',subtitle:bet.title,owners:[bet.owner],pointReceipts,stats:[{label:cleared===total?'LEGS CLEARED':'LEGS TRACKED',value:cleared+' / '+total},{label:bet.payoutEstimated?'EST. RETURN':official?'TOTAL RETURN':'LISTED RETURN',value:money(payout)},{label:estimated?'EST. PROFIT*':'PROFIT*',value:profit===null?'N/A':(profit>0?'+':'')+money(profit)},...(pointReceipts?[{label:'WEEKEND RATING',value:pointReceipts.some(r=>r.points===null)?'Loading':pointReceipts.reduce((n,r)=>n+r.points,0)+' CP'}]:[])],note:'*Profit is return minus wager, before fees. '+(official?'Reported settled win.':'Awaiting sportsbook confirmation.')};
 }
 function checkWinners(){
  for(const bet of bets){if(ticketStatus(bet)!=='won'){if(winEvents[bet.id])delete winEvents[bet.id];continue;}
@@ -86,6 +86,7 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden){clearTimeo
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&popupCurrent)dismissCelebration();});
 document.getElementById('previewTouchdown')?.addEventListener('click',()=>previewCelebration('td'));
 document.getElementById('previewTicketWin')?.addEventListener('click',()=>previewCelebration('win'));
+
 
 
 

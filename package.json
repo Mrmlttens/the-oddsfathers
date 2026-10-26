@@ -1,0 +1,8 @@
+{
+  "name": "the-oddsfathers",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Static crew tracker with verified final-result snapshots",
+  "scripts": {"test": "node tests/models.test.cjs", "test:ui": "node tests/ui.test.cjs", "sync:results": "node scripts/sync-results.cjs"},
+  "devDependencies": {"jsdom": "^26.1.0"}
+}
