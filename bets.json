@@ -2327,6 +2327,80 @@
           }
         }
       ]
+    },
+    {
+      "id": "rodman-mnf-20261026-7leg",
+      "owner": "Rodman",
+      "title": "Rodman · MNF · 7-Leg Same Game Parlay",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "stake": 5,
+      "stakeEstimated": true,
+      "payout": 32.5,
+      "payoutEstimated": true,
+      "odds": 550,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "placed": false,
+      "settlement": "auto",
+      "createdAt": "2026-10-26T22:35:58.476Z",
+      "updatedAt": "2026-10-26T22:35:58.476Z",
+      "notes": "Seven selections and +550 odds transcribed from screenshot supplied by Trey. Wager field is blank; $5 estimated wager per standing instruction. Estimated total return $32.50 includes stake; placement and accepted odds unconfirmed. Account details omitted.",
+      "legs": [
+        {
+          "kind": "passing_yards",
+          "name": "Tanner McKee",
+          "target": 175,
+          "team": "Philadelphia Eagles",
+          "override": null
+        },
+        {
+          "kind": "passing_yards",
+          "name": "Dak Prescott",
+          "target": 225,
+          "team": "Dallas Cowboys",
+          "override": null
+        },
+        {
+          "kind": "rushing_yards",
+          "name": "Javonte Williams",
+          "target": 40,
+          "team": "Dallas Cowboys",
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "name": "CeeDee Lamb",
+          "target": 60,
+          "team": "Dallas Cowboys",
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "name": "George Pickens",
+          "target": 50,
+          "team": "Dallas Cowboys",
+          "override": null
+        },
+        {
+          "kind": "receptions",
+          "name": "CeeDee Lamb",
+          "target": 7,
+          "team": "Dallas Cowboys",
+          "override": null
+        },
+        {
+          "kind": "receptions",
+          "name": "George Pickens",
+          "target": 5,
+          "team": "Dallas Cowboys",
+          "override": null
+        }
+      ]
     }
   ]
 }

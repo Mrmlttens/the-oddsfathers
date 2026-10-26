@@ -1156,6 +1156,160 @@
       "submittedAt": "2026-10-26T22:32:25.967Z",
       "title": "Trey · MNF 5 · 7-Leg Multi-Game Parlay",
       "kickoff": "2026-11-01T18:00:00Z"
+    },
+    {
+      "id": "rodman-mnf-20261026-7leg:0",
+      "betId": "rodman-mnf-20261026-7leg",
+      "legIndex": 0,
+      "owner": "Rodman",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "passing_yards",
+        "name": "Tanner McKee",
+        "target": 175,
+        "team": "Philadelphia Eagles",
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:35:58.476Z",
+      "title": "Rodman · MNF · 7-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "rodman-mnf-20261026-7leg:1",
+      "betId": "rodman-mnf-20261026-7leg",
+      "legIndex": 1,
+      "owner": "Rodman",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "passing_yards",
+        "name": "Dak Prescott",
+        "target": 225,
+        "team": "Dallas Cowboys",
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:35:58.476Z",
+      "title": "Rodman · MNF · 7-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "rodman-mnf-20261026-7leg:2",
+      "betId": "rodman-mnf-20261026-7leg",
+      "legIndex": 2,
+      "owner": "Rodman",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "rushing_yards",
+        "name": "Javonte Williams",
+        "target": 40,
+        "team": "Dallas Cowboys",
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:35:58.476Z",
+      "title": "Rodman · MNF · 7-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "rodman-mnf-20261026-7leg:3",
+      "betId": "rodman-mnf-20261026-7leg",
+      "legIndex": 3,
+      "owner": "Rodman",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receiving_yards",
+        "name": "CeeDee Lamb",
+        "target": 60,
+        "team": "Dallas Cowboys",
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:35:58.476Z",
+      "title": "Rodman · MNF · 7-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "rodman-mnf-20261026-7leg:4",
+      "betId": "rodman-mnf-20261026-7leg",
+      "legIndex": 4,
+      "owner": "Rodman",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receiving_yards",
+        "name": "George Pickens",
+        "target": 50,
+        "team": "Dallas Cowboys",
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:35:58.476Z",
+      "title": "Rodman · MNF · 7-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "rodman-mnf-20261026-7leg:5",
+      "betId": "rodman-mnf-20261026-7leg",
+      "legIndex": 5,
+      "owner": "Rodman",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receptions",
+        "name": "CeeDee Lamb",
+        "target": 7,
+        "team": "Dallas Cowboys",
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:35:58.476Z",
+      "title": "Rodman · MNF · 7-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "rodman-mnf-20261026-7leg:6",
+      "betId": "rodman-mnf-20261026-7leg",
+      "legIndex": 6,
+      "owner": "Rodman",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receptions",
+        "name": "George Pickens",
+        "target": 5,
+        "team": "Dallas Cowboys",
+        "override": null
+      },
+      "submittedAt": "2026-10-26T22:35:58.476Z",
+      "title": "Rodman · MNF · 7-Leg Same Game Parlay",
+      "kickoff": "2026-10-27T00:15:00Z"
     }
   ],
   "results": [],
