@@ -93,7 +93,7 @@
 <link rel="stylesheet" href="./celebrations-v2.css?v=oct25-either-td-1">
 <link rel="stylesheet" href="./king.css?v=scenarios-5">
 <link rel="stylesheet" href="./upcoming.css?v=1">
-<link rel="stylesheet" href="./enhancements.css?v=crew-v3-1">
+<link rel="stylesheet" href="./enhancements.css?v=crew-v3-2">
 </head>
 <body>
   <div class="shell">
@@ -217,7 +217,7 @@
 <p id="upcomingMeta" class="upcoming-meta" role="status">Loading schedule and lines…</p><div id="upcomingList"></div>
 <p class="upcoming-note">ESPN-reported lines · Source shown per game · Gold arrows show changes since the previous successful check. Lines may lag or differ from your sportsbook. Missing lines show —.</p>
 </section>
-      <footer class="footer"><div class="brand-mini">♛ THE ODDSFATHERS <span>/ GAMEDAY WAR ROOM</span></div><div>Built for the crew · v2.0 · No sportsbook affiliation</div></footer>
+      <footer class="footer"><div class="brand-mini">♛ THE ODDSFATHERS <span>/ GAMEDAY WAR ROOM</span></div><div>Built for the crew · Crew Intel · No sportsbook affiliation</div></footer>
     </main>
   </div>
 
@@ -251,7 +251,7 @@ function esc(s){return String(s??'').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&l
 function norm(s){return String(s||'').toLowerCase().normalize('NFKD').replace(/[^a-z0-9]/g,'').trim()}
 function canonTeam(s){const a=String(s||'').toLowerCase().replace(/[^a-z0-9 ]/g,'').trim();return NAME_ALIASES[a]||a}
 function teamEquals(a,b){return norm(canonTeam(a))===norm(canonTeam(b))}
-function teamAbbr(n){let s=canonTeam(n);let map={'new england patriots':'NE','chicago bears':'CHI','dallas cowboys':'DAL','green bay packers':'GB','houston texans':'HOU','jacksonville jaguars':'JAX','san francisco 49ers':'SF','washington commanders':'WAS'};return map[s]||n.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,3)}
+function teamAbbr(n){const map={"arizona cardinals":"ARI","atlanta falcons":"ATL","baltimore ravens":"BAL","buffalo bills":"BUF","carolina panthers":"CAR","chicago bears":"CHI","cincinnati bengals":"CIN","cleveland browns":"CLE","dallas cowboys":"DAL","denver broncos":"DEN","detroit lions":"DET","green bay packers":"GB","houston texans":"HOU","indianapolis colts":"IND","jacksonville jaguars":"JAX","kansas city chiefs":"KC","las vegas raiders":"LV","los angeles chargers":"LAC","los angeles rams":"LAR","miami dolphins":"MIA","minnesota vikings":"MIN","new england patriots":"NE","new orleans saints":"NO","new york giants":"NYG","new york jets":"NYJ","philadelphia eagles":"PHI","pittsburgh steelers":"PIT","san francisco 49ers":"SF","seattle seahawks":"SEA","tampa bay buccaneers":"TB","tennessee titans":"TEN","washington commanders":"WAS"};return map[canonTeam(n)]||String(n||'').split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,3);}
 function teamLogo(n){const ab=teamAbbr(n).toLowerCase();const ids={ne:'ne',chi:'chi',gb:'gb',dal:'dal',hou:'hou',jax:'jax',sf:'sf',was:'wsh'};return `https://a.espncdn.com/i/teamlogos/nfl/500/${ids[ab]||ab}.png`}
 function dateText(d){try{return new Date(d+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})}catch{return d}}
 function oddsFromReturn(b){if(Number.isFinite(b.odds))return (b.odds>0?'+':'')+b.odds;let stake=Number(b.stake),pay=Number(b.payout);if(!(stake>0)||pay<=0)return '—';let dec=pay/stake;return dec>=2?`+${Math.round((dec-1)*100)}`:`${Math.round(-100/(dec-1))}`}
@@ -469,14 +469,14 @@ function showRecentOnReturn(){
 }
 
 </script>
-<script src="./game-model.js?v=crew-v3-1" defer></script>
-<script src="./crew-model.js?v=crew-v3-1" defer></script>
-<script src="./livefield.js?v=crew-v3-1" defer></script>
-<script src="./king-model.js?v=crew-v3-1" defer></script>
-<script src="./king.js?v=crew-v3-1" defer></script>
-<script src="./enhancements.js?v=crew-v3-1" defer></script>
-<script src="./popup-points.js?v=crew-v3-1" defer></script>
-<script src="./celebrations-v2.js?v=crew-v3-1" defer></script>
+<script src="./game-model.js?v=crew-v3-2" defer></script>
+<script src="./crew-model.js?v=crew-v3-2" defer></script>
+<script src="./livefield.js?v=crew-v3-2" defer></script>
+<script src="./king-model.js?v=crew-v3-2" defer></script>
+<script src="./king.js?v=crew-v3-2" defer></script>
+<script src="./enhancements.js?v=crew-v3-2" defer></script>
+<script src="./popup-points.js?v=crew-v3-2" defer></script>
+<script src="./celebrations-v2.js?v=crew-v3-2" defer></script>
 <script src="./upcoming.js?v=1" defer></script>
 </body>
 </html>
