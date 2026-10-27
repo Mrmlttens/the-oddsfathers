@@ -1,7 +1,7 @@
 'use strict';
 // K.O.T.O. is an accuracy rating, not one independently earned point per leg.
 // Record the signed weekend rating movement once per successful feed refresh.
-let popupRatingPrevious=new Map(),popupRatingChanges=new Map();
+let popupRatingPrevious=new Map(),popupRatingChanges=new Map(),popupRatingShown=new Map();
 function popupRatingView(){if(!kingLoaded)return null;return KingModel.standings(kingConfig,bets,boardDate(),kingEvaluations());}
 function refreshPopupPointState(){
  const view=popupRatingView();if(!view)return;
@@ -28,8 +28,10 @@ function validatePopupPointReceipts(receipts){
  const view=popupRatingView();if(!view)return receipts;
  return receipts.map(r=>{
   const w=view.weeks.find(w=>w.owner===r.owner&&r.week===w.week);
-  return {...r,points:w?.rating??null,rating:w?.rating??null,
-   // A queued alert may be displayed long after it was created. Suppress stale deltas.
-   delta:null,live:!w?.final,eligible:!!w?.qualifying,cumulative:true};
+  const rating=w?.rating??null,key=r.owner+'|'+r.week;
+  const previous=popupRatingShown.get(key);
+  const delta=rating===null?null:KingModel.ratingChange(previous,rating);
+  if(rating!==null)popupRatingShown.set(key,rating);
+  return {...r,points:rating,rating,delta,live:!w?.final,eligible:!!w?.qualifying,cumulative:true};
  });
 }
