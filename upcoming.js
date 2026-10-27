@@ -18,6 +18,6 @@ async function refreshUpcoming(){if(upcomingState.busy)return;upcomingState.busy
  upcomingState.events=events;upcomingState.updatedAt=Date.now();upcomingState.failed=false;
  }catch{upcomingState.failed=true;}finally{upcomingState.busy=false;renderUpcoming();}}
 $('upcomingRefresh').addEventListener('click',refreshUpcoming);
-document.querySelectorAll('.navtab').forEach(el=>el.addEventListener('click',renderUpcoming));
+// app-views.pickView is the single navigation/render owner.
 document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshUpcoming();});
 refreshUpcoming();setInterval(()=>{if(!document.hidden)refreshUpcoming();},60000);
