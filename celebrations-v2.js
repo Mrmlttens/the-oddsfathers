@@ -22,7 +22,12 @@ function paintPopup(event){
  root.querySelector('.celebration-crown').textContent=event.type==='win'?'♛':event.touchdown?'🏈':'✓';
  $('celebrationTitle').textContent=event.title;$('celebrationSubtitle').textContent=event.subtitle||'';
  const receipts=event.pointReceipts?(event.demo?event.pointReceipts:validatePopupPointReceipts(event.pointReceipts)):null;
- $('celebrationPeople').innerHTML=receipts?receipts.map(r=>`<span class="celebration-person">${esc(r.owner)} <strong>${r.points===null?'POINTS LOADING':(!r.cumulative&&r.points===0?'RATING '+Number(r.rating||0).toFixed(2):(r.cumulative?'':'+')+Number(r.points).toFixed(2))+' CP'}</strong><small>${esc(r.cumulative?'weekend rating · already included':r.points>0?(r.live?'rating change · live':'rating change'):r.reason)}</small></span>`).join(''):(event.owners||[]).map(owner=>`<span class="celebration-person">${esc(owner)}</span>`).join('');
+ $('celebrationPeople').innerHTML=receipts?receipts.map(r=>{
+  const shown=r.points===null?'RATING UNAVAILABLE':'WEEKEND '+Number(r.rating??r.points).toFixed(2)+' CP';
+  const diff=Number.isFinite(r.delta)&&Math.abs(r.delta)>=0.005?' · '+(r.delta>0?'+':'')+r.delta.toFixed(2)+' since last notice':'';
+  const subtitle=r.keys?.length?((r.eligible?'QUALIFIED':'5 graded picks required')+' · '+(r.live?'LIVE':'FINAL')+diff):'TRACKING ONLY · NO EXTRA CREDIT';
+  return `<span class="celebration-person">${esc(r.owner)} <strong>${esc(shown)}</strong><small>${esc(subtitle)}</small></span>`;
+ }).join(''):(event.owners||[]).map(owner=>`<span class="celebration-person">${esc(owner)}</span>`).join('');
  $('celebrationStats').classList.toggle('four',(event.stats||[]).length===4);
  $('celebrationStats').hidden=!event.stats?.length;$('celebrationStats').innerHTML=(event.stats||[]).map(stat=>`<div class="celebration-stat"><strong>${esc(stat.value)}</strong><small>${esc(stat.label)}</small></div>`).join('');
  $('celebrationNote').textContent=event.demo?'Demo only. No tickets, stats or results were changed.':event.note||'Reported player stats · Verify sportsbook grading.';
