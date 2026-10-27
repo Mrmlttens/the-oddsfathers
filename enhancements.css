@@ -1,3 +1,34 @@
 /* Additive crew features; approved stadium theme and header remain intact. */
 .crew-tools{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:16px 0}.crew-tools select{background:var(--panel,#102031);color:var(--text,#e9f3ff);border:1px solid #28415c;border-radius:8px;padding:10px;max-width:100%}.feature-panel{background:linear-gradient(130deg,#102033,#0a1622);border:1px solid #273f56;border-radius:14px;padding:20px;margin:18px 0}.feature-panel h3{font-size:22px;margin:5px 0 12px}.feature-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.feature-stat{background:#0a1521;border:1px solid #22394d;border-radius:10px;padding:14px;min-width:0}.feature-stat strong{display:block;font-size:25px;color:var(--text,#e9f3ff);overflow-wrap:anywhere}.feature-stat small,.feature-muted{font-size:11px;color:var(--muted,#94a9bd);line-height:1.7}.feature-stat span{display:block;font-size:10px;letter-spacing:.08em;color:var(--gold,#d4ac70);margin-bottom:8px}.profile-hero{display:flex;align-items:center;gap:17px}.profile-emblem{display:grid;place-items:center;font-size:32px;font-weight:900;color:#e4bd7b;background:linear-gradient(145deg,#20496e,#132238);border:2px solid #b9955d;width:76px;height:82px;clip-path:polygon(0 0,100% 0,100% 77%,50% 100%,0 77%);flex-shrink:0}.profile-hero h3{font-size:30px;margin:0}.xp-track{height:6px;background:#1a2d40;border-radius:6px;overflow:hidden;margin:10px 0}.xp-track i{display:block;height:100%;background:linear-gradient(90deg,#258ced,#d8b16e)}.profile-two{display:grid;grid-template-columns:1fr 1fr;gap:16px}.record-row{display:flex;gap:14px;justify-content:space-between;align-items:center;border-bottom:1px solid #213547;padding:13px 0;font-size:13px}.record-row:last-child{border-bottom:0}.record-row strong{font-size:14px}.profile-badges{display:flex;flex-wrap:wrap;gap:10px}.profile-badge{border:1px solid #9d7e4b;background:#282619;padding:12px;border-radius:10px;flex:1;min-width:140px}.profile-badge strong{font-size:12px;color:#e6bd79;display:block}.profile-badge small{color:#adbac9;font-size:11px}.history-ticket{border-top:1px solid #243b50;padding:13px 0}.history-ticket summary{cursor:pointer;display:flex;gap:12px;align-items:center;list-style:none}.history-ticket summary::-webkit-details-marker{display:none}.history-ticket summary:after{content:'＋';margin-left:auto;color:#7db8ed}.history-ticket[open] summary:after{content:'−'}.history-ticket .hist-body{min-width:0;flex:1}.history-ticket .hist-body strong{overflow-wrap:anywhere}.history-ticket .legs{border-top:1px solid #23374a;margin-top:14px;padding-top:12px}.feed-health{font-size:12px;margin:10px 0 17px;border:1px solid #274157;border-radius:9px;padding:11px 14px;background:#0c1926}.feed-health summary{cursor:pointer;color:#a7bed1}.feed-health.delayed{border-color:#9d763f}.feed-health .record-row{font-size:11px}.profile-link{border:0;background:none;color:#85bcf3;padding:0;font:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:3px}.history-money{display:flex;gap:18px;flex-wrap:wrap;margin:13px 0}.history-money>span{font-size:11px;color:#a6bbce}.history-money b{display:block;font-size:17px;color:#e8f2fc}.stat-note{font-size:10px;color:#8ca2b8;margin-top:7px}.market-bar{height:5px;background:#23384b;margin-top:6px;border-radius:8px;overflow:hidden}.market-bar i{display:block;background:#38c59b;height:100%}.feature-panel button:focus-visible,.crew-tools select:focus-visible,.history-ticket summary:focus-visible{outline:2px solid #e4bb77;outline-offset:4px}.rank-tag{color:#e6bc74;font-size:10px;letter-spacing:.14em}.profile-empty{padding:20px 0;color:#9badbf;font-size:13px}
 @media(max-width:690px){.feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.profile-two{grid-template-columns:1fr;gap:0}.feature-panel{padding:15px}.profile-hero h3{font-size:26px}.feature-stat{padding:11px}.feature-stat strong{font-size:23px}.history-ticket summary{gap:8px}.history-ticket .hist-pay{font-size:13px}.crew-tools select{flex:1;min-width:100px}.record-row{gap:8px}.nav{gap:5px}.nav-left{gap:2px}.navtab{padding-left:9px;padding-right:9px}}
+
+/* Near-hit tickets: restrained holographic rim; no overlay over controls. */
+.ticket.ticket-radiant {
+  border-color: rgba(137, 205, 231, .66);
+  box-shadow: var(--shadow), 0 0 16px rgba(100, 204, 224, .13), 0 0 28px rgba(166, 137, 225, .08);
+}
+.ticket.ticket-radiant::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba(111, 219, 230, .48), rgba(183, 152, 226, .14), rgba(230, 193, 148, .38), rgba(111, 219, 230, .16)) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: .55;
+  animation: ticket-hologram 5s ease-in-out infinite;
+}
+@keyframes ticket-hologram {
+  0%, 100% { opacity: .35; }
+  50% { opacity: .85; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticket.ticket-radiant::after { animation: none; opacity: .55; }
+}
+@supports not (mask-composite: exclude) {
+  .ticket.ticket-radiant::after { display: none; }
+}

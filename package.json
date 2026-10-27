@@ -4,7 +4,7 @@
   "private": true,
   "description": "Static crew tracker with verified final-result snapshots",
   "scripts": {
-    "test": "node tests/models.test.cjs && node tests/koto-fairness.test.cjs && node tests/refactor.test.cjs",
+    "test": "node tests/models.test.cjs && node tests/koto-fairness.test.cjs && node tests/refactor.test.cjs && node tests/radiance.test.cjs",
     "test:ui": "node tests/ui.test.cjs",
     "sync:results": "node scripts/sync-results.cjs",
     "test:refactor": "node tests/refactor.test.cjs"

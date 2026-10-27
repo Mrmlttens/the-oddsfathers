@@ -123,6 +123,22 @@ function compareTicketCloseness(a, b) {
   );
 }
 
+// Proximity is measured per leg, never averaged across the ticket.
+function ticketRadiance(b, p, status, now = Date.now()) {
+  if (b.archivedAt || b.settlement || status !== "live" || scoreState !== "connected" || !p.total || p.states.length !== b.legs.length) return false;
+  let remaining = 0;
+  const near = p.states.every((s, i) => {
+    if (s.status === "hit" || s.status === "void") return true;
+    const l = b.legs[i], target = Number(l.target);
+    if (s.status !== "live" || l.side === "under" || !["passing_yards", "passing_td", "rushing_yards", "receiving_yards", "receptions", "total_points", "any_td", "either_td"].includes(l.kind) || !(target > 0) || !Number.isFinite(s.value)) return false;
+    const game = legGame(l, b), id = String(findEvent(game)?.id || ""), cached = livefieldSummaries.get(id);
+    if (statusOfGame(game) !== "in" || livefieldFailures.has(id) || !Number.isFinite(cached?.time) || now - cached.time > 90000 || cached.time > now) return false;
+    remaining++;
+    return s.value / target >= 0.8;
+  });
+  return near && remaining > 0;
+}
+
 function renderTickets() {
   let filtered = bets
     .filter((b) => !b.archivedAt)
@@ -175,7 +191,7 @@ function renderTickets() {
           return `<div class="leg-wrap"><div class="leg"><span class="leg-symbol ${v.status}">${sym}</span><span class="leg-name">${esc(legText(l))}${ticketGames(b).length > 1 ? `<small style="display:block;color:var(--muted);font-size:10px">${esc(teamAbbr(legGame(l, b).away))} @ ${esc(teamAbbr(legGame(l, b).home))} · ${esc(dateText(legGame(l, b).date))}</small>` : ""}</span><span class="leg-stat ${v.status}">${esc(legTicker(l, v))}</span></div>${legProgressBar(l, v)}</div>`;
         })
         .join("");
-      return `<article class="ticket ${teamColors(b)} ${st}" data-id="${esc(b.id)}"><div class="ticket-top"><div><span class="ticket-no">TICKET ${String(b.id).endsWith("-1") ? "01" : String(b.id).endsWith("-2") ? "02" : String(b.id).endsWith("-3") ? "03" : String(b.id).endsWith("-4") ? "04" : String(i + 1).padStart(2, "0")}</span><span class="ticket-owner">♛ ${esc(b.owner)}</span></div><span class="statuspill ${st}">${statusLabel}</span></div>
+      return `<article class="ticket ${teamColors(b)} ${st}${ticketRadiance(b, p, st) ? " ticket-radiant" : ""}" data-id="${esc(b.id)}"><div class="ticket-top"><div><span class="ticket-no">TICKET ${String(b.id).endsWith("-1") ? "01" : String(b.id).endsWith("-2") ? "02" : String(b.id).endsWith("-3") ? "03" : String(b.id).endsWith("-4") ? "04" : String(i + 1).padStart(2, "0")}</span><span class="ticket-owner">♛ ${esc(b.owner)}</span></div><span class="statuspill ${st}">${statusLabel}</span></div>
 <div class="ticket-content"><div class="ticket-title"><h4>${esc(b.title)}</h4><div class="ticket-odds">${esc(oddsFromReturn(b))}</div></div>
 <div class="matchup">◷ ${esc(shortTeams)} <span>·</span> ${esc(dateText(b.game.date))}${matchups.some((g) => g.date !== b.game.date) ? " onwards" : ""} <span>·</span> ${esc(b.sportsbook || "")}</div>
 <div class="teamchips"><span class="teamchip"><img loading="lazy" onerror="this.style.display='none'" src="${esc(teamLogo(b.game.away))}" alt="">${esc(teamAbbr(b.game.away))}</span><span class="vs">AT</span><span class="teamchip"><img loading="lazy" onerror="this.style.display='none'" src="${esc(teamLogo(b.game.home))}" alt="">${esc(teamAbbr(b.game.home))}</span>${winner ? `<span class="vs">↳ ${esc(teamAbbr(winner))} WIN</span>` : ""}</div>

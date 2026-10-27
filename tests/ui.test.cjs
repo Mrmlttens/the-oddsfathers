@@ -25,6 +25,27 @@ async function delay(ms=50){await new Promise(r=>setTimeout(r,ms));}
 
  const before=call('KingModel.standings(kingConfig,bets,boardDate(),kingEvaluations()).weekendRows.map(r=>[r.name,r.weekendPoints])');failed=true;await call('refreshLive(true)');call('render()');assert.equal(call('scoreState'),'failed');assert(d.getElementById('feedHealthLabel').textContent.includes('OFFLINE'));assert.deepEqual(call('KingModel.standings(kingConfig,bets,boardDate(),kingEvaluations()).weekendRows.map(r=>[r.name,r.weekendPoints])'),before);
  d.querySelector('[data-tab="dashboard"]').click();d.querySelector('#ticketGrid [data-action="expand"]').click();assert(d.querySelector('#ticketGrid .legs'));assert.equal(errors.length,0,errors.join('\n'));
+ // Exercise the real card renderer with live proximity changes.
+ call(`(() => {
+   const original={bets,evalLeg,findEvent,statusOfGame,scoreState,selectedOwner,selectedStatus};
+   const id='radiance-fixture', game={date:'2026-10-26',away:'Dallas Cowboys',home:'Philadelphia Eagles'};
+   let value=80;
+   try {
+     bets=[{id,owner:'Trey',title:'Proximity fixture',game,stake:1,payout:10,legs:[{name:'Test Player',kind:'receiving_yards',target:100}]}];
+     selectedOwner='all'; selectedStatus='all'; scoreState='connected';
+     evalLeg=()=>({status:'live',value}); findEvent=()=>({id}); statusOfGame=()=> 'in';
+     livefieldSummaries.set(id,{time:Date.now()});
+     renderTickets();
+     if(!document.querySelector('#ticketGrid .ticket-radiant'))throw Error('Near ticket missing radiance');
+     value=79;renderTickets();
+     if(document.querySelector('#ticketGrid .ticket-radiant'))throw Error('Radiance persisted below threshold');
+     value=80;livefieldFailures.add(id);renderTickets();
+     if(document.querySelector('#ticketGrid .ticket-radiant'))throw Error('Failed feed retained radiance');
+   } finally {
+     ({bets,evalLeg,findEvent,statusOfGame,scoreState,selectedOwner,selectedStatus}=original);
+     livefieldSummaries.delete(id);livefieldFailures.delete(id);renderTickets();
+   }
+ })()`);
  console.log('PASS UI: navigation, all 4 profiles, no redundant closest panel, completed-only expandable history, owner filters, scoring, feed outage preserving saved results, ticket expansion.');dom.window.close();
 })().catch(e=>{console.error(e);console.error(errors);dom.window.close();process.exitCode=1;});
 
