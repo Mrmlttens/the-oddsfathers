@@ -10,6 +10,27 @@ async function delay(ms=50){await new Promise(r=>setTimeout(r,ms));}
 (async()=>{await new Promise(r=>dom.window.addEventListener('load',r));await delay(250);const w=dom.window,d=w.document,call=code=>w.eval(code);
  assert.equal(errors.length,0,errors.join('\n'));assert(d.querySelectorAll('#ticketGrid .ticket').length>=8);assert.equal(d.getElementById('closestPanel'),null);
 
+
+ // The slips must be the main content, not the fifth full-size dashboard panel.
+ assert.equal(d.querySelectorAll('.board-stats > .statbox').length,3,'The top stats should be three mini metrics');
+ assert.equal(w.getComputedStyle(d.querySelector('.board-stats')).gridTemplateColumns,'repeat(3,minmax(0,1fr))');
+ assert(d.getElementById('statBets')&&d.getElementById('statStaked')&&d.getElementById('statNet')&&d.getElementById('statTop'),'Do not lose a financial metric');
+ assert.equal(d.getElementById('boardMoreStats').open,false,'Biggest payday should start collapsed');
+ assert.equal(d.getElementById('scenarioDetails').open,false,'Full scenarios should start collapsed');
+ assert.equal(d.getElementById('boardActions').open,false,'Secondary export should start collapsed');
+ assert.equal(d.querySelectorAll('#boardActions #exportBtn').length,1,'CSV export remains accessible');
+ assert.equal(d.querySelectorAll('.board-more-row details').length,2,'Only optional scenarios and extra stats belong in this compact row');
+ assert.equal(d.querySelector('.board-footnote-details').open,false,'Data explanations should start collapsed');
+ assert(d.getElementById('feedHealthLabel').textContent.includes('FEED'),'Feed health should remain available in a slim detail');
+ assert(d.getElementById('scenarioBar').textContent.includes('CONDITIONAL RETURNS')||d.getElementById('scenarioDetails').hidden,'Conditional outcomes remain available');
+ if(!d.getElementById('scenarioDetails').hidden)
+   assert(d.getElementById('scenarioPreview').textContent.includes('up to'),'Scenario summary must communicate conditional returns');
+ d.getElementById('boardActions').open=true;
+ d.getElementById('boardMoreStats').open=true;
+ d.getElementById('scenarioDetails').open=true;
+ call('render()');
+ assert(d.getElementById('boardActions').open&&d.getElementById('boardMoreStats').open,'Live updates should not collapse disclosures');
+ if(!d.getElementById('scenarioDetails').hidden)assert(d.getElementById('scenarioDetails').open,'Live updates should not collapse scenarios');
  assert.equal(d.querySelector('.shell').dataset.view,'dashboard','Initial screen should use compact War Room styling');
  for(const el of d.querySelectorAll('#ticketGrid .ticket')){
   for(const cls of ['.ticket-title','.teamchips','.ticket-bottom','.progressbox','.ticket-buttons','.ticket-odds','.ticket-no','.ticket-owner','.matchup'])

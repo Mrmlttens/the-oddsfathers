@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="./celebrations-v2.css?v=oct25-either-td-1">
 <link rel="stylesheet" href="./king.css?v=holo-graph-1">
 <link rel="stylesheet" href="./upcoming.css?v=1">
-<link rel="stylesheet" href="./enhancements.css?v=micro-cards-2">
+<link rel="stylesheet" href="./enhancements.css?v=board-focus-1">
 </head>
 <body>
   <div class="shell" data-view="dashboard">
@@ -55,28 +55,41 @@
 
     <main class="main">
 
-      <div class="section-heading">
-        <div>
+      <div class="section-heading board-heading">
+        <div class="board-heading-title">
           <div class="eyebrow">MISSION CONTROL / NFL</div>
           <h2 id="currentTitle">The Board <span class="text-gradient">Is Live.</span></h2>
-          <p class="subtle" id="welcomeText">Every dollar. Every leg. Every guy in the room.</p>
+          <p class="subtle" id="welcomeText">Live bets. Real progress.</p>
         </div>
         <div class="top-actions">
-          <button id="refreshBtn" class="btn btn-ghost" type="button"><span id="refreshGlyph">⟳</span> Refresh live</button>
-          <button id="exportBtn" class="btn btn-ghost" type="button">⇩ Export</button>
+          <button id="refreshBtn" class="btn btn-ghost" type="button"><span id="refreshGlyph">⟳</span> Refresh</button>
+          <details class="board-actions" id="boardActions">
+            <summary aria-label="More board actions" title="More actions">⋯</summary>
+            <div class="board-actions-menu"><button id="exportBtn" class="btn btn-ghost" type="button">⇩ Export CSV</button></div>
+          </details>
         </div>
       </div>
 
-      <section class="stats" aria-label="Betting summary">
-        <article class="statbox"><div class="statlabel">CREW BETS</div><div class="statvalue" id="statBets">0</div><div class="stathint" id="statBetsHint">4 open tickets</div></article>
-        <article class="statbox"><div class="statlabel">TOTAL IN PLAY</div><div class="statvalue" id="statStaked">$4.00</div><div class="stathint">Confirmed amounts only · placeholders excluded</div></article>
-        <article class="statbox accent-gold"><div class="statlabel">BIGGEST PAYDAY</div><div class="statvalue" id="statTop">—</div><div class="stathint">Largest confirmed listed return · estimates excluded</div></article>
-        <article class="statbox accent-green"><div class="statlabel">FEED NET*</div><div class="statvalue" id="statNet">$0.00</div><div class="stathint" id="statNetHint">No settled tickets</div></article>
+      <section class="stats board-stats" aria-label="Live board overview">
+        <article class="statbox"><div class="statlabel">CREW BETS</div><div class="statvalue" id="statBets">0</div><div class="stathint" id="statBetsHint">Tickets on board</div></article>
+        <article class="statbox"><div class="statlabel">IN PLAY</div><div class="statvalue" id="statStaked">—</div><div class="stathint">Confirmed stakes only</div></article>
+        <article class="statbox accent-green"><div class="statlabel">FEED NET*</div><div class="statvalue" id="statNet">—</div><div class="stathint" id="statNetHint">Estimates; verify sportsbook</div></article>
       </section>
 
-      <details id="feedHealth" class="feed-health"><summary id="feedHealthLabel">Checking feeds…</summary><div id="feedHealthList"></div></details>
+      <details id="feedHealth" class="feed-health board-feed"><summary id="feedHealthLabel">Checking feeds…</summary><div id="feedHealthList"></div></details>
       <div id="recentHits" class="recent-hits" hidden></div>
-      <div id="scenarioBar" class="scenario-bar"></div>
+      <div class="board-more-row">
+      <details id="scenarioDetails" class="board-disclosure board-scenarios">
+        <summary><strong>Game scenarios</strong><span id="scenarioPreview">Tap to view conditional returns</span></summary>
+        <div id="scenarioBar" class="scenario-bar"></div>
+      </details>
+      <details id="boardMoreStats" class="board-disclosure board-more-stats">
+        <summary><strong>More board stats</strong><span>Biggest payday &amp; metric definitions</span></summary>
+        <article class="statbox accent-gold"><div class="statlabel">BIGGEST PAYDAY</div><div class="statvalue" id="statTop">—</div><div class="stathint">Largest confirmed listed potential return · estimates excluded</div></article>
+        <p class="board-data-note">In play counts confirmed wagers only. Feed net estimates returns minus known stakes on feed-graded tickets; payouts and settlement must be verified in the sportsbook.</p>
+      </details>
+
+      </div>
 
       <section class="war-layout" id="dashboardView">
         <div class="primary-panel">
@@ -89,8 +102,7 @@
           </div>
           <div class="ticket-grid" id="ticketGrid"></div>
           <div class="empty" id="emptyState" hidden><strong>No tickets match this view.</strong><p>Change the filters or check back for crew updates.</p></div>
-          <div class="board-footnote">Finished tickets move to History when all games are final or a final leg loss ends the parlay. Every remaining leg still contributes to eligible accuracy stats. ESPN checks every 30 seconds while this page is open. Published crew tickets check for updates every 30 seconds.</div>
-          <div class="board-footnote"><span class="tiny-led"></span> Live stats from ESPN public game feeds when available. Wager settlement, grading and payouts must be confirmed in your sportsbook.</div>
+          <details class="board-footnote-details"><summary>About tracking &amp; data</summary><p>Finished tickets move to History when all games are final or a final leg loss ends the parlay. Every remaining leg still contributes to eligible accuracy stats. ESPN checks every 30 seconds while this page is open. Published crew tickets check for updates every 30 seconds.</p><p>Live stats use ESPN public game feeds when available. Wager settlement, grading and payouts must be confirmed in your sportsbook.</p></details>
         </div>
 
       </section>
@@ -189,7 +201,7 @@
   <div class="toast-region" id="toasts" aria-live="polite"></div>
   <script src="./app-state.js?v=refactor-1" defer></script>
 <script src="./app-tracking.js?v=refactor-1" defer></script>
-<script src="./app-views.js?v=active-view-1" defer></script>
+<script src="./app-views.js?v=board-focus-1" defer></script>
 <script src="./app-controller.js?v=refactor-1" defer></script>
 <script src="./scoped-model.js?v=jeff-scope-1" defer></script>
 <script src="./game-model.js?v=jeff-scope-1" defer></script>
