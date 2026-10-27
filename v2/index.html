@@ -34,7 +34,7 @@
 
     
     <div id="kingTicker" class="king-ticker" role="region" aria-label="Points ticker">
-      <a id="kingTickerLink" class="king-ticker-label" href="#leaderboardView" aria-label="Open King standings">♛ CROWN POINTS</a>
+      <a id="kingTickerLink" class="king-ticker-label" href="#leaderboardView" aria-label="Open King standings">♛ K.O.T.O.</a>
       <div id="kingTickerWindow" class="king-ticker-window" tabindex="0" aria-label="Season, weekend and recent points"><div class="king-ticker-track"><div id="kingTickerGroup" class="king-ticker-group"><span>Awaiting first points</span></div><div id="kingTickerCopy" class="king-ticker-group king-ticker-copy" aria-hidden="true"></div></div></div>
       <button id="kingTickerPause" type="button" aria-label="Pause points ticker" aria-pressed="false" hidden>Ⅱ</button>
     </div>
@@ -109,8 +109,8 @@
       <section id="leaderboardView" class="single-view" hidden>
         <div class="eyebrow">KING OF THE ODDS · K.O.T.O</div><p id="kingStatus" class="king-status" role="status">Loading contest records…</p>
         <div class="king-standings">
-          <section class="panel king-panel" aria-labelledby="kingSeasonTitle"><div id="kingSeasonYear" class="eyebrow">SEASON</div><h3 id="kingSeasonTitle">Season Crown Points</h3><p class="subtle">Average of final weeks · three qualifying weeks for the season title.</p><div id="kingSeasonRows"></div></section>
-          <section class="panel king-panel" aria-labelledby="kingWeekendTitle"><div id="kingWeekendDate" class="eyebrow">THIS WEEKEND</div><h3 id="kingWeekendTitle">Weekend Crown Points</h3><p class="subtle">Unlimited unique pregame picks · accuracy + up to five hit credits.</p><div id="kingWeekendRows"></div></section>
+          <section class="panel king-panel" aria-labelledby="kingSeasonTitle"><div id="kingSeasonYear" class="eyebrow">SEASON</div><h3 id="kingSeasonTitle">Season rating</h3><p class="subtle">Average of qualifying final weeks · 3 weeks for a season title.</p><div id="kingSeasonRows"></div></section>
+          <section class="panel king-panel" aria-labelledby="kingWeekendTitle"><div id="kingWeekendDate" class="eyebrow">THIS WEEKEND</div><h3 id="kingWeekendTitle">Weekend race</h3><p class="subtle">5 graded picks to qualify · max 105 CP</p><div class="king-scale" aria-hidden="true"><span>0</span><span>RATING / 105</span><span>105</span></div><div id="kingWeekendRows"></div></section>
         </div>
         <details class="panel king-rules"><summary>Scoring rules</summary>
 <p><strong>K.O.T.O. · Accuracy first.</strong> Unlimited tracked bets and eligible unique pregame picks. Missing wagers never block points.</p>
@@ -118,12 +118,12 @@
 <li>Every eligible unique pregame prediction counts. A 1-for-1 start rates 21; 5-for-5 rates 105; 8-for-10 and 16-for-20 both rate 85. Live hits count provisionally; misses and corrections can lower the rating.</li>
 <li>The earliest submitted player/stat/game locks the original target. Alternate lines, opposing sides and duplicate slips cannot multiply credit. Different player stats count separately. Every leg uses its own game kickoff.</li>
 <li>Winning legs count even after a parlay loses. Adding or deleting a ticket never replaces a registered prediction. Picks submitted after kickoff track without competition credit.</li>
-<li>Contest weeks run Thursday–Wednesday, Eastern time. After the week ends and all picks are final, the highest positive rating wins the crown (at least two participants; ties share the title). No extra crown points are added.</li>
-<li>Season rating is the average of final weekend ratings, not cumulative hits. Season title qualification requires three final weeks with at least five graded picks each; other season ratings are labeled provisional. Current and incomplete weeks stay out of the season average.</li>
+<li>Contest weeks run Thursday–Wednesday, Eastern time. Winning the weekly crown requires at least five graded eligible picks. After all predictions finalize, the highest qualified positive rating wins (at least two participants; ties share the title). No extra crown points are added.</li>
+<li>Season rating is the average of qualifying final weekend ratings, not cumulative hits. A qualifying final weekend requires five graded picks. Season title qualification requires three qualifying final weekends. Pending and under-five weeks are excluded from the season average.</li>
 <li>Wager size, payout and slip count never affect CP. This friends contest does not adjust for line difficulty. Submission timestamps are recorded here; they are not independent sportsbook receipts.</li>
 <li>Final ESPN snapshots preserve grades and accept verified stat corrections. Unavailable player stats stay under review. Cash results always require sportsbook confirmation.</li></ul></details>
 <details class="panel king-rules"><summary>Scoring picks &amp; point explanations</summary><div id="kingScoringAudit"></div></details>
-        <section class="panel king-wagers" aria-labelledby="kingWagerTitle"><div class="eyebrow">THE MONEY BOARD</div><h3 id="kingWagerTitle">Crew wagers</h3><p class="king-status">Known confirmed stakes and feed-graded performance. Estimated wagers and unconfirmed placement are excluded.</p><div id="leaderboard"></div><p class="king-status">*Feed net is estimated return minus known wagers on feed-graded tickets, before fees. Confirm all cash results in your sportsbook.</p></section>
+        <details class="panel king-wagers"><summary id="kingWagerTitle">Money board <span>Confirmed wagers &amp; returns</span></summary><p class="king-status">Known confirmed stakes and feed-graded performance. Estimated wagers and unconfirmed placement are excluded.</p><div id="leaderboard"></div><p class="king-status">*Feed net is estimated return minus known wagers on feed-graded tickets, before fees. Confirm all cash results in your sportsbook.</p></details>
         <details class="panel king-rules"><summary>Preview celebrations</summary><div class="celebration-preview-tools"><strong>V2 POPUP TEST</strong> · Sample results only<br><button id="previewTouchdown" type="button" class="btn btn-ghost">Preview touchdown 🏈</button><button id="previewTicketWin" type="button" class="btn btn-ghost">Preview ticket win ♛</button></div></details>
       </section>
 
