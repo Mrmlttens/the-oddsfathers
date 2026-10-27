@@ -22,10 +22,13 @@ function currentGame() {
 
 function renderScenarioBar() {
   const g = currentGame();
+  const box = $("scenarioDetails");
   if (!g) {
+    box.hidden = true;
     $("scenarioBar").hidden = true;
     return;
   }
+  box.hidden = false;
   const gameBets = bets.filter(
     (b) =>
       !b.archivedAt &&
@@ -42,8 +45,11 @@ function renderScenarioBar() {
       .reduce((acc, b) => acc + Number(b.payout || 0), 0),
   }));
   $("scenarioBar").hidden = false;
+  $("scenarioPreview").textContent = moneylineSides
+    .map(({team,payout}) => teamAbbr(team) + " up to " + money(payout))
+    .join(" · ");
   $("scenarioBar").innerHTML =
-    `<strong>♛ GAME SCENARIOS</strong>` +
+    `<strong>♛ CONDITIONAL RETURNS</strong>` +
     moneylineSides
       .map(
         ({ team, payout }, i) =>
