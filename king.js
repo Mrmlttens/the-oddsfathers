@@ -3,32 +3,40 @@ let kingConfig={version:1,rulesVersion:KingModel.RULES,registrations:[],results:
 function kingEvaluations(){const values=[];for(const r of KingModel.registrations(kingConfig,bets)){const bet={id:r.betId,owner:r.owner,game:r.game,legs:[r.leg]},event=findEvent(r.game);if(!event)continue;const value=evalLeg(r.leg,bet);values.push({...value,betId:r.betId,legIndex:r.legIndex,gameStart:event.date,gameState:statusOfGame(r.game),observedAt:value.observedAt||(livefieldSummaries.get(String(event.id))?.time?new Date(livefieldSummaries.get(String(event.id)).time).toISOString():r.submittedAt)});}return values;}
 function kingPoints(n){return Number(n||0).toFixed(2);}
 function kingRows(rows,period){
+ const season=period==='season';
+ // A preview is NOT an official season score; display it only while no final week exists.
+ const ordered=season?[...rows].sort((a,b)=>
+   Number(b.seasonWeeks>0)-Number(a.seasonWeeks>0)||
+   (a.seasonWeeks>0?b.seasonPoints-a.seasonPoints:
+    (Number(b.graded>=KingModel.MINIMUM)-Number(a.graded>=KingModel.MINIMUM)||
+     b.weekendPoints-a.weekendPoints))||
+   a.name.localeCompare(b.name)):rows;
  let last=null,rank=0;
- return rows.map((r,i)=>{
-  const season=period==='season',isPendingSeason=season&&r.seasonWeeks===0;
-  const score=season?r.seasonPoints:r.weekendPoints;
-  if(last===null||Math.abs(score-last)>1e-8)rank=i+1;last=score;
+ return ordered.map((r,i)=>{
+  const hasOfficial=season&&r.seasonWeeks>0;
+  const preview=season&&!hasOfficial&&r.graded>=KingModel.MINIMUM;
+  const pending=season&&!hasOfficial&&!preview;
+  const display=season?(hasOfficial?r.seasonPoints:preview?r.weekendPoints:null):r.weekendPoints;
   const eligible=season?r.seasonQualified:r.weekendEligible;
-  const label=isPendingSeason?'—':kingPoints(score);
-  const status=season?(r.seasonQualified?'QUALIFIED':r.seasonWeeks+' / 3 WEEKS'):
-    (r.graded<5?r.weekendToQualify+' TO QUALIFY':r.final?'FINAL':'LIVE');
-  const detail=season
-    ?(isPendingSeason?'No qualifying final weekend yet':r.seasonWeeks+' final '+(r.seasonWeeks===1?'week':'weeks')+' · '+(r.seasonQualified?'title qualified':'title pending'))
-    :r.hits+'–'+r.misses+' · '+(r.accuracy===null?'No grades':r.accuracy.toFixed(1)+'% accurate')+(r.pending?' · '+r.pending+' pending':'');
-  const pct=isPendingSeason?0:Math.max(0,Math.min(100,score/105*100));
-  return `<div class="king-person ${eligible&&rank===1?'king-first':''} ${isPendingSeason?'king-unranked':''}" aria-label="${esc(r.name)}: ${isPendingSeason?'not yet ranked':kingPoints(score)+' crown points'}, ${esc(status)}">
-    <span class="king-rank" aria-hidden="true">${isPendingSeason?'—':String(rank).padStart(2,'0')}</span>
+  const ranked=!season||hasOfficial;
+  if(ranked){if(last===null||Math.abs(display-last)>1e-8)rank=i+1;last=display;}
+  const status=season?(preview?'LIVE PREVIEW':pending?'PENDING':r.seasonQualified?'QUALIFIED':r.seasonWeeks+' / 3 FINAL'):
+   (r.graded<KingModel.MINIMUM?r.weekendToQualify+' TO QUALIFY':r.final?'FINAL':'LIVE');
+  const detail=season?(preview?'Current weekend only · 0 / 3 final weeks':pending?'Awaiting five graded picks and a final week':r.seasonWeeks+' qualifying final '+(r.seasonWeeks===1?'week':'weeks')):
+   r.hits+'–'+r.misses+' · '+(r.accuracy===null?'No grades':r.accuracy.toFixed(1)+'% accurate')+(r.pending?' · '+r.pending+' pending':'');
+  const label=display===null?'—':kingPoints(display),pct=display===null?0:Math.max(0,Math.min(100,display/105*100));
+  const rankLabel=ranked?String(rank).padStart(2,'0'):'—';
+  return `<div class="king-person ${eligible&&rank===1?'king-first':''} ${pending?'king-unranked':''} ${preview?'king-preview':''}" aria-label="${esc(r.name)}: ${pending?'not yet scored':(preview?'provisional preview ':'')+kingPoints(display)+' crown points'}, ${esc(status)}">
+    <span class="king-rank" aria-hidden="true">${rankLabel}</span>
     <div class="king-row-main">
       <div class="king-row-head">
         <button class="profile-link" data-profile="${esc(r.name)}">${esc(r.name)}</button>
         <span class="king-state ${eligible?'is-eligible':''}">${esc(status)}</span>
       </div>
-      <div class="king-meter" role="img" aria-label="${season?'Season':'Weekend'} rating ${label} out of 105">
-        <span class="king-meter-fill" style="width:${pct.toFixed(2)}%"></span>
-      </div>
+      <div class="king-meter" role="img" aria-label="${season?(preview?'Provisional season preview':'Official season'):'Weekend'} rating ${label} out of 105"><span class="king-meter-fill" style="width:${pct.toFixed(2)}%"></span></div>
       <small>${esc(detail)}</small>
     </div>
-    <div class="king-number">${kingLoaded?label:'—'}<span>${isPendingSeason?'':' CP'}</span></div>
+    <div class="king-number">${kingLoaded?label:'—'}<span>${display===null?'':preview?' PREVIEW':' CP'}</span></div>
   </div>`;
  }).join('')||'<p class="king-empty">No scoring records yet.</p>';
 }
@@ -46,7 +54,7 @@ function kingWagers(){const names=[...new Set(bets.map(b=>b.owner))].sort();$('l
 function renderLeaderboard(){
  const view=KingModel.standings(kingConfig,bets,boardDate(),kingEvaluations());$('kingSeasonYear').textContent=view.season+' SEASON';$('kingWeekendDate').textContent='WEEK OF '+dateText(view.week).toUpperCase();$('kingSeasonRows').innerHTML=kingRows(view.seasonRows,'season');$('kingWeekendRows').innerHTML=kingRows(view.weekendRows,'weekend');
  const qualifiedWeekCount=Math.max(0,...view.seasonRows.map(r=>r.seasonWeeks));
- $('kingSeasonHint').textContent=qualifiedWeekCount===0?'No qualifying final weekends yet · Season points begin after the first qualified week.':'Season scores average qualified final weekends · Three required for the title.';
+ $('kingSeasonHint').textContent=qualifiedWeekCount===0?'Official season ratings pending until the Oct 22–28 week closes and all eligible results are final. Bars marked LIVE PREVIEW reflect the current weekend only, not official season points.':'Official season ratings average qualified final weeks only · Three completed weeks required for the title.';
  setKingPeriod(kingPeriod);
  const feedDelayed=scoreState==='failed'||livefieldFailures.size>0||scoreboardFailures>0;
  $('kingStatus').textContent=kingDelayed?'Records delayed · showing saved rankings':!kingLoaded?'Loading standings…':(feedDelayed?'Feed delayed · ':'')+'5 graded picks to qualify · Live scores provisional'+(view.issues.length?' · '+view.issues.length+' awaiting verification':'');
