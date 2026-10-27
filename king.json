@@ -6187,6 +6187,774 @@
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873022",
       "sourceVerified": true,
       "observedAt": "2026-10-26T22:53:30.417Z"
+    },
+    {
+      "registrationId": "gabe-mnf-20261026-10leg:0",
+      "status": "hit",
+      "value": 211,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "gabe-mnf-20261026-10leg:1",
+      "status": "miss",
+      "value": 212,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "gabe-mnf-20261026-10leg:2",
+      "status": "hit",
+      "value": 155,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "gabe-mnf-20261026-10leg:3",
+      "status": "hit",
+      "value": 48,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "gabe-mnf-20261026-10leg:4",
+      "status": "hit",
+      "value": 74,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "gabe-mnf-20261026-10leg:5",
+      "status": "miss",
+      "value": 57,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "gabe-mnf-20261026-10leg:6",
+      "status": "hit",
+      "value": 5,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "gabe-mnf-20261026-10leg:7",
+      "status": "miss",
+      "value": 5,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "gabe-mnf-20261026-10leg:8",
+      "status": "miss",
+      "value": 4,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "gabe-mnf-20261026-10leg:9",
+      "status": "hit",
+      "value": 62,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "gabe-mnf-20261026-7leg:0",
+      "status": "hit",
+      "value": 1,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "gabe-mnf-20261026-7leg:1",
+      "status": "miss",
+      "value": 212,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "gabe-mnf-20261026-7leg:2",
+      "status": "hit",
+      "value": 3,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "gabe-mnf-20261026-7leg:3",
+      "status": "hit",
+      "value": 74,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "gabe-mnf-20261026-7leg:4",
+      "status": "miss",
+      "value": 57,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "gabe-mnf-20261026-7leg:5",
+      "status": "miss",
+      "value": 5,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "gabe-mnf-20261026-7leg:6",
+      "status": "miss",
+      "value": 4,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-1:0",
+      "status": "hit",
+      "value": 1,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-1:1",
+      "status": "hit",
+      "value": 211,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-1:2",
+      "status": "miss",
+      "value": 5,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-1:3",
+      "status": "miss",
+      "value": 17,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-1:4",
+      "status": "miss",
+      "value": 0,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-1:5",
+      "status": "miss",
+      "value": 74,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-1:6",
+      "status": "miss",
+      "value": 0,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-2:1",
+      "status": "miss",
+      "value": 48,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-2:2",
+      "status": "miss",
+      "value": 212,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-2:3",
+      "status": "hit",
+      "value": 70,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-2:4",
+      "status": "miss",
+      "value": 57,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-2:5",
+      "status": "hit",
+      "value": 2,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-2:6",
+      "status": "hit",
+      "value": "38–21",
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-3:0",
+      "status": "miss",
+      "value": 5,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-3:1",
+      "status": "miss",
+      "value": 211,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-3:2",
+      "status": "hit",
+      "value": 212,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-3:3",
+      "status": "hit",
+      "value": 5,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-3:4",
+      "status": "hit",
+      "value": 155,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-3:5",
+      "status": "hit",
+      "value": 1,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-4:0",
+      "status": "hit",
+      "value": 211,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-4:1",
+      "status": "hit",
+      "value": 4,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-4:2",
+      "status": "miss",
+      "value": 5,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-4:3",
+      "status": "hit",
+      "value": 155,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-4:4",
+      "status": "hit",
+      "value": 67,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-4:5",
+      "status": "miss",
+      "value": -12.5,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-5:0",
+      "status": "miss",
+      "value": 5,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-5:1",
+      "status": "hit",
+      "value": 211,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-5:2",
+      "status": "miss",
+      "value": 212,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-5:3",
+      "status": "hit",
+      "value": 70,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-5:4",
+      "status": "miss",
+      "value": 57,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "trey-mnf-20261026-5:5",
+      "status": "miss",
+      "value": 17,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "rodman-mnf-20261026-7leg:0",
+      "status": "hit",
+      "value": 211,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "rodman-mnf-20261026-7leg:1",
+      "status": "miss",
+      "value": 212,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "rodman-mnf-20261026-7leg:2",
+      "status": "hit",
+      "value": 155,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "rodman-mnf-20261026-7leg:3",
+      "status": "hit",
+      "value": 74,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "rodman-mnf-20261026-7leg:4",
+      "status": "hit",
+      "value": 57,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "rodman-mnf-20261026-7leg:5",
+      "status": "miss",
+      "value": 5,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "rodman-mnf-20261026-7leg:6",
+      "status": "miss",
+      "value": 4,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "jeff-mnf-20261026-9leg:0",
+      "status": "hit",
+      "value": 9,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "jeff-mnf-20261026-9leg:1",
+      "status": "miss",
+      "value": 0,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "jeff-mnf-20261026-9leg:2",
+      "status": "miss",
+      "value": 0,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "jeff-mnf-20261026-9leg:3",
+      "status": "hit",
+      "value": 5,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "jeff-mnf-20261026-9leg:4",
+      "status": "hit",
+      "value": 21,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "jeff-mnf-20261026-9leg:5",
+      "status": "miss",
+      "value": 5,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "jeff-mnf-20261026-9leg:6",
+      "status": "hit",
+      "value": 23,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "jeff-mnf-20261026-9leg:7",
+      "status": "miss",
+      "value": 0,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
+    },
+    {
+      "registrationId": "jeff-mnf-20261026-9leg:8",
+      "status": "hit",
+      "value": 1,
+      "gameState": "post",
+      "gameStart": "2026-10-27T00:15Z",
+      "eventId": "401873009",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z"
     }
   ],
   "recordStatus": "active",
@@ -15504,11 +16272,4370 @@
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873014",
       "sourceVerified": true,
       "observedAt": "2026-10-26T22:50:02.142Z"
+    },
+    {
+      "key": "2026-10-26|dallascowboys|philadelphiaeagles",
+      "game": {
+        "date": "2026-10-26",
+        "away": "Dallas Cowboys",
+        "home": "Philadelphia Eagles",
+        "sport": "NFL"
+      },
+      "eventId": "401873009",
+      "event": {
+        "id": "401873009",
+        "date": "2026-10-27T00:15Z",
+        "name": "Dallas Cowboys at Philadelphia Eagles",
+        "status": {
+          "clock": 0,
+          "displayClock": "0:00",
+          "period": 4,
+          "type": {
+            "id": "3",
+            "name": "STATUS_FINAL",
+            "state": "post",
+            "completed": true,
+            "description": "Final",
+            "detail": "Final",
+            "shortDetail": "Final"
+          }
+        },
+        "competitions": [
+          {
+            "status": {
+              "clock": 0,
+              "displayClock": "0:00",
+              "period": 4,
+              "type": {
+                "id": "3",
+                "name": "STATUS_FINAL",
+                "state": "post",
+                "completed": true,
+                "description": "Final",
+                "detail": "Final",
+                "shortDetail": "Final"
+              },
+              "isTBDFlex": false
+            },
+            "competitors": [
+              {
+                "team": {
+                  "displayName": "Philadelphia Eagles",
+                  "name": "Eagles",
+                  "abbreviation": "PHI"
+                },
+                "score": "21",
+                "homeAway": "home"
+              },
+              {
+                "team": {
+                  "displayName": "Dallas Cowboys",
+                  "name": "Cowboys",
+                  "abbreviation": "DAL"
+                },
+                "score": "38",
+                "homeAway": "away"
+              }
+            ]
+          }
+        ]
+      },
+      "players": {
+        "dakprescott": {
+          "name": "Dak Prescott",
+          "passing_yards": 212,
+          "receiving_yards": null,
+          "rushing_yards": 8,
+          "receptions": null,
+          "passing_td": 3,
+          "receiving_td": null,
+          "rushing_td": 0
+        },
+        "javontewilliams": {
+          "name": "Javonte Williams",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": 155,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": 1
+        },
+        "tylergoodson": {
+          "name": "Tyler Goodson",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": 38,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": 0
+        },
+        "hunterluepke": {
+          "name": "Hunter Luepke",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": 3,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": 0
+        },
+        "ceedeelamb": {
+          "name": "CeeDee Lamb",
+          "passing_yards": null,
+          "receiving_yards": 74,
+          "rushing_yards": null,
+          "receptions": 5,
+          "passing_td": null,
+          "receiving_td": 2,
+          "rushing_td": null
+        },
+        "ryanflournoy": {
+          "name": "Ryan Flournoy",
+          "passing_yards": null,
+          "receiving_yards": 70,
+          "rushing_yards": null,
+          "receptions": 4,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "georgepickens": {
+          "name": "George Pickens",
+          "passing_yards": null,
+          "receiving_yards": 57,
+          "rushing_yards": null,
+          "receptions": 4,
+          "passing_td": null,
+          "receiving_td": 1,
+          "rushing_td": null
+        },
+        "brevynspannford": {
+          "name": "Brevyn Spann-Ford",
+          "passing_yards": null,
+          "receiving_yards": 11,
+          "rushing_yards": null,
+          "receptions": 2,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "jakeferguson": {
+          "name": "Jake Ferguson",
+          "passing_yards": null,
+          "receiving_yards": 0,
+          "rushing_yards": null,
+          "receptions": 0,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "jonathanmingo": {
+          "name": "Jonathan Mingo",
+          "passing_yards": null,
+          "receiving_yards": 0,
+          "rushing_yards": null,
+          "receptions": 0,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "demarvionovershown": {
+          "name": "DeMarvion Overshown",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "shemarjames": {
+          "name": "Shemar James",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "calebdowns": {
+          "name": "Caleb Downs",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "markquesebell": {
+          "name": "Markquese Bell",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "alijahclark": {
+          "name": "Alijah Clark",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "quinnenwilliams": {
+          "name": "Quinnen Williams",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "joeyporterjr": {
+          "name": "Joey Porter Jr.",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "malikhooker": {
+          "name": "Malik Hooker",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "otitoogbonnia": {
+          "name": "Otito Ogbonnia",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "justinbarron": {
+          "name": "Justin Barron",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "shavonreveljr": {
+          "name": "Shavon Revel Jr.",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "donovanezeiruaku": {
+          "name": "Donovan Ezeiruaku",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "elijahgarcia": {
+          "name": "Elijah Garcia",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "daronbland": {
+          "name": "DaRon Bland",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "juanyehthomas": {
+          "name": "Juanyeh Thomas",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jaishawnbarham": {
+          "name": "Jaishawn Barham",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jameshouston": {
+          "name": "James Houston",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "vonmiller": {
+          "name": "Von Miller",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "ameerspeed": {
+          "name": "Ameer Speed",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "kennyclark": {
+          "name": "Kenny Clark",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "rashangary": {
+          "name": "Rashan Gary",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "cobiedurant": {
+          "name": "Cobie Durant",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "malachilawrence": {
+          "name": "Malachi Lawrence",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "ltoverton": {
+          "name": "LT Overton",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "brandonaubrey": {
+          "name": "Brandon Aubrey",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "bryananger": {
+          "name": "Bryan Anger",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "tannermckee": {
+          "name": "Tanner McKee",
+          "passing_yards": 211,
+          "receiving_yards": null,
+          "rushing_yards": 1,
+          "receptions": null,
+          "passing_td": 1,
+          "receiving_td": null,
+          "rushing_td": 0
+        },
+        "saquonbarkley": {
+          "name": "Saquon Barkley",
+          "passing_yards": null,
+          "receiving_yards": 9,
+          "rushing_yards": 62,
+          "receptions": 2,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": 1
+        },
+        "dameonpierce": {
+          "name": "Dameon Pierce",
+          "passing_yards": null,
+          "receiving_yards": 1,
+          "rushing_yards": 47,
+          "receptions": 1,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": 1
+        },
+        "elijahmitchell": {
+          "name": "Elijah Mitchell",
+          "passing_yards": null,
+          "receiving_yards": 23,
+          "rushing_yards": 11,
+          "receptions": 3,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": 0
+        },
+        "makailemon": {
+          "name": "Makai Lemon",
+          "passing_yards": null,
+          "receiving_yards": 67,
+          "rushing_yards": null,
+          "receptions": 7,
+          "passing_td": null,
+          "receiving_td": 1,
+          "rushing_td": null
+        },
+        "dallasgoedert": {
+          "name": "Dallas Goedert",
+          "passing_yards": null,
+          "receiving_yards": 48,
+          "rushing_yards": null,
+          "receptions": 5,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "hollywoodbrown": {
+          "name": "Hollywood Brown",
+          "passing_yards": null,
+          "receiving_yards": 30,
+          "rushing_yards": null,
+          "receptions": 2,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "dariuscooper": {
+          "name": "Darius Cooper",
+          "passing_yards": null,
+          "receiving_yards": 17,
+          "rushing_yards": null,
+          "receptions": 1,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "elijahmoore": {
+          "name": "Elijah Moore",
+          "passing_yards": null,
+          "receiving_yards": 16,
+          "rushing_yards": null,
+          "receptions": 2,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "elistowers": {
+          "name": "Eli Stowers",
+          "passing_yards": null,
+          "receiving_yards": 0,
+          "rushing_yards": null,
+          "receptions": 0,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "zackbaun": {
+          "name": "Zack Baun",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "andrewmukuba": {
+          "name": "Andrew Mukuba",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "cooperdejean": {
+          "name": "Cooper DeJean",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "quinyonmitchell": {
+          "name": "Quinyon Mitchell",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jeremiahtrotterjr": {
+          "name": "Jeremiah Trotter Jr.",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "moroojomo": {
+          "name": "Moro Ojomo",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "arnoldebiketie": {
+          "name": "Arnold Ebiketie",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "byronyoung": {
+          "name": "Byron Young",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jordandavis": {
+          "name": "Jordan Davis",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "riqwoolen": {
+          "name": "Riq Woolen",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "ajepenesa": {
+          "name": "AJ Epenesa",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "kennymooreii": {
+          "name": "Kenny Moore II",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "smaelmondonjr": {
+          "name": "Smael Mondon Jr.",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jalyxhunt": {
+          "name": "Jalyx Hunt",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jihaadcampbell": {
+          "name": "Jihaad Campbell",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jalencarter": {
+          "name": "Jalen Carter",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jonathanjones": {
+          "name": "Jonathan Jones",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "keleeringo": {
+          "name": "Kelee Ringo",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "keyshawnjamesnewby": {
+          "name": "Keyshawn James-Newby",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "tyrobinson": {
+          "name": "Ty Robinson",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "britaincovey": {
+          "name": "Britain Covey",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jakeelliott": {
+          "name": "Jake Elliott",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "bradenmann": {
+          "name": "Braden Mann",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        }
+      },
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873009",
+      "sourceVerified": true,
+      "observedAt": "2026-10-27T03:47:42.168Z",
+      "scopeData": {
+        "header": {
+          "competitions": [
+            {
+              "status": {
+                "type": {
+                  "id": "3",
+                  "name": "STATUS_FINAL",
+                  "state": "post",
+                  "completed": true,
+                  "description": "Final",
+                  "detail": "Final",
+                  "shortDetail": "Final"
+                },
+                "isTBDFlex": false
+              }
+            }
+          ]
+        },
+        "drives": {
+          "previous": [
+            {
+              "id": "4018730091",
+              "team": {
+                "id": "6",
+                "displayName": "Dallas Cowboys",
+                "abbreviation": "DAL"
+              },
+              "result": "FG",
+              "offensivePlays": 7,
+              "end": {
+                "period": {
+                  "type": "quarter",
+                  "number": 1
+                },
+                "clock": {
+                  "displayValue": "12:30"
+                },
+                "yardLine": 37,
+                "text": "PHI 37"
+              },
+              "start": {
+                "period": {
+                  "type": "quarter",
+                  "number": 1
+                },
+                "clock": {
+                  "displayValue": "15:00"
+                },
+                "yardLine": 65,
+                "text": "DAL 35"
+              },
+              "plays": [
+                {
+                  "id": "40187300940",
+                  "sequenceNumber": "4000",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "53",
+                    "text": "Kickoff",
+                    "abbreviation": "K"
+                  },
+                  "text": "J.Elliott kicks 55 yards from PHI 35 to DAL 10. J.Mingo to DAL 35 for 25 yards (K.Moore).",
+                  "statYardage": 25,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "40187300963",
+                  "sequenceNumber": "6300",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "J.Williams right tackle to DAL 41 for 6 yards (A.Mukuba).",
+                  "statYardage": 6,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "40187300985",
+                  "sequenceNumber": "8500",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "D.Prescott pass short right to B.Spann-Ford to DAL 46 for 5 yards (Z.Baun; J.Campbell).",
+                  "statYardage": 5,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009110",
+                  "sequenceNumber": "11000",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "B.Jones reported in as eligible.  J.Williams left guard to PHI 39 for 15 yards (C.DeJean).",
+                  "statYardage": 15,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009145",
+                  "sequenceNumber": "14500",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "D.Prescott pass incomplete deep left to C.Lamb.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009168",
+                  "sequenceNumber": "16800",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": " J.Williams left end to PHI 37 for 2 yards (M.Ojomo; J.Campbell).",
+                  "statYardage": 2,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009190",
+                  "sequenceNumber": "19000",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "(Shotgun) D.Prescott pass incomplete deep middle to C.Lamb.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009213",
+                  "sequenceNumber": "21300",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "59",
+                    "text": "Field Goal Good",
+                    "abbreviation": "FG"
+                  },
+                  "text": "B.Aubrey 55 yard field goal is GOOD, Center-T.Sieg, Holder-B.Anger.Penalty on PHI, Illegal Formation, declined.",
+                  "statYardage": 55,
+                  "isPenalty": false,
+                  "scoringPlay": true
+                },
+                {
+                  "id": "401873009229",
+                  "sequenceNumber": "22900",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "74",
+                    "text": "Official Timeout",
+                    "abbreviation": "Off TO"
+                  },
+                  "text": "Official Timeout at 12:30.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                }
+              ]
+            },
+            {
+              "id": "4018730092",
+              "team": {
+                "id": "21",
+                "displayName": "Philadelphia Eagles",
+                "abbreviation": "PHI"
+              },
+              "result": "TD",
+              "offensivePlays": 4,
+              "end": {
+                "period": {
+                  "type": "quarter",
+                  "number": 1
+                },
+                "clock": {
+                  "displayValue": "10:25"
+                },
+                "yardLine": 100,
+                "text": "DAL 0"
+              },
+              "start": {
+                "period": {
+                  "type": "quarter",
+                  "number": 1
+                },
+                "clock": {
+                  "displayValue": "12:30"
+                },
+                "yardLine": 25,
+                "text": "PHI 25"
+              },
+              "plays": [
+                {
+                  "id": "401873009244",
+                  "sequenceNumber": "24400",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "53",
+                    "text": "Kickoff",
+                    "abbreviation": "K"
+                  },
+                  "text": "B.Aubrey kicks 58 yards from DAL 35 to PHI 7. B.Covey to PHI 25 for 18 yards (H.Luepke; J.Houston).",
+                  "statYardage": 18,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009274",
+                  "sequenceNumber": "27400",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "T.McKee pass short right to S.Barkley pushed ob at PHI 37 for 12 yards (C.Downs; J.Barham).",
+                  "statYardage": 12,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009304",
+                  "sequenceNumber": "30400",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "(Shotgun) S.Barkley left tackle ran ob at DAL 34 for 29 yards (S.James).",
+                  "statYardage": 29,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009331",
+                  "sequenceNumber": "33100",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) T.McKee pass short left to M.Lemon pushed ob at DAL 13 for 21 yards (M.Bell; J.Porter).",
+                  "statYardage": 21,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009361",
+                  "sequenceNumber": "36100",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "8",
+                    "text": "Penalty",
+                    "abbreviation": "PEN"
+                  },
+                  "text": "PENALTY on DAL-Q.Williams, Neutral Zone Infraction, 5 yards, enforced at DAL 13 - No Play.",
+                  "statYardage": 5,
+                  "isPenalty": true,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009385",
+                  "sequenceNumber": "38500",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "68",
+                    "text": "Rushing Touchdown",
+                    "abbreviation": "TD"
+                  },
+                  "text": "S.Barkley right end for 8 yards, TOUCHDOWN. J.Elliott extra point is GOOD, Center-R.Underwood, Holder-B.Mann.",
+                  "statYardage": 8,
+                  "isPenalty": false,
+                  "scoringPlay": true
+                },
+                {
+                  "id": "401873009416",
+                  "sequenceNumber": "41600",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "74",
+                    "text": "Official Timeout",
+                    "abbreviation": "Off TO"
+                  },
+                  "text": "Official Timeout at 10:25.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                }
+              ]
+            },
+            {
+              "id": "4018730093",
+              "team": {
+                "id": "6",
+                "displayName": "Dallas Cowboys",
+                "abbreviation": "DAL"
+              },
+              "result": "TD",
+              "offensivePlays": 9,
+              "end": {
+                "period": {
+                  "type": "quarter",
+                  "number": 1
+                },
+                "clock": {
+                  "displayValue": "5:32"
+                },
+                "yardLine": 0,
+                "text": "PHI 0"
+              },
+              "start": {
+                "period": {
+                  "type": "quarter",
+                  "number": 1
+                },
+                "clock": {
+                  "displayValue": "10:25"
+                },
+                "yardLine": 82,
+                "text": "DAL 18"
+              },
+              "plays": [
+                {
+                  "id": "401873009423",
+                  "sequenceNumber": "42300",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "53",
+                    "text": "Kickoff",
+                    "abbreviation": "K"
+                  },
+                  "text": "J.Elliott kicks 59 yards from PHI 35 to DAL 6. T.Goodson to DAL 32 for 26 yards (S.Mondon).PENALTY on DAL-J.Barron, Offensive Holding, 10 yards, enforced at DAL 28.",
+                  "statYardage": 4,
+                  "isPenalty": true,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009469",
+                  "sequenceNumber": "46900",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "B.Jones reported in as eligible.  T.Goodson left tackle to DAL 29 for 11 yards (A.Mukuba).",
+                  "statYardage": 11,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009493",
+                  "sequenceNumber": "49300",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "T.Goodson left guard to DAL 31 for 2 yards (A.Epenesa; J.Carter).",
+                  "statYardage": 2,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009515",
+                  "sequenceNumber": "51500",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "(Shotgun) D.Prescott pass incomplete short right to G.Pickens (T.Woolen).",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009538",
+                  "sequenceNumber": "53800",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) D.Prescott pass deep right to R.Flournoy pushed ob at PHI 34 for 35 yards (A.Mukuba).",
+                  "statYardage": 35,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009568",
+                  "sequenceNumber": "56800",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "B.Jones reported in as eligible.  J.Williams left tackle to PHI 29 for 5 yards (K.Moore).",
+                  "statYardage": 5,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009592",
+                  "sequenceNumber": "59200",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "(Shotgun) J.Williams left tackle to PHI 17 for 12 yards (A.Mukuba; C.DeJean).",
+                  "statYardage": 12,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009614",
+                  "sequenceNumber": "61400",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "T.Goodson left tackle to PHI 14 for 3 yards (K.James-Newby).",
+                  "statYardage": 3,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009636",
+                  "sequenceNumber": "63600",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "T.Goodson left end to PHI 9 for 5 yards (Q.Mitchell).",
+                  "statYardage": 5,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009658",
+                  "sequenceNumber": "65800",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "67",
+                    "text": "Passing Touchdown",
+                    "abbreviation": "TD"
+                  },
+                  "text": "(Shotgun) D.Prescott pass short right to C.Lamb for 9 yards, TOUCHDOWN. B.Aubrey extra point is GOOD, Center-T.Sieg, Holder-B.Anger.",
+                  "statYardage": 9,
+                  "isPenalty": false,
+                  "scoringPlay": true
+                },
+                {
+                  "id": "401873009697",
+                  "sequenceNumber": "69700",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "74",
+                    "text": "Official Timeout",
+                    "abbreviation": "Off TO"
+                  },
+                  "text": "Official Timeout at 05:32.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                }
+              ]
+            },
+            {
+              "id": "4018730094",
+              "team": {
+                "id": "21",
+                "displayName": "Philadelphia Eagles",
+                "abbreviation": "PHI"
+              },
+              "result": "TD",
+              "offensivePlays": 13,
+              "end": {
+                "period": {
+                  "type": "quarter",
+                  "number": 2
+                },
+                "clock": {
+                  "displayValue": "13:25"
+                },
+                "yardLine": 100,
+                "text": "DAL 0"
+              },
+              "start": {
+                "period": {
+                  "type": "quarter",
+                  "number": 1
+                },
+                "clock": {
+                  "displayValue": "5:32"
+                },
+                "yardLine": 24,
+                "text": "PHI 24"
+              },
+              "plays": [
+                {
+                  "id": "401873009704",
+                  "sequenceNumber": "70400",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "53",
+                    "text": "Kickoff",
+                    "abbreviation": "K"
+                  },
+                  "text": "B.Aubrey kicks 57 yards from DAL 35 to PHI 8. E.Mitchell to PHI 24 for 16 yards (A.Clark; S.Revel).",
+                  "statYardage": 16,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009734",
+                  "sequenceNumber": "73400",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "S.Barkley right guard to PHI 30 for 6 yards (C.Downs; O.Ogbonnia).",
+                  "statYardage": 6,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009756",
+                  "sequenceNumber": "75600",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "8",
+                    "text": "Penalty",
+                    "abbreviation": "PEN"
+                  },
+                  "text": "PENALTY on DAL-E.Garcia, Encroachment, 5 yards, enforced at PHI 30 - No Play.",
+                  "statYardage": 5,
+                  "isPenalty": true,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009780",
+                  "sequenceNumber": "78000",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "S.Barkley up the middle to PHI 39 for 4 yards (O.Ogbonnia).",
+                  "statYardage": 4,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009802",
+                  "sequenceNumber": "80200",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "T.McKee pass incomplete deep left to M.Brown.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009825",
+                  "sequenceNumber": "82500",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) T.McKee pass short right to D.Goedert to PHI 44 for 5 yards (J.Porter).",
+                  "statYardage": 5,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009850",
+                  "sequenceNumber": "85000",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "8",
+                    "text": "Penalty",
+                    "abbreviation": "PEN"
+                  },
+                  "text": "T.McKee FUMBLES (Aborted) at PHI 44, RECOVERED by DAL-Q.Williams at PHI 43.PENALTY on DAL-Q.Williams, Defensive Offside, 5 yards, enforced at PHI 44 - No Play.",
+                  "statYardage": 0,
+                  "isPenalty": true,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009897",
+                  "sequenceNumber": "89700",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "D.Pierce left end to DAL 42 for 9 yards (D.Bland).",
+                  "statYardage": 9,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009919",
+                  "sequenceNumber": "91900",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "D.Pierce right tackle to DAL 40 for 2 yards (Q.Williams).",
+                  "statYardage": 2,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009941",
+                  "sequenceNumber": "94100",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) T.McKee pass short right to M.Brown pushed ob at DAL 29 for 11 yards (M.Bell).",
+                  "statYardage": 11,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009971",
+                  "sequenceNumber": "97100",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "(Shotgun) D.Pierce left guard to DAL 29 for no gain (O.Ogbonnia).",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "401873009993",
+                  "sequenceNumber": "99300",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "(Shotgun) T.McKee pass incomplete short left to D.Cooper.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091016",
+                  "sequenceNumber": "101600",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) T.McKee pass short right to D.Cooper to DAL 12 for 17 yards (C.Downs).",
+                  "statYardage": 17,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091042",
+                  "sequenceNumber": "104200",
+                  "period": {
+                    "number": 1
+                  },
+                  "type": {
+                    "id": "2",
+                    "text": "End Period",
+                    "abbreviation": "EP"
+                  },
+                  "text": "END QUARTER 1",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091062",
+                  "sequenceNumber": "106200",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "(Shotgun) S.Barkley right guard to DAL 10 for 2 yards (E.Garcia).",
+                  "statYardage": 2,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091089",
+                  "sequenceNumber": "108900",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "S.Barkley right guard to DAL 9 for 1 yard (C.Downs).",
+                  "statYardage": 1,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091100",
+                  "sequenceNumber": "110000",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "21",
+                    "text": "Timeout",
+                    "abbreviation": "TO"
+                  },
+                  "text": "Timeout #1 by PHI at 13:55.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091111",
+                  "sequenceNumber": "111100",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "8",
+                    "text": "Penalty",
+                    "abbreviation": "PEN"
+                  },
+                  "text": "(Shotgun) T.McKee pass incomplete short left to M.Brown (L.Overton).PENALTY on DAL-L.Overton, Roughing the Passer, 4 yards, enforced at DAL 9 - No Play.",
+                  "statYardage": 4,
+                  "isPenalty": true,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091152",
+                  "sequenceNumber": "115200",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "68",
+                    "text": "Rushing Touchdown",
+                    "abbreviation": "TD"
+                  },
+                  "text": "D.Pierce left tackle for 5 yards, TOUCHDOWN. J.Elliott extra point is GOOD, Center-R.Underwood, Holder-B.Mann.",
+                  "statYardage": 5,
+                  "isPenalty": false,
+                  "scoringPlay": true
+                },
+                {
+                  "id": "4018730091183",
+                  "sequenceNumber": "118300",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "74",
+                    "text": "Official Timeout",
+                    "abbreviation": "Off TO"
+                  },
+                  "text": "Official Timeout at 13:25.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                }
+              ]
+            },
+            {
+              "id": "4018730095",
+              "team": {
+                "id": "6",
+                "displayName": "Dallas Cowboys",
+                "abbreviation": "DAL"
+              },
+              "result": "TD",
+              "offensivePlays": 14,
+              "end": {
+                "period": {
+                  "type": "quarter",
+                  "number": 2
+                },
+                "clock": {
+                  "displayValue": "5:37"
+                },
+                "yardLine": 0,
+                "text": "PHI 0"
+              },
+              "start": {
+                "period": {
+                  "type": "quarter",
+                  "number": 2
+                },
+                "clock": {
+                  "displayValue": "13:25"
+                },
+                "yardLine": 81,
+                "text": "DAL 19"
+              },
+              "plays": [
+                {
+                  "id": "4018730091190",
+                  "sequenceNumber": "119000",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "53",
+                    "text": "Kickoff",
+                    "abbreviation": "K"
+                  },
+                  "text": "J.Elliott kicks 56 yards from PHI 35 to DAL 9. T.Goodson for 91 yards, TOUCHDOWN NULLIFIED by Penalty.PENALTY on DAL-J.Barron, Offensive Holding, 10 yards, enforced at DAL 29.",
+                  "statYardage": 71,
+                  "isPenalty": true,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091232",
+                  "sequenceNumber": "123200",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "J.Williams right end to DAL 26 for 7 yards (Q.Mitchell).",
+                  "statYardage": 7,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091254",
+                  "sequenceNumber": "125400",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "(Shotgun) D.Prescott pass incomplete deep left to C.Lamb.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091277",
+                  "sequenceNumber": "127700",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) D.Prescott pass short right to C.Lamb pushed ob at DAL 31 for 5 yards (Q.Mitchell).",
+                  "statYardage": 5,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091307",
+                  "sequenceNumber": "130700",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "T.Goodson right end to DAL 36 for 5 yards (J.Trotter).",
+                  "statYardage": 5,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091329",
+                  "sequenceNumber": "132900",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "J.Williams right guard to DAL 47 for 11 yards (J.Trotter).",
+                  "statYardage": 11,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091351",
+                  "sequenceNumber": "135100",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "(Shotgun) D.Prescott pass incomplete deep right to J.Mingo.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091374",
+                  "sequenceNumber": "137400",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "(Shotgun) T.Goodson right tackle to DAL 47 for no gain (J.Carter; J.Trotter).",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091396",
+                  "sequenceNumber": "139600",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) D.Prescott pass short left to G.Pickens to PHI 44 for 9 yards (C.DeJean).",
+                  "statYardage": 9,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091409",
+                  "sequenceNumber": "140900",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "21",
+                    "text": "Timeout",
+                    "abbreviation": "TO"
+                  },
+                  "text": "Timeout #1 by PHI at 09:10.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091421",
+                  "sequenceNumber": "142100",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "B.Jones reported in as eligible.  J.Williams left tackle to PHI 40 for 4 yards (Q.Mitchell; J.Trotter).",
+                  "statYardage": 4,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091452",
+                  "sequenceNumber": "145200",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) D.Prescott pass short right to B.Spann-Ford to PHI 34 for 6 yards (Z.Baun; A.Ebiketie).",
+                  "statYardage": 6,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091477",
+                  "sequenceNumber": "147700",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "D.Prescott scrambles right tackle to PHI 28 for 6 yards (J.Hunt).",
+                  "statYardage": 6,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091499",
+                  "sequenceNumber": "149900",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "J.Williams up the middle to PHI 27 for 1 yard (J.Davis; Z.Baun).",
+                  "statYardage": 1,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091521",
+                  "sequenceNumber": "152100",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) D.Prescott pass short right to R.Flournoy pushed ob at PHI 21 for 6 yards (T.Woolen; C.DeJean).",
+                  "statYardage": 6,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091551",
+                  "sequenceNumber": "155100",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "67",
+                    "text": "Passing Touchdown",
+                    "abbreviation": "TD"
+                  },
+                  "text": "(Shotgun) D.Prescott pass deep right to G.Pickens for 21 yards, TOUCHDOWN. B.Aubrey extra point is GOOD, Center-T.Sieg, Holder-B.Anger.",
+                  "statYardage": 21,
+                  "isPenalty": false,
+                  "scoringPlay": true
+                },
+                {
+                  "id": "4018730091585",
+                  "sequenceNumber": "158500",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "74",
+                    "text": "Official Timeout",
+                    "abbreviation": "Off TO"
+                  },
+                  "text": "Official Timeout at 05:37.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                }
+              ]
+            },
+            {
+              "id": "4018730096",
+              "team": {
+                "id": "21",
+                "displayName": "Philadelphia Eagles",
+                "abbreviation": "PHI"
+              },
+              "result": "PUNT",
+              "offensivePlays": 6,
+              "end": {
+                "period": {
+                  "type": "quarter",
+                  "number": 2
+                },
+                "clock": {
+                  "displayValue": "2:28"
+                },
+                "yardLine": 50,
+                "text": "50"
+              },
+              "start": {
+                "period": {
+                  "type": "quarter",
+                  "number": 2
+                },
+                "clock": {
+                  "displayValue": "5:37"
+                },
+                "yardLine": 35,
+                "text": "PHI 35"
+              },
+              "plays": [
+                {
+                  "id": "4018730091592",
+                  "sequenceNumber": "159200",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "53",
+                    "text": "Kickoff",
+                    "abbreviation": "K"
+                  },
+                  "text": "B.Aubrey kicks 65 yards from DAL 35 to end zone, Touchback to the PHI 35.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091616",
+                  "sequenceNumber": "161600",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "D.Pierce left end to PHI 43 for 8 yards (C.Downs).",
+                  "statYardage": 8,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091639",
+                  "sequenceNumber": "163900",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "T.McKee pass short right to S.Barkley to PHI 40 for -3 yards (Q.Williams).",
+                  "statYardage": -3,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091664",
+                  "sequenceNumber": "166400",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "8",
+                    "text": "Penalty",
+                    "abbreviation": "PEN"
+                  },
+                  "text": "(Shotgun) T.McKee pass incomplete short middle to M.Lemon (C.Downs).PENALTY on DAL-C.Downs, Defensive Pass Interference, 3 yards, enforced at PHI 40 - No Play.",
+                  "statYardage": 3,
+                  "isPenalty": true,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091698",
+                  "sequenceNumber": "169800",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "D.Pierce left end to DAL 45 for 12 yards (A.Clark; M.Hooker).",
+                  "statYardage": 12,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091720",
+                  "sequenceNumber": "172000",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "D.Pierce left tackle to DAL 45 for no gain (E.Garcia).",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091742",
+                  "sequenceNumber": "174200",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "(Shotgun) T.McKee pass incomplete short right to D.Goedert (D.Overshown).",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091765",
+                  "sequenceNumber": "176500",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "(Shotgun) T.McKee pass incomplete short left to M.Brown (J.Porter).",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091788",
+                  "sequenceNumber": "178800",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "8",
+                    "text": "Penalty",
+                    "abbreviation": "PEN"
+                  },
+                  "text": "(Shotgun) PENALTY on PHI, Delay of Game, 5 yards, enforced at DAL 45 - No Play.",
+                  "statYardage": -5,
+                  "isPenalty": true,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091812",
+                  "sequenceNumber": "181200",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "52",
+                    "text": "Punt",
+                    "abbreviation": "PUNT"
+                  },
+                  "text": "B.Mann punts 48 yards to DAL 2, Center-R.Underwood, downed by PHI-D.Cooper.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091824",
+                  "sequenceNumber": "182400",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "74",
+                    "text": "Official Timeout",
+                    "abbreviation": "Off TO"
+                  },
+                  "text": "Official Timeout at 02:28.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                }
+              ]
+            },
+            {
+              "id": "4018730097",
+              "team": {
+                "id": "6",
+                "displayName": "Dallas Cowboys",
+                "abbreviation": "DAL"
+              },
+              "result": "PUNT",
+              "offensivePlays": 3,
+              "end": {
+                "period": {
+                  "type": "quarter",
+                  "number": 2
+                },
+                "clock": {
+                  "displayValue": "1:39"
+                },
+                "yardLine": 92,
+                "text": "DAL 8"
+              },
+              "start": {
+                "period": {
+                  "type": "quarter",
+                  "number": 2
+                },
+                "clock": {
+                  "displayValue": "2:28"
+                },
+                "yardLine": 98,
+                "text": "DAL 2"
+              },
+              "plays": [
+                {
+                  "id": "4018730091835",
+                  "sequenceNumber": "183500",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "D.Prescott up the middle to DAL 4 for 2 yards (M.Ojomo; Z.Baun).",
+                  "statYardage": 2,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091850",
+                  "sequenceNumber": "185000",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "75",
+                    "text": "Two-minute warning",
+                    "abbreviation": "2Min Warn"
+                  },
+                  "text": "Two-Minute Warning",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091864",
+                  "sequenceNumber": "186400",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "D.Prescott pass incomplete short right to G.Pickens (Q.Mitchell).",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091894",
+                  "sequenceNumber": "189400",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "(Shotgun) J.Williams right end to DAL 8 for 4 yards (J.Hunt; B.Young).",
+                  "statYardage": 4,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091905",
+                  "sequenceNumber": "190500",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "21",
+                    "text": "Timeout",
+                    "abbreviation": "TO"
+                  },
+                  "text": "Timeout #2 by PHI at 01:52.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091916",
+                  "sequenceNumber": "191600",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "52",
+                    "text": "Punt",
+                    "abbreviation": "PUNT"
+                  },
+                  "text": " B.Anger punts 41 yards to DAL 49, Center-T.Sieg, downed by DAL-J.Thomas.\nPENALTY on PHI-E.Mitchell, Offensive Holding, 10 yards, enforced at DAL 49.",
+                  "statYardage": -10,
+                  "isPenalty": true,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091935",
+                  "sequenceNumber": "193500",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "74",
+                    "text": "Official Timeout",
+                    "abbreviation": "Off TO"
+                  },
+                  "text": "Official Timeout at 01:39.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                }
+              ]
+            },
+            {
+              "id": "4018730098",
+              "team": {
+                "id": "21",
+                "displayName": "Philadelphia Eagles",
+                "abbreviation": "PHI"
+              },
+              "result": "PUNT",
+              "offensivePlays": 3,
+              "end": {
+                "period": {
+                  "type": "quarter",
+                  "number": 2
+                },
+                "clock": {
+                  "displayValue": "1:14"
+                },
+                "yardLine": 46,
+                "text": "PHI 46"
+              },
+              "start": {
+                "period": {
+                  "type": "quarter",
+                  "number": 2
+                },
+                "clock": {
+                  "displayValue": "1:39"
+                },
+                "yardLine": 41,
+                "text": "PHI 41"
+              },
+              "plays": [
+                {
+                  "id": "4018730091954",
+                  "sequenceNumber": "195400",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "(Shotgun) T.McKee pass incomplete short middle to D.Cooper.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091984",
+                  "sequenceNumber": "198400",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": " (Shotgun) T.McKee pass incomplete short middle to M.Lemon.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730091996",
+                  "sequenceNumber": "199600",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "21",
+                    "text": "Timeout",
+                    "abbreviation": "TO"
+                  },
+                  "text": "Timeout #3 by PHI at 01:31.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092007",
+                  "sequenceNumber": "200700",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) T.McKee pass short left to M.Lemon to PHI 46 for 5 yards (C.Durant; D.Overshown).",
+                  "statYardage": 5,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092023",
+                  "sequenceNumber": "202300",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "21",
+                    "text": "Timeout",
+                    "abbreviation": "TO"
+                  },
+                  "text": "Timeout #1 by DAL at 01:24.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092039",
+                  "sequenceNumber": "203900",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "52",
+                    "text": "Punt",
+                    "abbreviation": "PUNT"
+                  },
+                  "text": " B.Mann punts 41 yards to DAL 13, Center-R.Underwood, downed by PHI-K.James-Newby.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092053",
+                  "sequenceNumber": "205300",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "74",
+                    "text": "Official Timeout",
+                    "abbreviation": "Off TO"
+                  },
+                  "text": "Official Timeout at 01:14.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                }
+              ]
+            },
+            {
+              "id": "4018730099",
+              "team": {
+                "id": "6",
+                "displayName": "Dallas Cowboys",
+                "abbreviation": "DAL"
+              },
+              "result": "FG",
+              "offensivePlays": 8,
+              "end": {
+                "period": {
+                  "type": "quarter",
+                  "number": 2
+                },
+                "yardLine": 9,
+                "text": "PHI 9"
+              },
+              "start": {
+                "period": {
+                  "type": "quarter",
+                  "number": 2
+                },
+                "clock": {
+                  "displayValue": "1:14"
+                },
+                "yardLine": 87,
+                "text": "DAL 13"
+              },
+              "plays": [
+                {
+                  "id": "4018730092066",
+                  "sequenceNumber": "206600",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) D.Prescott pass short middle to R.Flournoy to DAL 26 for 13 yards (Q.Mitchell). PHI-Q.Mitchell was injured during the play.",
+                  "statYardage": 13,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092082",
+                  "sequenceNumber": "208200",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "21",
+                    "text": "Timeout",
+                    "abbreviation": "TO"
+                  },
+                  "text": "Timeout #4 by PHI at 00:59.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092098",
+                  "sequenceNumber": "209800",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "(Shotgun) D.Prescott pass incomplete deep right to C.Lamb (T.Woolen).",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092131",
+                  "sequenceNumber": "213100",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) D.Prescott pass short left to G.Pickens pushed ob at DAL 47 for 21 yards (J.Jones).",
+                  "statYardage": 21,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092161",
+                  "sequenceNumber": "216100",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(No Huddle, Shotgun) D.Prescott pass short right to C.Lamb to PHI 39 for 14 yards (T.Woolen).",
+                  "statYardage": 14,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092186",
+                  "sequenceNumber": "218600",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(No Huddle, Shotgun) D.Prescott pass deep right to C.Lamb ran ob at PHI 9 for 30 yards.",
+                  "statYardage": 30,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092201",
+                  "sequenceNumber": "220100",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "21",
+                    "text": "Timeout",
+                    "abbreviation": "TO"
+                  },
+                  "text": "Timeout #2 by DAL at 00:12.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092216",
+                  "sequenceNumber": "221600",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "(Shotgun) D.Prescott pass incomplete short right. ** Injury Update: PHI-Q.Mitchell has returned to the game.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092246",
+                  "sequenceNumber": "224600",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "(Shotgun) D.Prescott pass incomplete short right to C.Lamb.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092272",
+                  "sequenceNumber": "227200",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "59",
+                    "text": "Field Goal Good",
+                    "abbreviation": "FG"
+                  },
+                  "text": "B.Aubrey 27 yard field goal is GOOD, Center-T.Sieg, Holder-B.Anger.",
+                  "statYardage": 27,
+                  "isPenalty": false,
+                  "scoringPlay": true
+                },
+                {
+                  "id": "4018730092292",
+                  "sequenceNumber": "229200",
+                  "period": {
+                    "number": 2
+                  },
+                  "type": {
+                    "id": "65",
+                    "text": "End of Half",
+                    "abbreviation": "EH"
+                  },
+                  "text": "END QUARTER 2",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                }
+              ]
+            },
+            {
+              "id": "40187300910",
+              "team": {
+                "id": "21",
+                "displayName": "Philadelphia Eagles",
+                "abbreviation": "PHI"
+              },
+              "result": "TD",
+              "offensivePlays": 17,
+              "end": {
+                "period": {
+                  "type": "quarter",
+                  "number": 3
+                },
+                "clock": {
+                  "displayValue": "5:44"
+                },
+                "yardLine": 100,
+                "text": "DAL 0"
+              },
+              "start": {
+                "period": {
+                  "type": "quarter",
+                  "number": 3
+                },
+                "clock": {
+                  "displayValue": "15:00"
+                },
+                "yardLine": 16,
+                "text": "PHI 16"
+              },
+              "plays": [
+                {
+                  "id": "4018730092310",
+                  "sequenceNumber": "231000",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "53",
+                    "text": "Kickoff",
+                    "abbreviation": "K"
+                  },
+                  "text": "B.Aubrey kicks 64 yards from DAL 35 to PHI 1. D.Pierce to PHI 16 for 15 yards (H.Luepke; J.Houston).",
+                  "statYardage": 15,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092333",
+                  "sequenceNumber": "233300",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "(Shotgun) S.Barkley left guard to PHI 28 for 12 yards (M.Bell; M.Hooker).",
+                  "statYardage": 12,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092355",
+                  "sequenceNumber": "235500",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "T.McKee pass incomplete short right.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092378",
+                  "sequenceNumber": "237800",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) T.McKee pass short right to D.Goedert to PHI 33 for 5 yards (S.James).",
+                  "statYardage": 5,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092403",
+                  "sequenceNumber": "240300",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) T.McKee pass short right to M.Brown to DAL 48 for 19 yards (M.Hooker).",
+                  "statYardage": 19,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092428",
+                  "sequenceNumber": "242800",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "D.Pierce left end to 50 for -2 yards (D.Overshown, M.Bell).",
+                  "statYardage": -2,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092450",
+                  "sequenceNumber": "245000",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) T.McKee pass short right to E.Moore to DAL 48 for 2 yards (S.James).",
+                  "statYardage": 2,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092475",
+                  "sequenceNumber": "247500",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) T.McKee pass short left to M.Lemon to DAL 39 for 9 yards (D.Overshown).",
+                  "statYardage": 9,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092500",
+                  "sequenceNumber": "250000",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "T.McKee pass short left to M.Lemon pushed ob at DAL 24 for 15 yards (M.Bell).",
+                  "statYardage": 15,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092530",
+                  "sequenceNumber": "253000",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "(No Huddle) D.Pierce left guard to DAL 21 for 3 yards (D.Overshown).",
+                  "statYardage": 3,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092552",
+                  "sequenceNumber": "255200",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "(No Huddle) D.Pierce right tackle to DAL 19 for 2 yards (A.Clark; M.Lawrence).",
+                  "statYardage": 2,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092574",
+                  "sequenceNumber": "257400",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) T.McKee pass short left to D.Goedert to DAL 12 for 7 yards (J.Barron).",
+                  "statYardage": 7,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092604",
+                  "sequenceNumber": "260400",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "(No Huddle) D.Pierce left tackle to DAL 6 for 6 yards (J.Porter; A.Clark).",
+                  "statYardage": 6,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092626",
+                  "sequenceNumber": "262600",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "(No Huddle) D.Pierce right tackle to DAL 6 for no gain (A.Clark; K.Clark).",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092648",
+                  "sequenceNumber": "264800",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "(Shotgun) D.Pierce right guard to DAL 1 for 5 yards (J.Barham).",
+                  "statYardage": 5,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092670",
+                  "sequenceNumber": "267000",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "F.Johnson reported in as eligible.  D.Pierce left guard to DAL 4 for -3 yards (Q.Williams).",
+                  "statYardage": -3,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092694",
+                  "sequenceNumber": "269400",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "(Shotgun) T.McKee pass incomplete short right.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092717",
+                  "sequenceNumber": "271700",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "67",
+                    "text": "Passing Touchdown",
+                    "abbreviation": "TD"
+                  },
+                  "text": "(Shotgun) T.McKee pass short right to M.Lemon for 4 yards, TOUCHDOWN. J.Elliott extra point is GOOD, Center-R.Underwood, Holder-B.Mann.",
+                  "statYardage": 4,
+                  "isPenalty": false,
+                  "scoringPlay": true
+                },
+                {
+                  "id": "4018730092751",
+                  "sequenceNumber": "275100",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "74",
+                    "text": "Official Timeout",
+                    "abbreviation": "Off TO"
+                  },
+                  "text": "Official Timeout at 05:44.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                }
+              ]
+            },
+            {
+              "id": "40187300911",
+              "team": {
+                "id": "6",
+                "displayName": "Dallas Cowboys",
+                "abbreviation": "DAL"
+              },
+              "result": "TD",
+              "offensivePlays": 9,
+              "end": {
+                "period": {
+                  "type": "quarter",
+                  "number": 3
+                },
+                "clock": {
+                  "displayValue": "1:30"
+                },
+                "yardLine": 0,
+                "text": "PHI 0"
+              },
+              "start": {
+                "period": {
+                  "type": "quarter",
+                  "number": 3
+                },
+                "clock": {
+                  "displayValue": "5:44"
+                },
+                "yardLine": 61,
+                "text": "DAL 39"
+              },
+              "plays": [
+                {
+                  "id": "4018730092758",
+                  "sequenceNumber": "275800",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "53",
+                    "text": "Kickoff",
+                    "abbreviation": "K"
+                  },
+                  "text": "J.Elliott kicks 51 yards from PHI 35 to DAL 14. J.Mingo to DAL 39 for 25 yards (S.Mondon).",
+                  "statYardage": 25,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092788",
+                  "sequenceNumber": "278800",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "B.Jones reported in as eligible.  J.Williams left tackle to DAL 40 for 1 yard (Z.Baun; M.Ojomo).",
+                  "statYardage": 1,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092812",
+                  "sequenceNumber": "281200",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "(Shotgun) D.Prescott pass incomplete short left to C.Lamb.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092844",
+                  "sequenceNumber": "284400",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "(Shotgun) D.Prescott pass incomplete short right to C.Lamb.PENALTY on PHI-T.Woolen, Defensive Holding, 6 yards, enforced at DAL 40 - No Play.",
+                  "statYardage": 6,
+                  "isPenalty": true,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092878",
+                  "sequenceNumber": "287800",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "B.Jones reported in as eligible.  J.Williams up the middle to 50 for 4 yards (J.Davis; Z.Baun).",
+                  "statYardage": 4,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092902",
+                  "sequenceNumber": "290200",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "J.Williams left tackle to PHI 43 for 7 yards (A.Mukuba; Z.Baun).",
+                  "statYardage": 7,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092924",
+                  "sequenceNumber": "292400",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) D.Prescott pass deep right to R.Flournoy pushed ob at PHI 27 for 16 yards (T.Woolen).",
+                  "statYardage": 16,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092954",
+                  "sequenceNumber": "295400",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "(Shotgun) J.Williams right guard to PHI 18 for 9 yards (A.Mukuba; Q.Mitchell).",
+                  "statYardage": 9,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730092976",
+                  "sequenceNumber": "297600",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "(Shotgun) D.Prescott FUMBLES (Aborted) at PHI 23, RECOVERED by PHI-T.Woolen at PHI 27. T.Woolen for 73 yards, TOUCHDOWN.The Replay Official reviewed the backward pass ruling, and the play was REVERSED.(Shotgun) D.Prescott pass incomplete short left to C.Lamb.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093026",
+                  "sequenceNumber": "302600",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "(Shotgun) T.Goodson right guard to PHI 16 for 2 yards (M.Ojomo; J.Davis).",
+                  "statYardage": 2,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093048",
+                  "sequenceNumber": "304800",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "67",
+                    "text": "Passing Touchdown",
+                    "abbreviation": "TD"
+                  },
+                  "text": "(Shotgun) D.Prescott pass deep left to C.Lamb for 16 yards, TOUCHDOWN. TWO-POINT CONVERSION ATTEMPT. D.Prescott rushes left guard. ATTEMPT SUCCEEDS.",
+                  "statYardage": 16,
+                  "isPenalty": false,
+                  "scoringPlay": true
+                },
+                {
+                  "id": "4018730093093",
+                  "sequenceNumber": "309300",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "74",
+                    "text": "Official Timeout",
+                    "abbreviation": "Off TO"
+                  },
+                  "text": "Official Timeout at 01:30.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                }
+              ]
+            },
+            {
+              "id": "40187300912",
+              "team": {
+                "id": "21",
+                "displayName": "Philadelphia Eagles",
+                "abbreviation": "PHI"
+              },
+              "result": "PUNT",
+              "offensivePlays": 3,
+              "end": {
+                "period": {
+                  "type": "quarter",
+                  "number": 4
+                },
+                "clock": {
+                  "displayValue": "14:17"
+                },
+                "yardLine": 23,
+                "text": "PHI 23"
+              },
+              "start": {
+                "period": {
+                  "type": "quarter",
+                  "number": 3
+                },
+                "clock": {
+                  "displayValue": "1:30"
+                },
+                "yardLine": 15,
+                "text": "PHI 15"
+              },
+              "plays": [
+                {
+                  "id": "4018730093102",
+                  "sequenceNumber": "310200",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "53",
+                    "text": "Kickoff",
+                    "abbreviation": "K"
+                  },
+                  "text": "B.Aubrey kicks 54 yards from DAL 35 to PHI 11. E.Mitchell MUFFS catch, and recovers at PHI 9. E.Mitchell to PHI 15 for 6 yards (S.Revel; J.Barron).",
+                  "statYardage": 6,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093136",
+                  "sequenceNumber": "313600",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "74",
+                    "text": "Official Timeout",
+                    "abbreviation": "Off TO"
+                  },
+                  "text": "Official Timeout at 01:23.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093169",
+                  "sequenceNumber": "316900",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "(Shotgun) S.Barkley right end ran ob at PHI 20 for 5 yards (Q.Williams).PENALTY on PHI-T.Steen, Offensive Holding, 7 yards, enforced at PHI 15 - No Play.",
+                  "statYardage": -7,
+                  "isPenalty": true,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093214",
+                  "sequenceNumber": "321400",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "7",
+                    "text": "Sack"
+                  },
+                  "text": "(Shotgun) T.McKee sacked at PHI 5 for -3 yards (D.Ezeiruaku).",
+                  "statYardage": -3,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093234",
+                  "sequenceNumber": "323400",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) T.McKee pass short right to M.Lemon pushed ob at PHI 10 for 5 yards (J.Porter).",
+                  "statYardage": 5,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093264",
+                  "sequenceNumber": "326400",
+                  "period": {
+                    "number": 3
+                  },
+                  "type": {
+                    "id": "2",
+                    "text": "End Period",
+                    "abbreviation": "EP"
+                  },
+                  "text": "END QUARTER 3",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093284",
+                  "sequenceNumber": "328400",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) T.McKee pass short right to D.Goedert to PHI 23 for 13 yards (D.Overshown).",
+                  "statYardage": 13,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093309",
+                  "sequenceNumber": "330900",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "52",
+                    "text": "Punt",
+                    "abbreviation": "PUNT"
+                  },
+                  "text": "B.Mann punts 61 yards to DAL 16, Center-R.Underwood. J.Mingo to DAL 16 for no gain (K.Ringo).",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093322",
+                  "sequenceNumber": "332200",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "74",
+                    "text": "Official Timeout",
+                    "abbreviation": "Off TO"
+                  },
+                  "text": "Official Timeout at 14:17.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                }
+              ]
+            },
+            {
+              "id": "40187300913",
+              "team": {
+                "id": "6",
+                "displayName": "Dallas Cowboys",
+                "abbreviation": "DAL"
+              },
+              "result": "FG",
+              "offensivePlays": 9,
+              "end": {
+                "period": {
+                  "type": "quarter",
+                  "number": 4
+                },
+                "clock": {
+                  "displayValue": "9:10"
+                },
+                "yardLine": 6,
+                "text": "PHI 6"
+              },
+              "start": {
+                "period": {
+                  "type": "quarter",
+                  "number": 4
+                },
+                "clock": {
+                  "displayValue": "14:17"
+                },
+                "yardLine": 84,
+                "text": "DAL 16"
+              },
+              "plays": [
+                {
+                  "id": "4018730093335",
+                  "sequenceNumber": "333500",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "(Shotgun) D.Prescott pass incomplete deep left to J.Ferguson (C.DeJean).PENALTY on PHI-C.DeJean, Defensive Pass Interference, 17 yards, enforced at DAL 16 - No Play.",
+                  "statYardage": 17,
+                  "isPenalty": true,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093381",
+                  "sequenceNumber": "338100",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "J.Williams left tackle to DAL 41 for 8 yards (A.Ebiketie).",
+                  "statYardage": 8,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093403",
+                  "sequenceNumber": "340300",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "B.Jones reported in as eligible.  J.Williams left tackle to PHI 25 for 34 yards (A.Mukuba).",
+                  "statYardage": 34,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093427",
+                  "sequenceNumber": "342700",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "(Shotgun) T.Goodson left end to PHI 19 for 6 yards (Z.Baun).",
+                  "statYardage": 6,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093449",
+                  "sequenceNumber": "344900",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "T.Goodson up the middle to PHI 17 for 2 yards (A.Ebiketie).",
+                  "statYardage": 2,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093471",
+                  "sequenceNumber": "347100",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) D.Prescott pass short left to G.Pickens ran ob at PHI 11 for 6 yards.",
+                  "statYardage": 6,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093501",
+                  "sequenceNumber": "350100",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "J.Williams left guard to PHI 9 for 2 yards (A.Epenesa).",
+                  "statYardage": 2,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093523",
+                  "sequenceNumber": "352300",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "(Shotgun) D.Prescott pass incomplete short left to J.Ferguson (Z.Baun).",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093546",
+                  "sequenceNumber": "354600",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "(Shotgun) H.Luepke up the middle to PHI 6 for 3 yards (Z.Baun).",
+                  "statYardage": 3,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093568",
+                  "sequenceNumber": "356800",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "59",
+                    "text": "Field Goal Good",
+                    "abbreviation": "FG"
+                  },
+                  "text": "B.Aubrey 24 yard field goal is GOOD, Center-T.Sieg, Holder-B.Anger.",
+                  "statYardage": 24,
+                  "isPenalty": false,
+                  "scoringPlay": true
+                },
+                {
+                  "id": "4018730093578",
+                  "sequenceNumber": "357800",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "74",
+                    "text": "Official Timeout",
+                    "abbreviation": "Off TO"
+                  },
+                  "text": "Official Timeout at 09:10.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                }
+              ]
+            },
+            {
+              "id": "40187300914",
+              "team": {
+                "id": "21",
+                "displayName": "Philadelphia Eagles",
+                "abbreviation": "PHI"
+              },
+              "result": "INT",
+              "offensivePlays": 4,
+              "end": {
+                "period": {
+                  "type": "quarter",
+                  "number": 4
+                },
+                "clock": {
+                  "displayValue": "7:47"
+                },
+                "yardLine": 68,
+                "text": "DAL 32"
+              },
+              "start": {
+                "period": {
+                  "type": "quarter",
+                  "number": 4
+                },
+                "clock": {
+                  "displayValue": "9:10"
+                },
+                "yardLine": 34,
+                "text": "PHI 34"
+              },
+              "plays": [
+                {
+                  "id": "4018730093588",
+                  "sequenceNumber": "358800",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "53",
+                    "text": "Kickoff",
+                    "abbreviation": "K"
+                  },
+                  "text": "B.Aubrey kicks 53 yards from DAL 35 to PHI 12. D.Pierce to PHI 34 for 22 yards (H.Luepke; B.Spann-Ford).",
+                  "statYardage": 22,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093618",
+                  "sequenceNumber": "361800",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) T.McKee pass short middle to D.Goedert to DAL 48 for 18 yards (S.James; M.Hooker).",
+                  "statYardage": 18,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093643",
+                  "sequenceNumber": "364300",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(No Huddle, Shotgun) T.McKee pass short left to D.Pierce pushed ob at DAL 47 for 1 yard (D.Bland). PHI-D.Pierce was injured during the play.",
+                  "statYardage": 1,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093676",
+                  "sequenceNumber": "367600",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) T.McKee pass short left to E.Mitchell to DAL 32 for 15 yards (S.James).",
+                  "statYardage": 15,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093701",
+                  "sequenceNumber": "370100",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "26",
+                    "text": "Pass Interception Return",
+                    "abbreviation": "INTR"
+                  },
+                  "text": "(No Huddle, Shotgun) T.McKee pass short right intended for D.Goedert INTERCEPTED by D.Overshown at DAL 30. D.Overshown pushed ob at DAL 34 for 4 yards (D.Goedert).",
+                  "statYardage": 4,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093717",
+                  "sequenceNumber": "371700",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "74",
+                    "text": "Official Timeout",
+                    "abbreviation": "Off TO"
+                  },
+                  "text": "Official Timeout at 07:47.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                }
+              ]
+            },
+            {
+              "id": "40187300915",
+              "team": {
+                "id": "6",
+                "displayName": "Dallas Cowboys",
+                "abbreviation": "DAL"
+              },
+              "result": "PUNT",
+              "offensivePlays": 3,
+              "end": {
+                "period": {
+                  "type": "quarter",
+                  "number": 4
+                },
+                "clock": {
+                  "displayValue": "6:10"
+                },
+                "yardLine": 62,
+                "text": "DAL 38"
+              },
+              "start": {
+                "period": {
+                  "type": "quarter",
+                  "number": 4
+                },
+                "clock": {
+                  "displayValue": "7:47"
+                },
+                "yardLine": 66,
+                "text": "DAL 34"
+              },
+              "plays": [
+                {
+                  "id": "4018730093733",
+                  "sequenceNumber": "373300",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "J.Williams up the middle to DAL 36 for 2 yards (J.Trotter).",
+                  "statYardage": 2,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093762",
+                  "sequenceNumber": "376200",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "J.Williams left tackle to DAL 41 for 5 yards (M.Ojomo; C.DeJean). PHI-M.Ojomo was injured during the play.",
+                  "statYardage": 5,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093775",
+                  "sequenceNumber": "377500",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "74",
+                    "text": "Official Timeout",
+                    "abbreviation": "Off TO"
+                  },
+                  "text": "Official Timeout at 06:45.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093787",
+                  "sequenceNumber": "378700",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "T.Goodson left tackle to DAL 43 for 2 yards (J.Davis; B.Young).",
+                  "statYardage": 2,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093802",
+                  "sequenceNumber": "380200",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "21",
+                    "text": "Timeout",
+                    "abbreviation": "TO"
+                  },
+                  "text": "Timeout #1 by PHI at 06:18.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093816",
+                  "sequenceNumber": "381600",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "8",
+                    "text": "Penalty",
+                    "abbreviation": "PEN"
+                  },
+                  "text": "(Run formation) PENALTY on DAL, Delay of Game, 5 yards, enforced at DAL 43 - No Play.",
+                  "statYardage": -5,
+                  "isPenalty": true,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093847",
+                  "sequenceNumber": "384700",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "52",
+                    "text": "Punt",
+                    "abbreviation": "PUNT"
+                  },
+                  "text": "B.Anger punts 46 yards to PHI 16, Center-T.Sieg, out of bounds.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                }
+              ]
+            },
+            {
+              "id": "40187300916",
+              "team": {
+                "id": "21",
+                "displayName": "Philadelphia Eagles",
+                "abbreviation": "PHI"
+              },
+              "result": "DOWNS",
+              "offensivePlays": 4,
+              "end": {
+                "period": {
+                  "type": "quarter",
+                  "number": 4
+                },
+                "clock": {
+                  "displayValue": "4:48"
+                },
+                "yardLine": 17,
+                "text": "PHI 17"
+              },
+              "start": {
+                "period": {
+                  "type": "quarter",
+                  "number": 4
+                },
+                "clock": {
+                  "displayValue": "6:10"
+                },
+                "yardLine": 16,
+                "text": "PHI 16"
+              },
+              "plays": [
+                {
+                  "id": "4018730093866",
+                  "sequenceNumber": "386600",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "(Shotgun) T.McKee scrambles up the middle to PHI 17 for 1 yard (V.Miller).",
+                  "statYardage": 1,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093888",
+                  "sequenceNumber": "388800",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "7",
+                    "text": "Sack"
+                  },
+                  "text": "(No Huddle, Shotgun) T.McKee sacked at PHI 9 for -8 yards (Q.Williams).",
+                  "statYardage": -8,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093908",
+                  "sequenceNumber": "390800",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(No Huddle, Shotgun) T.McKee pass short left to E.Mitchell to PHI 17 for 8 yards (D.Overshown).",
+                  "statYardage": 8,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093933",
+                  "sequenceNumber": "393300",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "(No Huddle, Shotgun) T.McKee pass incomplete deep left to M.Brown.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                }
+              ]
+            },
+            {
+              "id": "40187300917",
+              "team": {
+                "id": "6",
+                "displayName": "Dallas Cowboys",
+                "abbreviation": "DAL"
+              },
+              "result": "TD",
+              "offensivePlays": 6,
+              "end": {
+                "period": {
+                  "type": "quarter",
+                  "number": 4
+                },
+                "clock": {
+                  "displayValue": "2:21"
+                },
+                "yardLine": 0,
+                "text": "PHI 0"
+              },
+              "start": {
+                "period": {
+                  "type": "quarter",
+                  "number": 4
+                },
+                "clock": {
+                  "displayValue": "4:48"
+                },
+                "yardLine": 16,
+                "text": "PHI 16"
+              },
+              "plays": [
+                {
+                  "id": "4018730093956",
+                  "sequenceNumber": "395600",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "B.Jones reported in as eligible.  J.Williams right tackle to PHI 16 for no gain (A.Ebiketie).",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093980",
+                  "sequenceNumber": "398000",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "J.Williams left tackle to PHI 15 for 1 yard (C.DeJean; T.Robinson).",
+                  "statYardage": 1,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730093991",
+                  "sequenceNumber": "399100",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "21",
+                    "text": "Timeout",
+                    "abbreviation": "TO"
+                  },
+                  "text": "Timeout #2 by PHI at 03:59.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730094002",
+                  "sequenceNumber": "400200",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "J.Williams left guard to PHI 6 for 9 yards (C.DeJean).",
+                  "statYardage": 9,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730094017",
+                  "sequenceNumber": "401700",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "21",
+                    "text": "Timeout",
+                    "abbreviation": "TO"
+                  },
+                  "text": "Timeout #3 by PHI at 03:51.",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730094031",
+                  "sequenceNumber": "403100",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "J.Williams up the middle to PHI 5 for 1 yard (B.Young).",
+                  "statYardage": 1,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730094060",
+                  "sequenceNumber": "406000",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "J.Williams left guard to PHI 2 for 3 yards (B.Young; A.Epenesa).",
+                  "statYardage": 3,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730094082",
+                  "sequenceNumber": "408200",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "68",
+                    "text": "Rushing Touchdown",
+                    "abbreviation": "TD"
+                  },
+                  "text": "J.Williams up the middle for 2 yards, TOUCHDOWN. B.Aubrey extra point is GOOD, Center-T.Sieg, Holder-B.Anger.",
+                  "statYardage": 2,
+                  "isPenalty": false,
+                  "scoringPlay": true
+                }
+              ]
+            },
+            {
+              "id": "40187300918",
+              "team": {
+                "id": "21",
+                "displayName": "Philadelphia Eagles",
+                "abbreviation": "PHI"
+              },
+              "result": "END OF GAME",
+              "offensivePlays": 8,
+              "end": {
+                "period": {
+                  "type": "quarter",
+                  "number": 4
+                },
+                "yardLine": 50,
+                "text": "50"
+              },
+              "start": {
+                "period": {
+                  "type": "quarter",
+                  "number": 4
+                },
+                "clock": {
+                  "displayValue": "2:21"
+                },
+                "yardLine": 17,
+                "text": "PHI 17"
+              },
+              "plays": [
+                {
+                  "id": "4018730094120",
+                  "sequenceNumber": "412000",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "53",
+                    "text": "Kickoff",
+                    "abbreviation": "K"
+                  },
+                  "text": "B.Aubrey kicks 62 yards from DAL 35 to PHI 3. E.Mitchell MUFFS catch, and recovers at PHI 12. E.Mitchell to PHI 17 for 5 yards (J.Thomas).",
+                  "statYardage": 5,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730094156",
+                  "sequenceNumber": "415600",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "(Shotgun) E.Mitchell right guard to PHI 23 for 6 yards (S.James).",
+                  "statYardage": 6,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730094167",
+                  "sequenceNumber": "416700",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "75",
+                    "text": "Two-minute warning",
+                    "abbreviation": "2Min Warn"
+                  },
+                  "text": "Two-Minute Warning",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730094178",
+                  "sequenceNumber": "417800",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "(Shotgun) T.McKee pass incomplete short left to E.Mitchell [D.Ezeiruaku].",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730094220",
+                  "sequenceNumber": "422000",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "3",
+                    "text": "Pass Incompletion"
+                  },
+                  "text": "(Shotgun) T.McKee pass incomplete short left to E.Stowers (A.Clark).",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730094243",
+                  "sequenceNumber": "424300",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(Shotgun) T.McKee pass short right to M.Lemon to PHI 31 for 8 yards (S.Revel).",
+                  "statYardage": 8,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730094268",
+                  "sequenceNumber": "426800",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "(No Huddle, Shotgun) E.Mitchell up the middle to PHI 36 for 5 yards (D.Ezeiruaku).",
+                  "statYardage": 5,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730094290",
+                  "sequenceNumber": "429000",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": " (No Huddle, Shotgun) T.McKee pass short right to E.Moore to 50 for 14 yards (A.Speed).",
+                  "statYardage": 14,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730094315",
+                  "sequenceNumber": "431500",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "5",
+                    "text": "Rush",
+                    "abbreviation": "RUSH"
+                  },
+                  "text": "(No Huddle, Shotgun) E.Mitchell right guard to 50 for no gain (R.Gary; L.Overton).",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730094337",
+                  "sequenceNumber": "433700",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "24",
+                    "text": "Pass Reception",
+                    "abbreviation": "REC"
+                  },
+                  "text": "(No Huddle, Shotgun) T.McKee pass short right to E.Mitchell to 50 for no gain (J.Barron; J.Thomas).",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                },
+                {
+                  "id": "4018730094362",
+                  "sequenceNumber": "436200",
+                  "period": {
+                    "number": 4
+                  },
+                  "type": {
+                    "id": "66",
+                    "text": "End of Game",
+                    "abbreviation": "EG"
+                  },
+                  "text": "END GAME",
+                  "statYardage": 0,
+                  "isPenalty": false,
+                  "scoringPlay": false
+                }
+              ]
+            }
+          ]
+        }
+      }
     }
   ],
   "corrections": [],
   "syncStatus": {
-    "checkedAt": "2026-10-27T03:06:04.414Z",
+    "checkedAt": "2026-10-27T03:47:43.903Z",
     "source": "ESPN",
     "errors": []
   }
