@@ -58,7 +58,7 @@ async function delay(ms=50){await new Promise(r=>setTimeout(r,ms));}
    assert(member,'Missing crew row '+owner);
    member.open=true;
    call('kingHydrateMember')(member);
-   assert(member.querySelectorAll('.king-member-info .feature-stat').length===4,'Full profile facts missing for '+owner);
+   assert(member.querySelectorAll('.king-member-info > .profile-focus-stage .feature-stat').length===4,'Four profile headline stats missing for '+owner);
    assert.equal(member.querySelectorAll('.king-member-info details.profile-drilldown').length,4);
    assert(!member.textContent.includes('NaN'));
    member.open=false;
