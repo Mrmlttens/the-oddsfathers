@@ -57,14 +57,14 @@ async function delay(ms=50){await new Promise(r=>setTimeout(r,ms));}
    const member=[...d.querySelectorAll('#kingWeekendRows details.king-member')].find(x=>x.dataset.owner===owner);
    assert(member,'Missing crew row '+owner);
    member.open=true;
-   call('kingHydrateMember(document.querySelector("#kingWeekendRows details.king-member[data-owner=\\"'+owner+'\\"]"))');
+   call('kingHydrateMember')(member);
    assert(member.querySelectorAll('.king-member-info .feature-stat').length===4,'Full profile facts missing for '+owner);
    assert.equal(member.querySelectorAll('.king-member-info details.profile-drilldown').length,4);
    assert(!member.textContent.includes('NaN'));
    member.open=false;
  }
  const trey=[...d.querySelectorAll('#kingWeekendRows details.king-member')].find(x=>x.dataset.owner==='Trey');
- trey.open=true;call('kingHydrateMember(document.querySelector("#kingWeekendRows details.king-member[data-owner=\\"Trey\\"]"))');
+ trey.open=true;call('kingHydrateMember')(trey);
  trey.querySelector('[data-profile-panel="badges"]').open=true;
  call('render()');
  const treyAfter=[...d.querySelectorAll('#kingWeekendRows details.king-member')].find(x=>x.dataset.owner==='Trey');
