@@ -28,3 +28,42 @@
 .scenario-bar .bar-pill{min-width:0;white-space:normal;text-align:center;padding:10px 8px;line-height:1.5;overflow-wrap:anywhere}
 .scenario-bar .bar-pill strong{display:block;font-size:18px;line-height:1.2;margin-top:4px}
 .scenario-bar .bar-note{margin-left:0;line-height:1.5}
+
+
+/* King leaderboard: compact, legible rating graphic with zero extra panels. */
+.king-standings{gap:12px;align-items:start}
+.king-panel{padding:18px 20px}
+.king-panel h3{font-size:21px;margin:3px 0 4px}
+.king-panel .subtle{font-size:11px;line-height:1.5}
+.king-person{gap:14px;padding:11px 0;align-items:center}
+.king-person .king-row-main{flex:1;min-width:0}
+.king-person .king-row-head{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0}
+.king-person .king-row-head strong{display:flex;align-items:baseline;gap:8px;min-width:0;font-size:13px}
+.king-person .king-rank{font-size:10px;font-weight:800;color:var(--muted2);font-variant-numeric:tabular-nums}
+.king-first .king-rank{color:var(--gold)}
+.king-person .profile-link{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%;text-align:left}
+.king-person .king-state{font-size:9px;font-weight:750;letter-spacing:.055em;color:var(--muted2);white-space:nowrap}
+.king-person .king-state.is-eligible{color:var(--green)}
+.king-person small{font-size:10px;line-height:1.5;margin-top:5px}
+.king-meter{height:6px;width:100%;border-radius:99px;background:var(--line);overflow:hidden;margin-top:8px}
+.king-meter-fill{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--blue),var(--gold));transition:width .45s ease}
+.king-first .king-meter-fill{background:linear-gradient(90deg,var(--gold),#f9d78b)}
+.king-number{font-size:20px;text-align:right;font-variant-numeric:tabular-nums;min-width:68px}
+.king-number span{font-size:10px}
+.king-scale{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:9px 0 2px;color:var(--muted2);font-size:9px;font-weight:750;letter-spacing:.055em}
+.king-wagers{margin-top:12px;padding:15px 20px}
+.king-wagers>summary{cursor:pointer;font-size:13px;font-weight:750;color:var(--gold)}
+.king-wagers>summary span{font-size:11px;font-weight:400;color:var(--muted);margin-left:7px}
+.king-wagers[open]>summary{margin-bottom:12px}
+.king-rules{margin:12px 0;padding:13px 20px}
+.king-rules>summary{font-size:12px}
+@media(max-width:690px){
+ .king-standings{gap:10px}
+ .king-panel{padding:15px}
+ .king-person{gap:10px;padding:10px 0}
+ .king-person .king-state{font-size:8px}
+ .king-number{font-size:19px;min-width:62px}
+ .king-wagers{padding:13px 15px}
+ .king-rules{padding:12px 15px}
+}
+@media(prefers-reduced-motion:reduce){.king-meter-fill{transition:none}}

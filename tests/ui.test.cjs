@@ -14,6 +14,15 @@ async function delay(ms=50){await new Promise(r=>setTimeout(r,ms));}
  d.querySelector('[data-tab="history"]').click();assert.equal(d.getElementById('historyView').hidden,false);assert.equal(d.querySelectorAll('#historyList details').length,call('bets.filter(b=>b.archivedAt||isFinalTicket(b)).length'));const history=d.querySelector('#historyList details');history.open=true;call('render()');assert(d.querySelector('#historyList details').open);assert(d.querySelector('#historyList .leg').textContent.length>0);
  d.getElementById('historyOwner').value='Trey';d.getElementById('historyOwner').dispatchEvent(new w.Event('change'));assert.equal(d.querySelectorAll('#historyList details').length,call("bets.filter(b=>b.owner==='Trey'&&(b.archivedAt||isFinalTicket(b))).length"));
  d.querySelector('[data-tab="leaderboard"]').click();assert.equal(d.querySelectorAll('#kingWeekendRows .king-person').length,new Set(data.bets.map(b=>b.owner)).size);assert(!d.getElementById('kingStatus').textContent.includes('First 10'));assert(!d.getElementById('kingStatus').textContent.includes('pending approval'));
+ assert(d.querySelectorAll('#kingWeekendRows .king-meter-fill').length===new Set(data.bets.map(b=>b.owner)).size,'Weekend rating graphic missing');
+ assert(d.querySelectorAll('#kingSeasonRows .king-meter-fill').length===new Set(data.bets.map(b=>b.owner)).size,'Season rating graphic missing');
+ assert(d.querySelector('#kingWeekendRows .king-meter-fill').getAttribute('style').includes('width:'));
+ assert.equal(d.querySelector('details.king-wagers').open,false,'Money board should start collapsed');
+ assert(d.getElementById('kingStatus').textContent.includes('5 graded picks'));
+ const receipt=call("popupPointReceipts([{bet:bets[0],leg:bets[0].legs[0]}])")[0];
+ assert.equal(receipt.cumulative,true);
+ assert.equal(receipt.points,receipt.rating,'Popups must show true weekend rating, not fake individual-leg points');
+
  const before=call('KingModel.standings(kingConfig,bets,boardDate(),kingEvaluations()).weekendRows.map(r=>[r.name,r.weekendPoints])');failed=true;await call('refreshLive(true)');call('render()');assert.equal(call('scoreState'),'failed');assert(d.getElementById('feedHealthLabel').textContent.includes('OFFLINE'));assert.deepEqual(call('KingModel.standings(kingConfig,bets,boardDate(),kingEvaluations()).weekendRows.map(r=>[r.name,r.weekendPoints])'),before);
  d.querySelector('[data-tab="dashboard"]').click();d.querySelector('#ticketGrid [data-action="expand"]').click();assert(d.querySelector('#ticketGrid .legs'));assert.equal(errors.length,0,errors.join('\n'));
  console.log('PASS UI: navigation, all 4 profiles, no redundant closest panel, completed-only expandable history, owner filters, scoring, feed outage preserving saved results, ticket expansion.');dom.window.close();

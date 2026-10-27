@@ -1,6 +1,37 @@
 'use strict';
-let popupRatingPrevious=new Map(),popupRatingBudgets=new Map();
+// K.O.T.O. is an accuracy rating, not one independently earned point per leg.
+// Record the signed weekend rating movement once per successful feed refresh.
+let popupRatingPrevious=new Map(),popupRatingChanges=new Map(),popupRatingShown=new Map();
 function popupRatingView(){if(!kingLoaded)return null;return KingModel.standings(kingConfig,bets,boardDate(),kingEvaluations());}
-function refreshPopupPointState(){const view=popupRatingView();if(!view)return;popupRatingBudgets=new Map();for(const w of view.weeks){const key=w.owner+'|'+w.week,previous=popupRatingPrevious.get(key);popupRatingBudgets.set(key,previous===undefined?0:Math.max(0,w.rating-previous));popupRatingPrevious.set(key,w.rating);}}
-function popupPointReceipts(entries,cumulative=false){const view=popupRatingView(),owners=[...new Set(entries.map(e=>e.bet.owner))];if(!view)return owners.map(owner=>({owner,points:null,reason:'rating loading',keys:[]}));return owners.map(owner=>{const own=entries.filter(e=>e.bet.owner===owner),selected=own.flatMap(e=>view.report.selected.filter(r=>r.betId===e.bet.id&&r.legIndex===e.bet.legs.indexOf(e.leg))),week=cumulative?view.week:KingModel.week(legGame(own[0].leg,own[0].bet).date),w=view.weeks.find(w=>w.owner===owner&&w.week===week),key=owner+'|'+week,delta=selected.length?popupRatingBudgets.get(key)||0:0;if(!cumulative)popupRatingBudgets.set(key,0);return {owner,points:cumulative?w?.rating||0:delta,rating:w?.rating||0,week,reason:selected.length?'accuracy updated · '+(w?.hits||0)+' hits · '+(w?.legCredit||0)+'/5 hit credits':'duplicate or tracking-only pick',keys:selected.map(r=>r.key),live:!w?.final,cumulative};});}
-function validatePopupPointReceipts(receipts){const view=popupRatingView();if(!view)return receipts;return receipts.map(r=>{const w=view.weeks.find(w=>w.owner===r.owner&&w.week===r.week);return {...r,rating:w?.rating||0,points:r.cumulative?w?.rating||0:Math.max(0,Math.min(r.points||0,(w?.rating||0))),reason:r.reason};});}
+function refreshPopupPointState(){
+ const view=popupRatingView();if(!view)return;
+ popupRatingChanges=new Map();
+ for(const w of view.weeks){
+  const key=w.owner+'|'+w.week,previous=popupRatingPrevious.get(key);
+  popupRatingChanges.set(key,KingModel.ratingChange(previous,w.rating));
+  popupRatingPrevious.set(key,w.rating);
+ }
+}
+function popupPointReceipts(entries,cumulative=false){
+ const view=popupRatingView(),owners=[...new Set(entries.map(e=>e.bet.owner))];
+ if(!view)return owners.map(owner=>({owner,points:null,rating:null,delta:null,reason:'rating loading',keys:[],cumulative:true}));
+ return owners.map(owner=>{
+  const own=entries.filter(e=>e.bet.owner===owner),week=cumulative?view.week:KingModel.week(legGame(own[0].leg,own[0].bet).date);
+  const selected=own.flatMap(e=>view.report.selected.filter(r=>r.betId===e.bet.id&&r.legIndex===e.bet.legs.indexOf(e.leg)));
+  const w=view.weeks.find(w=>w.owner===owner&&w.week===week),key=owner+'|'+week;
+  return {owner,points:w?.rating??0,rating:w?.rating??0,delta:popupRatingChanges.get(key)??null,week,
+   reason:selected.length?'Accuracy rating, not per-leg CP':'Duplicate or tracking-only pick · no additional rating credit',
+   keys:selected.map(r=>r.key),live:!w?.final,eligible:!!w?.qualifying,cumulative:true};
+ });
+}
+function validatePopupPointReceipts(receipts){
+ const view=popupRatingView();if(!view)return receipts;
+ return receipts.map(r=>{
+  const w=view.weeks.find(w=>w.owner===r.owner&&r.week===w.week);
+  const rating=w?.rating??null,key=r.owner+'|'+r.week;
+  const previous=popupRatingShown.get(key);
+  const delta=rating===null?null:KingModel.ratingChange(previous,rating);
+  if(rating!==null)popupRatingShown.set(key,rating);
+  return {...r,points:rating,rating,delta,live:!w?.final,eligible:!!w?.qualifying,cumulative:true};
+ });
+}
