@@ -54,7 +54,8 @@ function kingWagers(){const names=[...new Set(bets.map(b=>b.owner))].sort();$('l
 function renderLeaderboard(){
  const view=KingModel.standings(kingConfig,bets,boardDate(),kingEvaluations());$('kingSeasonYear').textContent=view.season+' SEASON';$('kingWeekendDate').textContent='WEEK OF '+dateText(view.week).toUpperCase();$('kingSeasonRows').innerHTML=kingRows(view.seasonRows,'season');$('kingWeekendRows').innerHTML=kingRows(view.weekendRows,'weekend');
  const qualifiedWeekCount=Math.max(0,...view.seasonRows.map(r=>r.seasonWeeks));
- $('kingSeasonHint').textContent=qualifiedWeekCount===0?'Official season ratings pending until the Oct 22–28 week closes and all eligible results are final. Bars marked LIVE PREVIEW reflect the current weekend only, not official season points.':'Official season ratings average qualified final weeks only · Three completed weeks required for the title.';
+ const endOfWeek=new Date(view.week+'T12:00:00Z');endOfWeek.setUTCDate(endOfWeek.getUTCDate()+6);
+ $('kingSeasonHint').textContent=qualifiedWeekCount===0?'Official season ratings pending · This week ends '+dateText(endOfWeek.toISOString().slice(0,10))+'. LIVE PREVIEW bars use current results, not official season points.':'Official season ratings average qualified final weeks only · Three completed weeks required for the title.';
  setKingPeriod(kingPeriod);
  const feedDelayed=scoreState==='failed'||livefieldFailures.size>0||scoreboardFailures>0;
  $('kingStatus').textContent=kingDelayed?'Records delayed · showing saved rankings':!kingLoaded?'Loading standings…':(feedDelayed?'Feed delayed · ':'')+'5 graded picks to qualify · Live scores provisional'+(view.issues.length?' · '+view.issues.length+' awaiting verification':'');
