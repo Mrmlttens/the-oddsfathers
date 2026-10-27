@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="./site.css?v=refactor-1">
 <link rel="stylesheet" href="./livefield.css">
 <link rel="stylesheet" href="./celebrations-v2.css?v=oct25-either-td-1">
-<link rel="stylesheet" href="./king.css?v=scenarios-5">
+<link rel="stylesheet" href="./king.css?v=holo-graph-1">
 <link rel="stylesheet" href="./upcoming.css?v=1">
 <link rel="stylesheet" href="./enhancements.css?v=radiance-1">
 </head>
@@ -106,12 +106,39 @@
 <p class="lf-hint">Blue: ball spot · Gold: line to gain · ESPN updates may lag or be corrected. Shared game selector above controls LIVEFIELD.</p></section>
 
 
-      <section id="leaderboardView" class="single-view" hidden>
-        <div class="eyebrow">KING OF THE ODDS · K.O.T.O</div><p id="kingStatus" class="king-status" role="status">Loading contest records…</p>
-        <div class="king-standings">
-          <section class="panel king-panel" aria-labelledby="kingSeasonTitle"><div id="kingSeasonYear" class="eyebrow">SEASON</div><h3 id="kingSeasonTitle">Season rating</h3><p class="subtle">Average of qualifying final weeks · 3 weeks for a season title.</p><div id="kingSeasonRows"></div></section>
-          <section class="panel king-panel" aria-labelledby="kingWeekendTitle"><div id="kingWeekendDate" class="eyebrow">THIS WEEKEND</div><h3 id="kingWeekendTitle">Weekend race</h3><p class="subtle">5 graded picks to qualify · max 105 CP</p><div class="king-scale" aria-hidden="true"><span>0</span><span>RATING / 105</span><span>105</span></div><div id="kingWeekendRows"></div></section>
-        </div>
+      <section id="leaderboardView" class="single-view king-experience" hidden>
+        <section class="king-stage" aria-labelledby="kingStageTitle">
+          <div class="king-stage-top">
+            <div class="king-stage-heading">
+              <div class="eyebrow">KING OF THE ODDS · K.O.T.O</div>
+              <h2 id="kingStageTitle">The Crown <span>Race.</span></h2>
+            </div>
+            <div class="king-controls">
+              <div class="king-period-switch" role="group" aria-label="Leaderboard period">
+                <button id="kingWeekendToggle" type="button" aria-pressed="true" class="active">Weekend</button>
+                <button id="kingSeasonToggle" type="button" aria-pressed="false">Season</button>
+              </div>
+              <button type="button" id="kingQuickRefresh" class="king-quick-refresh" aria-label="Refresh live King scores" title="Refresh live scores">↻</button>
+            </div>
+          </div>
+          <div id="kingWeekendPanel" class="king-graph-pane">
+            <div class="king-graph-head">
+              <span id="kingWeekendDate" class="king-period-label">THIS WEEKEND</span>
+              <span class="king-axis-label">CROWN RATING / 105</span>
+            </div>
+            <div id="kingWeekendRows" class="king-chart-rows" aria-label="Weekend leaderboard bar chart"></div>
+          </div>
+          <div id="kingSeasonPanel" class="king-graph-pane" hidden>
+            <div class="king-graph-head">
+              <span id="kingSeasonYear" class="king-period-label">2026 SEASON</span>
+              <span class="king-axis-label">QUALIFYING WEEK AVERAGE / 105</span>
+            </div>
+            <p id="kingSeasonHint" class="king-season-hint" role="status"></p>
+            <div id="kingSeasonRows" class="king-chart-rows" aria-label="Season leaderboard bar chart"></div>
+          </div>
+          <p id="kingStatus" class="king-stage-status" role="status">Loading contest records…</p>
+        </section>
+        <div class="king-extras-label">MORE DETAILS <span>Explore only if you want</span></div>
         <details class="panel king-rules"><summary>Scoring rules</summary>
 <p><strong>K.O.T.O. · Accuracy first.</strong> Unlimited tracked bets and eligible unique pregame picks. Missing wagers never block points.</p>
 <ul><li>Weekend rating = 100 × correct / max(5, correct + incorrect) + min(5, correct). Maximum 105 CP. Pending and void picks are excluded. Raw accuracy is shown separately.</li>
@@ -125,6 +152,9 @@
 <details class="panel king-rules"><summary>Scoring picks &amp; point explanations</summary><div id="kingScoringAudit"></div></details>
         <details class="panel king-wagers"><summary id="kingWagerTitle">Money board <span>Confirmed wagers &amp; returns</span></summary><p class="king-status">Known confirmed stakes and feed-graded performance. Estimated wagers and unconfirmed placement are excluded.</p><div id="leaderboard"></div><p class="king-status">*Feed net is estimated return minus known wagers on feed-graded tickets, before fees. Confirm all cash results in your sportsbook.</p></details>
         <details class="panel king-rules"><summary>Preview celebrations</summary><div class="celebration-preview-tools"><strong>V2 POPUP TEST</strong> · Sample results only<br><button id="previewTouchdown" type="button" class="btn btn-ghost">Preview touchdown 🏈</button><button id="previewTicketWin" type="button" class="btn btn-ghost">Preview ticket win ♛</button></div></details>
+      </section>
+
+
       </section>
 
       <section id="historyView" class="single-view" hidden>
@@ -144,14 +174,14 @@
   <div class="toast-region" id="toasts" aria-live="polite"></div>
   <script src="./app-state.js?v=refactor-1" defer></script>
 <script src="./app-tracking.js?v=refactor-1" defer></script>
-<script src="./app-views.js?v=radiance-1" defer></script>
+<script src="./app-views.js?v=holo-graph-1" defer></script>
 <script src="./app-controller.js?v=refactor-1" defer></script>
 <script src="./scoped-model.js?v=jeff-scope-1" defer></script>
 <script src="./game-model.js?v=jeff-scope-1" defer></script>
 <script src="./crew-model.js?v=jeff-scope-1" defer></script>
 <script src="./livefield.js?v=jeff-scope-1" defer></script>
 <script src="./king-model.js?v=jeff-scope-1" defer></script>
-<script src="./king.js?v=jeff-scope-1" defer></script>
+<script src="./king.js?v=holo-graph-1" defer></script>
 <script src="./enhancements.js?v=refactor-1" defer></script>
 <script src="./popup-points.js?v=jeff-scope-1" defer></script>
 <script src="./celebrations-v2.js?v=jeff-scope-1" defer></script>

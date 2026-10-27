@@ -246,6 +246,7 @@ function render() {
 }
 function pickView(view) {
   currentView = view;
+  document.querySelector('.shell')?.setAttribute('data-view',view);
   renderGameCenter();
   for (const name of ["dashboard", "leaderboard", "history", "profiles"])
     $(name + "View").hidden = name !== view;

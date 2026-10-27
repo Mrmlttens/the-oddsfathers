@@ -67,3 +67,89 @@
  .king-rules{padding:12px 15px}
 }
 @media(prefers-reduced-motion:reduce){.king-meter-fill{transition:none}}
+
+
+/* K.O.T.O. graph-first holographic screen: other tabs retain their existing theme. */
+.shell[data-view="leaderboard"] .main>.section-heading,
+.shell[data-view="leaderboard"] .main>.stats,
+.shell[data-view="leaderboard"] .main>#feedHealth,
+.shell[data-view="leaderboard"] .main>#recentHits,
+.shell[data-view="leaderboard"] .main>#scenarioBar{display:none!important}
+.shell[data-view="leaderboard"] .main{padding-top:16px}
+.king-experience{width:100%;max-width:980px;margin:0 auto}
+.king-stage{position:relative;isolation:isolate;overflow:hidden;border-radius:17px;border:1px solid rgba(73,127,165,.52);background:linear-gradient(134deg,rgba(18,39,62,.98) 0%,rgba(11,23,38,.99) 47%,rgba(17,42,61,.97) 100%);padding:24px 28px 17px;box-shadow:0 14px 35px rgba(1,8,19,.18),inset 0 1px rgba(217,242,255,.12)}
+.king-stage:before{content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;background:linear-gradient(116deg,transparent 0%,rgba(83,167,208,.065) 33%,transparent 55%,rgba(230,189,107,.035) 84%,transparent 100%);opacity:.8}
+.king-stage:after{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent 2%,rgba(72,154,234,.5) 26%,rgba(138,229,237,.5) 48%,rgba(235,193,110,.5) 74%,transparent 98%);pointer-events:none}
+.king-stage-top{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:26px}
+.king-stage-heading .eyebrow{font-size:10px;letter-spacing:.17em}
+.king-stage-heading h2{font-size:clamp(25px,4vw,34px);letter-spacing:-.035em;margin:7px 0 0;line-height:1.04}
+.king-stage-heading h2 span{background:linear-gradient(96deg,#85bdff 0%,#9deddf 50%,#eac180 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.king-controls{display:flex;gap:9px;align-items:center;flex-shrink:0}
+.king-period-switch{display:inline-flex;align-items:center;gap:3px;border:1px solid rgba(58,96,135,.65);border-radius:12px;padding:4px;background:rgba(4,13,26,.65)}
+.king-period-switch button{font-size:12px;font-weight:750;letter-spacing:.02em;color:#92abc1;border:0;background:transparent;border-radius:8px;padding:10px 15px;min-height:39px;transition:background .18s,color .18s}
+.king-period-switch button.active{color:#ecf8ff;background:linear-gradient(120deg,rgba(47,113,180,.65),rgba(25,69,110,.65));box-shadow:inset 0 1px rgba(214,237,255,.13),0 2px 9px rgba(5,30,63,.42)}
+.king-period-switch button:focus-visible,.king-quick-refresh:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.king-quick-refresh{height:47px;width:42px;border-radius:11px;display:grid;place-items:center;background:rgba(16,34,52,.65);border:1px solid rgba(58,96,135,.65);font-size:22px;color:#9ecbed}
+.king-graph-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:9px}
+.king-period-label{font-size:10px;letter-spacing:.13em;font-weight:850;color:var(--gold)}
+.king-axis-label{font-size:9px;letter-spacing:.10em;font-weight:750;color:#7f9ab4}
+.king-chart-rows{display:grid;gap:1px}
+.king-experience .king-person{display:flex;align-items:center;gap:18px;padding:15px 3px;border-bottom:1px solid rgba(95,139,177,.17);border-radius:4px}
+.king-experience .king-person:last-child{border-bottom:0}
+.king-experience .king-row-main{min-width:0;flex:1}
+.king-experience .king-rank{min-width:26px;align-self:center;font-weight:850;color:#8098ad;font-size:15px;line-height:1.25;font-variant-numeric:tabular-nums;text-align:center}
+.king-experience .king-first .king-rank{color:#e9bb79}
+.king-experience .king-row-head{display:flex;align-items:baseline;justify-content:space-between;gap:7px;margin-bottom:9px}
+.king-experience .king-row-head .profile-link{font-weight:850;font-size:15px;line-height:1.2;color:#e8f2fc;min-width:0;text-align:left;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.king-experience .king-row-head .profile-link:hover{color:#9de3fa}
+.king-experience .king-state{font-size:9px;font-weight:850;letter-spacing:.08em;color:#91a9bb;white-space:nowrap}
+.king-experience .king-state.is-eligible{color:#7ceacb}
+.king-experience .king-meter{height:14px;width:100%;margin-top:0;border-radius:8px;overflow:hidden;border:1px solid rgba(81,138,177,.26);background:rgba(5,15,29,.72);box-shadow:inset 0 1px 4px rgba(0,0,0,.35)}
+.king-experience .king-meter-fill{height:100%;border-radius:7px;position:relative;display:block;background:linear-gradient(90deg,#225ba8 0%,#398fca 44%,#77c9c9 83%,#c9d5a2 100%);box-shadow:0 0 14px rgba(62,154,218,.23),inset 0 1px rgba(255,255,255,.21)}
+.king-experience .king-first .king-meter-fill{background:linear-gradient(90deg,#2a73bd,#71c7d3 52%,#f3cf8a);box-shadow:0 0 18px rgba(120,203,221,.23),inset 0 1px rgba(255,255,255,.3)}
+.king-experience .king-meter-fill:after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(255,255,255,.13),transparent 36%,rgba(255,255,255,.025) 60%,transparent);pointer-events:none}
+.king-experience .king-person small{display:block;font-size:11px;margin-top:7px;color:#879fb5;line-height:1.2}
+.king-experience .king-number{font-size:clamp(20px,3vw,28px);min-width:90px;text-align:right;font-weight:900;letter-spacing:-.03em;color:#e9f8ff;font-variant-numeric:tabular-nums}
+.king-experience .king-first .king-number{color:#f4ce88}
+.king-experience .king-number span{display:block;color:#809bb2;font-size:10px;font-weight:750;letter-spacing:.1em}
+.king-experience .king-unranked .king-number,.king-experience .king-unranked .king-rank{color:#698199}
+.king-experience .king-unranked .king-meter{opacity:.55}
+.king-season-hint{color:#a7bccd;font-size:11px;line-height:1.55;margin:0 0 9px}
+.king-stage-status{font-size:10px;color:#8ca6ba;line-height:1.5;border-top:1px solid rgba(95,139,177,.20);padding-top:11px;margin:12px 0 0}
+.king-extras-label{font-size:10px;font-weight:850;letter-spacing:.14em;color:#91a9bd;margin:24px 4px 8px}
+.king-extras-label span{font-size:10px;letter-spacing:normal;text-transform:none;color:#607a94;font-weight:500;margin-left:8px}
+.king-experience .king-rules,.king-experience .king-wagers{background:rgba(12,25,40,.56);border-color:rgba(63,101,138,.38);border-radius:10px;box-shadow:none;margin:7px 0;padding:12px 15px}
+.king-experience .king-rules>summary,.king-experience .king-wagers>summary{color:#adc6db;font-size:12px;font-weight:750}
+.king-experience .king-rules[open],.king-experience .king-wagers[open]{background:#0c1a2c}
+.king-experience .king-rules[open]>summary,.king-experience .king-wagers[open]>summary{color:#f0c88a}
+@media(max-width:690px){
+ .shell[data-view="leaderboard"] .main{padding:10px 13px 40px}
+ .king-stage{border-radius:14px;padding:17px 15px 11px}
+ .king-stage-top{align-items:flex-start;gap:9px;margin-bottom:20px}
+ .king-stage-heading .eyebrow{font-size:8px;letter-spacing:.11em}
+ .king-stage-heading h2{font-size:clamp(21px,6vw,28px);margin-top:5px}
+ .king-controls{gap:5px}
+ .king-period-switch{padding:3px;border-radius:9px}
+ .king-period-switch button{font-size:11px;padding:8px 10px;min-height:34px}
+ .king-quick-refresh{height:41px;width:32px;font-size:18px;border-radius:9px}
+ .king-graph-head{gap:6px;margin-bottom:7px}
+ .king-period-label{font-size:9px}
+ .king-axis-label{font-size:8px;letter-spacing:.05em}
+ .king-experience .king-person{gap:10px;padding:12px 0}
+ .king-experience .king-rank{min-width:20px;font-size:12px}
+ .king-experience .king-row-head{margin-bottom:7px;gap:3px}
+ .king-experience .king-row-head .profile-link{font-size:14px}
+ .king-experience .king-state{font-size:8px;letter-spacing:.02em}
+ .king-experience .king-meter{height:15px}
+ .king-experience .king-person small{font-size:10px;margin-top:6px}
+ .king-experience .king-number{min-width:65px;font-size:20px}
+ .king-experience .king-number span{font-size:9px}
+ .king-extras-label{margin-top:17px}
+}
+@media(max-width:385px){
+ .king-stage-top{flex-wrap:wrap}
+ .king-controls{width:100%;justify-content:space-between}
+ .king-experience .king-person{gap:7px}
+ .king-experience .king-number{min-width:58px;font-size:19px}
+}
+@media(prefers-reduced-motion:reduce){.king-experience .king-meter-fill,.king-period-switch button{transition:none}}

@@ -19,6 +19,29 @@ async function delay(ms=50){await new Promise(r=>setTimeout(r,ms));}
  assert(d.querySelector('#kingWeekendRows .king-meter-fill').getAttribute('style').includes('width:'));
  assert.equal(d.querySelector('details.king-wagers').open,false,'Money board should start collapsed');
  assert(d.getElementById('kingStatus').textContent.includes('5 graded picks'));
+ assert.equal(d.querySelector('.shell').dataset.view,'leaderboard','King must have a scoped clean-screen layout');
+ assert.equal(d.getElementById('kingWeekendPanel').hidden,false,'Weekend chart starts visible');
+ assert.equal(d.getElementById('kingSeasonPanel').hidden,true,'Season chart starts hidden');
+ assert.equal(d.getElementById('kingWeekendToggle').getAttribute('aria-pressed'),'true');
+ const seasonStandings=call('KingModel.standings(kingConfig,bets,boardDate(),kingEvaluations()).seasonRows');
+ d.getElementById('kingSeasonToggle').click();
+ assert.equal(d.getElementById('kingWeekendPanel').hidden,true,'Weekend panel collapses when selecting Season');
+ assert.equal(d.getElementById('kingSeasonPanel').hidden,false,'Season chart visible');
+ assert.equal(d.getElementById('kingSeasonToggle').getAttribute('aria-pressed'),'true');
+ assert(d.getElementById('kingSeasonHint').textContent.length>15,'Season has a plain-language explanation');
+ for(const row of Array.from(d.querySelectorAll('#kingSeasonRows .king-person'))){
+   const name=row.querySelector('.profile-link').textContent,entry=seasonStandings.find(r=>r.name===name);
+   if(entry.seasonWeeks===0){
+     assert.equal(row.querySelector('.king-number').textContent.trim(),'—','Zero qualifying weeks must never look like zero CP');
+     assert(row.classList.contains('king-unranked'));
+     assert.equal(row.querySelector('.king-meter-fill').style.width,'0%');
+   }
+ }
+ d.getElementById('kingWeekendToggle').click();
+ assert.equal(d.getElementById('kingWeekendPanel').hidden,false);
+ assert.equal(d.getElementById('kingSeasonPanel').hidden,true);
+ assert.equal(d.getElementById('kingWeekendToggle').getAttribute('aria-pressed'),'true');
+
  const receipt=call("popupPointReceipts([{bet:bets[0],leg:bets[0].legs[0]}])")[0];
  assert.equal(receipt.cumulative,true);
  assert.equal(receipt.points,receipt.rating,'Popups must show true weekend rating, not fake individual-leg points');
