@@ -51,8 +51,9 @@ function setKingPeriod(period){
  $('kingSeasonToggle').setAttribute('aria-pressed',String(season));
 }
 function kingWagers(){const names=[...new Set(bets.map(b=>b.owner))].sort();$('leaderboard').innerHTML='<div class="king-table-wrap"><table class="king-table"><thead><tr><th>CREW</th><th>KNOWN WAGERS</th><th>FEED RETURN</th><th>FEED NET*</th></tr></thead><tbody>'+names.map(name=>{const all=bets.filter(b=>b.owner===name),c=CrewModel.cashStats(all,ticketStatus,isFinalTicket);return `<tr><th scope="row"><button class="profile-link" data-profile="${esc(name)}">${esc(name)}</button><br><small>${c.known} confirmed stakes · ${c.unverified} unverified</small></th><td>${c.known?money(c.wager):'—'}</td><td>${c.settled?money(c.returned):'—'}</td><td class="${c.net<0?'negative':''}">${c.net===null?'—':money(c.net)}</td></tr>`;}).join('')+'</tbody></table></div>';}
-function renderLeaderboard(){
- const view=KingModel.standings(kingConfig,bets,boardDate(),kingEvaluations());$('kingSeasonYear').textContent=view.season+' SEASON';$('kingWeekendDate').textContent='WEEK OF '+dateText(view.week).toUpperCase();$('kingSeasonRows').innerHTML=kingRows(view.seasonRows,'season');$('kingWeekendRows').innerHTML=kingRows(view.weekendRows,'weekend');
+function renderLeaderboard(tickerOnly=false){
+ const view=KingModel.standings(kingConfig,bets,boardDate(),kingEvaluations());
+ if(!tickerOnly){$('kingSeasonYear').textContent=view.season+' SEASON';$('kingWeekendDate').textContent='WEEK OF '+dateText(view.week).toUpperCase();$('kingSeasonRows').innerHTML=kingRows(view.seasonRows,'season');$('kingWeekendRows').innerHTML=kingRows(view.weekendRows,'weekend');
  const qualifiedWeekCount=Math.max(0,...view.seasonRows.map(r=>r.seasonWeeks));
  const endOfWeek=new Date(view.week+'T12:00:00Z');endOfWeek.setUTCDate(endOfWeek.getUTCDate()+6);
  $('kingSeasonHint').textContent=qualifiedWeekCount===0?'Official season ratings pending · This week ends '+dateText(endOfWeek.toISOString().slice(0,10))+'. LIVE PREVIEW bars use current results, not official season points.':'Official season ratings average qualified final weeks only · Three completed weeks required for the title.';
@@ -60,6 +61,7 @@ function renderLeaderboard(){
  const feedDelayed=scoreState==='failed'||livefieldFailures.size>0||scoreboardFailures>0;
  $('kingStatus').textContent=kingDelayed?'Records delayed · showing saved rankings':!kingLoaded?'Loading standings…':(feedDelayed?'Feed delayed · ':'')+'5 graded picks to qualify · Live scores provisional'+(view.issues.length?' · '+view.issues.length+' awaiting verification':'');
  renderScoringAudit(view);kingWagers();
+ }
  const lead=rows=>{const valid=rows.filter(r=>r.weekendEligible||(r.seasonWeeks>0));if(!kingLoaded||!valid.length)return 'Awaiting records';const top=valid[0];return esc(top.name)+' <strong>'+kingPoints(top.weekendPoints)+' CP</strong>';};
  const season=view.seasonRows.filter(r=>r.seasonWeeks>0),parts=['<span>WEEKEND · '+lead(view.weekendRows)+'</span>','<span>SEASON · '+(season.length?esc(season[0].name)+' '+kingPoints(season[0].seasonPoints)+' avg CP':'awaiting first final week')+'</span>',...view.events.slice(0,4).map(e=>'<span><strong>'+esc(e.owner)+'</strong> · '+esc(e.title)+' HIT'+(e.live?' · LIVE':' · FINAL')+'</span>')];
  const ticker=parts.join('');if(ticker!==kingTickerSignature){kingTickerSignature=ticker;$('kingTickerGroup').innerHTML=ticker;$('kingTickerCopy').innerHTML=ticker;kingFitTicker();}
