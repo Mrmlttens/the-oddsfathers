@@ -65,6 +65,7 @@ function fillOwners(id, value) {
 }
 function renderProfiles() {
   if (!$("profileDetail")) return;
+  const openSections=new Set([...$("profileDetail").querySelectorAll("details[data-profile-panel][open]")].map(d=>d.dataset.profilePanel));
   if (!bets.length) {
     $("profileDetail").innerHTML =
       '<p class="profile-empty">Profiles appear when crew tickets load.</p>';
@@ -104,6 +105,36 @@ function renderProfiles() {
      .join("") ||
    '<p class="profile-empty">Waiting for final player results.</p>'
  }</section></div>`;
+  // Keep the XP/profile summary visible and make all other stats opt-in.
+  const mount=$("profileDetail"),hero=mount.firstElementChild;
+  hero.classList.add("holo-stage","profile-focus-stage");
+  const initialNote=hero.querySelector(":scope > p.feature-muted");
+  if(initialNote){initialNote.classList.add("profile-xp-note");initialNote.hidden=true;}
+  const milestone=document.createElement("p");
+  milestone.className="profile-milestone";
+  milestone.textContent=p.crowns+" weekend crowns · "+(p.badges[0]?.name||"Achievements unlock with final results");
+  hero.append(milestone);
+  const children=[...mount.children].slice(1);
+  const groups=[
+    {id:"career",title:"Career & money",hint:"Streaks, payouts, records"},
+    {id:"badges",title:"Achievements",hint:"Earned medals"},
+    {id:"breakdown",title:"Pick intelligence",hint:"Players and markets"}
+  ];
+  children.forEach((el,i)=>{
+    const group=groups[i],details=document.createElement("details"),summary=document.createElement("summary");
+    details.className="holo-more profile-drilldown";details.dataset.profilePanel=group.id;
+    details.open=openSections.has(group.id);
+    summary.textContent=group.title;
+    const hint=document.createElement("span");hint.textContent=group.hint;summary.append(hint);
+    details.append(summary,el);mount.append(details);
+  });
+  const rules=document.createElement("details");
+  rules.className="holo-more profile-drilldown";rules.dataset.profilePanel="rules";
+  rules.open=openSections.has("rules");
+  const label=document.createElement("summary");label.textContent="How XP works";
+  const expl=document.createElement("p");expl.className="feature-muted";
+  expl.textContent="XP is cosmetic: 10 per final unique graded pick + 25 per feed-graded ticket win. Crown Points use a separate accuracy rating.";
+  rules.append(label,expl);mount.append(rules);
 }
 function renderHistory() {
   if (!$("historyList")) return;
@@ -120,8 +151,15 @@ function renderHistory() {
           (historyOwner === "all" || b.owner === historyOwner) &&
           (historyStatus === "all" || ticketStatus(b) === historyStatus),
       )
-      .sort((a, b) => (b.createdAt || "").localeCompare(a.createdAt || ""));
-  $("historyCount").textContent = list.length + " completed tickets";
+      .sort((a,b)=>String(b.game?.date||"").localeCompare(String(a.game?.date||""))||(b.createdAt||"").localeCompare(a.createdAt||""));
+  $("historyCount").textContent=list.length+" completed";
+  const wins=list.filter(b=>ticketStatus(b)==="won").length,
+    losses=list.filter(b=>ticketStatus(b)==="lost").length,
+    review=list.length-wins-losses;
+  $("historySummary").innerHTML=[
+    ["TICKETS",list.length],["WON",wins],["LOST",losses],["REVIEW",review]
+  ].map(([label,value])=>'<div><strong>'+value+'</strong><span>'+label+'</span></div>').join("");
+  let lastDate="";
   $("historyList").innerHTML =
     list
       .map((b) => {
@@ -133,7 +171,10 @@ function renderHistory() {
             (st === "lost" || (!b.payoutEstimated && Number.isFinite(b.payout)))
               ? (st === "won" ? b.payout : 0) - b.stake
               : null;
-        return `<details class="history-ticket" data-id="${esc(b.id)}" ${opened.has(b.id) ? "open" : ""}><summary><span class="leg-symbol ${st}">${st === "won" ? "✓" : st === "lost" ? "✕" : "·"}</span><div class="hist-body"><strong>${esc(b.title)}</strong><p>${esc(b.owner)} · ${esc(dateText(b.game.date))} · ${b.legs.length} legs · ${esc(st.toUpperCase())}</p></div><span class="hist-pay">${net === null ? "—" : money(net)}</span></summary><div class="history-money"><span>WAGER${b.stakeEstimated ? " · EST." : ""}<b>${money(b.stake)}</b></span><span>LISTED RETURN${b.payoutEstimated ? " · EST." : ""}<b>${money(b.payout)}</b></span><span>FEED NET<b>${net === null ? "—" : money(net)}</b></span></div><p class="feature-muted">${b.placed === false ? "Placement unconfirmed. " : ""}Feed grades; verify sportsbook settlement. <button class="profile-link" data-profile="${esc(b.owner)}">View ${esc(b.owner)}’s profile ↗</button></p><div class="legs">${b.legs
+        const gameDate=b.game?.date||"",dateHeader=gameDate!==lastDate?
+          '<div class="history-date">'+esc(dateText(gameDate))+'</div>':"";
+        lastDate=gameDate;
+        return dateHeader+`<details class="history-ticket" data-id="${esc(b.id)}" ${opened.has(b.id) ? "open" : ""}><summary><span class="leg-symbol ${st}">${st === "won" ? "✓" : st === "lost" ? "✕" : "·"}</span><div class="hist-body"><strong>${esc(b.title)}</strong><p>${esc(b.owner)} · ${esc(dateText(b.game.date))} · ${b.legs.length} legs · ${esc(st.toUpperCase())}</p></div><span class="hist-pay ${st}">${esc(st.toUpperCase())}</span></summary><div class="history-money"><span>WAGER${b.stakeEstimated ? " · EST." : ""}<b>${money(b.stake)}</b></span><span>LISTED RETURN${b.payoutEstimated ? " · EST." : ""}<b>${money(b.payout)}</b></span><span>FEED NET<b>${net === null ? "—" : money(net)}</b></span></div><p class="feature-muted">${b.placed === false ? "Placement unconfirmed. " : ""}Feed grades; verify sportsbook settlement. <button class="profile-link" data-profile="${esc(b.owner)}">View ${esc(b.owner)}’s profile ↗</button></p><div class="legs">${b.legs
           .map((l) => {
             const v = evalLeg(l, b),
               g = legGame(l, b);

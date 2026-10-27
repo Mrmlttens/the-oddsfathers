@@ -32,3 +32,134 @@
 @supports not (mask-composite: exclude) {
   .ticket.ticket-radiant::after { display: none; }
 }
+
+
+/* Dedicated full-focus pages. Hide War Room-only chrome without changing its markup. */
+.shell[data-view="history"] .main>.section-heading,
+.shell[data-view="history"] .main>.stats,
+.shell[data-view="history"] .main>#feedHealth,
+.shell[data-view="history"] .main>#recentHits,
+.shell[data-view="history"] .main>#scenarioBar,
+.shell[data-view="profiles"] .main>.section-heading,
+.shell[data-view="profiles"] .main>.stats,
+.shell[data-view="profiles"] .main>#feedHealth,
+.shell[data-view="profiles"] .main>#recentHits,
+.shell[data-view="profiles"] .main>#scenarioBar{display:none!important}
+.shell[data-view="history"] .main,.shell[data-view="profiles"] .main{padding-top:16px}
+.holo-view{max-width:980px;margin:0 auto}
+.holo-stage{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(135deg,rgba(18,39,62,.98),rgba(9,21,37,.99) 63%,rgba(14,35,53,.98));border:1px solid rgba(76,137,177,.5);border-radius:16px;box-shadow:0 14px 36px rgba(0,7,18,.2),inset 0 1px rgba(222,248,255,.11)}
+.holo-stage::before{content:"";pointer-events:none;position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(99,174,226,.58),rgba(118,227,215,.46),rgba(242,193,123,.48),transparent)}
+.holo-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:15px}
+.holo-head h2{font-size:clamp(24px,4vw,32px);letter-spacing:-.035em;margin:4px 0 3px;line-height:1.1}
+.holo-head h2 span{background:linear-gradient(100deg,#8ac2ff,#a0e6dd,#e7c183);background-clip:text;-webkit-background-clip:text;color:transparent}
+.holo-subtitle{font-size:11px;color:#94adc2;margin:4px 0;line-height:1.45}
+.holo-count{font-size:11px;color:#acc8db;border:1px solid rgba(105,156,188,.3);background:rgba(6,19,33,.5);padding:7px 9px;border-radius:9px;white-space:nowrap}
+.holo-more{border:1px solid rgba(63,101,138,.38);background:rgba(12,25,40,.58);border-radius:10px;margin:7px 0;padding:13px 16px}
+.holo-more>summary{cursor:pointer;color:#b3cbdc;font-size:13px;font-weight:750;line-height:1.35}
+.holo-more>summary span{display:inline-block;color:#829cb2;font-size:11px;font-weight:400;margin-left:9px}
+.holo-more[open]{background:rgba(15,30,47,.9)}
+.holo-more[open]>summary{color:#ecc788;margin-bottom:10px}
+.holo-more p{color:#9cafbf;font-size:11px;line-height:1.6}
+.holo-more:focus-within,.holo-view select:focus-visible{outline:2px solid #d2bc8e;outline-offset:2px}
+.holo-detail-content{padding:5px 3px 2px}
+.holo-explore-heading{font-size:10px;font-weight:800;color:#a2b8ca;letter-spacing:.13em;margin:17px 4px 7px}
+.holo-explore-heading span{font-size:10px;font-weight:400;color:#7891a7;letter-spacing:normal;margin-left:8px}
+
+/* History: one timeline and a small summary. Money & all original legs remain expandable. */
+.history-stage{padding:23px 26px 18px}
+.history-snapshot{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:0 0 13px}
+.history-snapshot>div{padding:11px 6px;background:rgba(5,18,34,.52);border:1px solid rgba(74,128,161,.24);border-radius:9px;text-align:center}
+.history-snapshot strong{display:block;font-size:21px;color:#ebf5fc;line-height:1.2;font-variant-numeric:tabular-nums}
+.history-snapshot span{display:block;margin-top:4px;font-size:9px;letter-spacing:.08em;font-weight:700;color:#86a5bf}
+.history-filters{display:flex;gap:10px;margin:0 0 17px}
+.history-filters label{display:flex;flex:1;min-width:0;flex-direction:column;gap:6px;font-size:10px;color:#91b2c9;letter-spacing:.06em;font-weight:750}
+.history-filters select{width:100%;flex:auto;min-width:0;font-size:12px;padding:9px 10px;background:rgba(3,17,30,.78)}
+.history-date{color:#e8bd7c;font-size:10px;font-weight:800;letter-spacing:.11em;padding:11px 2px 6px;border-bottom:1px solid rgba(80,140,184,.21)}
+.history-timeline .history-ticket{padding:0;border-top:0;border-bottom:1px solid rgba(95,144,175,.2)}
+.history-timeline .history-ticket>summary{padding:12px 3px;gap:9px}
+.history-timeline .history-ticket>summary::after{font-size:13px;color:#7daebd}
+.history-timeline .hist-body strong{display:block;font-size:13px;font-weight:750;line-height:1.3}
+.history-timeline .hist-body p{font-size:10px;color:#86a4bc;margin:5px 0 0}
+.history-timeline .hist-pay{font-size:9px;letter-spacing:.08em;font-weight:850;color:#c1d6e5;white-space:nowrap}
+.history-timeline .hist-pay.won{color:#7ce7ba}
+.history-timeline .hist-pay.lost{color:#ee8c9e}
+.history-timeline .hist-pay.review{color:#e9c383}
+.history-timeline .history-ticket[open]{background:rgba(17,37,57,.4);padding:0 10px 12px}
+.history-timeline .history-ticket .legs{margin-top:11px}
+.history-timeline .history-money{padding:0 2px}
+
+/* Profiles: clear XP progress and 4 small core stats. All rich analytics live in disclosure panels. */
+.holo-profile-picker{display:flex;align-items:center;gap:12px;margin:2px 0 11px}
+.holo-profile-picker label{color:#dcb679;font-size:10px;letter-spacing:.12em;font-weight:850}
+.holo-profile-picker select{flex:1;min-width:0;max-width:230px;background:#12273b;color:#e5f4ff;border:1px solid rgba(79,135,172,.5);border-radius:9px;padding:11px;font-weight:750}
+.profile-focus-stage{padding:22px 24px 18px;margin:0 0 8px}
+.profile-focus-stage .profile-hero{gap:15px}
+.profile-focus-stage .profile-emblem{height:74px;width:70px;box-shadow:0 0 18px rgba(99,192,222,.09)}
+.profile-focus-stage .rank-tag{margin-top:5px}
+.profile-focus-stage .profile-hero h3{font-size:clamp(24px,4vw,30px);margin:2px 0}
+.profile-focus-stage .xp-track{height:9px;background:rgba(6,15,29,.76);border:1px solid rgba(84,153,181,.24);box-shadow:inset 0 1px 4px #040e1b;margin:9px 0}
+.profile-focus-stage .xp-track i{background:linear-gradient(90deg,#246aaa,#5cbcd1 60%,#e8c783);box-shadow:0 0 10px rgba(95,192,219,.23)}
+.profile-focus-stage .feature-grid{gap:8px;margin-top:15px;grid-template-columns:repeat(4,minmax(0,1fr))}
+.profile-focus-stage .feature-stat{padding:10px 11px;background:rgba(5,18,32,.6);border-color:rgba(69,123,162,.25)}
+.profile-focus-stage .feature-stat strong{font-size:21px;line-height:1.22}
+.profile-focus-stage .feature-stat span{font-size:9px;margin-bottom:6px;letter-spacing:.04em}
+.profile-focus-stage .feature-stat small{font-size:10px;line-height:1.5}
+.profile-milestone{margin:13px 0 0;color:#d9b67c;font-size:11px;padding-top:10px;border-top:1px solid rgba(97,147,178,.21)}
+.profile-drilldown .profile-two{gap:12px}
+.profile-drilldown .feature-panel{margin:0 0 9px;padding:14px}
+.profile-drilldown .feature-panel h3{font-size:17px}
+.profile-drilldown .record-row{padding:10px 0}
+.profile-drilldown .feature-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.profile-drilldown .feature-stat{padding:10px}
+.profile-drilldown .feature-stat strong{font-size:17px}
+@media(max-width:690px){
+ .shell[data-view="history"] .main,.shell[data-view="profiles"] .main{padding:10px 13px 42px}
+ .history-stage{padding:16px 14px 13px;border-radius:13px}
+ .holo-head{align-items:flex-start;gap:7px}
+ .holo-head h2{font-size:25px}
+ .holo-count{font-size:10px;padding:7px}
+ .history-snapshot{gap:5px}
+ .history-snapshot>div{padding:9px 4px}
+ .history-snapshot strong{font-size:18px}
+ .history-snapshot span{font-size:8px}
+ .history-timeline .hist-body strong{font-size:12px}
+ .history-timeline .hist-pay{font-size:8px}
+ .holo-more{padding:12px 13px}
+ .profile-focus-stage{padding:17px 15px}
+ .profile-focus-stage .profile-emblem{width:55px;height:62px;font-size:26px}
+ .profile-focus-stage .profile-hero{gap:10px}
+ .profile-focus-stage .feature-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+ .profile-focus-stage .feature-stat{padding:9px}
+ .profile-focus-stage .feature-stat strong{font-size:19px}
+}
+@media(max-width:380px){
+ .history-stage{padding:13px 11px}
+ .holo-head h2{font-size:23px}
+ .history-filters{gap:7px}
+ .history-timeline .hist-pay{font-size:8px}
+ .profile-focus-stage .profile-emblem{width:48px;height:55px}
+}
+
+/* War Room compact ticket mode: no content is removed or clipped. */
+.shell[data-view="dashboard"] .ticket-grid{gap:10px}
+.shell[data-view="dashboard"] .ticket-top{padding:7px 11px 7px 12px}
+.shell[data-view="dashboard"] .ticket-content{padding:11px 12px 12px}
+.shell[data-view="dashboard"] .ticket-title{min-height:0;gap:8px}
+.shell[data-view="dashboard"] .ticket-title h4{font-size:15px;line-height:1.22;overflow-wrap:anywhere}
+.shell[data-view="dashboard"] .ticket-odds{font-size:16px}
+.shell[data-view="dashboard"] .matchup{font-size:10px;gap:5px;margin:6px 0 7px;flex-wrap:wrap}
+.shell[data-view="dashboard"] .teamchips{gap:6px;min-height:24px;margin:9px 0 9px;flex-wrap:wrap}
+.shell[data-view="dashboard"] .teamchip{gap:4px;padding:4px 6px;font-size:11px}
+.shell[data-view="dashboard"] .teamchip img{height:18px;width:18px}
+.shell[data-view="dashboard"] .ticket-bottom{padding-top:9px}
+.shell[data-view="dashboard"] .ticket-bottom .dollars{font-size:17px}
+.shell[data-view="dashboard"] .ticket-bottom .micro{font-size:8px;letter-spacing:.05em}
+.shell[data-view="dashboard"] .progressbox{margin-top:9px}
+.shell[data-view="dashboard"] .progressrow{margin-bottom:5px}
+.shell[data-view="dashboard"] .progressdots{gap:3px}
+.shell[data-view="dashboard"] .ticket-buttons{margin-top:10px;gap:6px}
+.shell[data-view="dashboard"] .ticket-buttons .btn{padding:9px 11px;font-size:11px;min-height:36px}
+.shell[data-view="dashboard"] .ticket-buttons .smallicon{padding:9px 11px}
+@media(prefers-reduced-motion:reduce){
+ .holo-stage::before{transition:none}
+}
