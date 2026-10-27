@@ -252,8 +252,8 @@ $("historyStatus").addEventListener("change", (e) => {
 document.addEventListener("click", (e) => {
   const member = e.target.closest("[data-profile]");
   if (member) {
+    e.preventDefault();
     profileOwner = member.dataset.profile;
-    pickView("profiles");
-    $("profilesView").scrollIntoView({ behavior: "smooth", block: "start" });
+    kingExpandMember(profileOwner);
   }
 });
