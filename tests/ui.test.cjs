@@ -12,12 +12,22 @@ async function delay(ms=50){await new Promise(r=>setTimeout(r,ms));}
 
  assert.equal(d.querySelector('.shell').dataset.view,'dashboard','Initial screen should use compact War Room styling');
  for(const el of d.querySelectorAll('#ticketGrid .ticket')){
-  for(const cls of ['.ticket-title','.teamchips','.ticket-bottom','.progressbox','.ticket-buttons'])
-   assert(el.querySelector(cls),'Compact ticket missing '+cls);
+  for(const cls of ['.ticket-title','.teamchips','.ticket-bottom','.progressbox','.ticket-buttons','.ticket-odds','.ticket-no','.ticket-owner','.matchup'])
+   assert(el.querySelector(cls),'Micro ticket missing '+cls);
+  assert.equal(w.getComputedStyle(el.querySelector('.ticket-content')).display,'grid','Micro ticket must have compact grid layout');
+  assert(el.querySelector('[data-action="expand"]'),'Tracking details must remain accessible');
+  assert(el.querySelector('[data-action="share"]'),'Sharing must remain available');
+  assert(el.querySelector('.p-dot'),'Leg-level status indicators must remain');
+  assert.equal(el.querySelectorAll('.teamchip').length,2,'Both teams remain shown');
  }
+
+ // Navigation must not redraw expensive hidden screens or destroy their state.
+ const firstTicketNode=d.querySelector('#ticketGrid .ticket');
  d.querySelector('[data-tab="profiles"]').click();assert.equal(d.getElementById('profilesView').hidden,false);assert.equal(d.getElementById('dashboardView').hidden,true);assert(d.getElementById('profileDetail').textContent.includes('Trey'));assert.equal(d.getElementById('livefield').hidden,true);assert.equal(d.getElementById('upcomingGames').hidden,true);
  for(const name of ['Gabe','Jeff','Rodman','Trey']){const el=d.getElementById('profileSelect');el.value=name;el.dispatchEvent(new w.Event('change'));assert(d.querySelector('#profileDetail .profile-hero h3').textContent.includes(name));assert(!d.getElementById('profileDetail').textContent.includes('NaN'));}
 
+
+ assert.strictEqual(d.querySelector('#ticketGrid .ticket'),firstTicketNode,'Switching to profile rebuilt hidden ticket cards');
  assert.equal(d.querySelector('.shell').dataset.view,'profiles');
  assert(d.querySelector('#profileDetail > .profile-focus-stage'),'Profile XP hero missing');
  assert.equal(d.querySelectorAll('#profileDetail > details.profile-drilldown').length,4);
@@ -26,19 +36,30 @@ async function delay(ms=50){await new Promise(r=>setTimeout(r,ms));}
  d.querySelector('#profileDetail > details[data-profile-panel="badges"]').open=true;
  call('renderProfiles()');
  assert(d.querySelector('#profileDetail > details[data-profile-panel="badges"]').open,'Expanded profile details must survive rerender');
+
+ const heroNode=d.querySelector('#profileDetail > .profile-focus-stage');
  d.querySelector('[data-tab="history"]').click();assert.equal(d.getElementById('historyView').hidden,false);assert.equal(d.querySelectorAll('#historyList details').length,call('bets.filter(b=>b.archivedAt||isFinalTicket(b)).length'));
+
+ assert.strictEqual(d.querySelector('#profileDetail > .profile-focus-stage'),heroNode,'History navigation rebuilt hidden profile');
  assert.equal(d.querySelector('.shell').dataset.view,'history');
  assert.equal(d.querySelectorAll('#historySummary > div').length,4,'Missing mini summary');
  assert(d.querySelectorAll('#historyList .history-date').length>0,'Missing date grouping');
  assert(/WON|LOST|REVIEW/.test(d.querySelector('#historyList .history-ticket .hist-pay').textContent),'Archive should lead with status');
  const history=d.querySelector('#historyList details');history.open=true;call('render()');assert(d.querySelector('#historyList details').open);assert(d.querySelector('#historyList .leg').textContent.length>0);
  d.getElementById('historyOwner').value='Trey';d.getElementById('historyOwner').dispatchEvent(new w.Event('change'));assert.equal(d.querySelectorAll('#historyList details').length,call("bets.filter(b=>b.owner==='Trey'&&(b.archivedAt||isFinalTicket(b))).length"));
+
+ const openHistoryNode=d.querySelector('#historyList .history-ticket');
+ assert(openHistoryNode,'Expected history results');
  d.querySelector('[data-tab="leaderboard"]').click();assert.equal(d.querySelectorAll('#kingWeekendRows .king-person').length,new Set(data.bets.map(b=>b.owner)).size);assert(!d.getElementById('kingStatus').textContent.includes('First 10'));assert(!d.getElementById('kingStatus').textContent.includes('pending approval'));
  assert(d.querySelectorAll('#kingWeekendRows .king-meter-fill').length===new Set(data.bets.map(b=>b.owner)).size,'Weekend rating graphic missing');
  assert(d.querySelectorAll('#kingSeasonRows .king-meter-fill').length===new Set(data.bets.map(b=>b.owner)).size,'Season rating graphic missing');
  assert(d.querySelector('#kingWeekendRows .king-meter-fill').getAttribute('style').includes('width:'));
  assert.equal(d.querySelector('details.king-wagers').open,false,'Money board should start collapsed');
  assert(d.getElementById('kingStatus').textContent.includes('5 graded picks'));
+
+ assert.strictEqual(d.querySelector('#historyList .history-ticket'),openHistoryNode,'Leaderboard navigation rebuilt hidden history');
+ call('render()');
+ assert.strictEqual(d.querySelector('#historyList .history-ticket'),openHistoryNode,'Live refresh must preserve inactive history DOM');
  assert.equal(d.querySelector('.shell').dataset.view,'leaderboard','King must have a scoped clean-screen layout');
  assert.equal(d.getElementById('kingWeekendPanel').hidden,false,'Weekend chart starts visible');
  assert.equal(d.getElementById('kingSeasonPanel').hidden,true,'Season chart starts hidden');
@@ -52,9 +73,16 @@ async function delay(ms=50){await new Promise(r=>setTimeout(r,ms));}
  for(const row of Array.from(d.querySelectorAll('#kingSeasonRows .king-person'))){
    const name=row.querySelector('.profile-link').textContent,entry=seasonStandings.find(r=>r.name===name);
    if(entry.seasonWeeks===0){
-     assert.equal(row.querySelector('.king-number').textContent.trim(),'—','Zero qualifying weeks must never look like zero CP');
-     assert(row.classList.contains('king-unranked'));
-     assert.equal(row.querySelector('.king-meter-fill').style.width,'0%');
+     if(entry.graded>=5){
+       assert(row.classList.contains('king-preview'),'Current-week scores must be visibly provisional');
+       assert(row.querySelector('.king-number').textContent.includes(entry.weekendPoints.toFixed(2)),'Season preview must reflect the exact weekend rating');
+       assert(row.querySelector('.king-number').textContent.includes('PREVIEW'),'Preview must never be labeled official CP');
+       assert(row.querySelector('.king-state').textContent.includes('LIVE PREVIEW'));
+     }else{
+       assert.equal(row.querySelector('.king-number').textContent.trim(),'—','No eligible preview must not be shown as 0 CP');
+       assert(row.classList.contains('king-unranked'));
+       assert.equal(row.querySelector('.king-meter-fill').style.width,'0%');
+     }
    }
  }
  d.getElementById('kingWeekendToggle').click();

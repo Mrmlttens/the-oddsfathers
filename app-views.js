@@ -223,36 +223,39 @@ function renderRecentHits() {
 }
 
 function render() {
-  renderStats();
-  renderRecentHits();
-  renderFilters();
-  renderGameSelect();
-  renderScenarioBar();
-  renderTickets();
-  renderGameCenter();
-  renderLeaderboard();
-  renderHistory();
-  renderProfiles();
+  // Only build the active screen. Hidden sections keep their DOM and expanded state.
+  // King points ticker still updates while another tab is visible.
+  if (currentView === "dashboard") {
+    renderStats();
+    renderRecentHits();
+    renderFilters();
+    renderGameSelect();
+    renderScenarioBar();
+    renderTickets();
+    renderGameCenter();
+  } else {
+    $("livefield").hidden = true;
+    $("scenarioBar").hidden = true;
+  }
+  renderLeaderboard(currentView !== "leaderboard");
+  if (currentView === "history") renderHistory();
+  if (currentView === "profiles") renderProfiles();
   renderFeedHealth();
-  if (currentView !== "dashboard") $("scenarioBar").hidden = true;
   const badge = $("feedBadge");
   badge.className = "livebadge " + scoreState;
   badge.querySelector("span:last-child").textContent =
-    scoreState === "connected"
-      ? "ESPN LIVE"
-      : scoreState === "failed"
-        ? "FEED OFFLINE"
-        : "CONNECTING";
+    scoreState === "connected" ? "ESPN LIVE" :
+    scoreState === "failed" ? "FEED OFFLINE" : "CONNECTING";
 }
 function pickView(view) {
+  if (!["dashboard", "leaderboard", "history", "profiles"].includes(view)) return;
   currentView = view;
-  document.querySelector('.shell')?.setAttribute('data-view',view);
-  renderGameCenter();
+  document.querySelector(".shell")?.setAttribute("data-view", view);
   for (const name of ["dashboard", "leaderboard", "history", "profiles"])
     $(name + "View").hidden = name !== view;
-  document
-    .querySelectorAll(".navtab")
-    .forEach((el) => el.classList.toggle("active", el.dataset.tab === view));
+  document.querySelectorAll(".navtab").forEach(
+    el => el.classList.toggle("active", el.dataset.tab === view)
+  );
   $("currentTitle").innerHTML =
     view === "profiles"
       ? 'The Crew <span class="text-gradient">Career Intel.</span>'
@@ -261,7 +264,6 @@ function pickView(view) {
         : view === "leaderboard"
           ? 'King of <span class="text-gradient">the Odds.</span>'
           : 'The Record <span class="text-gradient">Never Lies.</span>';
-  if (view === "profiles") renderProfiles();
-  $("scenarioBar").hidden = view !== "dashboard" || !currentGame();
+  render();
   if (typeof renderUpcoming === "function") renderUpcoming();
 }

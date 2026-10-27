@@ -163,3 +163,56 @@
 @media(prefers-reduced-motion:reduce){
  .holo-stage::before{transition:none}
 }
+
+
+/* Micro ticket cards: all data/controls remain visible, with information aligned on four rows. */
+.shell[data-view="dashboard"] .ticket-grid{gap:8px}
+.shell[data-view="dashboard"] .ticket{border-radius:10px}
+.shell[data-view="dashboard"] .ticket-top{padding:5px 10px 5px 11px;min-height:28px}
+.shell[data-view="dashboard"] .ticket-no,.shell[data-view="dashboard"] .ticket-owner{font-size:9px;letter-spacing:.02em}
+.shell[data-view="dashboard"] .statuspill{font-size:9px;letter-spacing:.04em}
+.shell[data-view="dashboard"] .statuspill::before{width:6px;height:6px}
+.shell[data-view="dashboard"] .ticket-content{
+ display:grid;grid-template-columns:minmax(0,1fr) minmax(152px,.94fr);
+ grid-template-areas:"title title" "matchup matchup" "teams finance" "progress actions" "legs legs";
+ column-gap:9px;row-gap:5px;padding:9px 10px 10px;
+}
+.shell[data-view="dashboard"] .ticket-title{grid-area:title;align-items:center;gap:8px}
+.shell[data-view="dashboard"] .ticket-title h4{font-size:14px;line-height:1.15}
+.shell[data-view="dashboard"] .ticket-odds{font-size:14px;font-variant-numeric:tabular-nums}
+.shell[data-view="dashboard"] .matchup{grid-area:matchup;font-size:9px;margin:0;line-height:1.3;gap:3px;min-width:0;overflow-wrap:anywhere}
+.shell[data-view="dashboard"] .teamchips{grid-area:teams;gap:3px;align-self:center;min-width:0;min-height:0;margin:0;line-height:1;flex-wrap:wrap}
+.shell[data-view="dashboard"] .teamchip{font-size:9px;gap:3px;padding:2px 4px;line-height:1.2}
+.shell[data-view="dashboard"] .teamchip img{height:14px;width:14px}
+.shell[data-view="dashboard"] .vs{font-size:8px}
+.shell[data-view="dashboard"] .ticket-bottom{
+ grid-area:finance;align-self:center;display:grid;
+ grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;
+ align-items:start;padding:0;border:0;text-align:right;
+}
+.shell[data-view="dashboard"] .ticket-bottom>div{min-width:0}
+.shell[data-view="dashboard"] .ticket-bottom .dollars{font-size:15px;white-space:nowrap;letter-spacing:-.04em}
+.shell[data-view="dashboard"] .ticket-bottom .micro{font-size:8px;line-height:1.25;letter-spacing:0;margin-top:3px;overflow-wrap:anywhere}
+.shell[data-view="dashboard"] .payoutval{text-align:right}
+.shell[data-view="dashboard"] .progressbox{grid-area:progress;align-self:center;min-width:0;margin:0}
+.shell[data-view="dashboard"] .progressrow{font-size:9px;gap:4px;margin-bottom:4px;align-items:center}
+.shell[data-view="dashboard"] .progressrow span:first-child{display:none}
+.shell[data-view="dashboard"] .progressdots{gap:2px;max-width:100%;min-width:0}
+.shell[data-view="dashboard"] .p-dot{width:5px;height:6px;min-width:0;flex:1 1 0}
+.shell[data-view="dashboard"] .ticket-buttons{grid-area:actions;align-items:stretch;justify-content:flex-end;margin:0;gap:5px;min-width:0}
+.shell[data-view="dashboard"] .ticket-buttons .btn{padding:7px 8px;min-height:34px;font-size:10px;min-width:0}
+.shell[data-view="dashboard"] .ticket-buttons .smallicon{min-width:33px;flex:0 0 33px;padding:6px}
+.shell[data-view="dashboard"] .ticket-content>.legs{grid-area:legs;margin-top:3px;padding-top:10px}
+@media(max-width:380px){
+ .shell[data-view="dashboard"] .ticket-content{grid-template-columns:minmax(0,1fr) minmax(137px,.9fr);column-gap:6px;padding:8px}
+ .shell[data-view="dashboard"] .ticket-bottom .dollars{font-size:13px}
+ .shell[data-view="dashboard"] .ticket-title h4{font-size:13px}
+ .shell[data-view="dashboard"] .ticket-buttons .btn{font-size:9px;padding:6px 5px}
+}
+.king-experience .king-preview .king-meter-fill{
+ opacity:.79;
+ background:linear-gradient(90deg,#2760a7,#53a2c5 65%,#98bbb9);
+}
+.king-experience .king-preview .king-state{color:#a5dce7}
+.king-experience .king-preview .king-number{color:#b5dbe9}
+.king-experience .king-preview .king-number span{color:#98c3ce;font-size:9px}
