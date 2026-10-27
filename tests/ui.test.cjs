@@ -9,9 +9,29 @@ const dom=new JSDOM(fs.readFileSync(path.join(root,'index.html'),'utf8'),{url:'h
 async function delay(ms=50){await new Promise(r=>setTimeout(r,ms));}
 (async()=>{await new Promise(r=>dom.window.addEventListener('load',r));await delay(250);const w=dom.window,d=w.document,call=code=>w.eval(code);
  assert.equal(errors.length,0,errors.join('\n'));assert(d.querySelectorAll('#ticketGrid .ticket').length>=8);assert.equal(d.getElementById('closestPanel'),null);
+
+ assert.equal(d.querySelector('.shell').dataset.view,'dashboard','Initial screen should use compact War Room styling');
+ for(const el of d.querySelectorAll('#ticketGrid .ticket')){
+  for(const cls of ['.ticket-title','.teamchips','.ticket-bottom','.progressbox','.ticket-buttons'])
+   assert(el.querySelector(cls),'Compact ticket missing '+cls);
+ }
  d.querySelector('[data-tab="profiles"]').click();assert.equal(d.getElementById('profilesView').hidden,false);assert.equal(d.getElementById('dashboardView').hidden,true);assert(d.getElementById('profileDetail').textContent.includes('Trey'));assert.equal(d.getElementById('livefield').hidden,true);assert.equal(d.getElementById('upcomingGames').hidden,true);
  for(const name of ['Gabe','Jeff','Rodman','Trey']){const el=d.getElementById('profileSelect');el.value=name;el.dispatchEvent(new w.Event('change'));assert(d.querySelector('#profileDetail .profile-hero h3').textContent.includes(name));assert(!d.getElementById('profileDetail').textContent.includes('NaN'));}
- d.querySelector('[data-tab="history"]').click();assert.equal(d.getElementById('historyView').hidden,false);assert.equal(d.querySelectorAll('#historyList details').length,call('bets.filter(b=>b.archivedAt||isFinalTicket(b)).length'));const history=d.querySelector('#historyList details');history.open=true;call('render()');assert(d.querySelector('#historyList details').open);assert(d.querySelector('#historyList .leg').textContent.length>0);
+
+ assert.equal(d.querySelector('.shell').dataset.view,'profiles');
+ assert(d.querySelector('#profileDetail > .profile-focus-stage'),'Profile XP hero missing');
+ assert.equal(d.querySelectorAll('#profileDetail > details.profile-drilldown').length,4);
+ assert([...d.querySelectorAll('#profileDetail > details.profile-drilldown')].every(el=>!el.open),'Advanced panels should default collapsed');
+ assert.equal(d.querySelectorAll('#profileDetail > .profile-focus-stage .feature-stat').length,4);
+ d.querySelector('#profileDetail > details[data-profile-panel="badges"]').open=true;
+ call('renderProfiles()');
+ assert(d.querySelector('#profileDetail > details[data-profile-panel="badges"]').open,'Expanded profile details must survive rerender');
+ d.querySelector('[data-tab="history"]').click();assert.equal(d.getElementById('historyView').hidden,false);assert.equal(d.querySelectorAll('#historyList details').length,call('bets.filter(b=>b.archivedAt||isFinalTicket(b)).length'));
+ assert.equal(d.querySelector('.shell').dataset.view,'history');
+ assert.equal(d.querySelectorAll('#historySummary > div').length,4,'Missing mini summary');
+ assert(d.querySelectorAll('#historyList .history-date').length>0,'Missing date grouping');
+ assert(/WON|LOST|REVIEW/.test(d.querySelector('#historyList .history-ticket .hist-pay').textContent),'Archive should lead with status');
+ const history=d.querySelector('#historyList details');history.open=true;call('render()');assert(d.querySelector('#historyList details').open);assert(d.querySelector('#historyList .leg').textContent.length>0);
  d.getElementById('historyOwner').value='Trey';d.getElementById('historyOwner').dispatchEvent(new w.Event('change'));assert.equal(d.querySelectorAll('#historyList details').length,call("bets.filter(b=>b.owner==='Trey'&&(b.archivedAt||isFinalTicket(b))).length"));
  d.querySelector('[data-tab="leaderboard"]').click();assert.equal(d.querySelectorAll('#kingWeekendRows .king-person').length,new Set(data.bets.map(b=>b.owner)).size);assert(!d.getElementById('kingStatus').textContent.includes('First 10'));assert(!d.getElementById('kingStatus').textContent.includes('pending approval'));
  assert(d.querySelectorAll('#kingWeekendRows .king-meter-fill').length===new Set(data.bets.map(b=>b.owner)).size,'Weekend rating graphic missing');
