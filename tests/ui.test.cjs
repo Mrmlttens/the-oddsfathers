@@ -42,26 +42,38 @@ async function delay(ms=50){await new Promise(r=>setTimeout(r,ms));}
   assert.equal(el.querySelectorAll('.teamchip').length,2,'Both teams remain shown');
  }
 
- // Navigation must not redraw expensive hidden screens or destroy their state.
+ // Crew combines Crown Points and Profiles in a single stack.
  const firstTicketNode=d.querySelector('#ticketGrid .ticket');
- d.querySelector('[data-tab="profiles"]').click();assert.equal(d.getElementById('profilesView').hidden,false);assert.equal(d.getElementById('dashboardView').hidden,true);assert(d.getElementById('profileDetail').textContent.includes('Trey'));assert.equal(d.getElementById('livefield').hidden,true);assert.equal(d.getElementById('upcomingGames').hidden,true);
- for(const name of ['Gabe','Jeff','Rodman','Trey']){const el=d.getElementById('profileSelect');el.value=name;el.dispatchEvent(new w.Event('change'));assert(d.querySelector('#profileDetail .profile-hero h3').textContent.includes(name));assert(!d.getElementById('profileDetail').textContent.includes('NaN'));}
-
-
- assert.strictEqual(d.querySelector('#ticketGrid .ticket'),firstTicketNode,'Switching to profile rebuilt hidden ticket cards');
- assert.equal(d.querySelector('.shell').dataset.view,'profiles');
- assert(d.querySelector('#profileDetail > .profile-focus-stage'),'Profile XP hero missing');
- assert.equal(d.querySelectorAll('#profileDetail > details.profile-drilldown').length,4);
- assert([...d.querySelectorAll('#profileDetail > details.profile-drilldown')].every(el=>!el.open),'Advanced panels should default collapsed');
- assert.equal(d.querySelectorAll('#profileDetail > .profile-focus-stage .feature-stat').length,4);
- d.querySelector('#profileDetail > details[data-profile-panel="badges"]').open=true;
- call('renderProfiles()');
- assert(d.querySelector('#profileDetail > details[data-profile-panel="badges"]').open,'Expanded profile details must survive rerender');
-
- const heroNode=d.querySelector('#profileDetail > .profile-focus-stage');
- d.querySelector('[data-tab="history"]').click();assert.equal(d.getElementById('historyView').hidden,false);assert.equal(d.querySelectorAll('#historyList details').length,call('bets.filter(b=>b.archivedAt||isFinalTicket(b)).length'));
-
- assert.strictEqual(d.querySelector('#profileDetail > .profile-focus-stage'),heroNode,'History navigation rebuilt hidden profile');
+ assert.equal(d.querySelectorAll('.navtab').length,3,'Crew must replace the redundant separate Profiles tab');
+ assert.equal(d.querySelector('[data-tab="profiles"]'),null,'Standalone Profiles nav must be removed');
+ d.querySelector('[data-tab="leaderboard"]').click();
+ assert.equal(d.querySelector('.shell').dataset.view,'leaderboard');
+ assert.equal(d.getElementById('profilesView').hidden,true,'Legacy dossier mount stays hidden');
+ assert.strictEqual(d.querySelector('#ticketGrid .ticket'),firstTicketNode,'Crew switch rebuilt hidden ticket cards');
+ assert.equal(d.querySelectorAll('#kingWeekendRows details.king-member').length,4);
+ assert.equal(d.querySelectorAll('#kingWeekendRows .king-member-meta').length,4,'Each row must display XP and rank');
+ assert(d.getElementById('kingWeekendRows').textContent.includes('XP'));
+ for(const owner of ['Gabe','Jeff','Rodman','Trey']){
+   const member=[...d.querySelectorAll('#kingWeekendRows details.king-member')].find(x=>x.dataset.owner===owner);
+   assert(member,'Missing crew row '+owner);
+   member.open=true;
+   call('kingHydrateMember')(member);
+   assert(member.querySelectorAll('.king-member-info > .profile-focus-stage .feature-stat').length===4,'Four profile headline stats missing for '+owner);
+   assert.equal(member.querySelectorAll('.king-member-info details.profile-drilldown').length,4);
+   assert(!member.textContent.includes('NaN'));
+   member.open=false;
+ }
+ const trey=[...d.querySelectorAll('#kingWeekendRows details.king-member')].find(x=>x.dataset.owner==='Trey');
+ trey.open=true;call('kingHydrateMember')(trey);
+ trey.querySelector('[data-profile-panel="badges"]').open=true;
+ call('render()');
+ const treyAfter=[...d.querySelectorAll('#kingWeekendRows details.king-member')].find(x=>x.dataset.owner==='Trey');
+ assert(treyAfter.open,'Expanded crew row must survive live refresh');
+ assert(treyAfter.querySelector('[data-profile-panel="badges"]').open,'Member achievements must stay expanded during live updates');
+ d.querySelector('[data-tab="history"]').click();
+ assert.equal(d.getElementById('historyView').hidden,false);
+ assert.equal(d.querySelectorAll('#historyList details').length,call('bets.filter(b=>b.archivedAt||isFinalTicket(b)).length'));
+ assert.strictEqual(d.querySelector('#ticketGrid .ticket'),firstTicketNode,'History rebuilt hidden ticket cards');
  assert.equal(d.querySelector('.shell').dataset.view,'history');
  assert.equal(d.querySelectorAll('#historySummary > div').length,4,'Missing mini summary');
  assert(d.querySelectorAll('#historyList .history-date').length>0,'Missing date grouping');

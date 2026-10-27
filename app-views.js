@@ -245,7 +245,7 @@ function render() {
   }
   renderLeaderboard(currentView !== "leaderboard");
   if (currentView === "history") renderHistory();
-  if (currentView === "profiles") renderProfiles();
+  // Detailed profiles render lazily inside expanded crew rows on the King screen.
   renderFeedHealth();
   const badge = $("feedBadge");
   badge.className = "livebadge " + scoreState;
@@ -254,7 +254,8 @@ function render() {
     scoreState === "failed" ? "FEED OFFLINE" : "CONNECTING";
 }
 function pickView(view) {
-  if (!["dashboard", "leaderboard", "history", "profiles"].includes(view)) return;
+  if (view === "profiles") view = "leaderboard"; // Legacy profile links open the combined crew page.
+  if (!["dashboard", "leaderboard", "history"].includes(view)) return;
   currentView = view;
   document.querySelector(".shell")?.setAttribute("data-view", view);
   for (const name of ["dashboard", "leaderboard", "history", "profiles"])

@@ -153,3 +153,85 @@
  .king-experience .king-number{min-width:58px;font-size:19px}
 }
 @media(prefers-reduced-motion:reduce){.king-experience .king-meter-fill,.king-period-switch button{transition:none}}
+
+
+/* Crown Points + Profiles: one compact holo leaderboard; details only on tap. */
+.king-crew-subtitle{color:#8fa9be;font-size:11px;margin:7px 0 0;line-height:1.4}
+.king-experience .king-member{
+ display:block;padding:0;border-bottom:1px solid rgba(95,139,177,.18);
+ border-radius:0;background:transparent
+}
+.king-experience .king-member:last-child{border-bottom:0}
+.king-experience .king-member[open]{background:rgba(39,79,115,.12)}
+.king-experience .king-member-summary{
+ display:flex;align-items:center;gap:11px;cursor:pointer;
+ padding:13px 4px;min-width:0;list-style:none;outline-offset:3px
+}
+.king-experience .king-member-summary::-webkit-details-marker{display:none}
+.king-experience .king-member-summary:focus-visible{outline:2px solid #d8c28f;border-radius:8px}
+.king-experience .king-member-avatar{
+ flex:0 0 31px;width:31px;height:31px;display:grid;place-items:center;
+ border-radius:9px;border:1px solid rgba(106,173,214,.4);
+ background:linear-gradient(145deg,rgba(38,103,163,.56),rgba(24,45,70,.9));
+ font-size:13px;font-weight:850;color:#cfebfa
+}
+.king-experience .king-member .king-rank{font-size:12px;min-width:20px}
+.king-experience .king-member .king-row-main{display:block;min-width:0;flex:1}
+.king-experience .king-member .king-row-head{display:flex;align-items:baseline;justify-content:space-between;margin:0 0 6px;gap:6px}
+.king-experience .king-member-name{
+ display:block;color:#e5f4fe!important;font-size:14px;font-weight:850;
+ text-decoration:none;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis
+}
+.king-experience .king-member .king-meter{height:11px;margin:0}
+.king-experience .king-member-meta{
+ display:block;color:#8eacc2;font-size:10px;line-height:1.4;
+ white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:5px 0 0
+}
+.king-experience .king-xp-mini{
+ display:block;margin-top:5px;height:3px;border-radius:5px;
+ background:rgba(58,92,120,.48);overflow:hidden
+}
+.king-experience .king-xp-mini>span{
+ height:100%;display:block;border-radius:5px;background:linear-gradient(90deg,#4d90c9,#9ddedc,#ecc486)
+}
+.king-experience .king-member .king-number{font-size:21px;min-width:66px;flex:0 0 auto}
+.king-experience .king-member-chevron{
+ color:#8caabf;font-size:18px;transition:transform .18s ease;flex:0 0 11px
+}
+.king-experience .king-member[open] .king-member-chevron{transform:rotate(180deg)}
+.king-experience .king-member-info{
+ border-top:1px solid rgba(102,160,202,.15);
+ padding:11px 10px 15px;
+}
+.king-experience .king-member-info:empty{display:none}
+.king-experience .king-member-info .profile-focus-stage{
+ padding:0 0 10px;margin:0;border:0;box-shadow:none;background:transparent
+}
+.king-experience .king-member-info .profile-focus-stage::before{display:none}
+.king-experience .king-member-info .profile-hero,
+.king-experience .king-member-info .profile-milestone{display:none}
+.king-experience .king-member-info .feature-grid{
+ display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:0
+}
+.king-experience .king-member-info .feature-stat{min-width:0;padding:9px 7px}
+.king-experience .king-member-info .feature-stat strong{font-size:17px}
+.king-experience .king-member-info .feature-stat span{font-size:8px}
+.king-experience .king-member-info .feature-stat small{font-size:9px}
+.king-experience .king-member-info .profile-drilldown{margin:5px 0}
+.king-experience .king-member-info .profile-drilldown>summary{font-size:11px}
+.king-experience .king-member-info .profile-drilldown>summary span{display:none}
+@media(max-width:690px){
+ .king-crew-subtitle{font-size:10px}
+ .king-experience .king-member-summary{gap:7px;padding:11px 0}
+ .king-experience .king-member-avatar{flex-basis:25px;width:25px;height:25px;border-radius:7px;font-size:11px}
+ .king-experience .king-member .king-rank{min-width:16px;font-size:10px}
+ .king-experience .king-member-name{font-size:13px}
+ .king-experience .king-member .king-state{font-size:7.5px}
+ .king-experience .king-member .king-number{font-size:18px;min-width:52px}
+ .king-experience .king-member-chevron{font-size:14px;flex-basis:8px}
+ .king-experience .king-member .king-member-meta{font-size:9px}
+ .king-experience .king-member-info{padding:10px 3px}
+ .king-experience .king-member-info .feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .king-experience .king-member-info .feature-stat strong{font-size:17px}
+}
+@media(prefers-reduced-motion:reduce){.king-experience .king-member-chevron{transition:none}}
