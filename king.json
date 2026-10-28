@@ -8141,8 +8141,8 @@
           "receiving_td": null,
           "rushing_td": null
         },
-        "azareyehthomas": {
-          "name": "Azareye'h Thomas",
+        "harrisonphillips": {
+          "name": "Harrison Phillips",
           "passing_yards": null,
           "receiving_yards": null,
           "rushing_yards": null,
@@ -8151,8 +8151,8 @@
           "receiving_td": null,
           "rushing_td": null
         },
-        "harrisonphillips": {
-          "name": "Harrison Phillips",
+        "azareyehthomas": {
+          "name": "Azareye'h Thomas",
           "passing_yards": null,
           "receiving_yards": null,
           "rushing_yards": null,
@@ -8171,8 +8171,8 @@
           "receiving_td": null,
           "rushing_td": null
         },
-        "darrelljacksonjr": {
-          "name": "Darrell Jackson Jr.",
+        "davidbailey": {
+          "name": "David Bailey",
           "passing_yards": null,
           "receiving_yards": null,
           "rushing_yards": null,
@@ -8181,8 +8181,8 @@
           "receiving_td": null,
           "rushing_td": null
         },
-        "davidbailey": {
-          "name": "David Bailey",
+        "darrelljacksonjr": {
+          "name": "Darrell Jackson Jr.",
           "passing_yards": null,
           "receiving_yards": null,
           "rushing_yards": null,
@@ -8355,7 +8355,7 @@
       "source": "ESPN",
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873015",
       "sourceVerified": true,
-      "observedAt": "2026-10-26T22:50:01.427Z"
+      "observedAt": "2026-10-28T21:36:02.248Z"
     },
     {
       "key": "2026-10-25|sanfrancisco49ers|atlantafalcons",
@@ -8825,6 +8825,16 @@
           "receiving_td": null,
           "rushing_td": null
         },
+        "brianrobinsonjr": {
+          "name": "Brian Robinson Jr.",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
         "gervondextersr": {
           "name": "Gervon Dexter Sr.",
           "passing_yards": null,
@@ -9059,7 +9069,7 @@
       "source": "ESPN",
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873017",
       "sourceVerified": true,
-      "observedAt": "2026-10-26T22:50:01.476Z"
+      "observedAt": "2026-10-28T21:36:02.474Z"
     },
     {
       "key": "2026-10-25|cincinnatibengals|baltimoreravens",
@@ -10365,8 +10375,8 @@
           "receiving_td": null,
           "rushing_td": null
         },
-        "calenbullock": {
-          "name": "Calen Bullock",
+        "willandersonjr": {
+          "name": "Will Anderson Jr.",
           "passing_yards": null,
           "receiving_yards": null,
           "rushing_yards": null,
@@ -10375,8 +10385,8 @@
           "receiving_td": null,
           "rushing_td": null
         },
-        "willandersonjr": {
-          "name": "Will Anderson Jr.",
+        "calenbullock": {
+          "name": "Calen Bullock",
           "passing_yards": null,
           "receiving_yards": null,
           "rushing_yards": null,
@@ -10515,16 +10525,6 @@
           "receiving_td": null,
           "rushing_td": null
         },
-        "loganhall": {
-          "name": "Logan Hall",
-          "passing_yards": null,
-          "receiving_yards": null,
-          "rushing_yards": null,
-          "receptions": null,
-          "passing_td": null,
-          "receiving_td": null,
-          "rushing_td": null
-        },
         "kaimifairbairn": {
           "name": "Ka'imi Fairbairn",
           "passing_yards": null,
@@ -10549,7 +10549,7 @@
       "source": "ESPN",
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873016",
       "sourceVerified": true,
-      "observedAt": "2026-10-26T22:50:01.570Z"
+      "observedAt": "2026-10-28T21:36:02.710Z"
     },
     {
       "key": "2026-10-25|denverbroncos|arizonacardinals",
@@ -15323,6 +15323,16 @@
           "receiving_td": 0,
           "rushing_td": null
         },
+        "chimeredike": {
+          "name": "Chimere Dike",
+          "passing_yards": null,
+          "receiving_yards": 0,
+          "rushing_yards": null,
+          "receptions": 0,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
         "tonyadams": {
           "name": "Tony Adams",
           "passing_yards": null,
@@ -15533,16 +15543,6 @@
           "receiving_td": null,
           "rushing_td": null
         },
-        "chimeredike": {
-          "name": "Chimere Dike",
-          "passing_yards": null,
-          "receiving_yards": null,
-          "rushing_yards": null,
-          "receptions": null,
-          "passing_td": null,
-          "receiving_td": null,
-          "rushing_td": null
-        },
         "joeyslye": {
           "name": "Joey Slye",
           "passing_yards": null,
@@ -15567,7 +15567,7 @@
       "source": "ESPN",
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873013",
       "sourceVerified": true,
-      "observedAt": "2026-10-26T22:50:02.084Z"
+      "observedAt": "2026-10-28T21:36:03.482Z"
     },
     {
       "key": "2026-10-25|indianapoliscolts|minnesotavikings",
@@ -16227,6 +16227,16 @@
           "receiving_td": null,
           "rushing_td": null
         },
+        "borichter": {
+          "name": "Bo Richter",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
         "jakegolday": {
           "name": "Jake Golday",
           "passing_yards": null,
@@ -16271,7 +16281,7 @@
       "source": "ESPN",
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873014",
       "sourceVerified": true,
-      "observedAt": "2026-10-26T22:50:02.142Z"
+      "observedAt": "2026-10-28T21:36:03.644Z"
     },
     {
       "key": "2026-10-26|dallascowboys|philadelphiaeagles",
@@ -20635,7 +20645,7 @@
   ],
   "corrections": [],
   "syncStatus": {
-    "checkedAt": "2026-10-27T03:47:43.903Z",
+    "checkedAt": "2026-10-28T21:36:03.738Z",
     "source": "ESPN",
     "errors": []
   }
