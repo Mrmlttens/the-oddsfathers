@@ -8825,16 +8825,6 @@
           "receiving_td": null,
           "rushing_td": null
         },
-        "brianrobinsonjr": {
-          "name": "Brian Robinson Jr.",
-          "passing_yards": null,
-          "receiving_yards": null,
-          "rushing_yards": null,
-          "receptions": null,
-          "passing_td": null,
-          "receiving_td": null,
-          "rushing_td": null
-        },
         "gervondextersr": {
           "name": "Gervon Dexter Sr.",
           "passing_yards": null,
@@ -9069,7 +9059,7 @@
       "source": "ESPN",
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873017",
       "sourceVerified": true,
-      "observedAt": "2026-10-28T21:36:02.474Z"
+      "observedAt": "2026-10-29T17:32:36.034Z"
     },
     {
       "key": "2026-10-25|cincinnatibengals|baltimoreravens",
@@ -20645,7 +20635,7 @@
   ],
   "corrections": [],
   "syncStatus": {
-    "checkedAt": "2026-10-28T21:36:03.738Z",
+    "checkedAt": "2026-10-29T17:32:37.011Z",
     "source": "ESPN",
     "errors": []
   }
