@@ -2514,7 +2514,448 @@
           "override": null
         }
       ]
+    },
+    {
+      "id": "trey-20261101-1pm-ml8",
+      "owner": "Trey",
+      "title": "Trey · Sunday 1 PM · 8-Leg Moneyline",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Minnesota Vikings",
+        "home": "Detroit Lions",
+        "sport": "NFL"
+      },
+      "stake": 1,
+      "payout": 62.49,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "notes": "Confirmed placed from Trey's FanDuel Open screenshots on November 1, 2026. $1 wager and displayed total payout verified. Cash-out offers and FanDuel account/bet identifiers excluded. Moneyline ticket shown across two consecutive screenshots; eight legs belong to ONE $1 ticket. Receipt shows placed 10:04 AM ET.",
+      "legs": [
+        {
+          "kind": "ml",
+          "team": "Minnesota Vikings",
+          "name": "",
+          "target": null,
+          "override": null,
+          "game": {
+            "date": "2026-11-01",
+            "away": "Minnesota Vikings",
+            "home": "Detroit Lions",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "ml",
+          "team": "Pittsburgh Steelers",
+          "name": "",
+          "target": null,
+          "override": null,
+          "game": {
+            "date": "2026-11-01",
+            "away": "Cleveland Browns",
+            "home": "Pittsburgh Steelers",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "ml",
+          "team": "New York Jets",
+          "name": "",
+          "target": null,
+          "override": null,
+          "game": {
+            "date": "2026-11-01",
+            "away": "Las Vegas Raiders",
+            "home": "New York Jets",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "ml",
+          "team": "Dallas Cowboys",
+          "name": "",
+          "target": null,
+          "override": null,
+          "game": {
+            "date": "2026-11-01",
+            "away": "Arizona Cardinals",
+            "home": "Dallas Cowboys",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "ml",
+          "team": "Cincinnati Bengals",
+          "name": "",
+          "target": null,
+          "override": null,
+          "game": {
+            "date": "2026-11-01",
+            "away": "Tennessee Titans",
+            "home": "Cincinnati Bengals",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "ml",
+          "team": "Tampa Bay Buccaneers",
+          "name": "",
+          "target": null,
+          "override": null,
+          "game": {
+            "date": "2026-11-01",
+            "away": "Atlanta Falcons",
+            "home": "Tampa Bay Buccaneers",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "ml",
+          "team": "Jacksonville Jaguars",
+          "name": "",
+          "target": null,
+          "override": null,
+          "game": {
+            "date": "2026-11-01",
+            "away": "Indianapolis Colts",
+            "home": "Jacksonville Jaguars",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "ml",
+          "team": "Baltimore Ravens",
+          "name": "",
+          "target": null,
+          "override": null,
+          "game": {
+            "date": "2026-11-01",
+            "away": "Baltimore Ravens",
+            "home": "Buffalo Bills",
+            "sport": "NFL"
+          }
+        }
+      ],
+      "settlement": "auto",
+      "placed": true,
+      "createdAt": "2026-11-01T15:10:00Z"
+    },
+    {
+      "id": "trey-20261101-1pm-prop5",
+      "owner": "Trey",
+      "title": "Trey · Sunday 1 PM · 5-Leg Player Props",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Indianapolis Colts",
+        "home": "Jacksonville Jaguars",
+        "sport": "NFL"
+      },
+      "stake": 1,
+      "payout": 23.8,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "notes": "Confirmed placed from Trey's FanDuel Open screenshots on November 1, 2026. $1 wager and displayed total payout verified. Cash-out offers and FanDuel account/bet identifiers excluded. Five distinct games; keep each exact over/under threshold.",
+      "legs": [
+        {
+          "kind": "receiving_yards",
+          "team": "Indianapolis Colts",
+          "name": "Josh Downs",
+          "target": 32.5,
+          "override": null,
+          "side": "over",
+          "game": {
+            "date": "2026-11-01",
+            "away": "Indianapolis Colts",
+            "home": "Jacksonville Jaguars",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Buffalo Bills",
+          "name": "Keon Coleman",
+          "target": 29.5,
+          "override": null,
+          "side": "over",
+          "game": {
+            "date": "2026-11-01",
+            "away": "Baltimore Ravens",
+            "home": "Buffalo Bills",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "passing_yards",
+          "team": "Detroit Lions",
+          "name": "Jared Goff",
+          "target": 257.5,
+          "override": null,
+          "side": "over",
+          "game": {
+            "date": "2026-11-01",
+            "away": "Minnesota Vikings",
+            "home": "Detroit Lions",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "passing_yards",
+          "team": "Tennessee Titans",
+          "name": "Cam Ward",
+          "target": 192.5,
+          "override": null,
+          "side": "under",
+          "game": {
+            "date": "2026-11-01",
+            "away": "Tennessee Titans",
+            "home": "Cincinnati Bengals",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Las Vegas Raiders",
+          "name": "Brock Bowers",
+          "target": 68.5,
+          "override": null,
+          "side": "over",
+          "game": {
+            "date": "2026-11-01",
+            "away": "Las Vegas Raiders",
+            "home": "New York Jets",
+            "sport": "NFL"
+          }
+        }
+      ],
+      "settlement": "auto",
+      "placed": true,
+      "createdAt": "2026-11-01T15:10:00Z"
+    },
+    {
+      "id": "trey-20261101-4pm-ml3",
+      "owner": "Trey",
+      "title": "Trey · Sunday 4 PM · 3-Leg Moneyline",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Los Angeles Chargers",
+        "home": "Los Angeles Rams",
+        "sport": "NFL"
+      },
+      "stake": 1,
+      "payout": 26.39,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "notes": "Confirmed placed from Trey's FanDuel Open screenshots on November 1, 2026. $1 wager and displayed total payout verified. Cash-out offers and FanDuel account/bet identifiers excluded. FanDuel displays +2538 odds. Receipt shows placed 10:06 AM ET.",
+      "legs": [
+        {
+          "kind": "ml",
+          "team": "Los Angeles Chargers",
+          "name": "",
+          "target": null,
+          "override": null,
+          "game": {
+            "date": "2026-11-01",
+            "away": "Los Angeles Chargers",
+            "home": "Los Angeles Rams",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "ml",
+          "team": "Denver Broncos",
+          "name": "",
+          "target": null,
+          "override": null,
+          "game": {
+            "date": "2026-11-01",
+            "away": "Kansas City Chiefs",
+            "home": "Denver Broncos",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "ml",
+          "team": "Miami Dolphins",
+          "name": "",
+          "target": null,
+          "override": null,
+          "game": {
+            "date": "2026-11-01",
+            "away": "New England Patriots",
+            "home": "Miami Dolphins",
+            "sport": "NFL"
+          }
+        }
+      ],
+      "settlement": "auto",
+      "placed": true,
+      "createdAt": "2026-11-01T15:10:00Z",
+      "odds": 2538
+    },
+    {
+      "id": "trey-20261101-4pm-prop5",
+      "owner": "Trey",
+      "title": "Trey · Sunday 4 PM · 5-Leg Player Props",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Kansas City Chiefs",
+        "home": "Denver Broncos",
+        "sport": "NFL"
+      },
+      "stake": 1,
+      "payout": 17.45,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "notes": "Confirmed placed from Trey's FanDuel Open screenshots on November 1, 2026. $1 wager and displayed total payout verified. Cash-out offers and FanDuel account/bet identifiers excluded. Two same-game-parlay groups plus one Miami selection. Dobbins is an alternate 30+ yards line.",
+      "legs": [
+        {
+          "kind": "rushing_yards",
+          "team": "Denver Broncos",
+          "name": "J.K. Dobbins",
+          "target": 30,
+          "override": null,
+          "game": {
+            "date": "2026-11-01",
+            "away": "Kansas City Chiefs",
+            "home": "Denver Broncos",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "receptions",
+          "team": "Denver Broncos",
+          "name": "Courtland Sutton",
+          "target": 3.5,
+          "override": null,
+          "side": "under",
+          "game": {
+            "date": "2026-11-01",
+            "away": "Kansas City Chiefs",
+            "home": "Denver Broncos",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "passing_yards",
+          "team": "Los Angeles Chargers",
+          "name": "Justin Herbert",
+          "target": 205.5,
+          "override": null,
+          "side": "under",
+          "game": {
+            "date": "2026-11-01",
+            "away": "Los Angeles Chargers",
+            "home": "Los Angeles Rams",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "rushing_yards",
+          "team": "Los Angeles Rams",
+          "name": "Kyren Williams",
+          "target": 58.5,
+          "override": null,
+          "side": "over",
+          "game": {
+            "date": "2026-11-01",
+            "away": "Los Angeles Chargers",
+            "home": "Los Angeles Rams",
+            "sport": "NFL"
+          }
+        },
+        {
+          "kind": "rushing_yards",
+          "team": "Miami Dolphins",
+          "name": "Malik Willis",
+          "target": 33.5,
+          "override": null,
+          "side": "over",
+          "game": {
+            "date": "2026-11-01",
+            "away": "New England Patriots",
+            "home": "Miami Dolphins",
+            "sport": "NFL"
+          }
+        }
+      ],
+      "settlement": "auto",
+      "placed": true,
+      "createdAt": "2026-11-01T15:10:00Z"
+    },
+    {
+      "id": "trey-20261101-wsh-sgpplus6",
+      "owner": "Trey",
+      "title": "Trey · Sunday Night SGP+ · WSH Future ML · 30% Boost",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Philadelphia Eagles",
+        "home": "Washington Commanders",
+        "sport": "NFL"
+      },
+      "stake": 1,
+      "payout": 69.8,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "notes": "Confirmed placed from Trey's FanDuel Open screenshots on November 1, 2026. $1 wager and displayed total payout verified. Cash-out offers and FanDuel account/bet identifiers excluded. Screenshot displays FanDuel +6879 after 30% profit boost; Eagles at Commanders is November 1, while Commanders ML vs Rams is November 8. Do not collapse those game dates.",
+      "legs": [
+        {
+          "kind": "rushing_yards",
+          "team": "Washington Commanders",
+          "name": "Jayden Daniels",
+          "target": 36.5,
+          "override": null,
+          "side": "over"
+        },
+        {
+          "kind": "passing_yards",
+          "team": "Philadelphia Eagles",
+          "name": "Tanner McKee",
+          "target": 204.5,
+          "override": null,
+          "side": "over"
+        },
+        {
+          "kind": "rushing_yards",
+          "team": "Washington Commanders",
+          "name": "Rachaad White",
+          "target": 39.5,
+          "override": null,
+          "side": "under"
+        },
+        {
+          "kind": "receptions",
+          "team": "Philadelphia Eagles",
+          "name": "Dallas Goedert",
+          "target": 4.5,
+          "override": null,
+          "side": "over"
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Philadelphia Eagles",
+          "name": "Makai Lemon",
+          "target": 43.5,
+          "override": null,
+          "side": "under"
+        },
+        {
+          "kind": "ml",
+          "team": "Washington Commanders",
+          "name": "",
+          "target": null,
+          "override": null,
+          "game": {
+            "date": "2026-11-08",
+            "away": "Los Angeles Rams",
+            "home": "Washington Commanders",
+            "sport": "NFL"
+          }
+        }
+      ],
+      "settlement": "auto",
+      "placed": true,
+      "createdAt": "2026-11-01T15:10:00Z",
+      "odds": 6879
     }
   ]
 }
-
