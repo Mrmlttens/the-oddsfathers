@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#e4e7dc"><title>Living World — Ascension</title><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"></head>
+<body>
+<div id="game" class="game">
+  <canvas id="planet" aria-label="Interactive 3D planet"></canvas><canvas id="overlays" aria-hidden="true"></canvas>
+  <div id="vignette"></div>
+  <header class="topbar">
+   <div class="brand"><span class="brandmark">✧</span><div><b>LIVING WORLD</b><small>ASCENSION <span class="version">ALPHA 2</span></small></div></div>
+   <div class="worldmeta"><span id="worldname">The First Dawn</span><strong id="year">YEAR 1</strong><span id="season">Age of Roots</span></div>
+   <button class="iconbtn" id="menuBtn" aria-label="Game menu">☰</button>
+  </header>
+  <aside class="deity panel-lite" id="deityPane">
+   <div class="deityHeader"><div class="avatarSmall" id="portrait"></div><div class="deityName"><span class="upper tiny">YOUR ASCENSION</span><strong id="godName">The Wanderer</strong><span id="godRank" class="muted">Young Demigod · Lv. 1</span></div></div>
+   <div class="xp-track"><div id="xpbar"></div></div>
+   <div class="statline"><span><b id="domainName">Unbound</b><small>Patron realm</small></span><span><b id="landStat">0</b><small>Provinces</small></span><span><b id="essenceStat">100</b><small>Essence</small></span></div>
+   <div class="deityTools"><button id="levelBtn">✦ Attributes <span id="pointsPill"></span></button><button id="focusBtn">◎ Find my realm</button></div><div class="mandate"><span>✧ DIVINE MANDATE</span><strong id="mandateText">Choose your first intervention</strong></div>
+  </aside>
+  <div class="orb-zone" id="orbZone" title="Your divine essence"><div class="orb-ring ring1"></div><div class="orb-ring ring2"></div><div class="orb-core"><span>✧</span></div><span class="orb-caption">ESSENCE <strong id="orbAmount">100</strong></span></div>
+  <div class="worldview"><button class="viewchip active" data-map="political">REALMS</button><button class="viewchip" data-map="terrain">TERRAIN</button><button class="viewchip" data-map="influence">INFLUENCE</button></div>
+  <div id="storyToast" class="story-toast hidden"></div>
+  <aside id="inspectPanel" class="inspect panel-lite hidden"><div class="paneltop"><div><span class="upper tiny" id="inspectSub">TERRITORY</span><h2 id="inspectTitle">Unknown Province</h2></div><button class="ghostclose" data-close="inspectPanel">✕</button></div><div id="inspectContent"></div></aside>
+  <aside id="powerPanel" class="powers panel-lite hidden"><div class="paneltop"><div><span class="upper tiny">DIVINE INTERVENTION</span><h2>God Powers</h2></div><button class="ghostclose" data-close="powerPanel">✕</button></div><p class="muted helper">Select a province on the planet, then unleash a power. The land remembers.</p><div id="powerList"></div></aside>
+  <aside id="chroniclePanel" class="chronicle panel-lite hidden"><div class="paneltop"><div><span class="upper tiny">THE LIVING RECORD</span><h2>World Chronicle</h2></div><button class="ghostclose" data-close="chroniclePanel">✕</button></div><div id="chronicleList"></div></aside>
+  <aside id="realmPanel" class="realms panel-lite hidden"><div class="paneltop"><div><span class="upper tiny">THRONES OF THE WORLD</span><h2>Realms</h2></div><button class="ghostclose" data-close="realmPanel">✕</button></div><div id="realmList"></div></aside>
+  <aside id="statsPanel" class="statsPanel panel-lite hidden"><div class="paneltop"><div><span class="upper tiny">ASCENSION</span><h2>Shape your divinity</h2></div><button class="ghostclose" data-close="statsPanel">✕</button></div><div id="attributeList"></div></aside>
+  <aside id="menuPanel" class="menuPanel panel-lite hidden"><div class="paneltop"><div><span class="upper tiny">THE SANCTUM</span><h2>World & Saves</h2></div><button class="ghostclose" data-close="menuPanel">✕</button></div><p class="muted helper" id="saveStatus">Your world saves automatically on this device.</p><div class="menu-actions"><button id="saveBtn">✦ Save world</button><button id="saveSlotsBtn">▤ Manage save slots</button><button id="exportBtn">⇩ Export backup</button><button id="importBtn">⇧ Import backup</button><button id="newBtn" class="danger">↺ New game</button><input type="file" id="importFile" accept="application/json,.json" hidden></div></aside>
+  <div class="eventrail" id="eventsRail"><span class="rail-title">WORLD IN MOTION</span><div id="eventsFeed"></div></div>
+  <div class="bottomDock"><div class="dockMain"><button id="powersBtn" class="dockIcon"><span>✦</span><small>POWERS</small></button><button id="realmsBtn" class="dockIcon"><span>♜</span><small>REALMS</small></button><button id="chronicleBtn" class="dockIcon"><span>☷</span><small>HISTORY</small></button><button id="zoomHome" class="dockIcon"><span>◎</span><small>FOCUS</small></button><div class="dock-sep"></div><button id="pauseBtn" class="playbtn" aria-label="Pause world">Ⅱ</button><button class="rateBtn active" data-rate="1">1×</button><button class="rateBtn" data-rate="10">10×</button><button class="rateBtn" data-rate="100">100×</button><button id="skipBtn" class="rateBtn">+YRS</button></div></div>
+  <div class="statusHint" id="hint">Drag to spin · Pinch to zoom · Tap land to claim</div>
+</div>
+<div id="modalShade" class="modalShade hidden"><div id="modalBody" class="modal"></div></div>
+<script src="game.js"></script><script>if("serviceWorker" in navigator && location.protocol.startsWith("http")) navigator.serviceWorker.register("./service-worker.js").catch(()=>{});</script>
+</body></html>
