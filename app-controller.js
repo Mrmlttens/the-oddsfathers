@@ -7,13 +7,13 @@ function addActivity(message, type = "info", owner = "") {
   renderActivity();
 }
 
-async function fetchJson(url) {
+async function fetchJson(url, cacheMode = "no-store") {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 12000);
   try {
     const r = await fetch(url, {
       signal: controller.signal,
-      cache: "no-store",
+      cache: cacheMode,
     });
     if (!r.ok) throw Error(`HTTP ${r.status}`);
     return await r.json();
@@ -64,8 +64,23 @@ async function refreshLive(silent = false) {
           .map((e) => [e.id, e]),
       ).values(),
     ];
+    // Pregame events have no player statistics. Avoid downloading every game
+    // summary before kickoff, and keep already-final cached summaries.
+    const summaryEvents = events.filter((e) => {
+      const state =
+        e.competitions?.[0]?.status?.type?.state ||
+        e.status?.type?.state || "unknown";
+      const id = String(e.id);
+      if (state === "pre") return false;
+      if (
+        state === "post" &&
+        livefieldSummaries.has(id) &&
+        !livefieldFailures.has(id)
+      ) return false;
+      return true;
+    });
     let done = await Promise.allSettled(
-      events.map(async (e) => {
+      summaryEvents.map(async (e) => {
         const id = String(e.id);
         try {
           const raw = await fetchJson(
@@ -232,6 +247,8 @@ async function syncPublished() {
       checkDailyRollover();
       render();
       checkWinners();
+      // A newly published ticket can carry new Crown Points registrations.
+      if (typeof loadKing === "function" && kingLoaded) void loadKing();
     }
     if ($("boardStatus"))
       $("boardStatus").textContent = "VIEW ONLY · Shared board";

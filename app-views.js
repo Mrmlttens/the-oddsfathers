@@ -63,23 +63,32 @@ function renderGameSelect() {
   const sel = $("gameSelect"),
     games = gamesOnBoard(),
     g = currentGame();
-  sel.innerHTML = games
+  const options = games
     .map(
       (x) =>
         `<option value="${esc(x.key)}">${esc(teamAbbr(x.away))} @ ${esc(teamAbbr(x.home))} · ${esc(dateText(x.date))}</option>`,
     )
     .join("");
-  if (g) sel.value = g.key;
+  if (sel._lastOptions !== options) {
+    sel.innerHTML = options;
+    sel._lastOptions = options;
+  }
+  if (g && sel.value !== g.key) sel.value = g.key;
 }
 
 function renderFilters() {
   const names = [...new Set(bets.map((b) => b.owner || "Unknown"))].sort();
   const s = $("ownerFilter"),
     prev = s.value || selectedOwner;
-  s.innerHTML =
+  const options =
     '<option value="all">All crew</option>' +
     names.map((n) => `<option value="${esc(n)}">${esc(n)}</option>`).join("");
-  s.value = names.includes(prev) ? prev : "all";
+  if (s._lastOptions !== options) {
+    s.innerHTML = options;
+    s._lastOptions = options;
+  }
+  const nextOwner = names.includes(prev) ? prev : "all";
+  if (s.value !== nextOwner) s.value = nextOwner;
   selectedOwner = s.value;
 }
 
@@ -159,7 +168,7 @@ function renderTickets() {
   filtered.sort(compareTicketCloseness);
   $("visibleCount").textContent = filtered.length;
   $("emptyState").hidden = filtered.length > 0;
-  $("ticketGrid").innerHTML = filtered
+  const nextTicketsMarkup = filtered
     .map((b, i) => {
       const st = ticketStatus(b),
         p = progress(b),
@@ -207,6 +216,12 @@ function renderTickets() {
 ${detail ? `<div class="legs">${legs}<div style="display:flex;justify-content:space-between;gap:9px;align-items:center;margin-top:8px">${b.ticketUrl ? `<a target="_blank" rel="noopener noreferrer" href="${esc(b.ticketUrl)}" style="font-size:11px">Open slip ↗</a>` : ""}</div></div>` : ""}</div></article>`;
     })
     .join("");
+  const grid = $("ticketGrid");
+  // Preserve existing ticket nodes and browser scroll state when nothing changed.
+  if (grid._lastTicketsMarkup !== nextTicketsMarkup) {
+    grid.innerHTML = nextTicketsMarkup;
+    grid._lastTicketsMarkup = nextTicketsMarkup;
+  }
 }
 
 function renderRecentHits() {
