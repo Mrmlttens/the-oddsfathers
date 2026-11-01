@@ -5548,6 +5548,190 @@
       "title": "Trey · Sunday Night SGP+ · WSH Future ML · 30% Boost",
       "kickoff": "2026-11-08T18:00Z",
       "eventId": "401873043"
+    },
+    {
+      "id": "gabe-20261101-ari-dal-sgp8:0",
+      "betId": "gabe-20261101-ari-dal-sgp8",
+      "legIndex": 0,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Arizona Cardinals",
+        "home": "Dallas Cowboys",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "passing_yards",
+        "team": "Dallas Cowboys",
+        "name": "Dak Prescott",
+        "target": 225,
+        "override": null
+      },
+      "submittedAt": "2026-11-01T17:54:22.814Z",
+      "title": "Gabe · Cardinals @ Cowboys · 8-Leg Same Game Parlay",
+      "kickoff": "2026-11-01T18:00Z",
+      "eventId": "401873024"
+    },
+    {
+      "id": "gabe-20261101-ari-dal-sgp8:1",
+      "betId": "gabe-20261101-ari-dal-sgp8",
+      "legIndex": 1,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Arizona Cardinals",
+        "home": "Dallas Cowboys",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "rushing_yards",
+        "team": "Dallas Cowboys",
+        "name": "Javonte Williams",
+        "target": 60,
+        "override": null
+      },
+      "submittedAt": "2026-11-01T17:54:22.814Z",
+      "title": "Gabe · Cardinals @ Cowboys · 8-Leg Same Game Parlay",
+      "kickoff": "2026-11-01T18:00Z",
+      "eventId": "401873024"
+    },
+    {
+      "id": "gabe-20261101-ari-dal-sgp8:2",
+      "betId": "gabe-20261101-ari-dal-sgp8",
+      "legIndex": 2,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Arizona Cardinals",
+        "home": "Dallas Cowboys",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receiving_yards",
+        "team": "Dallas Cowboys",
+        "name": "CeeDee Lamb",
+        "target": 70,
+        "override": null
+      },
+      "submittedAt": "2026-11-01T17:54:22.814Z",
+      "title": "Gabe · Cardinals @ Cowboys · 8-Leg Same Game Parlay",
+      "kickoff": "2026-11-01T18:00Z",
+      "eventId": "401873024"
+    },
+    {
+      "id": "gabe-20261101-ari-dal-sgp8:3",
+      "betId": "gabe-20261101-ari-dal-sgp8",
+      "legIndex": 3,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Arizona Cardinals",
+        "home": "Dallas Cowboys",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receiving_yards",
+        "team": "Dallas Cowboys",
+        "name": "George Pickens",
+        "target": 60,
+        "override": null
+      },
+      "submittedAt": "2026-11-01T17:54:22.814Z",
+      "title": "Gabe · Cardinals @ Cowboys · 8-Leg Same Game Parlay",
+      "kickoff": "2026-11-01T18:00Z",
+      "eventId": "401873024"
+    },
+    {
+      "id": "gabe-20261101-ari-dal-sgp8:4",
+      "betId": "gabe-20261101-ari-dal-sgp8",
+      "legIndex": 4,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Arizona Cardinals",
+        "home": "Dallas Cowboys",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receiving_yards",
+        "team": "Arizona Cardinals",
+        "name": "Trey McBride",
+        "target": 50,
+        "override": null
+      },
+      "submittedAt": "2026-11-01T17:54:22.814Z",
+      "title": "Gabe · Cardinals @ Cowboys · 8-Leg Same Game Parlay",
+      "kickoff": "2026-11-01T18:00Z",
+      "eventId": "401873024"
+    },
+    {
+      "id": "gabe-20261101-ari-dal-sgp8:5",
+      "betId": "gabe-20261101-ari-dal-sgp8",
+      "legIndex": 5,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Arizona Cardinals",
+        "home": "Dallas Cowboys",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receptions",
+        "team": "Dallas Cowboys",
+        "name": "CeeDee Lamb",
+        "target": 5,
+        "override": null
+      },
+      "submittedAt": "2026-11-01T17:54:22.814Z",
+      "title": "Gabe · Cardinals @ Cowboys · 8-Leg Same Game Parlay",
+      "kickoff": "2026-11-01T18:00Z",
+      "eventId": "401873024"
+    },
+    {
+      "id": "gabe-20261101-ari-dal-sgp8:6",
+      "betId": "gabe-20261101-ari-dal-sgp8",
+      "legIndex": 6,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Arizona Cardinals",
+        "home": "Dallas Cowboys",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receptions",
+        "team": "Dallas Cowboys",
+        "name": "George Pickens",
+        "target": 4,
+        "override": null
+      },
+      "submittedAt": "2026-11-01T17:54:22.814Z",
+      "title": "Gabe · Cardinals @ Cowboys · 8-Leg Same Game Parlay",
+      "kickoff": "2026-11-01T18:00Z",
+      "eventId": "401873024"
+    },
+    {
+      "id": "gabe-20261101-ari-dal-sgp8:7",
+      "betId": "gabe-20261101-ari-dal-sgp8",
+      "legIndex": 7,
+      "owner": "Gabe",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Arizona Cardinals",
+        "home": "Dallas Cowboys",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "rushing_yards",
+        "team": "Arizona Cardinals",
+        "name": "Jeremiyah Love",
+        "target": 30,
+        "override": null
+      },
+      "submittedAt": "2026-11-01T17:54:22.814Z",
+      "title": "Gabe · Cardinals @ Cowboys · 8-Leg Same Game Parlay",
+      "kickoff": "2026-11-01T18:00Z",
+      "eventId": "401873024"
     }
   ],
   "results": [
