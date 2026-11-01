@@ -2956,6 +2956,86 @@
       "placed": true,
       "createdAt": "2026-11-01T15:10:00Z",
       "odds": 6879
+    },
+    {
+      "id": "gabe-20261101-ari-dal-sgp8",
+      "owner": "Gabe",
+      "title": "Gabe · Cardinals @ Cowboys · 8-Leg Same Game Parlay",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Arizona Cardinals",
+        "home": "Dallas Cowboys",
+        "sport": "NFL"
+      },
+      "stake": 5,
+      "stakeEstimated": true,
+      "payout": 41.65,
+      "payoutEstimated": true,
+      "odds": 733,
+      "sportsbook": "FanDuel",
+      "ticketUrl": "",
+      "notes": "Unplaced FanDuel betslip submitted November 1, 2026, before kickoff. Screenshot shows +733 odds and eight selections, but wager and to-win fields are blank; placement is NOT confirmed. $5 stake is Trey's standard placeholder, and $41.65 total payout is calculated from +733, not an actual FanDuel quote. Full Game Bet Protection toggle is off. Do not count this as confirmed wager or settlement.",
+      "legs": [
+        {
+          "kind": "passing_yards",
+          "team": "Dallas Cowboys",
+          "name": "Dak Prescott",
+          "target": 225,
+          "override": null
+        },
+        {
+          "kind": "rushing_yards",
+          "team": "Dallas Cowboys",
+          "name": "Javonte Williams",
+          "target": 60,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Dallas Cowboys",
+          "name": "CeeDee Lamb",
+          "target": 70,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Dallas Cowboys",
+          "name": "George Pickens",
+          "target": 60,
+          "override": null
+        },
+        {
+          "kind": "receiving_yards",
+          "team": "Arizona Cardinals",
+          "name": "Trey McBride",
+          "target": 50,
+          "override": null
+        },
+        {
+          "kind": "receptions",
+          "team": "Dallas Cowboys",
+          "name": "CeeDee Lamb",
+          "target": 5,
+          "override": null
+        },
+        {
+          "kind": "receptions",
+          "team": "Dallas Cowboys",
+          "name": "George Pickens",
+          "target": 4,
+          "override": null
+        },
+        {
+          "kind": "rushing_yards",
+          "team": "Arizona Cardinals",
+          "name": "Jeremiyah Love",
+          "target": 30,
+          "override": null
+        }
+      ],
+      "settlement": "auto",
+      "placed": false,
+      "createdAt": "2026-11-01T17:54:22.814Z"
     }
   ]
 }
