@@ -4781,6 +4781,773 @@
       "submittedAt": "2026-10-26T23:16:44.628Z",
       "title": "Jeff · MNF · Q1 & First-Drive · 9-Leg SGP",
       "kickoff": "2026-10-27T00:15:00Z"
+    },
+    {
+      "id": "trey-20261101-1pm-ml8:0",
+      "betId": "trey-20261101-1pm-ml8",
+      "legIndex": 0,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Minnesota Vikings",
+        "home": "Detroit Lions",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "ml",
+        "team": "Minnesota Vikings",
+        "name": "",
+        "target": null,
+        "override": null,
+        "game": {
+          "date": "2026-11-01",
+          "away": "Minnesota Vikings",
+          "home": "Detroit Lions",
+          "sport": "NFL"
+        }
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday 1 PM · 8-Leg Moneyline",
+      "kickoff": "2026-11-01T18:00Z",
+      "eventId": "401873030"
+    },
+    {
+      "id": "trey-20261101-1pm-ml8:1",
+      "betId": "trey-20261101-1pm-ml8",
+      "legIndex": 1,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Cleveland Browns",
+        "home": "Pittsburgh Steelers",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "ml",
+        "team": "Pittsburgh Steelers",
+        "name": "",
+        "target": null,
+        "override": null,
+        "game": {
+          "date": "2026-11-01",
+          "away": "Cleveland Browns",
+          "home": "Pittsburgh Steelers",
+          "sport": "NFL"
+        }
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday 1 PM · 8-Leg Moneyline",
+      "kickoff": "2026-11-01T18:00Z",
+      "eventId": "401873027"
+    },
+    {
+      "id": "trey-20261101-1pm-ml8:2",
+      "betId": "trey-20261101-1pm-ml8",
+      "legIndex": 2,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Las Vegas Raiders",
+        "home": "New York Jets",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "ml",
+        "team": "New York Jets",
+        "name": "",
+        "target": null,
+        "override": null,
+        "game": {
+          "date": "2026-11-01",
+          "away": "Las Vegas Raiders",
+          "home": "New York Jets",
+          "sport": "NFL"
+        }
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday 1 PM · 8-Leg Moneyline",
+      "kickoff": "2026-11-01T18:00Z",
+      "eventId": "401873029"
+    },
+    {
+      "id": "trey-20261101-1pm-ml8:3",
+      "betId": "trey-20261101-1pm-ml8",
+      "legIndex": 3,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Arizona Cardinals",
+        "home": "Dallas Cowboys",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "ml",
+        "team": "Dallas Cowboys",
+        "name": "",
+        "target": null,
+        "override": null,
+        "game": {
+          "date": "2026-11-01",
+          "away": "Arizona Cardinals",
+          "home": "Dallas Cowboys",
+          "sport": "NFL"
+        }
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday 1 PM · 8-Leg Moneyline",
+      "kickoff": "2026-11-01T18:00Z",
+      "eventId": "401873024"
+    },
+    {
+      "id": "trey-20261101-1pm-ml8:4",
+      "betId": "trey-20261101-1pm-ml8",
+      "legIndex": 4,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Tennessee Titans",
+        "home": "Cincinnati Bengals",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "ml",
+        "team": "Cincinnati Bengals",
+        "name": "",
+        "target": null,
+        "override": null,
+        "game": {
+          "date": "2026-11-01",
+          "away": "Tennessee Titans",
+          "home": "Cincinnati Bengals",
+          "sport": "NFL"
+        }
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday 1 PM · 8-Leg Moneyline",
+      "kickoff": "2026-11-01T18:00Z",
+      "eventId": "401873031"
+    },
+    {
+      "id": "trey-20261101-1pm-ml8:5",
+      "betId": "trey-20261101-1pm-ml8",
+      "legIndex": 5,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Atlanta Falcons",
+        "home": "Tampa Bay Buccaneers",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "ml",
+        "team": "Tampa Bay Buccaneers",
+        "name": "",
+        "target": null,
+        "override": null,
+        "game": {
+          "date": "2026-11-01",
+          "away": "Atlanta Falcons",
+          "home": "Tampa Bay Buccaneers",
+          "sport": "NFL"
+        }
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday 1 PM · 8-Leg Moneyline",
+      "kickoff": "2026-11-01T18:00Z",
+      "eventId": "401873025"
+    },
+    {
+      "id": "trey-20261101-1pm-ml8:6",
+      "betId": "trey-20261101-1pm-ml8",
+      "legIndex": 6,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Indianapolis Colts",
+        "home": "Jacksonville Jaguars",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "ml",
+        "team": "Jacksonville Jaguars",
+        "name": "",
+        "target": null,
+        "override": null,
+        "game": {
+          "date": "2026-11-01",
+          "away": "Indianapolis Colts",
+          "home": "Jacksonville Jaguars",
+          "sport": "NFL"
+        }
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday 1 PM · 8-Leg Moneyline",
+      "kickoff": "2026-11-01T18:00Z",
+      "eventId": "401873028"
+    },
+    {
+      "id": "trey-20261101-1pm-ml8:7",
+      "betId": "trey-20261101-1pm-ml8",
+      "legIndex": 7,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Baltimore Ravens",
+        "home": "Buffalo Bills",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "ml",
+        "team": "Baltimore Ravens",
+        "name": "",
+        "target": null,
+        "override": null,
+        "game": {
+          "date": "2026-11-01",
+          "away": "Baltimore Ravens",
+          "home": "Buffalo Bills",
+          "sport": "NFL"
+        }
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday 1 PM · 8-Leg Moneyline",
+      "kickoff": "2026-11-01T18:00Z",
+      "eventId": "401873026"
+    },
+    {
+      "id": "trey-20261101-1pm-prop5:0",
+      "betId": "trey-20261101-1pm-prop5",
+      "legIndex": 0,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Indianapolis Colts",
+        "home": "Jacksonville Jaguars",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receiving_yards",
+        "team": "Indianapolis Colts",
+        "name": "Josh Downs",
+        "target": 32.5,
+        "override": null,
+        "side": "over",
+        "game": {
+          "date": "2026-11-01",
+          "away": "Indianapolis Colts",
+          "home": "Jacksonville Jaguars",
+          "sport": "NFL"
+        }
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday 1 PM · 5-Leg Player Props",
+      "kickoff": "2026-11-01T18:00Z",
+      "eventId": "401873028"
+    },
+    {
+      "id": "trey-20261101-1pm-prop5:1",
+      "betId": "trey-20261101-1pm-prop5",
+      "legIndex": 1,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Baltimore Ravens",
+        "home": "Buffalo Bills",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receiving_yards",
+        "team": "Buffalo Bills",
+        "name": "Keon Coleman",
+        "target": 29.5,
+        "override": null,
+        "side": "over",
+        "game": {
+          "date": "2026-11-01",
+          "away": "Baltimore Ravens",
+          "home": "Buffalo Bills",
+          "sport": "NFL"
+        }
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday 1 PM · 5-Leg Player Props",
+      "kickoff": "2026-11-01T18:00Z",
+      "eventId": "401873026"
+    },
+    {
+      "id": "trey-20261101-1pm-prop5:2",
+      "betId": "trey-20261101-1pm-prop5",
+      "legIndex": 2,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Minnesota Vikings",
+        "home": "Detroit Lions",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "passing_yards",
+        "team": "Detroit Lions",
+        "name": "Jared Goff",
+        "target": 257.5,
+        "override": null,
+        "side": "over",
+        "game": {
+          "date": "2026-11-01",
+          "away": "Minnesota Vikings",
+          "home": "Detroit Lions",
+          "sport": "NFL"
+        }
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday 1 PM · 5-Leg Player Props",
+      "kickoff": "2026-11-01T18:00Z",
+      "eventId": "401873030"
+    },
+    {
+      "id": "trey-20261101-1pm-prop5:3",
+      "betId": "trey-20261101-1pm-prop5",
+      "legIndex": 3,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Tennessee Titans",
+        "home": "Cincinnati Bengals",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "passing_yards",
+        "team": "Tennessee Titans",
+        "name": "Cam Ward",
+        "target": 192.5,
+        "override": null,
+        "side": "under",
+        "game": {
+          "date": "2026-11-01",
+          "away": "Tennessee Titans",
+          "home": "Cincinnati Bengals",
+          "sport": "NFL"
+        }
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday 1 PM · 5-Leg Player Props",
+      "kickoff": "2026-11-01T18:00Z",
+      "eventId": "401873031"
+    },
+    {
+      "id": "trey-20261101-1pm-prop5:4",
+      "betId": "trey-20261101-1pm-prop5",
+      "legIndex": 4,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Las Vegas Raiders",
+        "home": "New York Jets",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receiving_yards",
+        "team": "Las Vegas Raiders",
+        "name": "Brock Bowers",
+        "target": 68.5,
+        "override": null,
+        "side": "over",
+        "game": {
+          "date": "2026-11-01",
+          "away": "Las Vegas Raiders",
+          "home": "New York Jets",
+          "sport": "NFL"
+        }
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday 1 PM · 5-Leg Player Props",
+      "kickoff": "2026-11-01T18:00Z",
+      "eventId": "401873029"
+    },
+    {
+      "id": "trey-20261101-4pm-ml3:0",
+      "betId": "trey-20261101-4pm-ml3",
+      "legIndex": 0,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Los Angeles Chargers",
+        "home": "Los Angeles Rams",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "ml",
+        "team": "Los Angeles Chargers",
+        "name": "",
+        "target": null,
+        "override": null,
+        "game": {
+          "date": "2026-11-01",
+          "away": "Los Angeles Chargers",
+          "home": "Los Angeles Rams",
+          "sport": "NFL"
+        }
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday 4 PM · 3-Leg Moneyline",
+      "kickoff": "2026-11-01T21:05Z",
+      "eventId": "401873032"
+    },
+    {
+      "id": "trey-20261101-4pm-ml3:1",
+      "betId": "trey-20261101-4pm-ml3",
+      "legIndex": 1,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Kansas City Chiefs",
+        "home": "Denver Broncos",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "ml",
+        "team": "Denver Broncos",
+        "name": "",
+        "target": null,
+        "override": null,
+        "game": {
+          "date": "2026-11-01",
+          "away": "Kansas City Chiefs",
+          "home": "Denver Broncos",
+          "sport": "NFL"
+        }
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday 4 PM · 3-Leg Moneyline",
+      "kickoff": "2026-11-01T21:25Z",
+      "eventId": "401873033"
+    },
+    {
+      "id": "trey-20261101-4pm-ml3:2",
+      "betId": "trey-20261101-4pm-ml3",
+      "legIndex": 2,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "New England Patriots",
+        "home": "Miami Dolphins",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "ml",
+        "team": "Miami Dolphins",
+        "name": "",
+        "target": null,
+        "override": null,
+        "game": {
+          "date": "2026-11-01",
+          "away": "New England Patriots",
+          "home": "Miami Dolphins",
+          "sport": "NFL"
+        }
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday 4 PM · 3-Leg Moneyline",
+      "kickoff": "2026-11-01T21:25Z",
+      "eventId": "401873034"
+    },
+    {
+      "id": "trey-20261101-4pm-prop5:0",
+      "betId": "trey-20261101-4pm-prop5",
+      "legIndex": 0,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Kansas City Chiefs",
+        "home": "Denver Broncos",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "rushing_yards",
+        "team": "Denver Broncos",
+        "name": "J.K. Dobbins",
+        "target": 30,
+        "override": null,
+        "game": {
+          "date": "2026-11-01",
+          "away": "Kansas City Chiefs",
+          "home": "Denver Broncos",
+          "sport": "NFL"
+        }
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday 4 PM · 5-Leg Player Props",
+      "kickoff": "2026-11-01T21:25Z",
+      "eventId": "401873033"
+    },
+    {
+      "id": "trey-20261101-4pm-prop5:1",
+      "betId": "trey-20261101-4pm-prop5",
+      "legIndex": 1,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Kansas City Chiefs",
+        "home": "Denver Broncos",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receptions",
+        "team": "Denver Broncos",
+        "name": "Courtland Sutton",
+        "target": 3.5,
+        "override": null,
+        "side": "under",
+        "game": {
+          "date": "2026-11-01",
+          "away": "Kansas City Chiefs",
+          "home": "Denver Broncos",
+          "sport": "NFL"
+        }
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday 4 PM · 5-Leg Player Props",
+      "kickoff": "2026-11-01T21:25Z",
+      "eventId": "401873033"
+    },
+    {
+      "id": "trey-20261101-4pm-prop5:2",
+      "betId": "trey-20261101-4pm-prop5",
+      "legIndex": 2,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Los Angeles Chargers",
+        "home": "Los Angeles Rams",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "passing_yards",
+        "team": "Los Angeles Chargers",
+        "name": "Justin Herbert",
+        "target": 205.5,
+        "override": null,
+        "side": "under",
+        "game": {
+          "date": "2026-11-01",
+          "away": "Los Angeles Chargers",
+          "home": "Los Angeles Rams",
+          "sport": "NFL"
+        }
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday 4 PM · 5-Leg Player Props",
+      "kickoff": "2026-11-01T21:05Z",
+      "eventId": "401873032"
+    },
+    {
+      "id": "trey-20261101-4pm-prop5:3",
+      "betId": "trey-20261101-4pm-prop5",
+      "legIndex": 3,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Los Angeles Chargers",
+        "home": "Los Angeles Rams",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "rushing_yards",
+        "team": "Los Angeles Rams",
+        "name": "Kyren Williams",
+        "target": 58.5,
+        "override": null,
+        "side": "over",
+        "game": {
+          "date": "2026-11-01",
+          "away": "Los Angeles Chargers",
+          "home": "Los Angeles Rams",
+          "sport": "NFL"
+        }
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday 4 PM · 5-Leg Player Props",
+      "kickoff": "2026-11-01T21:05Z",
+      "eventId": "401873032"
+    },
+    {
+      "id": "trey-20261101-4pm-prop5:4",
+      "betId": "trey-20261101-4pm-prop5",
+      "legIndex": 4,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "New England Patriots",
+        "home": "Miami Dolphins",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "rushing_yards",
+        "team": "Miami Dolphins",
+        "name": "Malik Willis",
+        "target": 33.5,
+        "override": null,
+        "side": "over",
+        "game": {
+          "date": "2026-11-01",
+          "away": "New England Patriots",
+          "home": "Miami Dolphins",
+          "sport": "NFL"
+        }
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday 4 PM · 5-Leg Player Props",
+      "kickoff": "2026-11-01T21:25Z",
+      "eventId": "401873034"
+    },
+    {
+      "id": "trey-20261101-wsh-sgpplus6:0",
+      "betId": "trey-20261101-wsh-sgpplus6",
+      "legIndex": 0,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Philadelphia Eagles",
+        "home": "Washington Commanders",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "rushing_yards",
+        "team": "Washington Commanders",
+        "name": "Jayden Daniels",
+        "target": 36.5,
+        "override": null,
+        "side": "over"
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday Night SGP+ · WSH Future ML · 30% Boost",
+      "kickoff": "2026-11-02T01:20Z",
+      "eventId": "401873035"
+    },
+    {
+      "id": "trey-20261101-wsh-sgpplus6:1",
+      "betId": "trey-20261101-wsh-sgpplus6",
+      "legIndex": 1,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Philadelphia Eagles",
+        "home": "Washington Commanders",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "passing_yards",
+        "team": "Philadelphia Eagles",
+        "name": "Tanner McKee",
+        "target": 204.5,
+        "override": null,
+        "side": "over"
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday Night SGP+ · WSH Future ML · 30% Boost",
+      "kickoff": "2026-11-02T01:20Z",
+      "eventId": "401873035"
+    },
+    {
+      "id": "trey-20261101-wsh-sgpplus6:2",
+      "betId": "trey-20261101-wsh-sgpplus6",
+      "legIndex": 2,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Philadelphia Eagles",
+        "home": "Washington Commanders",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "rushing_yards",
+        "team": "Washington Commanders",
+        "name": "Rachaad White",
+        "target": 39.5,
+        "override": null,
+        "side": "under"
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday Night SGP+ · WSH Future ML · 30% Boost",
+      "kickoff": "2026-11-02T01:20Z",
+      "eventId": "401873035"
+    },
+    {
+      "id": "trey-20261101-wsh-sgpplus6:3",
+      "betId": "trey-20261101-wsh-sgpplus6",
+      "legIndex": 3,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Philadelphia Eagles",
+        "home": "Washington Commanders",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receptions",
+        "team": "Philadelphia Eagles",
+        "name": "Dallas Goedert",
+        "target": 4.5,
+        "override": null,
+        "side": "over"
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday Night SGP+ · WSH Future ML · 30% Boost",
+      "kickoff": "2026-11-02T01:20Z",
+      "eventId": "401873035"
+    },
+    {
+      "id": "trey-20261101-wsh-sgpplus6:4",
+      "betId": "trey-20261101-wsh-sgpplus6",
+      "legIndex": 4,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Philadelphia Eagles",
+        "home": "Washington Commanders",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "receiving_yards",
+        "team": "Philadelphia Eagles",
+        "name": "Makai Lemon",
+        "target": 43.5,
+        "override": null,
+        "side": "under"
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday Night SGP+ · WSH Future ML · 30% Boost",
+      "kickoff": "2026-11-02T01:20Z",
+      "eventId": "401873035"
+    },
+    {
+      "id": "trey-20261101-wsh-sgpplus6:5",
+      "betId": "trey-20261101-wsh-sgpplus6",
+      "legIndex": 5,
+      "owner": "Trey",
+      "game": {
+        "date": "2026-11-08",
+        "away": "Los Angeles Rams",
+        "home": "Washington Commanders",
+        "sport": "NFL"
+      },
+      "leg": {
+        "kind": "ml",
+        "team": "Washington Commanders",
+        "name": "",
+        "target": null,
+        "override": null,
+        "game": {
+          "date": "2026-11-08",
+          "away": "Los Angeles Rams",
+          "home": "Washington Commanders",
+          "sport": "NFL"
+        }
+      },
+      "submittedAt": "2026-11-01T15:10:00Z",
+      "title": "Trey · Sunday Night SGP+ · WSH Future ML · 30% Boost",
+      "kickoff": "2026-11-08T18:00Z",
+      "eventId": "401873043"
     }
   ],
   "results": [
@@ -21411,7 +22178,7 @@
   ],
   "corrections": [],
   "syncStatus": {
-    "checkedAt": "2026-10-30T04:16:22.793Z",
+    "checkedAt": "2026-11-01T15:13:06.298Z",
     "source": "ESPN",
     "errors": []
   }
