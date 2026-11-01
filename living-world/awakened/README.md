@@ -30,7 +30,7 @@ Runs locally, no paid APIs, backend, or paid AI. Uses WebGL where supported and 
 
 - `node --check game.js` passed.
 - Model regression script `test_model.js` passed: starting world, human-driven Fate population change, 1,000-year evolution, 6 founding realms, emergent lineages, and save-state JSON round trip.
-- An attempted Playwright browser run was blocked by the execution environment's Chromium administrator URL policy, so it is **not verified** on an actual Android phone or in a local browser for this exact release.
+- The browser refused navigation to local test URLs due to administrator URL policy. An isolated in-memory Chromium run nevertheless verified **character creation, portrait, Fate screen, choice consequences, 50-year jump, UI event headline, save and reload**, without page errors. This is a browser UI test, not a real Android-device verification.
 - Existing Alpha 2 code is preserved separately; Alpha 3 is a distinct release.
 
 Copyright: original game code and procedural vector artwork built for this project.
