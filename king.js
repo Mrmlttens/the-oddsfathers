@@ -1,5 +1,6 @@
 'use strict';
 let kingConfig={version:1,rulesVersion:KingModel.RULES,registrations:[],results:[],games:[]},kingLoaded=false,kingDelayed=false,kingBusy=false,kingTickerPaused=false,kingTickerSignature='',kingPeriod='weekend';
+let kingStandingsMemo=null,kingConfigSignature='';
 function kingEvaluations(){const values=[];for(const r of KingModel.registrations(kingConfig,bets)){const bet={id:r.betId,owner:r.owner,game:r.game,legs:[r.leg]},event=findEvent(r.game);if(!event)continue;const value=evalLeg(r.leg,bet);values.push({...value,betId:r.betId,legIndex:r.legIndex,gameStart:event.date,gameState:statusOfGame(r.game),observedAt:value.observedAt||(livefieldSummaries.get(String(event.id))?.time?new Date(livefieldSummaries.get(String(event.id)).time).toISOString():r.submittedAt)});}return values;}
 function kingPoints(n){return Number(n||0).toFixed(2);}
 function kingRows(rows,period,view){
@@ -93,9 +94,29 @@ function setKingPeriod(period){
  $('kingSeasonToggle').setAttribute('aria-pressed',String(season));
 }
 function kingWagers(){const names=[...new Set(bets.map(b=>b.owner))].sort();$('leaderboard').innerHTML='<div class="king-table-wrap"><table class="king-table"><thead><tr><th>CREW</th><th>KNOWN WAGERS</th><th>FEED RETURN</th><th>FEED NET*</th></tr></thead><tbody>'+names.map(name=>{const all=bets.filter(b=>b.owner===name),c=CrewModel.cashStats(all,ticketStatus,isFinalTicket);return `<tr><th scope="row"><button class="profile-link" data-profile="${esc(name)}">${esc(name)}</button><br><small>${c.known} confirmed stakes · ${c.unverified} unverified</small></th><td>${c.known?money(c.wager):'—'}</td><td>${c.settled?money(c.returned):'—'}</td><td class="${c.net<0?'negative':''}">${c.net===null?'—':money(c.net)}</td></tr>`;}).join('')+'</tbody></table></div>';}
+// Feed refreshes are the only source of new live grading. Reuse a standings
+// snapshot across tab renders and duplicate updates in the same refresh.
+function kingComputedView(){
+ const day=boardDate();
+ const cached=kingStandingsMemo;
+ if(cached && cached.config===kingConfig && cached.bets===bets &&
+    cached.refreshed===lastRefresh && cached.day===day) return cached.view;
+ const view=KingModel.standings(kingConfig,bets,day,kingEvaluations());
+ kingStandingsMemo={config:kingConfig,bets,refreshed:lastRefresh,day,view};
+ return view;
+}
 function renderLeaderboard(tickerOnly=false){
- const view=KingModel.standings(kingConfig,bets,boardDate(),kingEvaluations());
- if(!tickerOnly){const previous=kingRememberOpen();$('kingSeasonYear').textContent=view.season+' SEASON';$('kingWeekendDate').textContent='WEEK OF '+dateText(view.week).toUpperCase();$('kingSeasonRows').innerHTML=kingRows(view.seasonRows,'season',view);$('kingWeekendRows').innerHTML=kingRows(view.weekendRows,'weekend',view);kingRestoreOpen(previous);
+ const view=kingComputedView();
+ if(!tickerOnly){
+ const nextSeason=kingRows(view.seasonRows,'season',view),nextWeekend=kingRows(view.weekendRows,'weekend',view);
+ const seasonRoot=$('kingSeasonRows'),weekendRoot=$('kingWeekendRows');
+ if(seasonRoot._baseRows!==nextSeason || weekendRoot._baseRows!==nextWeekend){
+  const previous=kingRememberOpen();
+  if(seasonRoot._baseRows!==nextSeason){seasonRoot.innerHTML=nextSeason;seasonRoot._baseRows=nextSeason;}
+  if(weekendRoot._baseRows!==nextWeekend){weekendRoot.innerHTML=nextWeekend;weekendRoot._baseRows=nextWeekend;}
+  kingRestoreOpen(previous);
+ }
+ $('kingSeasonYear').textContent=view.season+' SEASON';$('kingWeekendDate').textContent='WEEK OF '+dateText(view.week).toUpperCase();
  const qualifiedWeekCount=Math.max(0,...view.seasonRows.map(r=>r.seasonWeeks));
  const endOfWeek=new Date(view.week+'T12:00:00Z');endOfWeek.setUTCDate(endOfWeek.getUTCDate()+6);
  $('kingSeasonHint').textContent=qualifiedWeekCount===0?'Official season ratings pending · This week ends '+dateText(endOfWeek.toISOString().slice(0,10))+'. LIVE PREVIEW bars use current results, not official season points.':'Official season ratings average qualified final weeks only · Three completed weeks required for the title.';
@@ -110,9 +131,37 @@ function renderLeaderboard(tickerOnly=false){
 }
 function renderScoringAudit(view){$('kingScoringAudit').innerHTML=view.report.decisions.filter(r=>r.week===view.week).map(r=>`<div class="king-person"><div><strong>${esc(r.owner)} · ${esc(legText(r.leg))}</strong><small>${esc(r.selected?'COUNTS IN ACCURACY · '+r.status+(r.confirmed?' · final':' · provisional'):r.reason)}</small></div><div>${r.selected&&r.status==='hit'?'✓':r.selected&&r.status==='miss'?'✕':'—'}</div></div>`).join('')||'<p class="king-empty">No picks this weekend.</p>';}
 function kingFitTicker(){requestAnimationFrame(()=>{const running=$('kingTickerGroup').scrollWidth>$('kingTickerWindow').clientWidth;$('kingTicker').classList.toggle('running',running);$('kingTickerPause').hidden=!running;});}
-async function loadKing(){if(kingBusy)return;kingBusy=true;try{const config=await fetchJson('./king.json');if(config.version!==1||config.rulesVersion!==KingModel.RULES||!Array.isArray(config.registrations)||!Array.isArray(config.results))throw Error('Invalid contest records');kingConfig=config;window.OddsRecords=config;kingLoaded=true;kingDelayed=false;}catch{kingDelayed=true;}finally{kingBusy=false;if(typeof isFinalTicket==='function'){render();}}}
+async function loadKing(){
+ if(kingBusy)return;
+ kingBusy=true;
+ let changed=false;
+ try{
+  // Revalidate the cached payload instead of downloading the entire ledger unconditionally.
+  const config=await fetchJson('./king.json','no-cache');
+  if(config.version!==1||config.rulesVersion!==KingModel.RULES||!Array.isArray(config.registrations)||!Array.isArray(config.results))throw Error('Invalid contest records');
+  const signature=JSON.stringify(config);
+  changed=!kingLoaded||kingDelayed||signature!==kingConfigSignature;
+  if(changed){
+   kingConfig=config;
+   window.OddsRecords=config;
+   kingConfigSignature=signature;
+   kingStandingsMemo=null;
+  }
+  kingLoaded=true;
+  kingDelayed=false;
+ }catch{
+  changed=!kingDelayed;
+  kingDelayed=true;
+ }finally{
+  kingBusy=false;
+  if(changed&&typeof isFinalTicket==='function')render();
+ }
+}
 $('kingWeekendToggle').addEventListener('click',()=>setKingPeriod('weekend'));
 $('kingSeasonToggle').addEventListener('click',()=>setKingPeriod('season'));
 $('kingQuickRefresh').addEventListener('click',async()=>{await syncPublished();await refreshLive(false);await loadKing();});
 $('kingTickerPause').addEventListener('click',()=>{kingTickerPaused=!kingTickerPaused;$('kingTicker').classList.toggle('paused',kingTickerPaused);$('kingTickerPause').textContent=kingTickerPaused?'▶':'Ⅱ';$('kingTickerPause').setAttribute('aria-label',kingTickerPaused?'Resume points ticker':'Pause points ticker');$('kingTickerPause').setAttribute('aria-pressed',String(kingTickerPaused));});$('kingTickerLink').addEventListener('click',()=>pickView('leaderboard'));window.addEventListener('resize',kingFitTicker);
-document.addEventListener('DOMContentLoaded',loadKing);setInterval(()=>{if(!document.hidden)loadKing();},30000);
+document.addEventListener('DOMContentLoaded',loadKing);
+// The 30-second live-stat loop still drives provisional Crown Points;
+// the less-volatile registration ledger only needs a 90-second revalidation.
+setInterval(()=>{if(!document.hidden)loadKing();},90000);
