@@ -160,7 +160,7 @@ function renderHistory() {
     ["TICKETS",list.length],["WON",wins],["LOST",losses],["REVIEW",review]
   ].map(([label,value])=>'<div><strong>'+value+'</strong><span>'+label+'</span></div>').join("");
   let lastDate="";
-  $("historyList").innerHTML =
+  const historyMarkup =
     list
       .map((b) => {
         const st = ticketStatus(b),
@@ -184,6 +184,11 @@ function renderHistory() {
       })
       .join("") ||
     '<p class="profile-empty">No completed tickets match this filter.</p>';
+  const historyRoot = $("historyList");
+  if (historyRoot._lastHistoryMarkup !== historyMarkup) {
+    historyRoot.innerHTML = historyMarkup;
+    historyRoot._lastHistoryMarkup = historyMarkup;
+  }
 }
 function renderFeedHealth() {
   const panel = $("feedHealth"),
