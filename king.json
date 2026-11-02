@@ -8254,6 +8254,66 @@
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873032",
       "sourceVerified": true,
       "observedAt": "2026-11-02T00:17:41.949Z"
+    },
+    {
+      "registrationId": "trey-20261101-4pm-ml3:1",
+      "status": "hit",
+      "value": "28–24",
+      "gameState": "post",
+      "gameStart": "2026-11-01T21:25Z",
+      "eventId": "401873033",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873033",
+      "sourceVerified": true,
+      "observedAt": "2026-11-02T01:40:48.588Z"
+    },
+    {
+      "registrationId": "trey-20261101-4pm-prop5:0",
+      "status": "miss",
+      "value": 13,
+      "gameState": "post",
+      "gameStart": "2026-11-01T21:25Z",
+      "eventId": "401873033",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873033",
+      "sourceVerified": true,
+      "observedAt": "2026-11-02T01:40:48.588Z"
+    },
+    {
+      "registrationId": "trey-20261101-4pm-prop5:1",
+      "status": "miss",
+      "value": 4,
+      "gameState": "post",
+      "gameStart": "2026-11-01T21:25Z",
+      "eventId": "401873033",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873033",
+      "sourceVerified": true,
+      "observedAt": "2026-11-02T01:40:48.588Z"
+    },
+    {
+      "registrationId": "trey-20261101-4pm-ml3:2",
+      "status": "miss",
+      "value": "19–24",
+      "gameState": "post",
+      "gameStart": "2026-11-01T21:25Z",
+      "eventId": "401873034",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873034",
+      "sourceVerified": true,
+      "observedAt": "2026-11-02T01:40:48.764Z"
+    },
+    {
+      "registrationId": "trey-20261101-4pm-prop5:4",
+      "status": "miss",
+      "value": 2,
+      "gameState": "post",
+      "gameStart": "2026-11-01T21:25Z",
+      "eventId": "401873034",
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873034",
+      "sourceVerified": true,
+      "observedAt": "2026-11-02T01:40:48.764Z"
     }
   ],
   "recordStatus": "active",
@@ -29304,11 +29364,1499 @@
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873032",
       "sourceVerified": true,
       "observedAt": "2026-11-02T00:17:41.949Z"
+    },
+    {
+      "key": "2026-11-01|kansascitychiefs|denverbroncos",
+      "game": {
+        "date": "2026-11-01",
+        "away": "Kansas City Chiefs",
+        "home": "Denver Broncos",
+        "sport": "NFL"
+      },
+      "eventId": "401873033",
+      "event": {
+        "id": "401873033",
+        "date": "2026-11-01T21:25Z",
+        "name": "Kansas City Chiefs at Denver Broncos",
+        "status": {
+          "clock": 0,
+          "displayClock": "0:00",
+          "period": 4,
+          "type": {
+            "id": "3",
+            "name": "STATUS_FINAL",
+            "state": "post",
+            "completed": true,
+            "description": "Final",
+            "detail": "Final",
+            "shortDetail": "Final"
+          }
+        },
+        "competitions": [
+          {
+            "status": {
+              "clock": 0,
+              "displayClock": "0:00",
+              "period": 4,
+              "type": {
+                "id": "3",
+                "name": "STATUS_FINAL",
+                "state": "post",
+                "completed": true,
+                "description": "Final",
+                "detail": "Final",
+                "shortDetail": "Final"
+              },
+              "isTBDFlex": false
+            },
+            "competitors": [
+              {
+                "team": {
+                  "displayName": "Denver Broncos",
+                  "name": "Broncos",
+                  "abbreviation": "DEN"
+                },
+                "score": "28",
+                "homeAway": "home"
+              },
+              {
+                "team": {
+                  "displayName": "Kansas City Chiefs",
+                  "name": "Chiefs",
+                  "abbreviation": "KC"
+                },
+                "score": "24",
+                "homeAway": "away"
+              }
+            ]
+          }
+        ]
+      },
+      "players": {
+        "patrickmahomes": {
+          "name": "Patrick Mahomes",
+          "passing_yards": 321,
+          "receiving_yards": null,
+          "rushing_yards": 6,
+          "receptions": null,
+          "passing_td": 3,
+          "receiving_td": null,
+          "rushing_td": 0
+        },
+        "kennethwalkeriii": {
+          "name": "Kenneth Walker III",
+          "passing_yards": null,
+          "receiving_yards": 15,
+          "rushing_yards": 69,
+          "receptions": 4,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": 0
+        },
+        "emmettjohnson": {
+          "name": "Emmett Johnson",
+          "passing_yards": null,
+          "receiving_yards": 128,
+          "rushing_yards": 15,
+          "receptions": 5,
+          "passing_td": null,
+          "receiving_td": 1,
+          "rushing_td": 0
+        },
+        "traviskelce": {
+          "name": "Travis Kelce",
+          "passing_yards": null,
+          "receiving_yards": 67,
+          "rushing_yards": null,
+          "receptions": 5,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "rasheerice": {
+          "name": "Rashee Rice",
+          "passing_yards": null,
+          "receiving_yards": 53,
+          "rushing_yards": null,
+          "receptions": 7,
+          "passing_td": null,
+          "receiving_td": 1,
+          "rushing_td": null
+        },
+        "cyrusallen": {
+          "name": "Cyrus Allen",
+          "passing_yards": null,
+          "receiving_yards": 20,
+          "rushing_yards": null,
+          "receptions": 2,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "noahgray": {
+          "name": "Noah Gray",
+          "passing_yards": null,
+          "receiving_yards": 15,
+          "rushing_yards": null,
+          "receptions": 2,
+          "passing_td": null,
+          "receiving_td": 1,
+          "rushing_td": null
+        },
+        "xavierworthy": {
+          "name": "Xavier Worthy",
+          "passing_yards": null,
+          "receiving_yards": 13,
+          "rushing_yards": null,
+          "receptions": 3,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "jakebriningstool": {
+          "name": "Jake Briningstool",
+          "passing_yards": null,
+          "receiving_yards": 6,
+          "rushing_yards": null,
+          "receptions": 1,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "jalenroyals": {
+          "name": "Jalen Royals",
+          "passing_yards": null,
+          "receiving_yards": 4,
+          "rushing_yards": null,
+          "receptions": 1,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "creedhumphrey": {
+          "name": "Creed Humphrey",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "nikkoremigio": {
+          "name": "Nikko Remigio",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "nickbolton": {
+          "name": "Nick Bolton",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "alohigilman": {
+          "name": "Alohi Gilman",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "druetranquill": {
+          "name": "Drue Tranquill",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "chamarriconner": {
+          "name": "Chamarri Conner",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "chrisrolandwallace": {
+          "name": "Chris Roland-Wallace",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jackcochrane": {
+          "name": "Jack Cochrane",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "nohlwilliams": {
+          "name": "Nohl Williams",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "kristianfulton": {
+          "name": "Kristian Fulton",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "felixanudikeuzomah": {
+          "name": "Felix Anudike-Uzomah",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "georgekarlaftis": {
+          "name": "George Karlaftis",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "khyiristonga": {
+          "name": "Khyiris Tonga",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "ashtongillotte": {
+          "name": "Ashton Gillotte",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jadoncanady": {
+          "name": "Jadon Canady",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jeffreybassa": {
+          "name": "Jeffrey Bassa",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jadenhicks": {
+          "name": "Jaden Hicks",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "coopermcdonald": {
+          "name": "Cooper McDonald",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "andrewarmstrong": {
+          "name": "Andrew Armstrong",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jaydnott": {
+          "name": "Jaydn Ott",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "rmasonthomas": {
+          "name": "R Mason Thomas",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "harrisonbutker": {
+          "name": "Harrison Butker",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "mattaraiza": {
+          "name": "Matt Araiza",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "bonix": {
+          "name": "Bo Nix",
+          "passing_yards": 222,
+          "receiving_yards": null,
+          "rushing_yards": 4,
+          "receptions": null,
+          "passing_td": 2,
+          "receiving_td": null,
+          "rushing_td": 0
+        },
+        "jonahcoleman": {
+          "name": "Jonah Coleman",
+          "passing_yards": null,
+          "receiving_yards": 63,
+          "rushing_yards": 41,
+          "receptions": 4,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": 1
+        },
+        "marvinmimsjr": {
+          "name": "Marvin Mims Jr.",
+          "passing_yards": null,
+          "receiving_yards": 10,
+          "rushing_yards": 19,
+          "receptions": 2,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": 0
+        },
+        "jkdobbins": {
+          "name": "J.K. Dobbins",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": 13,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": 0
+        },
+        "courtlandsutton": {
+          "name": "Courtland Sutton",
+          "passing_yards": null,
+          "receiving_yards": 53,
+          "rushing_yards": null,
+          "receptions": 4,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "jaylenwaddle": {
+          "name": "Jaylen Waddle",
+          "passing_yards": null,
+          "receiving_yards": 39,
+          "rushing_yards": null,
+          "receptions": 3,
+          "passing_td": null,
+          "receiving_td": 1,
+          "rushing_td": null
+        },
+        "adamtrautman": {
+          "name": "Adam Trautman",
+          "passing_yards": null,
+          "receiving_yards": 30,
+          "rushing_yards": null,
+          "receptions": 2,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "adamprentice": {
+          "name": "Adam Prentice",
+          "passing_yards": null,
+          "receiving_yards": 10,
+          "rushing_yards": null,
+          "receptions": 1,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "liljordanhumphrey": {
+          "name": "Lil'Jordan Humphrey",
+          "passing_yards": null,
+          "receiving_yards": 10,
+          "rushing_yards": null,
+          "receptions": 1,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "nateadkins": {
+          "name": "Nate Adkins",
+          "passing_yards": null,
+          "receiving_yards": 4,
+          "rushing_yards": null,
+          "receptions": 2,
+          "passing_td": null,
+          "receiving_td": 1,
+          "rushing_td": null
+        },
+        "troyfranklin": {
+          "name": "Troy Franklin",
+          "passing_yards": null,
+          "receiving_yards": 3,
+          "rushing_yards": null,
+          "receptions": 1,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "evanengram": {
+          "name": "Evan Engram",
+          "passing_yards": null,
+          "receiving_yards": 0,
+          "rushing_yards": null,
+          "receptions": 0,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "alexsingleton": {
+          "name": "Alex Singleton",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "patsurtainii": {
+          "name": "Pat Surtain II",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "devonkey": {
+          "name": "Devon Key",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "taylorrapp": {
+          "name": "Taylor Rapp",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "malcolmroach": {
+          "name": "Malcolm Roach",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "rileymoss": {
+          "name": "Riley Moss",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jaquanmcmillian": {
+          "name": "Ja'Quan McMillian",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "brandonjones": {
+          "name": "Brandon Jones",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jonathoncooper": {
+          "name": "Jonathon Cooper",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "saivionjones": {
+          "name": "Sai'vion Jones",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "justinstrnad": {
+          "name": "Justin Strnad",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "tycenanderson": {
+          "name": "Tycen Anderson",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "djjones": {
+          "name": "D.J. Jones",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jlskinner": {
+          "name": "JL Skinner",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "querobinson": {
+          "name": "Que Robinson",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "eyiomauwazurike": {
+          "name": "Eyioma Uwazurike",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "nikbonitto": {
+          "name": "Nik Bonitto",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "krisabramsdraine": {
+          "name": "Kris Abrams-Draine",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "karenereid": {
+          "name": "Karene Reid",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "zachallen": {
+          "name": "Zach Allen",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jordanturner": {
+          "name": "Jordan Turner",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "dondreatillman": {
+          "name": "Dondrea Tillman",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "codyschrader": {
+          "name": "Cody Schrader",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "willutz": {
+          "name": "Wil Lutz",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jeremycrawshaw": {
+          "name": "Jeremy Crawshaw",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        }
+      },
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873033",
+      "sourceVerified": true,
+      "observedAt": "2026-11-02T01:40:48.588Z"
+    },
+    {
+      "key": "2026-11-01|newenglandpatriots|miamidolphins",
+      "game": {
+        "date": "2026-11-01",
+        "away": "New England Patriots",
+        "home": "Miami Dolphins",
+        "sport": "NFL"
+      },
+      "eventId": "401873034",
+      "event": {
+        "id": "401873034",
+        "date": "2026-11-01T21:25Z",
+        "name": "New England Patriots at Miami Dolphins",
+        "status": {
+          "clock": 0,
+          "displayClock": "0:00",
+          "period": 4,
+          "type": {
+            "id": "3",
+            "name": "STATUS_FINAL",
+            "state": "post",
+            "completed": true,
+            "description": "Final",
+            "detail": "Final",
+            "shortDetail": "Final"
+          }
+        },
+        "competitions": [
+          {
+            "status": {
+              "clock": 0,
+              "displayClock": "0:00",
+              "period": 4,
+              "type": {
+                "id": "3",
+                "name": "STATUS_FINAL",
+                "state": "post",
+                "completed": true,
+                "description": "Final",
+                "detail": "Final",
+                "shortDetail": "Final"
+              },
+              "isTBDFlex": false
+            },
+            "competitors": [
+              {
+                "team": {
+                  "displayName": "Miami Dolphins",
+                  "name": "Dolphins",
+                  "abbreviation": "MIA"
+                },
+                "score": "19",
+                "homeAway": "home"
+              },
+              {
+                "team": {
+                  "displayName": "New England Patriots",
+                  "name": "Patriots",
+                  "abbreviation": "NE"
+                },
+                "score": "24",
+                "homeAway": "away"
+              }
+            ]
+          }
+        ]
+      },
+      "players": {
+        "drakemaye": {
+          "name": "Drake Maye",
+          "passing_yards": 199,
+          "receiving_yards": null,
+          "rushing_yards": 5,
+          "receptions": null,
+          "passing_td": 2,
+          "receiving_td": null,
+          "rushing_td": 1
+        },
+        "rhamondrestevenson": {
+          "name": "Rhamondre Stevenson",
+          "passing_yards": null,
+          "receiving_yards": 8,
+          "rushing_yards": 82,
+          "receptions": 3,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": 0
+        },
+        "coreykiner": {
+          "name": "Corey Kiner",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": 38,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": 0
+        },
+        "lanlarison": {
+          "name": "Lan Larison",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": 6,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": 0
+        },
+        "demariodouglas": {
+          "name": "DeMario Douglas",
+          "passing_yards": null,
+          "receiving_yards": 76,
+          "rushing_yards": null,
+          "receptions": 3,
+          "passing_td": null,
+          "receiving_td": 1,
+          "rushing_td": null
+        },
+        "kylewilliams": {
+          "name": "Kyle Williams",
+          "passing_yards": null,
+          "receiving_yards": 43,
+          "rushing_yards": null,
+          "receptions": 1,
+          "passing_td": null,
+          "receiving_td": 1,
+          "rushing_td": null
+        },
+        "eftonchismiii": {
+          "name": "Efton Chism III",
+          "passing_yards": null,
+          "receiving_yards": 37,
+          "rushing_yards": null,
+          "receptions": 5,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "hunterhenry": {
+          "name": "Hunter Henry",
+          "passing_yards": null,
+          "receiving_yards": 30,
+          "rushing_yards": null,
+          "receptions": 3,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "eliraridon": {
+          "name": "Eli Raridon",
+          "passing_yards": null,
+          "receiving_yards": 5,
+          "rushing_yards": null,
+          "receptions": 1,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "jaredwilson": {
+          "name": "Jared Wilson",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "carltondavisiii": {
+          "name": "Carlton Davis III",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "christianelliss": {
+          "name": "Christian Elliss",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "kevinbyard": {
+          "name": "Kevin Byard",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "dremontjones": {
+          "name": "Dre'Mont Jones",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "marcusjones": {
+          "name": "Marcus Jones",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "craigwoodson": {
+          "name": "Craig Woodson",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "corydurden": {
+          "name": "Cory Durden",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "robertspillane": {
+          "name": "Robert Spillane",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "miltonwilliams": {
+          "name": "Milton Williams",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "christiangonzalez": {
+          "name": "Christian Gonzalez",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "gabejacas": {
+          "name": "Gabe Jacas",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "leonardtayloriii": {
+          "name": "Leonard Taylor III",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "charleswoods": {
+          "name": "Charles Woods",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "brendenschooler": {
+          "name": "Brenden Schooler",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "andyborregales": {
+          "name": "Andy Borregales",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "daquanjones": {
+          "name": "DaQuan Jones",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "mikebrown": {
+          "name": "Mike Brown",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "christianbarmore": {
+          "name": "Christian Barmore",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "dariusmuasau": {
+          "name": "Darius Muasau",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jaylenreed": {
+          "name": "Jaylen Reed",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "joshuafarmer": {
+          "name": "Joshua Farmer",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "elijahponder": {
+          "name": "Elijah Ponder",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "julianashby": {
+          "name": "Julian Ashby",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "erickhunter": {
+          "name": "Erick Hunter",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "mitchwishnowsky": {
+          "name": "Mitch Wishnowsky",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "malikwillis": {
+          "name": "Malik Willis",
+          "passing_yards": 211,
+          "receiving_yards": null,
+          "rushing_yards": 2,
+          "receptions": null,
+          "passing_td": 2,
+          "receiving_td": null,
+          "rushing_td": 0
+        },
+        "olliegordonii": {
+          "name": "Ollie Gordon II",
+          "passing_yards": null,
+          "receiving_yards": 0,
+          "rushing_yards": 69,
+          "receptions": 0,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": 0
+        },
+        "jaylenwright": {
+          "name": "Jaylen Wright",
+          "passing_yards": null,
+          "receiving_yards": 0,
+          "rushing_yards": 5,
+          "receptions": 0,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": 0
+        },
+        "chrisbell": {
+          "name": "Chris Bell",
+          "passing_yards": null,
+          "receiving_yards": 31,
+          "rushing_yards": -2,
+          "receptions": 4,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": 0
+        },
+        "kevincolemanjr": {
+          "name": "Kevin Coleman Jr.",
+          "passing_yards": null,
+          "receiving_yards": 46,
+          "rushing_yards": null,
+          "receptions": 3,
+          "passing_td": null,
+          "receiving_td": 1,
+          "rushing_td": null
+        },
+        "gregdulcich": {
+          "name": "Greg Dulcich",
+          "passing_yards": null,
+          "receiving_yards": 43,
+          "rushing_yards": null,
+          "receptions": 4,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "calebdouglas": {
+          "name": "Caleb Douglas",
+          "passing_yards": null,
+          "receiving_yards": 43,
+          "rushing_yards": null,
+          "receptions": 4,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "malikwashington": {
+          "name": "Malik Washington",
+          "passing_yards": null,
+          "receiving_yards": 40,
+          "rushing_yards": null,
+          "receptions": 5,
+          "passing_td": null,
+          "receiving_td": 1,
+          "rushing_td": null
+        },
+        "jalentolbert": {
+          "name": "Jalen Tolbert",
+          "passing_yards": null,
+          "receiving_yards": 8,
+          "rushing_yards": null,
+          "receptions": 1,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "willkacmarek": {
+          "name": "Will Kacmarek",
+          "passing_yards": null,
+          "receiving_yards": 0,
+          "rushing_yards": null,
+          "receptions": 0,
+          "passing_td": null,
+          "receiving_td": 0,
+          "rushing_td": null
+        },
+        "jujubrents": {
+          "name": "JuJu Brents",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jordynbrooks": {
+          "name": "Jordyn Brooks",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jacobrodriguez": {
+          "name": "Jacob Rodriguez",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "zachsieler": {
+          "name": "Zach Sieler",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "michaeltaaffe": {
+          "name": "Michael Taaffe",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jordanphillips": {
+          "name": "Jordan Phillips",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "joshuche": {
+          "name": "Josh Uche",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "dantetraderjr": {
+          "name": "Dante Trader Jr.",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "chrisjohnson": {
+          "name": "Chris Johnson",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "choprobinson": {
+          "name": "Chop Robinson",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "kylelouis": {
+          "name": "Kyle Louis",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "williegayjr": {
+          "name": "Willie Gay Jr.",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "kaytronallen": {
+          "name": "Kaytron Allen",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "jasonmarshalljr": {
+          "name": "Jason Marshall Jr.",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "kennethgrant": {
+          "name": "Kenneth Grant",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "seydoutraore": {
+          "name": "Seydou Traore",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "zeekbiggers": {
+          "name": "Zeek Biggers",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "zanegonzalez": {
+          "name": "Zane Gonzalez",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
+        "bradleypinion": {
+          "name": "Bradley Pinion",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        }
+      },
+      "source": "ESPN",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873034",
+      "sourceVerified": true,
+      "observedAt": "2026-11-02T01:40:48.764Z"
     }
   ],
   "corrections": [],
   "syncStatus": {
-    "checkedAt": "2026-11-02T00:17:42.151Z",
+    "checkedAt": "2026-11-02T01:40:48.939Z",
     "source": "ESPN",
     "errors": []
   }
