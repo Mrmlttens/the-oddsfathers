@@ -1,0 +1,94 @@
+/* PumpQuest 1.2 — one-screen, cinematic mobile anatomy UI.
+   Kept separate from legacy 3D styles to preserve underlying logging panels. */
+body.pq-art-mode #pq3d-world{display:none!important}
+body.pq-art-mode .ambient{display:none}
+.pq-home.pq-illustrated-home{width:100%;max-width:540px;height:100dvh;min-height:540px;overflow:hidden;position:relative;margin:0 auto;background:#07111c;color:#fff;isolation:isolate}
+.pq-hero-art-wrap{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.pq-art-scene{position:absolute;inset:0;animation:pq-art-idle 9s ease-in-out infinite alternate;will-change:transform;transform-origin:50% 42%}
+.pq-art-svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.pq-art-svg .pq-heatmap{pointer-events:visiblePainted}
+.pq-art-svg .pq-anatomy-region{pointer-events:visiblePainted;outline:none}
+.pq-muscle-aura{stroke:transparent;stroke-width:25;filter:url(#pq-heat-blur);fill:transparent;opacity:.38;pointer-events:none}
+.pq-muscle-fill{fill:#73c7f7;fill-opacity:.075;stroke:#7ccaff;stroke-opacity:.15;stroke-width:3;vector-effect:non-scaling-stroke;paint-order:stroke fill;transition:fill-opacity .2s,stroke-opacity .2s}
+.state-hot .pq-muscle-fill{fill:#ff393e;fill-opacity:.44;stroke:#ffac6f;stroke-opacity:.85;stroke-width:3.5}
+.state-hot .pq-muscle-aura{fill:#ff424c;stroke:#ff6565}
+.state-warm .pq-muscle-fill{fill:#ffad39;fill-opacity:.31;stroke:#ffbf73;stroke-opacity:.70}
+.state-warm .pq-muscle-aura{fill:#ffa131;stroke:#ffc259}
+.state-neutral .pq-muscle-fill{fill:#b4c8df;fill-opacity:.08;stroke:#d5dfed;stroke-opacity:.33}
+.state-cold .pq-muscle-fill{fill:#28beff;fill-opacity:.37;stroke:#4ae6ff;stroke-opacity:.83;stroke-width:3.6}
+.state-cold .pq-muscle-aura{fill:#26c5ff;stroke:#31d4ff}
+.pq-anatomy-region.is-active .pq-muscle-fill{stroke:#fff;stroke-width:5;stroke-opacity:.99;fill-opacity:.49;filter:drop-shadow(0 0 8px #fff9)}
+.pq-heatmap-off .pq-muscle-fill,.pq-heatmap-off .pq-muscle-aura{fill-opacity:0!important;stroke-opacity:0!important}
+.pq-heatmap-off .pq-anatomy-region{pointer-events:none}
+.pq-eye-lights{mix-blend-mode:screen;opacity:.55;filter:blur(3px);animation:pq-eye-flicker 6s ease-in-out infinite alternate;pointer-events:none}
+.pq-air-particles{pointer-events:none;position:absolute;inset:0;overflow:hidden}
+.pq-air-particles i{position:absolute;width:3px;height:3px;border-radius:50%;background:#8adaff;box-shadow:0 0 10px #47c0ff,0 0 22px #78c5ff;opacity:0;animation:pq-float 7s linear infinite}
+.pq-air-particles i:nth-child(1){left:12%;bottom:27%;animation-delay:-1s}.pq-air-particles i:nth-child(2){left:84%;bottom:36%;animation-delay:-4s}.pq-air-particles i:nth-child(3){left:28%;bottom:16%;animation-delay:-2s}.pq-air-particles i:nth-child(4){left:69%;bottom:57%;animation-delay:-6s}.pq-air-particles i:nth-child(5){left:48%;bottom:4%;animation-delay:-3s}
+.pq-demo-watermark{position:absolute;left:50%;top:26%;transform:translateX(-50%);white-space:nowrap;background:#081b28df;color:#c4f2ff;border:1px solid #72b9cf8c;padding:6px 10px;border-radius:999px;font-size:9px;font-weight:900;letter-spacing:.05em;pointer-events:none}
+.pq-art-atmosphere{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,#020913e8 0%,#07182773 11%,transparent 23%,transparent 57%,#030b1970 77%,#020b17f7 94%)}
+.pq-art-atmosphere i{display:none}
+.pq-clean-top{position:absolute;z-index:10;top:max(8px,env(safe-area-inset-top));left:16px;right:16px;height:42px;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.pq-clean-title{display:flex;flex-direction:column;line-height:1;min-width:0}
+.pq-clean-title strong{font-family:Georgia,'Times New Roman',serif;font-size:clamp(25px,6.9vw,32px);color:#f4d9a8;letter-spacing:.035em;filter:drop-shadow(0 2px 6px #000);font-weight:900}
+.pq-clean-title strong span{color:#9ae3ff}
+.pq-clean-title small{font-size:8px;letter-spacing:.145em;font-weight:850;color:#c6d9eb;padding-top:4px}
+.pq-clean-settings{height:40px;width:40px;flex:none;border-radius:50%;border:1px solid #c3d6e1a6;background:#0e283ac9;color:#fff;font-size:21px;backdrop-filter:blur(7px)}
+.pq-clean-level{position:absolute;z-index:9;left:16px;right:16px;top:calc(max(8px,env(safe-area-inset-top)) + 52px);height:38px;display:flex;align-items:center;gap:9px}
+.pq-clean-level-medal{width:39px;height:39px;border-radius:12px;background:linear-gradient(145deg,#6e4f29,#1c3d51 75%);border:1px solid #e6bc73;display:grid;place-items:center;font-weight:950;font-size:17px;box-shadow:0 0 12px #ffc17644}
+.pq-clean-xp{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px}
+.pq-clean-xp>div{display:flex;justify-content:space-between;gap:5px;align-items:center}
+.pq-clean-xp strong{font-size:11px;text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60%;text-shadow:0 2px 5px #000}
+.pq-clean-xp small{font-size:9px;white-space:nowrap;color:#deeffc}
+.pq-clean-xp-track{display:block;height:5px;background:#052339;border:1px solid #78b6d9;border-radius:9px;overflow:hidden}
+.pq-clean-xp-track i{display:block;height:100%;background:linear-gradient(90deg,#37b1ff,#b7ecff,#ffd597);box-shadow:0 0 12px #83f0ff}
+.pq-clean-streak{width:38px;display:flex;flex-direction:column;align-items:center;line-height:1;color:#f7d194;text-shadow:0 0 7px #fa9f57}
+.pq-clean-streak b{font-size:20px}.pq-clean-streak small{margin-top:3px;font-size:7px;font-weight:900}
+.pq-clean-face{position:absolute;z-index:9;top:calc(max(8px,env(safe-area-inset-top)) + 104px);left:50%;transform:translateX(-50%);display:flex;gap:0;background:#081a2ce6;padding:3px;border:1px solid #6a9db8a6;box-shadow:0 5px 16px #0008;border-radius:999px;backdrop-filter:blur(6px)}
+.pq-clean-face button{height:30px;min-width:68px;padding:0 12px;border:0;border-radius:999px;color:#bccee0;background:transparent;font-weight:950;letter-spacing:.09em;font-size:10px}
+.pq-clean-face button.selected{color:#0b1a28;background:linear-gradient(#f7dcad,#d1aa72);box-shadow:0 2px 12px #f4c78a78}
+.pq-clean-orbs{position:absolute;inset:0;z-index:8;pointer-events:none}
+.pq-illustrated-home .pq-orb{position:absolute;pointer-events:auto;border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:4px;padding:0;color:white;width:61px;transform:translateY(-50%);font-family:inherit;filter:drop-shadow(0 5px 7px #000)}
+.pq-orb.orb-left{left:max(2px,env(safe-area-inset-left))}.pq-orb.orb-right{right:max(2px,env(safe-area-inset-right))}
+.pq-orb.orb-one{top:33%}.pq-orb.orb-two{top:51%}.pq-orb.orb-three{top:68%}
+.pq-orb-disc{border-radius:50%;width:49px;height:49px;display:grid;place-items:center;border:1.5px solid #9ddcfc;background:radial-gradient(circle at 38% 30%,#3c769dcc,#09243ada 72%);box-shadow:0 0 11px #2ba7ff78,inset 0 0 14px #7ac2ff3e;backdrop-filter:blur(8px);font-size:24px;color:#ffdfae;transition:transform .16s}
+.pq-orb:active .pq-orb-disc{transform:scale(.91)}
+.pq-orb-title{font-size:8px;font-weight:950;letter-spacing:.06em;white-space:nowrap;text-shadow:0 2px 7px #000,0 0 8px #000}
+.pq-muscle-tooltip{position:absolute;z-index:12;left:50%;transform:translateX(-50%);top:24%;width:max-content;max-width:70%;padding:10px 30px 10px 12px;border:1px solid #b5d5e1af;border-radius:12px;background:#06192ce5;display:flex;flex-direction:column;gap:3px;box-shadow:0 5px 20px #000b;pointer-events:auto;backdrop-filter:blur(7px)}
+.pq-muscle-tooltip strong{font-size:13px;color:#fff2d9}.pq-muscle-tooltip small{font-size:10px;line-height:1.3;color:#e4edf7}
+.pq-muscle-tooltip>button{position:absolute;right:5px;top:2px;border:0;background:transparent;color:#fff;font-size:22px}
+.pq-status-bullet{position:absolute;right:25px;top:14px;width:7px;height:7px;border-radius:50%;background:#729bad}
+.pq-status-hot{background:#ff464e}.pq-status-warm{background:#ffac41}.pq-status-cold{background:#2bbcfb}
+.pq-art-legend{position:absolute;z-index:9;bottom:calc(118px + max(0px,env(safe-area-inset-bottom)));left:50%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center;gap:9px;white-space:nowrap;padding:6px 9px;border:1px solid #aac7d64a;border-radius:50px;background:#041322c7;box-shadow:0 4px 15px #0007;backdrop-filter:blur(7px);pointer-events:auto}
+.pq-art-legend span{display:flex;gap:4px;align-items:center;font-size:7px;color:#dae9f5;font-weight:900;letter-spacing:.03em}
+.pq-art-legend i{width:7px;height:7px;display:inline-block;border-radius:50%}
+.pq-dot-hot{background:#f64b49;box-shadow:0 0 7px #f43b44}.pq-dot-warm{background:#ffc06d;box-shadow:0 0 7px #faaf40}.pq-dot-cold{background:#20c5ff;box-shadow:0 0 7px #20c5ff}
+.pq-art-legend button{font-size:8px;font-weight:950;color:#ffd899;background:transparent;border:0;padding:1px}
+.pq-clean-bottom{position:absolute;left:0;right:0;bottom:0;z-index:11;background:linear-gradient(180deg,#050b1900,#06111ddc 15%,#050c18f9 55%);height:119px;padding:8px 17px max(9px,env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:7px}
+.pq-champion-line{display:flex;align-items:center;justify-content:space-between;gap:6px;font-size:9px;font-weight:800;letter-spacing:.05em;color:#cce7f6}
+.pq-champion-line button{background:none;color:#ffdfad;font-size:10px;font-weight:950;border:0;padding:0}.pq-champion-line button span{font-size:8px;margin-left:2px;color:#8bc9f4}
+.pq-champion-line>span{color:#9ecff3;font-size:8px}
+.pq-clean-start{height:48px;width:100%;border-radius:13px;background:linear-gradient(110deg,#f9e3be,#eec17d 64%,#c88f56);color:#18212b;border:1px solid #fff1d6;box-shadow:0 3px 24px #d89e5199,inset 0 1px 1px #fffbeb;font-size:13px;font-weight:1000;letter-spacing:.1em;position:relative}
+.pq-clean-start>span{position:absolute;right:18px;font-size:21px;top:8px}
+.pq-under-start{text-align:center;color:#a4bfcd;font-size:9px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@keyframes pq-art-idle{from{transform:scale(1.001) translateY(0)}to{transform:scale(1.009) translateY(-2px)}}
+@keyframes pq-eye-flicker{0%,100%{opacity:.35}30%{opacity:.75}55%{opacity:.43}}
+@keyframes pq-float{0%{opacity:0;transform:translate(0,0) scale(.4)}25%{opacity:.35}65%{opacity:.7}100%{opacity:0;transform:translate(18px,-95px) scale(1.4)}}
+@media(max-width:370px){.pq-orb-disc{width:43px;height:43px;font-size:20px}.pq-illustrated-home .pq-orb{width:55px}.pq-orb-title{font-size:7px}.pq-art-legend{gap:6px;padding:5px}.pq-art-legend span{font-size:6.5px}.pq-clean-bottom{padding-left:12px;padding-right:12px}}
+@media(max-height:690px){.pq-orb.orb-one{top:35%}.pq-orb.orb-two{top:53%}.pq-orb.orb-three{top:70%}.pq-clean-level{top:58px}.pq-clean-face{top:105px}.pq-art-legend{bottom:118px}.pq-clean-bottom{height:118px}}
+@media(prefers-reduced-motion:reduce){.pq-art-scene,.pq-eye-lights,.pq-air-particles i{animation:none!important}}
+/* Final mobile polish: don't cover the champion's face with the anatomy switch. */
+.pq-clean-face{top:calc(max(8px,env(safe-area-inset-top)) + 110px);left:auto;right:12px;transform:none;flex-direction:column;border-radius:14px;padding:3px}
+.pq-clean-face button{min-width:55px;height:27px;padding:0 4px;font-size:9px}
+.pq-demo-watermark{display:none}
+@media(max-height:690px){.pq-clean-face{top:111px;right:8px}}
+/* Stable hit targets: only atmosphere moves, never the anatomy click geometry. */
+.pq-art-scene{animation:none!important;will-change:auto}
+.pq-hero-art-wrap{pointer-events:auto}
+.pq-art-svg .pq-heatmap{pointer-events:all}
+.pq-art-svg .pq-anatomy-region{pointer-events:all}
+.pq-art-svg .pq-anatomy-region .pq-muscle-fill{pointer-events:all}
+/* SVG artwork is passive; only painted muscle paths respond to body-map taps. */
+.pq-hero-art-wrap,.pq-art-scene{pointer-events:none!important}
+.pq-art-svg{pointer-events:auto!important}
+.pq-art-svg image,.pq-eye-lights{pointer-events:none}
+.pq-art-svg .pq-anatomy-region,.pq-art-svg .pq-anatomy-region .pq-muscle-fill{pointer-events:all!important}
