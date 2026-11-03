@@ -123,10 +123,10 @@ body.pq-panel-open #pq3d-world{filter:brightness(.49)}
 .pq-webgl-fallback .pq-rotate-tip:after{content:'3D UNAVAILABLE • TRY CHROME WITH HARDWARE GRAPHICS';font-size:8px}
 
 /* v0.5: Three genuinely different selectable 3D champions. Keep the full-screen art first. */
-body:has(.pq-champion-carousel) #pq3d-world{transition:background .45s ease}
-body:has(.pq-champion-choice[data-species="shell"].is-selected) #pq3d-world{background:radial-gradient(ellipse at 48% 34%,#237f86 0%,#164555 32%,#0a2234 60%,#040d1a 100%)}
-body:has(.pq-champion-choice[data-species="kaiju"].is-selected) #pq3d-world{background:radial-gradient(ellipse at 50% 39%,#6c4036 0%,#3d222b 31%,#211826 63%,#090d18 100%)}
-.pq-champion-carousel{position:fixed;left:50%;bottom:174px;transform:translateX(-50%);z-index:10;display:flex;align-items:center;justify-content:center;gap:7px;width:min(93vw,415px);pointer-events:auto}
+body[data-champion] #pq3d-world{transition:background .45s ease}
+body[data-champion="shell"] #pq3d-world{background:radial-gradient(ellipse at 48% 34%,#237f86 0%,#164555 32%,#0a2234 60%,#040d1a 100%)}
+body[data-champion="kaiju"] #pq3d-world{background:radial-gradient(ellipse at 50% 39%,#6c4036 0%,#3d222b 31%,#211826 63%,#090d18 100%)}
+.pq-champion-carousel{position:fixed;left:50%;bottom:calc(max(160px,22dvh) + 14px);transform:translateX(-50%);z-index:10;display:flex;align-items:center;justify-content:center;gap:7px;width:min(93vw,415px);pointer-events:auto}
 .pq-champion-choice{flex:1;min-width:0;border:1px solid #7e9bb25c;border-radius:13px;background:linear-gradient(155deg,#0e2036d9,#071525e8);color:#b8cfe5;backdrop-filter:blur(7px);padding:7px 3px 6px;display:flex;flex-direction:column;align-items:center;gap:4px;box-shadow:0 3px 12px #0007;cursor:pointer;transition:transform .18s,border .18s,background .18s;touch-action:manipulation}
 .pq-champion-choice:active{transform:scale(.95)}
 .pq-champion-choice.is-selected{border:1px solid #f1d39b;background:linear-gradient(165deg,#2b4054ea,#152335ea);box-shadow:0 0 15px #e4cb8950,inset 0 0 12px #e5b55e12;color:#fff8e7}
@@ -140,7 +140,7 @@ body:has(.pq-champion-choice[data-species="kaiju"].is-selected) #pq3d-world{back
 .roster-shell{background:radial-gradient(circle at 40% 35%,#3baca6,#103e4c 70%)}.roster-kaiju{background:radial-gradient(circle at 40% 35%,#b65b3c,#42272d 70%)}
 .roster-copy{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}.roster-copy strong{font-size:12px;letter-spacing:.04em}.roster-copy small{color:#acbbc7;font-size:10px;line-height:1.4}
 .roster-check{color:#e5cc9d;font-size:9px;font-weight:900;white-space:nowrap}
-@media(max-height:700px){.pq-champion-carousel{bottom:150px}.pq-champion-choice{padding:5px 2px}.pq-choice-name{font-size:7px}}
+@media(max-height:700px){.pq-champion-carousel{bottom:calc(max(139px,22dvh) + 14px)}.pq-champion-choice{padding:5px 2px}.pq-choice-name{font-size:7px}}
 @media(prefers-reduced-motion:reduce){.pq-champion-choice,#pq3d-world{transition:none!important}}
 
 .pq-build-mark{color:#91b4c9;font-weight:650;letter-spacing:.08em}
@@ -661,6 +661,7 @@ root.PQ3D={create:init};
   const pages={home,train,splits,history,locker};
   if(view==='home'){$('#app').innerHTML=home()}else{$('#app').innerHTML=`<div class="pq-screen"><div class="pq-panel-shade" data-action="nav" data-view="home"></div><section class="pq-drawer"><div class="pq-drawer-top"><button data-action="nav" data-view="home" class="pq-back" aria-label="Back to character">‹ CHAMPION</button><span>YOUR QUEST</span></div><div class="pq-drawer-scroll">${(pages[view]||home)()}</div></section></div>`}
   document.body.classList.toggle('pq-panel-open',view!=='home');
+  document.body.dataset.champion=['bruiser','shell','kaiju'].includes(state.profile.species)?state.profile.species:'bruiser';
   if(window.pqHero3d){window.pqHero3d.setCharacter(state.profile.species);window.pqHero3d.setMode(heroEffect());window.pqHero3d.setZones(anatomyData().zones,{})}
   if(modal)renderModal();else $('#modal-root').innerHTML='';
  }
