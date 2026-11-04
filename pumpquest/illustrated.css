@@ -92,3 +92,25 @@ body.pq-art-mode .ambient{display:none}
 .pq-art-svg{pointer-events:auto!important}
 .pq-art-svg image,.pq-eye-lights{pointer-events:none}
 .pq-art-svg .pq-anatomy-region,.pq-art-svg .pq-anatomy-region .pq-muscle-fill{pointer-events:all!important}
+/* v1.3: anatomically stable, fully visible illustration inside the mobile safe area. */
+.pq-hero-art-wrap{background:#07131f}
+.pq-hero-art-wrap:before{content:'';position:absolute;inset:-12%;background:url('./assets/champion-stormhorn-front.webp') center 46%/cover no-repeat;filter:blur(24px) brightness(.38) saturate(.7);transform:scale(1.07);opacity:.9;pointer-events:none}
+.pq-art-scene{inset:105px 15px 126px;overflow:visible}
+.pq-art-svg{width:100%;height:100%;overflow:visible}
+.pq-clean-face{z-index:10;right:9px;top:calc(max(8px,env(safe-area-inset-top)) + 104px);background:#071a29ed}
+.pq-clean-face .pq-muscle-switch{color:#86d4fc;border-bottom:1px solid #36556b;border-radius:6px;font-size:8px;min-width:56px;height:28px}
+.pq-illustrated-home .pq-orb{width:61px;gap:3px}
+.pq-illustrated-home .pq-orb.orb-one{top:41%}
+.pq-illustrated-home .pq-orb.orb-two{top:62%}
+.pq-illustrated-home .pq-orb-disc{width:45px;height:45px;font-size:22px;box-shadow:0 0 9px #2ba7ff53,inset 0 0 10px #7ac2ff29}
+.pq-illustrated-home .pq-orb-title{font-size:8px}
+.pq-clean-top,.pq-clean-level{z-index:10}
+.pq-clean-bottom{z-index:11}
+.pq-art-legend{bottom:calc(121px + max(0px,env(safe-area-inset-bottom)))}
+@media(max-height:700px){.pq-art-scene{inset:98px 12px 119px}.pq-illustrated-home .pq-orb.orb-one{top:42%}.pq-illustrated-home .pq-orb.orb-two{top:62%}}
+@media(max-width:370px){.pq-art-scene{left:8px;right:8px}.pq-illustrated-home .pq-orb-disc{width:41px;height:41px}}
+
+/* QA-only calibration overlay: ?artQA=1 shows master landmarks over live artwork. */
+.pq-art-qa-guide{pointer-events:none;opacity:.94;font-family:system-ui,sans-serif;font-weight:900}
+.pq-hero-art-wrap:has(.pq-art-qa-guide) .pq-art-svg>image{opacity:.77}
+.pq-hero-art-wrap:has(.pq-art-qa-guide) .pq-muscle-fill{fill:#ffea48!important;fill-opacity:.27!important;stroke:#fafb28!important;stroke-opacity:1!important;stroke-width:2.5!important}
