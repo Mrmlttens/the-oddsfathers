@@ -24197,6 +24197,16 @@
           "receiving_td": null,
           "rushing_td": null
         },
+        "christiankuntz": {
+          "name": "Christian Kuntz",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
         "carsonbruener": {
           "name": "Carson Bruener",
           "passing_yards": null,
@@ -24209,16 +24219,6 @@
         },
         "kevinjobityjr": {
           "name": "Kevin Jobity Jr.",
-          "passing_yards": null,
-          "receiving_yards": null,
-          "rushing_yards": null,
-          "receptions": null,
-          "passing_td": null,
-          "receiving_td": null,
-          "rushing_td": null
-        },
-        "christiankuntz": {
-          "name": "Christian Kuntz",
           "passing_yards": null,
           "receiving_yards": null,
           "rushing_yards": null,
@@ -24311,7 +24311,7 @@
       "source": "ESPN",
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873027",
       "sourceVerified": true,
-      "observedAt": "2026-11-01T21:08:22.460Z"
+      "observedAt": "2026-11-04T22:30:19.758Z"
     },
     {
       "key": "2026-11-01|lasvegasraiders|newyorkjets",
@@ -26169,6 +26169,16 @@
           "receiving_td": null,
           "rushing_td": null
         },
+        "mattdickerson": {
+          "name": "Matt Dickerson",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
         "rayuanlaneiii": {
           "name": "Rayuan Lane III",
           "passing_yards": null,
@@ -26181,16 +26191,6 @@
         },
         "travonwalker": {
           "name": "Travon Walker",
-          "passing_yards": null,
-          "receiving_yards": null,
-          "rushing_yards": null,
-          "receptions": null,
-          "passing_td": null,
-          "receiving_td": null,
-          "rushing_td": null
-        },
-        "mattdickerson": {
-          "name": "Matt Dickerson",
           "passing_yards": null,
           "receiving_yards": null,
           "rushing_yards": null,
@@ -26289,16 +26289,6 @@
           "receiving_td": null,
           "rushing_td": null
         },
-        "rukeorhorhoro": {
-          "name": "Ruke Orhorhoro",
-          "passing_yards": null,
-          "receiving_yards": null,
-          "rushing_yards": null,
-          "receptions": null,
-          "passing_td": null,
-          "receiving_td": null,
-          "rushing_td": null
-        },
         "jourdanlewis": {
           "name": "Jourdan Lewis",
           "passing_yards": null,
@@ -26349,6 +26339,16 @@
           "receiving_td": null,
           "rushing_td": null
         },
+        "rukeorhorhoro": {
+          "name": "Ruke Orhorhoro",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
         "dannystriggow": {
           "name": "Danny Striggow",
           "passing_yards": null,
@@ -26383,7 +26383,7 @@
       "source": "ESPN",
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873028",
       "sourceVerified": true,
-      "observedAt": "2026-11-01T23:08:08.795Z"
+      "observedAt": "2026-11-04T22:30:20.337Z"
     },
     {
       "key": "2026-11-01|arizonacardinals|dallascowboys",
@@ -31600,7 +31600,7 @@
   ],
   "corrections": [],
   "syncStatus": {
-    "checkedAt": "2026-11-02T19:47:34.218Z",
+    "checkedAt": "2026-11-04T22:30:21.515Z",
     "source": "ESPN",
     "errors": []
   }
