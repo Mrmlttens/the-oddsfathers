@@ -1,5 +1,5 @@
-const CACHE='pumpquest-week-test-v1.3';
-const ASSETS=['./','./index.html','./styles.css','./skin-contract.js','./artmap.js','./illustrated.css','./assets/champion-stormhorn-front.webp','./assets/champion-stormhorn-back.webp','./assets/sculpt.js','./scene3d.js','./app.js','./anatomy.js','./data.js','./insights.js','./importer.js','./manifest.webmanifest','./assets/storm-titan.webp','./assets/icon.svg','./assets/icon-192.png','./assets/icon-512.png'];
+const CACHE='pumpquest-front-back-v1.4';
+const ASSETS=['./','./index.html','./styles.css','./skin-contract.js','./artmap.js','./illustrated.css','./assets/champion-stormhorn-front.webp','./assets/champion-stormhorn-back.webp','./assets/stage-backdrop.webp','./assets/sculpt.js','./scene3d.js','./app.js','./anatomy.js','./data.js','./insights.js','./importer.js','./manifest.webmanifest','./assets/storm-titan.webp','./assets/icon.svg','./assets/icon-192.png','./assets/icon-512.png'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{if(e.request.method!=='GET'||new URL(e.request.url).origin!==self.location.origin)return;e.respondWith(fetch(e.request).then(resp=>{if(resp.ok){const copy=resp.clone();caches.open(CACHE).then(c=>c.put(e.request,copy));}return resp;}).catch(()=>caches.match(e.request)));});

@@ -114,3 +114,26 @@ body.pq-art-mode .ambient{display:none}
 .pq-art-qa-guide{pointer-events:none;opacity:.94;font-family:system-ui,sans-serif;font-weight:900}
 .pq-hero-art-wrap:has(.pq-art-qa-guide) .pq-art-svg>image{opacity:.77}
 .pq-hero-art-wrap:has(.pq-art-qa-guide) .pq-muscle-fill{fill:#ffea48!important;fill-opacity:.27!important;stroke:#fafb28!important;stroke-opacity:1!important;stroke-width:2.5!important}
+
+/* v1.4 — true full-bleed stage, artwork and anatomy registered together */
+.pq-home.pq-illustrated-home{background:#080c22;max-width:560px;min-height:0;height:100dvh}
+.pq-hero-art-wrap{background:linear-gradient(0deg,#090e27dd,transparent 32%,#05091a33 70%),url('./assets/stage-backdrop.webp') center center / cover no-repeat!important}
+.pq-hero-art-wrap:before{display:none!important}
+.pq-art-scene{inset:88px 0 103px!important;overflow:hidden!important;animation:none!important;transform:none!important}
+.pq-art-svg{inset:0;width:100%;height:100%;display:block;overflow:visible}
+.pq-art-atmosphere{background:linear-gradient(180deg,#040a1be0 0%,#07122b50 15%,transparent 27%,transparent 73%,#050b1aa8 87%,#050a16f3 100%)}
+.pq-art-legend{bottom:calc(118px + max(0px,env(safe-area-inset-bottom)));background:#091025d9;border-color:#95b9ff5c}
+.pq-clean-top{top:max(5px,env(safe-area-inset-top))}
+.pq-clean-title strong{color:#f9d7ac;text-shadow:0 2px 14px #000,0 0 19px #d9903461}
+.pq-clean-title strong span{color:#b7dfff}
+.pq-clean-face{top:calc(max(8px,env(safe-area-inset-top)) + 97px);background:#0a1933eb;right:5px}
+.pq-clean-bottom{background:linear-gradient(180deg,transparent,#0b102bdf 21%,#090b1efb 64%);height:120px}
+.pq-clean-start{background:linear-gradient(100deg,#f9c778,#ffdeaa,#dc9659);box-shadow:0 0 18px #ffae6a40,inset 0 0 5px #ffdebb}
+.pq-illustrated-home .pq-orb{z-index:2}
+.pq-illustrated-home .pq-orb.orb-one{top:47%}.pq-illustrated-home .pq-orb.orb-two{top:70%}
+/* Never misrepresent an untrained muscle as cold or recently trained. */
+.pq-anatomy-region.state-untracked .pq-muscle-fill{fill-opacity:0!important;stroke-opacity:0!important}
+.pq-anatomy-region.state-untracked.is-active .pq-muscle-fill{stroke-opacity:.96!important;fill-opacity:.16!important}
+.pq-heatmap-off .pq-anatomy-region .pq-muscle-fill{stroke-opacity:0!important;fill-opacity:0!important}
+@media(max-height:700px){.pq-art-scene{inset:82px 0 103px!important}.pq-illustrated-home .pq-orb.orb-one{top:48%}.pq-illustrated-home .pq-orb.orb-two{top:70%}}
+@media(max-width:350px){.pq-illustrated-home .pq-orb-disc{width:39px;height:39px}.pq-illustrated-home .pq-orb{width:51px}}

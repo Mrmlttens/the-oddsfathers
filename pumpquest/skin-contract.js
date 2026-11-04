@@ -9,7 +9,7 @@
   front:{head:[477,237],neck:[478,345],shoulderL:[289,394],shoulderR:[662,394],elbowL:[243,568],elbowR:[704,570],wristL:[195,704],wristR:[759,704],navel:[479,616],hipL:[355,834],hipR:[604,834],kneeL:[349,1080],kneeR:[607,1080],ankleL:[337,1326],ankleR:[611,1326]},
   back:{head:[475,241],neck:[477,346],shoulderL:[340,394],shoulderR:[613,394],elbowL:[307,561],elbowR:[650,561],wristL:[306,713],wristR:[664,713],spine:[481,609],hipL:[408,823],hipR:[552,823],kneeL:[406,1080],kneeR:[560,1080],ankleL:[375,1327],ankleR:[581,1327]}
  };
- const BASE={id:'stormhorn',label:'Stormhorn',rig:ID,front:'./assets/champion-stormhorn-front.webp',back:'./assets/champion-stormhorn-back.webp',canvas:[WIDTH,HEIGHT],approval:'reference',note:'Legacy art; front/back visual landmark review outstanding.'};
+ const BASE={id:'stormhorn',label:'Iron Vanguard',rig:ID,front:'./assets/champion-stormhorn-front.webp',back:'./assets/champion-stormhorn-back.webp',canvas:[WIDTH,HEIGHT],approval:'reference',note:'New matched original front/back illustrated art; technical registration validated, visual muscle alignment still under review.'};
  // Other skins stay unavailable in illustrated mode until verified against both master guides.
  const SKINS=Object.freeze({stormhorn:Object.freeze(BASE)});
  function check(s){if(!s||s.rig!==ID||s.canvas?.[0]!==WIDTH||s.canvas?.[1]!==HEIGHT||!s.front||!s.back)throw Error('Skin must match canonical PumpQuest rig and have BOTH views');return true}
