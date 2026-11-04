@@ -23053,6 +23053,16 @@
           "receiving_td": null,
           "rushing_td": null
         },
+        "tyrioningramdawkins": {
+          "name": "Tyrion Ingram-Dawkins",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
         "dallasturner": {
           "name": "Dallas Turner",
           "passing_yards": null,
@@ -23085,16 +23095,6 @@
         },
         "chazchambliss": {
           "name": "Chaz Chambliss",
-          "passing_yards": null,
-          "receiving_yards": null,
-          "rushing_yards": null,
-          "receptions": null,
-          "passing_td": null,
-          "receiving_td": null,
-          "rushing_td": null
-        },
-        "tyrioningramdawkins": {
-          "name": "Tyrion Ingram-Dawkins",
           "passing_yards": null,
           "receiving_yards": null,
           "rushing_yards": null,
@@ -23547,7 +23547,7 @@
       "source": "ESPN",
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873030",
       "sourceVerified": true,
-      "observedAt": "2026-11-02T19:47:30.420Z"
+      "observedAt": "2026-11-04T23:25:30.804Z"
     },
     {
       "key": "2026-11-01|clevelandbrowns|pittsburghsteelers",
@@ -24821,6 +24821,16 @@
           "receiving_td": null,
           "rushing_td": null
         },
+        "kingsleyenagbare": {
+          "name": "Kingsley Enagbare",
+          "passing_yards": null,
+          "receiving_yards": null,
+          "rushing_yards": null,
+          "receptions": null,
+          "passing_td": null,
+          "receiving_td": null,
+          "rushing_td": null
+        },
         "brandonstephens": {
           "name": "Brandon Stephens",
           "passing_yards": null,
@@ -24831,18 +24841,8 @@
           "receiving_td": null,
           "rushing_td": null
         },
-        "jowonbriggs": {
-          "name": "Jowon Briggs",
-          "passing_yards": null,
-          "receiving_yards": null,
-          "rushing_yards": null,
-          "receptions": null,
-          "passing_td": null,
-          "receiving_td": null,
-          "rushing_td": null
-        },
-        "kingsleyenagbare": {
-          "name": "Kingsley Enagbare",
+        "harrisonphillips": {
+          "name": "Harrison Phillips",
           "passing_yards": null,
           "receiving_yards": null,
           "rushing_yards": null,
@@ -24861,8 +24861,8 @@
           "receiving_td": null,
           "rushing_td": null
         },
-        "harrisonphillips": {
-          "name": "Harrison Phillips",
+        "jowonbriggs": {
+          "name": "Jowon Briggs",
           "passing_yards": null,
           "receiving_yards": null,
           "rushing_yards": null,
@@ -24955,7 +24955,7 @@
       "source": "ESPN",
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/summary?event=401873029",
       "sourceVerified": true,
-      "observedAt": "2026-11-02T19:47:32.662Z"
+      "observedAt": "2026-11-04T23:25:32.735Z"
     },
     {
       "key": "2026-11-01|atlantafalcons|tampabaybuccaneers",
@@ -31600,7 +31600,7 @@
   ],
   "corrections": [],
   "syncStatus": {
-    "checkedAt": "2026-11-04T22:30:21.515Z",
+    "checkedAt": "2026-11-04T23:25:33.813Z",
     "source": "ESPN",
     "errors": []
   }
